@@ -2818,7 +2818,7 @@
 		(uuid "25f2b793-2fd0-4b0b-9c2e-8e41f2cf980a")
 	)
 	(label "M PWM"
-		(at 93.98 71.12 0)
+		(at 93.98 66.04 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2888,7 +2888,7 @@
 		(uuid "c5d2a5e8-eee2-417e-b712-c43e9e10ed1a")
 	)
 	(label "M SW"
-		(at 93.98 66.04 0)
+		(at 93.98 71.12 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4671,6 +4671,85 @@
 			(project "motordrivers"
 				(path "/878b5707-356f-480c-a2af-3bf932fc4ec2"
 					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x05")
+		(at 43.18 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "87050169-4dc6-42d6-85ee-7efd19f694bc")
+		(property "Reference" "J3"
+			(at 45.72 85.0899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x05"
+			(at 45.72 87.6299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical"
+			(at 43.18 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 43.18 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 43.18 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a167b17a-4161-408e-bb39-7024812b87ff")
+		)
+		(pin "3"
+			(uuid "9a011ae4-0630-4694-bc96-740ba86b67f3")
+		)
+		(pin "4"
+			(uuid "2433ca9b-1a72-4594-b4a2-167d581da0da")
+		)
+		(pin "5"
+			(uuid "440ce566-8460-4c0a-b91e-ec883fc77019")
+		)
+		(pin "1"
+			(uuid "7f99115e-e49a-4a92-8b43-1d0db4dabcf5")
+		)
+		(instances
+			(project "motordrivers"
+				(path "/878b5707-356f-480c-a2af-3bf932fc4ec2"
+					(reference "J3")
 					(unit 1)
 				)
 			)
