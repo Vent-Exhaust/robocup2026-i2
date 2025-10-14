@@ -2888,7 +2888,7 @@
 		(uuid "c5d2a5e8-eee2-417e-b712-c43e9e10ed1a")
 	)
 	(label "M SW"
-		(at 93.98 66.04 0)
+		(at 93.98 68.58 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4946,7 +4946,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 93.98 68.58 270)
+		(at 93.98 66.04 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4954,7 +4954,7 @@
 		(dnp no)
 		(uuid "cda3b093-da8e-46e3-835d-df6b67da9a73")
 		(property "Reference" "#PWR011"
-			(at 90.17 68.58 0)
+			(at 90.17 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4963,7 +4963,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 97.282 67.564 90)
+			(at 97.282 65.786 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4972,7 +4972,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 93.98 68.58 0)
+			(at 93.98 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4981,7 +4981,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 93.98 68.58 0)
+			(at 93.98 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4990,7 +4990,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 93.98 68.58 0)
+			(at 93.98 66.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
