@@ -3500,7 +3500,7 @@
 		(uuid "3242b6de-61af-420d-ae9a-38392dbc7e24")
 	)
 	(label "M IN A"
-		(at 82.55 45.72 270)
+		(at 95.25 45.72 270)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3520,7 +3520,7 @@
 		(uuid "759cd1bd-c3c9-475b-85cc-17f0fa3b44ac")
 	)
 	(label "M PWM"
-		(at 92.71 45.72 270)
+		(at 85.09 45.72 270)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3530,7 +3530,7 @@
 		(uuid "76078892-1f37-4f0d-a1c4-b5e2cbaef4b9")
 	)
 	(label "M IN B"
-		(at 95.25 45.72 270)
+		(at 82.55 45.72 270)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3570,7 +3570,7 @@
 		(uuid "ea0fb2ad-4916-4159-a5ee-4caadda5356a")
 	)
 	(label "M SW"
-		(at 85.09 45.72 270)
+		(at 92.71 45.72 270)
 		(effects
 			(font
 				(size 1.27 1.27)
