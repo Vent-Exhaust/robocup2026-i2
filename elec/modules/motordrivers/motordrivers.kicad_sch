@@ -3905,7 +3905,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "drivers:res0603"
+		(property "Footprint" "footprints:Resistor_0603"
 			(at 141.478 80.01 90)
 			(effects
 				(font
@@ -3975,7 +3975,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "drivers:cap0603"
+		(property "Footprint" "footprints:Capacitor_0603"
 			(at 202.2348 111.76 0)
 			(effects
 				(font
@@ -4186,7 +4186,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "drivers:res0603"
+		(property "Footprint" "footprints:Resistor_0603"
 			(at 135.382 110.49 90)
 			(effects
 				(font
@@ -4253,7 +4253,7 @@
 				)
 			)
 		)
-		(property "Footprint" "drivers:res0603"
+		(property "Footprint" "footprints:Resistor_0603"
 			(at 146.05 91.948 90)
 			(effects
 				(font
@@ -4546,7 +4546,7 @@
 				)
 			)
 		)
-		(property "Footprint" "drivers:res0603"
+		(property "Footprint" "footprints:Resistor_0603"
 			(at 146.05 97.028 90)
 			(effects
 				(font
@@ -4746,7 +4746,7 @@
 				)
 			)
 		)
-		(property "Footprint" "drivers:res0603"
+		(property "Footprint" "footprints:Resistor_0603"
 			(at 146.05 102.362 90)
 			(effects
 				(font
@@ -5098,7 +5098,7 @@
 				)
 			)
 		)
-		(property "Footprint" "drivers:res0603"
+		(property "Footprint" "footprints:Resistor_0603"
 			(at 146.05 88.138 90)
 			(effects
 				(font
@@ -5363,7 +5363,7 @@
 				)
 			)
 		)
-		(property "Footprint" "drivers:res0603"
+		(property "Footprint" "footprints:Resistor_0603"
 			(at 146.05 97.282 90)
 			(effects
 				(font
@@ -5566,7 +5566,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "drivers:CP_Radial_D8.0mm_P3.50mm"
+		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm"
 			(at 191.4652 111.76 0)
 			(effects
 				(font
@@ -5711,7 +5711,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "drivers:res0603"
+		(property "Footprint" "footprints:Resistor_0603"
 			(at 132.842 80.01 90)
 			(effects
 				(font

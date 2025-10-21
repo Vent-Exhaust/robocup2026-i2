@@ -1,0 +1,12 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+C16,0u1,Capacitor_0603,7.6,12.599999,90.0,top
+IC2,VNH5019ATR-E,VNH5019A-E custom,4.0,-0.6,180.0,top
+Q1,AON6354,8-DFN (5x6)withzedot,-9.495,11.255,90.0,top
+R10,1K,Resistor_0603,3.6,12.599999,-90.0,top
+R11,1K,Resistor_0603,-2.4,12.599999,-90.0,top
+R12,1K,Resistor_0603,5.6,12.599999,-90.0,top
+R13,1K,Resistor_0603,-4.4,12.599999,-90.0,top
+R14,1K,Resistor_0603,-0.4,12.599999,-90.0,top
+R15,10K,Resistor_0603,1.6,12.599999,-90.0,top
+R8,3K3,Resistor_0603,9.6,12.599999,-90.0,top
+R9,3K3,Resistor_0603,11.6,12.599999,-90.0,top
