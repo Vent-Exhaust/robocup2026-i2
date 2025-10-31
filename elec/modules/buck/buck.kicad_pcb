@@ -2879,7 +2879,7 @@
 	(footprint "Buckies:0630 One Piece Inductor"
 		(layer "F.Cu")
 		(uuid "9af0b72c-743c-4baf-8a17-eb1130990fd4")
-		(at 123.53 86.779999 -90)
+		(at 124.53 86.779999 -90)
 		(property "Reference" "L1"
 			(at 0 0 270)
 			(unlocked yes)
@@ -3446,7 +3446,7 @@
 	(footprint "Buckies:DIOM5025X220N"
 		(layer "F.Cu")
 		(uuid "af814973-39ed-4891-81bd-a86436966bd4")
-		(at 124.03 81.029999 180)
+		(at 124.78 81.029999 180)
 		(descr "SMA (DO-214AC)")
 		(tags "Schottky Diode")
 		(property "Reference" "D1"
