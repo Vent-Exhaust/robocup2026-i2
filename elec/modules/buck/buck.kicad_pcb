@@ -2885,7 +2885,7 @@
 			(unlocked yes)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "86256034-cac5-47a2-bfe2-3a95a6bb2530")
+			(uuid "2c571ae8-2a01-487b-9d5e-8cc0b6189532")
 			(effects
 				(font
 					(size 0.8 0.8)
@@ -2898,7 +2898,7 @@
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "73c73953-59f3-48c2-ad0b-0bb74655417d")
+			(uuid "93ec0ff4-2987-4125-b22a-9880fdb629cd")
 			(effects
 				(font
 					(size 1 1)
@@ -2910,7 +2910,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "649aa9ed-8c9c-45dc-b3b2-ddf839c8dc2e")
+			(uuid "320f5a2e-9ddd-4d11-a696-ef6ba89f1b04")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2922,7 +2922,7 @@
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "446e1e0b-1b6b-4aba-82e4-47305dbe0ef8")
+			(uuid "2dfb5d9a-aa0e-4fa1-9667-2dcd9283af2f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3446,14 +3446,14 @@
 	(footprint "Buckies:DIOM5025X220N"
 		(layer "F.Cu")
 		(uuid "af814973-39ed-4891-81bd-a86436966bd4")
-		(at 124.78 81.029999 180)
+		(at 125.28 80.979999 180)
 		(descr "SMA (DO-214AC)")
 		(tags "Schottky Diode")
 		(property "Reference" "D1"
 			(at -1.3 -2.54 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "fe55f8c9-abfd-4108-a24b-30f4086d748f")
+			(uuid "643030e6-e003-404f-b219-4c23a96d8eb6")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3465,7 +3465,7 @@
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "47153107-03cc-42a1-9b4b-5239f802da67")
+			(uuid "be4d87f1-d319-48c2-803e-b42a73672217")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3477,7 +3477,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "eb14d136-a6e2-492e-abc6-7f18fb5500bd")
+			(uuid "eccea220-53fb-4969-8026-032e26e9a5ce")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3489,7 +3489,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "61d4c2cd-9ad8-4953-900f-307d653652db")
+			(uuid "cd268761-cbe8-4124-81eb-9bb0a84aad3d")
 			(effects
 				(font
 					(size 1.27 1.27)
