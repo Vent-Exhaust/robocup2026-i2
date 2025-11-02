@@ -534,7 +534,7 @@
 			(uuid "35e53561-cd81-4016-acf8-0ff8f9e1ac28")
 		)
 		(embedded_fonts no)
-		(model "${KICAD6_3DMODEL_DIR}/Package_SO.3dshapes/HTSOP-8-1EP_3.9x4.9mm_Pitch1.27mm.wrl"
+		(model "${KIPRJMOD}/3d models/TPS5430DDAG4.stp"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -3431,7 +3431,7 @@
 			(uuid "d0766090-dc8e-4dab-87a9-e714871a3fb3")
 		)
 		(embedded_fonts no)
-		(model "${KICAD6_3DMODEL_DIR}/Package_SO.3dshapes/HTSOP-8-1EP_3.9x4.9mm_Pitch1.27mm.wrl"
+		(model "${KIPRJMOD}/3d models/TPS5430DDAG4.stp"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -3439,7 +3439,7 @@
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz 0 0 0)
+				(xyz -0 -0 -0)
 			)
 		)
 	)
