@@ -5265,6 +5265,18 @@
 		(layer "Edge.Cuts")
 		(uuid "ae9f3c4a-1679-4f4d-942e-ecb2eec17763")
 	)
+	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC"
+		(at 136.28 102.279999 0)
+		(layer "B.SilkS")
+		(uuid "2bb2a35a-0649-4c85-8661-93a508947912")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.2)
+			)
+			(justify mirror)
+		)
+	)
 	(segment
 		(start 130.53 95.279999)
 		(end 129.78 94.529999)

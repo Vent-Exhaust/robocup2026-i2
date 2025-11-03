@@ -18295,6 +18295,18 @@
 		(layer "Edge.Cuts")
 		(uuid "a7972904-0b6a-4c25-8ff2-47ac76b489f9")
 	)
+	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC"
+		(at 122.25 99.269999 0)
+		(layer "B.SilkS")
+		(uuid "9b02dfc6-6faf-46ca-b807-a9211436e263")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.2)
+			)
+			(justify mirror)
+		)
+	)
 	(zone
 		(net 4)
 		(net_name "+24V")
