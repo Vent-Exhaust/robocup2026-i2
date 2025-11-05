@@ -1270,7 +1270,7 @@
 		(path "/731691f4-ac3a-4d2c-9cfc-6243108f9a86")
 		(sheetname "/")
 		(sheetfile "solactivation.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 7.66 -3.27)
 			(end 7.66 1.371)
@@ -1588,7 +1588,7 @@
 		(path "/eaf81416-4460-47c6-ac14-cb8a6c9770de")
 		(sheetname "/")
 		(sheetfile "solactivation.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 1.33 -1.33)
 			(end 1.33 0)
@@ -2198,7 +2198,7 @@
 		(path "/6b7d221e-e99d-46e8-95cb-0e117cf43c40")
 		(sheetname "/")
 		(sheetfile "solactivation.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 1.33 -1.33)
 			(end 1.33 0)
@@ -2609,7 +2609,7 @@
 		(path "/6a9b0bd0-0c7d-45ea-a017-f9012b183c89")
 		(sheetname "/")
 		(sheetfile "solactivation.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -5.3 2.8)
 			(end -5.3 -2.8)
@@ -2945,7 +2945,7 @@
 		(path "/0fd63d8e-0f99-41b1-8e8c-1a5686a96e70")
 		(sheetname "/")
 		(sheetfile "solactivation.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 1.84 0)
 			(end 2.75 0)

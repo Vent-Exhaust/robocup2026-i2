@@ -1524,7 +1524,7 @@
 		(path "/a1a1c9e6-e385-4726-9d5c-69ef29512f35")
 		(sheetname "/")
 		(sheetfile "buck.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.33 -1.33)
 			(end 0 -1.33)
@@ -2293,7 +2293,7 @@
 		(path "/b5f3e948-b619-4ad3-a818-f764b822efee")
 		(sheetname "/")
 		(sheetfile "buck.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.33 -1.33)
 			(end 0 -1.33)
