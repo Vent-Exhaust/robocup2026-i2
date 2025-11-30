@@ -3795,7 +3795,7 @@
 		(layer "Edge.Cuts")
 		(uuid "fcfbe267-fbac-4371-be2e-80a1299a1007")
 	)
-	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC"
+	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC\nVersion 1.0 (11/30/2025)"
 		(at 136.28 91.779999 0)
 		(layer "B.SilkS")
 		(uuid "2bb2a35a-0649-4c85-8661-93a508947912")
