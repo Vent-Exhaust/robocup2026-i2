@@ -7582,6 +7582,19 @@
 		(layer "Edge.Cuts")
 		(uuid "c5c32e11-fe28-4bde-8659-4493021034d0")
 	)
+	(gr_text "Design By Euston Tan \n"
+		(at 138.71 119.119999 0)
+		(layer "B.SilkS")
+		(uuid "4ffa661a-355e-4a78-bdfe-df6fad91a14d")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.2)
+				(bold yes)
+			)
+			(justify mirror)
+		)
+	)
 	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC"
 		(at 138.71 111.119999 0)
 		(layer "B.SilkS")

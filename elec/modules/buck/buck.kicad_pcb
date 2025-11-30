@@ -3807,6 +3807,19 @@
 			(justify mirror)
 		)
 	)
+	(gr_text "Design By Euston Tan \n"
+		(at 136.28 110.529999 0)
+		(layer "B.SilkS")
+		(uuid "5d3672a0-f222-4166-9116-5095eb0f8ac2")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.2)
+				(bold yes)
+			)
+			(justify mirror)
+		)
+	)
 	(via
 		(at 144.005 81.779999)
 		(size 0.6)
