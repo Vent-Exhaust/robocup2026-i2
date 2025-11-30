@@ -1,0 +1,70 @@
+(Japanese_coding: sjis)
+(function "ECS_20668159"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2025-11-05-13:11:08)
+    (utime 2025-11-12-19:41:38)
+    (interface
+        (port "1" (symbPinId 1) (portType INOUT))
+        (port "2" (symbPinId 2) (portType INOUT))
+        (port "3" (symbPinId 3) (portType INOUT))
+    )
+    (property "symbolName" "TC33X-2-104E")
+)
+
+
+(pinAssign "ECS_20668159"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2025-11-05-13:11:08)
+    (utime 2025-11-12-19:41:38)
+    (interface
+        (port "1" (symbPinId 1) (portName "CCW") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "WIPER") (portType INOUT))
+        (port "3" (symbPinId 3) (portName "CW") (portType INOUT))
+    )
+    (internal
+        (funcInst (functionRef "ECS_20668159")
+                (port "1" (match "1"))
+                (port "2" (match "2"))
+                (port "3" (match "3"))
+        )
+    )
+    (property "usePowerBox" "No")
+    (property "symbolName" "TC33X-2-104E")
+)
+
+
+(part "TC33X-2-104E"
+    (uver 1)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (ctime 2025-11-05-13:11:08)
+    (utime 2025-11-12-19:41:38)
+    (packageRef "TC33X-2-104E")
+    (pinAssignRef "ECS_20668159")
+    (interface
+        (port "1" (symbPinId 1) (portName "CCW") (portType INOUT))
+        (port "2" (symbPinId 2) (portName "WIPER") (portType INOUT))
+        (port "3" (symbPinId 3) (portName "CW") (portType INOUT))
+    )
+    (partClass UNDEF)
+    (useInSchema Y)
+    (useInLayout Y)
+    (inPartsList Y)
+    (partType NORMAL)
+    (placeRestriction FREE)
+    (property "enetNonSeries" "NO")
+    (property "refDesPrefix" "VR")
+    (property "description" "Trimmer Resistors - SMD 3MM 100KOHMS 25% 0.1WATT OPEN FRM")
+    (property "Mouser_Part_Number" "652-TC33X-2-104E")
+    (property "Mouser_Price/Stock" "https://www.mouser.co.uk/ProductDetail/Bourns/TC33X-2-104E?qs=2hAPiALdQ0llyX8B3WfcDg%3D%3D")
+    (property "Manufacturer_Name" "Bourns")
+    (property "Manufacturer_Part_Number" "TC33X-2-104E")
+    (property "Datasheet_Link" "https://www.bourns.com/docs/Product-Datasheets/TC33.pdf")
+    (property "compAreaTopHeight" 1.5)
+)
+
+

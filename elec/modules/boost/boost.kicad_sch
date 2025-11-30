@@ -1057,6 +1057,176 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "TC33X-2-104E:TC33X-2-104E"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "VR"
+				(at 8.89 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "TC33X-2-104E"
+				(at 8.89 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "TC33X2104E"
+				(at 8.89 -102.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/TC33.pdf"
+				(at 8.89 -202.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Description" "Trimmer Resistors - SMD 3MM 100KOHMS 25% 0.1WATT OPEN FRM"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Height" "1.5"
+				(at 8.89 -402.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" "652-TC33X-2-104E"
+				(at 8.89 -502.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Bourns/TC33X-2-104E?qs=2hAPiALdQ0llyX8B3WfcDg%3D%3D"
+				(at 8.89 -602.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "Bourns"
+				(at 8.89 -702.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "TC33X-2-104E"
+				(at 8.89 -802.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+					(hide yes)
+				)
+			)
+			(symbol "TC33X-2-104E_1_1"
+				(rectangle
+					(start -2.54 -5.08)
+					(end 7.62 -25.4)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 0 -30.48 90)
+					(length 5.08)
+					(name "CCW"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 0 270)
+					(length 5.08)
+					(name "CW"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 5.08 -30.48 90)
+					(length 5.08)
+					(name "WIPER"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "lm2587(boost):LM2587S-ADJ"
 			(pin_names
 				(offset 1.016)
@@ -1678,6 +1848,12 @@
 		(uuid "0a6410b6-7f5f-4271-89b9-47d490a40584")
 	)
 	(junction
+		(at 163.83 80.01)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "37dcb039-ff06-4bde-ad1a-7d3f283208bd")
+	)
+	(junction
 		(at 146.05 71.12)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1694,6 +1870,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "62891ce2-ef61-415f-8bd8-3ab515430faf")
+	)
+	(junction
+		(at 198.12 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "70e880cc-253a-4bad-8cb9-b6e053ce7f77")
 	)
 	(junction
 		(at 127 111.76)
@@ -1718,12 +1900,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "be774059-0f5e-4cb7-8c7a-5ec5d4cd5a7f")
-	)
-	(junction
-		(at 163.83 71.12)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d0b10234-383c-4803-b931-c4de16825df6")
 	)
 	(junction
 		(at 163.83 85.09)
@@ -1827,6 +2003,16 @@
 	)
 	(wire
 		(pts
+			(xy 198.12 77.47) (xy 198.12 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1aae8ac0-799a-4677-9e80-550881540140")
+	)
+	(wire
+		(pts
 			(xy 101.6 111.76) (xy 124.46 111.76)
 		)
 		(stroke
@@ -1887,16 +2073,6 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 71.12) (xy 163.83 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3fffa524-6502-4f7b-9c16-c2ce33c1d9ef")
-	)
-	(wire
-		(pts
 			(xy 146.05 71.12) (xy 129.54 71.12)
 		)
 		(stroke
@@ -1927,6 +2103,26 @@
 	)
 	(wire
 		(pts
+			(xy 198.12 71.12) (xy 220.98 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4cdf4b7a-092e-4fb9-957c-2d81c501829b")
+	)
+	(wire
+		(pts
+			(xy 194.31 77.47) (xy 198.12 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d1df443-db19-4107-9b51-465c62019f34")
+	)
+	(wire
+		(pts
 			(xy 144.78 82.55) (xy 146.05 82.55)
 		)
 		(stroke
@@ -1947,7 +2143,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 71.12) (xy 158.75 71.12)
+			(xy 158.75 71.12) (xy 198.12 71.12)
 		)
 		(stroke
 			(width 0)
@@ -1997,16 +2193,6 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 82.55) (xy 163.83 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8ef9e942-9ffb-4f69-bf21-940dd7554504")
-	)
-	(wire
-		(pts
 			(xy 77.47 71.12) (xy 91.44 71.12)
 		)
 		(stroke
@@ -2047,16 +2233,6 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 71.12) (xy 220.98 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a147d9de-4252-4058-bfbe-e7fd803c3604")
-	)
-	(wire
-		(pts
 			(xy 91.44 71.12) (xy 101.6 71.12)
 		)
 		(stroke
@@ -2077,6 +2253,16 @@
 	)
 	(wire
 		(pts
+			(xy 163.83 80.01) (xy 163.83 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b52a2d67-e289-4a02-ab6a-09a1240a7da7")
+	)
+	(wire
+		(pts
 			(xy 58.42 92.71) (xy 62.23 92.71)
 		)
 		(stroke
@@ -2094,6 +2280,16 @@
 			(type default)
 		)
 		(uuid "bfe5ce4f-72ea-4f74-9cce-6b5949a20904")
+	)
+	(wire
+		(pts
+			(xy 163.83 74.93) (xy 163.83 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cfc2f921-31f2-44b4-80e8-f25dcadb3bce")
 	)
 	(wire
 		(pts
@@ -2781,85 +2977,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 163.83 78.74 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "58e5c2d5-7943-4457-bbbf-d4cacc78d837")
-		(property "Reference" "R35"
-			(at 162.052 78.105 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "36.9K/56k"
-			(at 162.052 80.264 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 165.608 78.74 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 163.83 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 163.83 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C23082"
-			(at 163.83 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bb35f26b-cc46-4c9f-a344-d4c596c11524")
-		)
-		(pin "2"
-			(uuid "b00caede-7e32-46b1-8510-9c7d856d2263")
-		)
-		(instances
-			(project "boost"
-				(path "/97baff51-d1b5-4933-bf19-f5d3c53b231d"
-					(reference "R35")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 60.96 90.17 90)
 		(unit 1)
@@ -3432,6 +3549,129 @@
 			(project ""
 				(path "/97baff51-d1b5-4933-bf19-f5d3c53b231d"
 					(reference "#PWR01")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "TC33X-2-104E:TC33X-2-104E")
+		(at 194.31 74.93 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b4f4a526-8ad3-4382-b6dd-3054d3061805")
+		(property "Reference" "VR1"
+			(at 179.07 67.31 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TC33X-2-104E"
+			(at 179.07 69.85 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Bourns TC33X-2-104E:TC33X2104E"
+			(at 91.77 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/TC33.pdf"
+			(at -8.23 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "Trimmer Resistors - SMD 3MM 100KOHMS 25% 0.1WATT OPEN FRM"
+			(at 194.31 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "1.5"
+			(at -208.23 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "652-TC33X-2-104E"
+			(at -308.23 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Bourns/TC33X-2-104E?qs=2hAPiALdQ0llyX8B3WfcDg%3D%3D"
+			(at -408.23 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Bourns"
+			(at -508.23 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "TC33X-2-104E"
+			(at -608.23 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "4ba47166-c5cd-4059-92cc-8a2a624c81f4")
+		)
+		(pin "3"
+			(uuid "63446737-a21a-4bfa-bc33-fec53d4d4bb2")
+		)
+		(pin "1"
+			(uuid "6fc1823a-2197-4a73-9dd5-bc73cb192b82")
+		)
+		(instances
+			(project ""
+				(path "/97baff51-d1b5-4933-bf19-f5d3c53b231d"
+					(reference "VR1")
 					(unit 1)
 				)
 			)

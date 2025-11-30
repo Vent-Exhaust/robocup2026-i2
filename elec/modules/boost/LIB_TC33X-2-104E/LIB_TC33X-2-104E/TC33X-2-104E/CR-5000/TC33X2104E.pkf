@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "TC33X2104E"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "TC33X2104E")
+        (spec "default")
+    )
+)
