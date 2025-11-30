@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'OKL_T_6_W12P_C'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Murata Electronics", "OKL-T/6-W12P-C" (!) = "", "OKLT6W12PC", "Other", "580-OKL-T/6-W12P-C", "https://www.mouser.co.uk/ProductDetail/Murata-Power-Solutions/OKL-T-6-W12P-C?qs=CxV9Ey7RZVdXGDAP%2FweYNg%3D%3D", "MURATA POWER SOLUTIONS - OKL-T/6-W12P-C - DC-DC CONVERTER, 0.591V TO 5.5V, MODULE", "https://www.murata.com/products/productdata/8807038255134/okl-t6-w12.pdf?1583754815000", "7.2 mm"
+END_PART
+
+END.

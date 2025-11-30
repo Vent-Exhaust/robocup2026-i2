@@ -1,0 +1,9 @@
+Manufacturer=Murata Electronics
+PartNumber=OKL-T/6-W12P-C
+PartCategory=Power Supply
+PackageCategory=Other
+PinCount=12
+Version=5.6
+Released=2018-11-12 08:38:01
+Downloaded=2025-11-30 05:48:02
+3D=Y
