@@ -4,6 +4,12 @@
 	(generator_version "9.0")
 	(uuid "57f067fc-9cfa-47b8-bd5c-827f1adde59f")
 	(paper "A4")
+	(title_block
+		(title "Solenoid Activation")
+		(date "2025-12-02")
+		(rev "1.0")
+		(company "2-Chairs. 2025")
+	)
 	(lib_symbols
 		(symbol "Connector_Generic:Conn_01x02"
 			(pin_names
