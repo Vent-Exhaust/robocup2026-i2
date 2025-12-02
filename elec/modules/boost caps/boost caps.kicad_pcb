@@ -18308,7 +18308,7 @@
 			(justify mirror)
 		)
 	)
-	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC"
+	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC\nrev. 1.0"
 		(at 122.25 81.769999 0)
 		(layer "B.SilkS")
 		(uuid "9b02dfc6-6faf-46ca-b807-a9211436e263")
