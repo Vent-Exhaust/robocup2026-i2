@@ -683,22 +683,12 @@
 		(uuid "c9a8b2af-86b3-4035-bd0e-bb58c40dda8a")
 	)
 	(no_connect
-		(at 177.8 49.53)
-		(uuid "4fa98fae-7435-4f91-bf4f-c63d3cd259cb")
+		(at 152.4 49.53)
+		(uuid "2338788f-3789-48c8-9e15-5aa8c9efda94")
 	)
 	(no_connect
-		(at 154.94 49.53)
-		(uuid "f0825c57-a9c4-4e21-9b3d-e2aab5ed92a7")
-	)
-	(wire
-		(pts
-			(xy 175.26 54.61) (xy 170.18 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "02614c9a-7a7f-467c-a8eb-7bf03fd0bd7f")
+		(at 175.26 49.53)
+		(uuid "4fa98fae-7435-4f91-bf4f-c63d3cd259cb")
 	)
 	(wire
 		(pts
@@ -789,26 +779,6 @@
 			(type default)
 		)
 		(uuid "5a9abb2f-b7cf-4ccf-bc3b-87e41826d81d")
-	)
-	(wire
-		(pts
-			(xy 152.4 54.61) (xy 142.24 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5bb64051-91e8-49cd-9fc9-80b77aaa2908")
-	)
-	(wire
-		(pts
-			(xy 152.4 49.53) (xy 152.4 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5ef67182-2d69-4ce1-ad22-05cdc0a4247a")
 	)
 	(wire
 		(pts
@@ -919,16 +889,6 @@
 			(type default)
 		)
 		(uuid "b21fe914-2e47-4dfa-a840-600f833a2f01")
-	)
-	(wire
-		(pts
-			(xy 175.26 49.53) (xy 175.26 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b8909a31-b033-4be5-97a0-e6a7b52bfa93")
 	)
 	(wire
 		(pts
@@ -1071,6 +1031,72 @@
 			(project "boost caps"
 				(path "/97baff51-d1b5-4933-bf19-f5d3c53b231d"
 					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 177.8 49.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0d204f73-4d1e-4ea5-be8c-00f17f1932de")
+		(property "Reference" "#PWR08"
+			(at 177.8 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 177.8 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 177.8 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 177.8 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 177.8 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e935a61a-8da0-4e9d-acb5-ee0d1875dbf5")
+		)
+		(instances
+			(project "boost caps"
+				(path "/97baff51-d1b5-4933-bf19-f5d3c53b231d"
+					(reference "#PWR08")
 					(unit 1)
 				)
 			)
@@ -2021,140 +2047,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+24V")
-		(at 142.24 54.61 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "95fc64a8-ca22-499a-89c6-9265ff8e5ab3")
-		(property "Reference" "#PWR03"
-			(at 146.05 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+24V"
-			(at 138.43 54.6099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 142.24 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 142.24 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+24V\""
-			(at 142.24 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "fe6ca1cd-9fa0-47f4-9dc6-f2a3955bc7b9")
-		)
-		(instances
-			(project "boost caps"
-				(path "/97baff51-d1b5-4933-bf19-f5d3c53b231d"
-					(reference "#PWR03")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+24V")
-		(at 170.18 54.61 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9c6d0ccb-bcad-4d65-8066-c5bd6bf75446")
-		(property "Reference" "#PWR08"
-			(at 173.99 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+24V"
-			(at 166.37 54.6099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 170.18 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 170.18 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+24V\""
-			(at 170.18 54.61 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a2b1ab27-686e-4cd9-97a4-5b9fa08e7b77")
-		)
-		(instances
-			(project "boost caps"
-				(path "/97baff51-d1b5-4933-bf19-f5d3c53b231d"
-					(reference "#PWR08")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector_Generic:Conn_01x05")
 		(at 152.4 44.45 90)
 		(unit 1)
@@ -2226,6 +2118,72 @@
 			(project ""
 				(path "/97baff51-d1b5-4933-bf19-f5d3c53b231d"
 					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 154.94 49.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d2fb36d3-dc14-49d7-8e6b-5fe6fafe6473")
+		(property "Reference" "#PWR03"
+			(at 154.94 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 154.94 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 154.94 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 154.94 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 154.94 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a20e227b-1f9f-4c28-8c6e-5d55567be73f")
+		)
+		(instances
+			(project "boost caps"
+				(path "/97baff51-d1b5-4933-bf19-f5d3c53b231d"
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
