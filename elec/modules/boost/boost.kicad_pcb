@@ -376,7 +376,7 @@
 		(path "/c3f80405-e0eb-426d-b102-bb1cca812af6")
 		(sheetname "/")
 		(sheetfile "boost.kicad_sch")
-		(attr through_hole exclude_from_pos_files)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.33 -1.33)
 			(end 0 -1.33)
@@ -2663,7 +2663,7 @@
 		(path "/74070a53-8f4d-4b56-acb2-7303989d48e1")
 		(sheetname "/")
 		(sheetfile "boost.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -2.659698 -2.315)
 			(end -1.859698 -2.315)
@@ -4626,7 +4626,7 @@
 		(path "/0c75622d-35ac-4f08-8f08-e039f13a561c")
 		(sheetname "/")
 		(sheetfile "boost.kicad_sch")
-		(attr through_hole exclude_from_pos_files)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -2.57 -3.26)
 			(end 7.65 -3.26)
@@ -4864,7 +4864,7 @@
 		(path "/9803c3b4-89bd-4592-abee-8eb1800bc19b")
 		(sheetname "/")
 		(sheetfile "boost.kicad_sch")
-		(attr through_hole exclude_from_pos_files)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.33 -1.33)
 			(end 0 -1.33)
@@ -5275,7 +5275,7 @@
 		(path "/3e0ff2f2-3a6f-4fab-a8b3-40a5d5891427")
 		(sheetname "/")
 		(sheetfile "boost.kicad_sch")
-		(attr through_hole exclude_from_pos_files)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -2.659698 -2.315)
 			(end -1.859698 -2.315)
@@ -7595,8 +7595,8 @@
 			(justify mirror)
 		)
 	)
-	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC"
-		(at 138.71 111.119999 0)
+	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC\nrev. 1.0"
+		(at 138.71 110.119999 0)
 		(layer "B.SilkS")
 		(uuid "e250d467-d5fa-4d8b-9720-a22cf6c1b4b6")
 		(effects
