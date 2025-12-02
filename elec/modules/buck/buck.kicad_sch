@@ -3132,7 +3132,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Buck:OKLT6W12PC"
+		(property "Footprint" "Buck:MURATA_OKL-T-6-W12"
 			(at 156.21 195.25 0)
 			(effects
 				(font
@@ -3283,7 +3283,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Buck:OKLT6W12PC"
+		(property "Footprint" "Buck:MURATA_OKL-T-6-W12"
 			(at 154.94 155.88 0)
 			(effects
 				(font
