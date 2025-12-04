@@ -3185,7 +3185,7 @@
 			(net 2 "+12V")
 			(pinfunction "VIN")
 			(pintype "passive")
-			(uuid "cd0a7f90-d803-4617-8faa-f87143d60971")
+			(uuid "a72bf7ef-c49f-49c2-9329-cac96d9e5908")
 		)
 		(pad "3" thru_hole circle
 			(at 0 -6.1 90)
@@ -3207,7 +3207,7 @@
 			(net 1 "GND")
 			(pinfunction "GROUND_1")
 			(pintype "passive")
-			(uuid "2abb1f61-4c8a-4e97-b5f8-15d95a6db1f7")
+			(uuid "e317884f-c146-4a48-b5cb-bf1873d9f712")
 		)
 		(pad "4" thru_hole circle
 			(at 6.1 -4.58 90)
@@ -3897,7 +3897,7 @@
 			(net 2 "+12V")
 			(pinfunction "VIN")
 			(pintype "passive")
-			(uuid "570d5d7f-8d3a-409b-81a2-a72414c6ec0a")
+			(uuid "df309ac5-9d3d-49e3-a8d3-bb2cc3f19052")
 		)
 		(pad "3" thru_hole circle
 			(at 0 -6.1 90)
@@ -3919,7 +3919,7 @@
 			(net 1 "GND")
 			(pinfunction "GROUND_1")
 			(pintype "passive")
-			(uuid "9748b8a8-5511-4e38-8240-ff3f03e6518d")
+			(uuid "0d6a2fe3-e719-4d18-98b8-208a1990752b")
 		)
 		(pad "4" thru_hole circle
 			(at 6.1 -4.58 90)
