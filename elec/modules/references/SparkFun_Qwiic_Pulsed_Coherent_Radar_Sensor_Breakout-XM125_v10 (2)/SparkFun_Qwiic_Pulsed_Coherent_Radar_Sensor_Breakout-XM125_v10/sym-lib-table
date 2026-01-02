@@ -1,4 +1,0 @@
-(sym_lib_table
-  (version 0)
-  (lib (name "XM125_Breakout-eagle-import")(type "KiCad")(uri "${KIPRJMOD}/XM125_Breakout-eagle-import.kicad_sym")(options "")(descr ""))
-)
