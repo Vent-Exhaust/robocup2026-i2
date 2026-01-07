@@ -4621,7 +4621,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "CD74HC4067SM96G4:SOP65P780X200-24N"
+		(property "Footprint" "L1:SOP65P780X200-24N"
 			(at 148.59 105.41 0)
 			(effects
 				(font
@@ -8473,7 +8473,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CD74HC4067SM96G4:SOP65P780X200-24N"
+		(property "Footprint" "L1:SOP65P780X200-24N"
 			(at 223.52 105.41 0)
 			(effects
 				(font
