@@ -16411,6 +16411,110 @@
 		(uuid "6b3db9f8-a2f5-4017-896b-b18be512f912")
 	)
 	(gr_arc
+		(start 334.92 179.169998)
+		(mid 334.176051 180.96605)
+		(end 332.379999 181.709999)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "3c159275-b19d-4241-b324-5c4ad9724634")
+	)
+	(gr_line
+		(start 306.980001 181.709999)
+		(end 332.379999 181.709999)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "4a2c74e7-c4b8-4e2f-ae7b-b7b8c58452d6")
+	)
+	(gr_line
+		(start 319.68 141.069999)
+		(end 319.68 181.709999)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "91457ec2-bac1-4ebc-b2bb-23c2cc2592e5")
+	)
+	(gr_arc
+		(start 304.44 143.61)
+		(mid 305.183949 141.813948)
+		(end 306.980001 141.069999)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "917afcee-a7a2-46ce-bb09-f26df07f2ee6")
+	)
+	(gr_arc
+		(start 306.980001 181.709999)
+		(mid 305.183949 180.96605)
+		(end 304.44 179.169998)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "a0c43b0e-0091-44f0-bdcb-68bdfd2be73a")
+	)
+	(gr_arc
+		(start 332.379999 141.069999)
+		(mid 334.176051 141.813948)
+		(end 334.92 143.61)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "c9722cce-ca7e-484f-9fdf-5ece108a3d7d")
+	)
+	(gr_line
+		(start 332.379999 141.069999)
+		(end 306.980001 141.069999)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "d780a8c2-e62d-48a4-b678-997e67d19c44")
+	)
+	(gr_line
+		(start 304.44 161.389999)
+		(end 334.92 161.389999)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "e1f28a80-fdc9-48ee-bb65-070e60da83b9")
+	)
+	(gr_line
+		(start 334.92 179.169998)
+		(end 334.92 143.61)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "e20c6b53-d267-4320-8e35-d2208ab564fc")
+	)
+	(gr_line
+		(start 304.44 143.61)
+		(end 304.44 179.169998)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "e590ee36-f2f1-4820-aa42-5a0c3436ce36")
+	)
+	(gr_arc
 		(start 119.4748 194.25)
 		(mid 109.2374 152.807838)
 		(end 119.4748 111.365676)
@@ -26381,6 +26485,14 @@
 				(xy 208.75415 148.357424) (xy 208.755113 148.350009) (xy 208.84534 148.165442) (xy 208.866793 148.121561)
 				(xy 208.873505 148.115634) (xy 208.877304 148.115) (xy 209.062697 148.115)
 			)
+		)
+	)
+	(group ""
+		(uuid "09c7c1f0-e7ec-4edd-8e18-e5a916997aa9")
+		(members "3c159275-b19d-4241-b324-5c4ad9724634" "4a2c74e7-c4b8-4e2f-ae7b-b7b8c58452d6"
+			"917afcee-a7a2-46ce-bb09-f26df07f2ee6" "a0c43b0e-0091-44f0-bdcb-68bdfd2be73a"
+			"c9722cce-ca7e-484f-9fdf-5ece108a3d7d" "d780a8c2-e62d-48a4-b678-997e67d19c44"
+			"e20c6b53-d267-4320-8e35-d2208ab564fc" "e590ee36-f2f1-4820-aa42-5a0c3436ce36"
 		)
 	)
 	(group ""
