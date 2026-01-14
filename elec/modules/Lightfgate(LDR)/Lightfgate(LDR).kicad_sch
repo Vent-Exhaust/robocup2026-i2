@@ -589,7 +589,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Pinheaders:PinHeader_1x02_P2.54mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_SH_BM02B-SRSS-TB_1x02-1MP_P1.00mm_Vertical"
 			(at 80.01 86.36 0)
 			(effects
 				(font
