@@ -483,12 +483,12 @@
 		(uuid "3bcdc1cc-4298-4aa8-9179-900f15d0b457")
 	)
 	(label "LightGateLDR"
-		(at 77.47 81.28 180)
+		(at 80.01 81.28 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "5865ec36-28c8-4fa4-8f21-25017bca968b")
 	)
@@ -633,7 +633,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 80.01 81.28 270)
+		(at 77.47 81.28 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -642,7 +642,7 @@
 		(fields_autoplaced yes)
 		(uuid "91affebe-8b5f-4a3c-b730-09f0c6913556")
 		(property "Reference" "#PWR01"
-			(at 76.2 81.28 0)
+			(at 81.28 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -651,16 +651,15 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 83.82 81.2799 90)
+			(at 76.2 78.74 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 80.01 81.28 0)
+			(at 77.47 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -669,7 +668,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 80.01 81.28 0)
+			(at 77.47 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -678,7 +677,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 80.01 81.28 0)
+			(at 77.47 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
