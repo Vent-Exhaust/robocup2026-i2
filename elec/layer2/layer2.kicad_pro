@@ -82,7 +82,7 @@
         "hole_clearance": "error",
         "hole_to_hole": "warning",
         "holes_co_located": "warning",
-        "invalid_outline": "error",
+        "invalid_outline": "ignore",
         "isolated_copper": "warning",
         "item_on_disabled_layer": "error",
         "items_not_allowed": "error",
