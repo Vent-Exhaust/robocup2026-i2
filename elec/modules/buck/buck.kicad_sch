@@ -1552,6 +1552,54 @@
 			(embedded_fonts no)
 		)
 	)
+	(rectangle
+		(start 237.49 90.17)
+		(end 259.715 98.425)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 75d5acd7-6ef4-4434-9ba6-d09f7897eebf)
+	)
+	(rectangle
+		(start 214.63 88.9)
+		(end 232.41 99.06)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 8aae509e-4d60-4f22-a239-6efe2342d88c)
+	)
+	(rectangle
+		(start 209.55 83.82)
+		(end 271.78 119.38)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid b5158383-7027-4084-bd35-25f403ed9f25)
+	)
+	(rectangle
+		(start 217.17 111.76)
+		(end 264.16 114.3)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid b5ede66c-626b-40c9-b6c5-04b053916ac7)
+	)
 	(text "Buckies"
 		(exclude_from_sim no)
 		(at 126.238 49.276 0)
