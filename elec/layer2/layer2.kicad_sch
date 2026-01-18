@@ -3478,7 +3478,7 @@
 		(uuid "fb908f96-88c4-4a81-91c3-125ebf65f3f7")
 	)
 	(label "Dribbler Data"
-		(at 238.76 58.42 180)
+		(at 237.49 60.96 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3588,7 +3588,7 @@
 		(uuid "89f30e98-d6f6-4090-963b-8f6baff36918")
 	)
 	(label "LightGateLDR"
-		(at 237.49 60.96 180)
+		(at 238.76 58.42 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3906,7 +3906,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0c106400-b240-4c4f-ba03-9546f34a3e1d")
-		(property "Reference" "L2-->l2Connection2"
+		(property "Reference" "L1-->l3Connection2"
 			(at 248.92 24.13 90)
 			(effects
 				(font
@@ -3979,7 +3979,7 @@
 		(instances
 			(project "layer2"
 				(path "/3575a11a-9f0c-4991-9971-4ac931abf689"
-					(reference "L2-->l2Connection2")
+					(reference "L1-->l3Connection2")
 					(unit 1)
 				)
 			)
