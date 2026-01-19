@@ -114,6 +114,7 @@
 			(layer "F.SilkS")
 			(hide yes)
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(uuid "e28bd329-a0cc-4628-a264-3b25b3371016")
 =======
 		(uuid "26bcf37b-eaae-4883-87ca-4b670166d93f")
@@ -140,6 +141,9 @@
 =======
 			(uuid "63fe60d7-8aca-43c1-8cef-0bd13a955313")
 >>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
+			(uuid "63fe60d7-8aca-43c1-8cef-0bd13a955313")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 			(effects
 				(font
 					(size 1 1)
@@ -154,6 +158,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(uuid "9127f162-f0eb-445e-a275-e119109333f6")
 =======
 			(uuid "fa73a0a4-8fdf-4350-8f35-aacde74f3a21")
@@ -161,6 +166,9 @@
 =======
 			(uuid "fa73a0a4-8fdf-4350-8f35-aacde74f3a21")
 >>>>>>> parent of f549f5f (did a bit of buck)
+=======
+			(uuid "534b000d-382d-4921-9f48-529b629f7d09")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 			(uuid "534b000d-382d-4921-9f48-529b629f7d09")
 >>>>>>> parent of 98c0c33 (buck seems done idk)
@@ -178,6 +186,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(uuid "b4dfa679-9369-41bf-9e37-9ddf1cda868f")
 =======
 			(uuid "3d242ee4-8260-49e5-ba39-8c8f692c10b1")
@@ -185,6 +194,9 @@
 =======
 			(uuid "3d242ee4-8260-49e5-ba39-8c8f692c10b1")
 >>>>>>> parent of f549f5f (did a bit of buck)
+=======
+			(uuid "e4d670f3-684a-4adb-84ae-3b111d9d00de")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 			(uuid "e4d670f3-684a-4adb-84ae-3b111d9d00de")
 >>>>>>> parent of 98c0c33 (buck seems done idk)
@@ -202,6 +214,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(uuid "66cb18e0-2fc7-4f1c-9777-ef37b077c513")
 =======
 			(uuid "b9343bd8-1a20-4a2a-91b7-80bb7d64862d")
@@ -209,6 +222,9 @@
 =======
 			(uuid "b9343bd8-1a20-4a2a-91b7-80bb7d64862d")
 >>>>>>> parent of f549f5f (did a bit of buck)
+=======
+			(uuid "9005159f-eeb7-4297-867f-af1568c616d0")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 			(uuid "9005159f-eeb7-4297-867f-af1568c616d0")
 >>>>>>> parent of 98c0c33 (buck seems done idk)
@@ -498,6 +514,17 @@
 =======
 			(uuid "90d0d23a-bf34-441a-b389-d566c2107f99")
 >>>>>>> parent of f549f5f (did a bit of buck)
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 0 0)
+			(layer "F.Fab")
+			(uuid "38cecb50-0e49-418a-a91a-8e915af29249")
+			(effects
+				(font
+					(size 0.4 0.4)
+					(thickness 0.06)
+				)
+			)
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
@@ -1299,6 +1326,7 @@
 <<<<<<< HEAD
 		(uuid "359d85c5-6f1c-4aa8-9114-500b1d5ad11b")
 <<<<<<< HEAD
+<<<<<<< HEAD
 		(at 157.68 89.179999 180)
 =======
 		(uuid "276e0cd0-1ba8-4741-8d22-fc313893baa1")
@@ -1311,15 +1339,21 @@
 =======
 		(at 155.28 47.237499 90)
 >>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
+		(at 155.28 47.237499 90)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 		(descr "Tantalum Capacitor SMD Kemet-W (7343-15 Metric), IPC-7352 nominal, (Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor tantalum")
 		(property "Reference" "C6"
 			(at 0 -3.1 90)
 			(layer "F.SilkS")
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(hide yes)
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
 			(uuid "d2b289da-3225-4d82-84cf-cc13eafe6776")
@@ -1340,9 +1374,12 @@
 			(at 0 3.1 90)
 			(layer "F.Fab")
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(hide yes)
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
 			(uuid "cc5904de-6bd5-4d01-9758-07ad28eb1795")
@@ -1435,6 +1472,19 @@
 >>>>>>> parent of f549f5f (did a bit of buck)
 		)
 		(fp_line
+<<<<<<< HEAD
+=======
+			(start -4.59 -2.26)
+			(end -4.59 2.26)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "1d17cf72-a47c-4f36-b91b-7364d4b12c68")
+		)
+		(fp_line
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 			(start -4.59 2.26)
 			(end 3.65 2.26)
 			(stroke
@@ -1442,8 +1492,13 @@
 				(type solid)
 			)
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(layer "F.CrtYd")
 			(uuid "0cc5be68-5923-4a58-bec3-74d353ad6aa1")
+=======
+			(layer "F.SilkS")
+			(uuid "2ceffcf0-a342-4e0b-a8b8-52a17cb6a2c3")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 			(layer "F.SilkS")
 			(uuid "2ceffcf0-a342-4e0b-a8b8-52a17cb6a2c3")
@@ -1542,6 +1597,7 @@
 			(uuid "a92f6eac-3b0a-4374-a348-27c78448adca")
 		)
 		(fp_line
+<<<<<<< HEAD
 			(start -4.58 2.4)
 			(end -4.58 -2.4)
 			(stroke
@@ -1577,6 +1633,10 @@
 			(end -2.65 -2.15)
 =======
 >>>>>>> parent of f549f5f (did a bit of buck)
+=======
+			(start -4.58 -2.4)
+			(end 4.58 -2.4)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 			(stroke
 				(width 0.05)
 				(type solid)
@@ -1653,6 +1713,74 @@
 =======
 			(uuid "5b314feb-abe6-42ce-90ba-5343994f95b1")
 >>>>>>> parent of f549f5f (did a bit of buck)
+		)
+		(fp_line
+			(start 4.58 2.4)
+			(end -4.58 2.4)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "a92f6eac-3b0a-4374-a348-27c78448adca")
+		)
+		(fp_line
+			(start -4.58 2.4)
+			(end -4.58 -2.4)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "a693636c-ce73-4f38-b494-f23a6cc5ca1c")
+		)
+		(fp_line
+<<<<<<< HEAD
+			(start -3.65 2.15)
+			(end 3.65 2.15)
+=======
+			(start 3.65 -2.15)
+			(end -2.65 -2.15)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+<<<<<<< HEAD
+			(uuid "61070866-7cb4-4e62-a7dc-0a0827d264f3")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 0 90)
+=======
+			(uuid "12d250d7-3a0b-4ea9-b8f7-1ad1ac948822")
+		)
+		(fp_line
+			(start -2.65 -2.15)
+			(end -3.65 -1.15)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "f820aba1-f46e-46a6-a27b-6ab601868474")
+		)
+		(fp_line
+			(start -3.65 -1.15)
+			(end -3.65 2.15)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
+			(layer "F.Fab")
+			(uuid "84ae6abe-fafc-4a55-889f-172355b342c9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
 		)
 		(fp_line
 			(start 3.65 2.15)
@@ -2295,6 +2423,7 @@
 <<<<<<< HEAD
 		(uuid "8dd3137a-8636-4cfb-868f-89765b0404ab")
 <<<<<<< HEAD
+<<<<<<< HEAD
 		(at 139.78 89.379999 180)
 =======
 		(uuid "37c29882-dbb8-407f-a37d-6a1ee7fdf1da")
@@ -2307,15 +2436,21 @@
 =======
 		(at 149.43 47.237499 90)
 >>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
+		(at 149.43 47.237499 90)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 		(descr "Tantalum Capacitor SMD Kemet-W (7343-15 Metric), IPC-7352 nominal, (Body size from: http://www.kemet.com/Lists/ProductCatalog/Attachments/253/KEM_TC101_STD.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor tantalum")
 		(property "Reference" "C5"
 			(at 0 -3.1 90)
 			(layer "F.SilkS")
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(hide yes)
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
 			(uuid "d1751c2f-8969-4173-806c-bdc0a77c5a87")
@@ -2336,9 +2471,12 @@
 			(at 0 3.1 90)
 			(layer "F.Fab")
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(hide yes)
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
 			(uuid "3f499d0e-b953-467c-849b-c99c0bc5d1a1")
@@ -2431,6 +2569,19 @@
 >>>>>>> parent of f549f5f (did a bit of buck)
 		)
 		(fp_line
+<<<<<<< HEAD
+=======
+			(start -4.59 -2.26)
+			(end -4.59 2.26)
+			(stroke
+				(width 0.12)
+				(type solid)
+			)
+			(layer "F.SilkS")
+			(uuid "53d2ab8d-7187-4b46-866a-d3c64945d8ef")
+		)
+		(fp_line
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 			(start -4.59 2.26)
 			(end 3.65 2.26)
 			(stroke
@@ -2438,8 +2589,13 @@
 				(type solid)
 			)
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(layer "F.CrtYd")
 			(uuid "e9a5b47e-d74e-459b-acad-43e094063c39")
+=======
+			(layer "F.SilkS")
+			(uuid "7193a80d-4cb1-4781-af04-8a08cb2de72c")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 			(layer "F.SilkS")
 			(uuid "7193a80d-4cb1-4781-af04-8a08cb2de72c")
@@ -2538,6 +2694,7 @@
 			(uuid "3cbaa89b-929e-4fca-b206-ffcd0dd090ca")
 		)
 		(fp_line
+<<<<<<< HEAD
 			(start -4.58 2.4)
 			(end -4.58 -2.4)
 			(stroke
@@ -2573,6 +2730,10 @@
 			(end -2.65 -2.15)
 =======
 >>>>>>> parent of f549f5f (did a bit of buck)
+=======
+			(start -4.58 -2.4)
+			(end 4.58 -2.4)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 			(stroke
 				(width 0.05)
 				(type solid)
@@ -2649,6 +2810,74 @@
 =======
 			(uuid "6708beb5-6be9-4306-8e54-cdfdfad913b4")
 >>>>>>> parent of f549f5f (did a bit of buck)
+		)
+		(fp_line
+			(start 4.58 2.4)
+			(end -4.58 2.4)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "3cbaa89b-929e-4fca-b206-ffcd0dd090ca")
+		)
+		(fp_line
+			(start -4.58 2.4)
+			(end -4.58 -2.4)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "ad98085f-3d89-4079-8421-a6a4ddfd8e9a")
+		)
+		(fp_line
+<<<<<<< HEAD
+			(start -3.65 2.15)
+			(end 3.65 2.15)
+=======
+			(start 3.65 -2.15)
+			(end -2.65 -2.15)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+<<<<<<< HEAD
+			(uuid "cc857f0e-7652-47c0-8d16-2912021556e0")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 0 90)
+=======
+			(uuid "83eb8b4e-fdd9-4a51-8d13-d0c429096214")
+		)
+		(fp_line
+			(start -2.65 -2.15)
+			(end -3.65 -1.15)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "87bd8a5b-e1f4-4fbc-885b-def6509b2e45")
+		)
+		(fp_line
+			(start -3.65 -1.15)
+			(end -3.65 2.15)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
+			(layer "F.Fab")
+			(uuid "1d2b652d-4ce3-4f16-8631-af5f8e7debfb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
 		)
 		(fp_line
 			(start 3.65 2.15)
@@ -2737,6 +2966,7 @@
 	(footprint "Pinheaders:PinHeader_1x08_P2.54mm_Vertical"
 		(locked yes)
 		(layer "F.Cu")
+<<<<<<< HEAD
 		(uuid "3b6096b3-8e76-43f8-a6cb-fa3ad80652d7")
 		(at 127.375 76.459999 90)
 		(descr "Through hole straight pin header, 1x08, 2.54mm pitch, single row")
@@ -3569,6 +3799,16 @@
 =======
 			(uuid "1cf219a3-39ec-4866-b463-30b2ca496d2e")
 >>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
+		(uuid "a0caa2e3-c4b7-4bff-ba16-7ce53d3599ab")
+		(at 152.03 97.779999)
+		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
+		(tags "capacitor")
+		(property "Reference" "C2"
+			(at 0 -1.43 0)
+			(layer "F.SilkS")
+			(uuid "1cf219a3-39ec-4866-b463-30b2ca496d2e")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 			(effects
 				(font
 					(size 1 1)
@@ -3580,6 +3820,7 @@
 			(at 0 1.43 0)
 			(layer "F.Fab")
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(hide yes)
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -3590,6 +3831,9 @@
 =======
 			(uuid "0519ed87-02a8-43f2-be36-983b6bedabf3")
 >>>>>>> parent of f549f5f (did a bit of buck)
+=======
+			(uuid "24ab87e8-0fab-442f-82ef-eb834a5ba808")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 			(uuid "24ab87e8-0fab-442f-82ef-eb834a5ba808")
 >>>>>>> parent of 98c0c33 (buck seems done idk)
@@ -3607,6 +3851,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(uuid "3bee3cae-ffd5-40c6-9beb-9fec263f4812")
 =======
 			(uuid "36eb52be-9279-47d6-b15c-29c24ade3892")
@@ -3614,6 +3859,9 @@
 =======
 			(uuid "36eb52be-9279-47d6-b15c-29c24ade3892")
 >>>>>>> parent of f549f5f (did a bit of buck)
+=======
+			(uuid "98e35adf-cdd0-4a91-845d-66442c88b0f2")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 			(uuid "98e35adf-cdd0-4a91-845d-66442c88b0f2")
 >>>>>>> parent of 98c0c33 (buck seems done idk)
@@ -3631,6 +3879,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(uuid "f9355d90-6f7c-40aa-a313-617da6119e51")
 =======
 			(uuid "d5a62e1b-afd7-4ea1-8170-f6d1964694f6")
@@ -3638,6 +3887,9 @@
 =======
 			(uuid "d5a62e1b-afd7-4ea1-8170-f6d1964694f6")
 >>>>>>> parent of f549f5f (did a bit of buck)
+=======
+			(uuid "e9b9713d-6081-4be1-be99-03b0d5145ada")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 			(uuid "e9b9713d-6081-4be1-be99-03b0d5145ada")
 >>>>>>> parent of 98c0c33 (buck seems done idk)
@@ -3726,6 +3978,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -3784,6 +4037,8 @@
 		)
 >>>>>>> parent of f549f5f (did a bit of buck)
 =======
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
 			(layer "F.Fab")
@@ -3795,6 +4050,9 @@
 				)
 			)
 		)
+<<<<<<< HEAD
+>>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
 		(pad "1" smd roundrect
 			(at -0.775 0 180)
@@ -3855,6 +4113,7 @@
 <<<<<<< HEAD
 		(uuid "b0129246-4962-4fd5-a3f9-7b9b32f98509")
 <<<<<<< HEAD
+<<<<<<< HEAD
 		(at 132.28 103.979999 90)
 =======
 		(uuid "674cf66f-9b7e-4006-94f1-36141ced9f76")
@@ -3867,15 +4126,21 @@
 =======
 		(at 142.74 50.382499 90)
 >>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
+		(at 142.74 50.382499 90)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "resistor")
 		(property "Reference" "R1"
 			(at 0 -1.43 90)
 			(layer "F.SilkS")
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(hide yes)
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
 			(uuid "b3506983-456a-4a5a-883b-fb93c8f8661e")
@@ -3896,9 +4161,12 @@
 			(at 0 1.43 90)
 			(layer "F.Fab")
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(hide yes)
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
 			(uuid "244352d4-eb26-4601-be75-d49cf79515f7")
@@ -4136,8 +4404,13 @@
 				(type solid)
 			)
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(layer "F.CrtYd")
 			(uuid "c5557e8c-6db8-4303-8e74-e615ac6da0d1")
+=======
+			(layer "F.SilkS")
+			(uuid "cd53d200-8fcf-41e1-9bfb-e2e3402e5f32")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 			(layer "F.SilkS")
 			(uuid "cd53d200-8fcf-41e1-9bfb-e2e3402e5f32")
@@ -4155,6 +4428,7 @@
 			(uuid "2b5b6f98-8e1a-4e0c-9d2b-c5fe2cce0fbe")
 		)
 		(fp_line
+<<<<<<< HEAD
 <<<<<<< HEAD
 			(start -1.48 0.73)
 			(end -1.48 -0.73)
@@ -4247,6 +4521,10 @@
 		(fp_line
 			(start 0.8 -0.4125)
 			(end 0.8 0.4125)
+=======
+			(start -1.48 -0.73)
+			(end 1.48 -0.73)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 			(stroke
 				(width 0.1)
 >>>>>>> parent of 98c0c33 (buck seems done idk)
@@ -4321,6 +4599,83 @@
 			(uuid "958095a8-143f-4b3f-afd3-eb68285538a7")
 		)
 		(fp_line
+			(start 1.48 0.73)
+			(end -1.48 0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "4928921f-b0b1-4c4f-9afe-b5ee78828501")
+		)
+		(fp_line
+			(start -1.48 0.73)
+			(end -1.48 -0.73)
+			(stroke
+				(width 0.05)
+				(type solid)
+			)
+			(layer "F.CrtYd")
+			(uuid "37be3b16-b0eb-4303-b969-3a19b59519df")
+		)
+		(fp_line
+<<<<<<< HEAD
+			(start -0.8 0.4125)
+			(end -0.8 -0.4125)
+=======
+			(start 0.8 -0.4125)
+			(end 0.8 0.4125)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+<<<<<<< HEAD
+			(uuid "7e9a38f0-8d13-499d-aa47-a93981a70b26")
+		)
+		(fp_text user "${REFERENCE}"
+			(at 0 0 90)
+			(layer "F.Fab")
+			(uuid "84a93c4b-558a-49e5-958c-9c86e7425c90")
+			(effects
+				(font
+					(size 0.4 0.4)
+					(thickness 0.06)
+				)
+			)
+		)
+		(pad "1" smd roundrect
+<<<<<<< HEAD
+			(at -0.825 0 270)
+>>>>>>> parent of f549f5f (did a bit of buck)
+=======
+			(uuid "7b42a1d5-d135-4abc-ad4d-d6519b356046")
+=======
+			(uuid "ac2f5b10-fde0-432c-bdb2-2e072127964a")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
+		)
+		(fp_line
+			(start -0.8 -0.4125)
+			(end 0.8 -0.4125)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "f45515f8-52ba-4104-908a-bae25789dbe4")
+		)
+		(fp_line
+			(start 0.8 -0.4125)
+			(end 0.8 0.4125)
+			(stroke
+				(width 0.1)
+				(type solid)
+			)
+			(layer "F.Fab")
+			(uuid "958095a8-143f-4b3f-afd3-eb68285538a7")
+		)
+		(fp_line
 			(start 0.8 0.4125)
 			(end -0.8 0.4125)
 			(stroke
@@ -4356,31 +4711,8 @@
 			(at -0.825 0 270)
 >>>>>>> parent of f549f5f (did a bit of buck)
 =======
-			(uuid "7b42a1d5-d135-4abc-ad4d-d6519b356046")
-		)
-		(fp_line
-			(start -0.8 -0.4125)
-			(end 0.8 -0.4125)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "f45515f8-52ba-4104-908a-bae25789dbe4")
-		)
-		(fp_line
-			(start 0.8 -0.4125)
-			(end 0.8 0.4125)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "958095a8-143f-4b3f-afd3-eb68285538a7")
-		)
-		(pad "1" smd roundrect
-			(at -0.825 0 270)
->>>>>>> parent of f549f5f (did a bit of buck)
+			(at -0.825 0 90)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 			(at -0.825 0 90)
 >>>>>>> parent of 98c0c33 (buck seems done idk)
@@ -4406,6 +4738,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(at 0.825 0 180)
 =======
 			(at 0.825 0 270)
@@ -4413,6 +4746,9 @@
 =======
 			(at 0.825 0 270)
 >>>>>>> parent of f549f5f (did a bit of buck)
+=======
+			(at 0.825 0 90)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 			(at 0.825 0 90)
 >>>>>>> parent of 98c0c33 (buck seems done idk)
@@ -4453,6 +4789,7 @@
 <<<<<<< HEAD
 		(uuid "f59c9381-2ef7-40cb-9826-e696f1b2c258")
 <<<<<<< HEAD
+<<<<<<< HEAD
 		(at 149.08 103.179999)
 =======
 		(uuid "912660ac-f16b-409f-85e4-04dc88867d48")
@@ -4465,15 +4802,21 @@
 =======
 		(at 152.03 100.779999)
 >>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
+		(at 152.03 100.779999)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C4"
 			(at 0 -1.43 0)
 			(layer "F.SilkS")
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(hide yes)
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
 			(uuid "eff752ad-b162-45ca-9acf-aaa51296b79e")
@@ -4494,9 +4837,12 @@
 			(at 0 1.43 0)
 			(layer "F.Fab")
 <<<<<<< HEAD
+<<<<<<< HEAD
 			(hide yes)
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 =======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
 			(uuid "c8557bc1-3eb0-4a12-aa89-75c8a10087b7")
@@ -4615,6 +4961,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -4673,6 +5020,8 @@
 		)
 >>>>>>> parent of f549f5f (did a bit of buck)
 =======
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
 			(layer "F.Fab")
@@ -4684,6 +5033,9 @@
 				)
 			)
 		)
+<<<<<<< HEAD
+>>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
 		(pad "1" smd roundrect
 			(at -0.775 0 180)
@@ -4738,6 +5090,7 @@
 			)
 		)
 	)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -6445,6 +6798,8 @@
 	)
 =======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 	(gr_arc
 		(start 121.04 74)
 		(mid 121.783949 72.203948)
@@ -6529,6 +6884,7 @@
 		(layer "Edge.Cuts")
 		(uuid "fcfbe267-fbac-4371-be2e-80a1299a1007")
 	)
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -6648,6 +7004,8 @@
 	)
 =======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 	(segment
 		(start 143.03 109.254999)
 		(end 148.03 109.254999)
@@ -6692,6 +7050,7 @@
 		(start 145.61 88.179999)
 		(end 145.61 90.469999)
 		(width 1.5)
+<<<<<<< HEAD
 =======
 	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC\nrev. 1.0"
 		(at 136.28 101.029999 0)
@@ -7044,6 +7403,11 @@
 		(net 2)
 		(uuid "d7ccb2e3-73b2-4778-9b02-2dae01344e00")
 >>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
+		(layer "F.Cu")
+		(net 2)
+		(uuid "d7ccb2e3-73b2-4778-9b02-2dae01344e00")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 	)
 	(segment
 		(start 147.13 91.989999)
@@ -7135,6 +7499,7 @@
 		(layer "F.Cu")
 		(net 3)
 		(uuid "261c3f97-8565-45ca-96cf-639091160fb7")
+<<<<<<< HEAD
 >>>>>>> parent of 98c0c33 (buck seems done idk)
 	)
 	(segment
@@ -7428,6 +7793,13 @@
 		(uuid "3c4a294c-1ca7-4ecf-abbf-a63e2339df25")
 =======
 		(net_name "+5V")
+=======
+	)
+	(segment
+		(start 135.53 109.254999)
+		(end 140.53 109.254999)
+		(width 1.5)
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 		(layer "F.Cu")
 		(uuid "c154130f-02e1-4a5f-ac43-9bd53b144670")
 		(hatch edge 0.5)
@@ -7494,6 +7866,7 @@
 		(width 1.5)
 		(layer "F.Cu")
 		(net 3)
+<<<<<<< HEAD
 <<<<<<< HEAD
 		(uuid "e2e870e5-3e5c-4a8d-beab-dd6ea75fce2e")
 	)
@@ -7700,6 +8073,9 @@
 =======
 		(uuid "bb4f7d97-612b-4f2a-b670-c973fe52cc1f")
 >>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
+		(uuid "bb4f7d97-612b-4f2a-b670-c973fe52cc1f")
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 	)
 	(zone
 		(net 1)
@@ -7728,6 +8104,7 @@
 		(filled_polygon
 			(layer "F.Cu")
 			(pts
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -8196,6 +8573,8 @@
 <<<<<<< HEAD
 =======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 				(xy 167.064041 85.540764) (xy 167.086989 85.542268) (xy 167.318114 85.557416) (xy 167.334172 85.559531)
 				(xy 167.579888 85.608407) (xy 167.595554 85.612605) (xy 167.746736 85.663924) (xy 167.832788 85.693135)
 				(xy 167.847765 85.699338) (xy 168.065336 85.806632) (xy 168.07246 85.810145) (xy 168.086507 85.818255)
@@ -8263,6 +8642,7 @@
 				(xy 159.822179 110.535047) (xy 159.822181 110.535048) (xy 159.822184 110.53505) (xy 160.011588 110.631556)
 				(xy 160.213757 110.697245) (xy 160.423713 110.730499) (xy 160.423714 110.730499) (xy 160.636286 110.730499)
 				(xy 160.636287 110.730499) (xy 160.846243 110.697245) (xy 161.048412 110.631556) (xy 161.237816 110.53505)
+<<<<<<< HEAD
 <<<<<<< HEAD
 				(xy 161.245894 110.52918) (xy 161.3117 110.505701) (xy 161.318779 110.505499) (xy 162.241221 110.505499)
 				(xy 162.30826 110.525184) (xy 162.314104 110.529179) (xy 162.322184 110.53505) (xy 162.511588 110.631556)
@@ -8656,6 +9036,8 @@
 =======
 >>>>>>> parent of f549f5f (did a bit of buck)
 =======
+=======
+>>>>>>> parent of 98c0c33 (buck seems done idk)
 				(xy 161.284275 110.501296) (xy 161.409786 110.410108) (xy 161.409788 110.410105) (xy 161.409792 110.410103)
 				(xy 161.560104 110.259791) (xy 161.679683 110.095203) (xy 161.735011 110.052539) (xy 161.804624 110.04656)
 				(xy 161.86642 110.079165) (xy 161.880313 110.095198) (xy 161.999341 110.259027) (xy 161.999896 110.259791)
@@ -8871,6 +9253,9 @@
 				(xy 130.964452 85.612603) (xy 130.980099 85.60841) (xy 131.225828 85.559532) (xy 131.241882 85.557417)
 				(xy 131.495976 85.540763) (xy 131.50408 85.540499) (xy 131.565893 85.540499) (xy 166.994107 85.540499)
 				(xy 167.055932 85.540499)
+<<<<<<< HEAD
+>>>>>>> parent of 98c0c33 (buck seems done idk)
+=======
 >>>>>>> parent of 98c0c33 (buck seems done idk)
 			)
 		)
