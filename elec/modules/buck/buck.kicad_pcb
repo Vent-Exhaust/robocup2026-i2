@@ -104,7 +104,6 @@
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
 <<<<<<< HEAD
-<<<<<<< HEAD
 		(uuid "0fc3def5-6964-405f-8e06-101c8943b15a")
 		(at 149.08 98.379999)
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
@@ -114,17 +113,6 @@
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "e28bd329-a0cc-4628-a264-3b25b3371016")
-=======
-		(uuid "26bcf37b-eaae-4883-87ca-4b670166d93f")
-		(at 139.03 98.529999 -90)
-		(descr "Resistor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
-		(tags "resistor")
-		(property "Reference" "R2"
-			(at 0 -1.43 90)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "9a398884-02d4-481d-a14d-b012e70e27cb")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 		(uuid "26bcf37b-eaae-4883-87ca-4b670166d93f")
 		(at 139.03 98.529999 -90)
@@ -148,11 +136,7 @@
 			(layer "F.Fab")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "9127f162-f0eb-445e-a275-e119109333f6")
-=======
-			(uuid "fa73a0a4-8fdf-4350-8f35-aacde74f3a21")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "fa73a0a4-8fdf-4350-8f35-aacde74f3a21")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -168,11 +152,7 @@
 			(layer "F.Fab")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "b4dfa679-9369-41bf-9e37-9ddf1cda868f")
-=======
-			(uuid "3d242ee4-8260-49e5-ba39-8c8f692c10b1")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "3d242ee4-8260-49e5-ba39-8c8f692c10b1")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -188,11 +168,7 @@
 			(layer "F.Fab")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "66cb18e0-2fc7-4f1c-9777-ef37b077c513")
-=======
-			(uuid "b9343bd8-1a20-4a2a-91b7-80bb7d64862d")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "b9343bd8-1a20-4a2a-91b7-80bb7d64862d")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -246,7 +222,6 @@
 				(type solid)
 			)
 			(layer "F.CrtYd")
-<<<<<<< HEAD
 <<<<<<< HEAD
 			(uuid "bae18eaa-ce2c-4519-a0f4-8b8325afbc60")
 		)
@@ -402,9 +377,6 @@
 =======
 			(uuid "52cd1f20-5200-487e-8cc6-d9acbc259572")
 >>>>>>> parent of f549f5f (did a bit of buck)
-=======
-			(uuid "52cd1f20-5200-487e-8cc6-d9acbc259572")
->>>>>>> parent of f549f5f (did a bit of buck)
 		)
 		(fp_line
 			(start -1.48 -0.73)
@@ -465,11 +437,7 @@
 			)
 			(layer "F.Fab")
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "5114ff99-000d-4455-abcf-b9261ed8b46c")
-=======
-			(uuid "90d0d23a-bf34-441a-b389-d566c2107f99")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "90d0d23a-bf34-441a-b389-d566c2107f99")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -515,7 +483,6 @@
 			(uuid "e1cb4b78-0797-4b8d-ab27-4aa7e7e23217")
 		)
 		(embedded_fonts no)
-<<<<<<< HEAD
 <<<<<<< HEAD
 		(model "${KICAD9_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.step"
 			(offset
@@ -1233,9 +1200,6 @@
 =======
 		(model "${KICAD9_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
 >>>>>>> parent of f549f5f (did a bit of buck)
-=======
-		(model "${KICAD9_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_0603_1608Metric.step"
->>>>>>> parent of f549f5f (did a bit of buck)
 			(offset
 				(xyz 0 0 0)
 			)
@@ -1250,13 +1214,8 @@
 	(footprint "Capacitor_Tantalum_SMD:CP_EIA-7343-15_Kemet-W_HandSolder"
 		(layer "F.Cu")
 <<<<<<< HEAD
-<<<<<<< HEAD
 		(uuid "359d85c5-6f1c-4aa8-9114-500b1d5ad11b")
 		(at 157.68 89.179999 180)
-=======
-		(uuid "276e0cd0-1ba8-4741-8d22-fc313893baa1")
-		(at 144.53 99.529999 180)
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 		(uuid "276e0cd0-1ba8-4741-8d22-fc313893baa1")
 		(at 144.53 99.529999 180)
@@ -1268,11 +1227,7 @@
 			(layer "F.SilkS")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "d2b289da-3225-4d82-84cf-cc13eafe6776")
-=======
-			(uuid "469ad564-372c-4b32-97cf-297deb15e64c")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "469ad564-372c-4b32-97cf-297deb15e64c")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -1288,11 +1243,7 @@
 			(layer "F.Fab")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "cc5904de-6bd5-4d01-9758-07ad28eb1795")
-=======
-			(uuid "7220b274-5785-43f4-a811-257a404e529b")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "7220b274-5785-43f4-a811-257a404e529b")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -1341,11 +1292,7 @@
 			)
 			(layer "F.SilkS")
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "ec995dcf-1680-4a02-8d51-79b344e5811b")
-=======
-			(uuid "bc071759-3faf-4d6a-ad39-472ab30c54c1")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "bc071759-3faf-4d6a-ad39-472ab30c54c1")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -1359,7 +1306,6 @@
 			)
 			(layer "F.SilkS")
 			(uuid "8d7781b4-6d81-479a-9dbf-5abc33295828")
-<<<<<<< HEAD
 		)
 		(fp_line
 			(start -4.59 -2.26)
@@ -1394,32 +1340,6 @@
 			)
 			(layer "F.CrtYd")
 			(uuid "1fdc492b-44b9-46e0-9cd0-8c1965fbdec4")
-=======
->>>>>>> parent of f549f5f (did a bit of buck)
-		)
-		(fp_line
-			(start -4.59 -2.26)
-			(end -4.59 2.26)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-<<<<<<< HEAD
-			(layer "F.CrtYd")
-			(uuid "fcca2967-0cc9-41c5-90f3-8b45ef195baa")
-=======
-			(layer "F.SilkS")
-			(uuid "60858a2e-a256-4d8d-906c-caefea94b74f")
-		)
-		(fp_line
-			(start 4.58 2.4)
-			(end -4.58 2.4)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "0cc5be68-5923-4a58-bec3-74d353ad6aa1")
 		)
 		(fp_line
 			(start 4.58 -2.4)
@@ -1429,8 +1349,7 @@
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "1fdc492b-44b9-46e0-9cd0-8c1965fbdec4")
->>>>>>> parent of f549f5f (did a bit of buck)
+			(uuid "fcca2967-0cc9-41c5-90f3-8b45ef195baa")
 		)
 		(fp_line
 			(start -4.58 2.4)
@@ -1446,19 +1365,12 @@
 			(start -4.58 -2.4)
 			(end 4.58 -2.4)
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of f549f5f (did a bit of buck)
 			(stroke
 				(width 0.05)
 				(type solid)
 			)
 			(layer "F.CrtYd")
-<<<<<<< HEAD
 			(uuid "c1ad47a7-602b-4500-9d38-c816a0ca585c")
-=======
-			(uuid "57cd0206-98c3-4702-b7ad-cc25da4a9e6a")
->>>>>>> parent of f549f5f (did a bit of buck)
 		)
 		(fp_line
 			(start 3.65 2.15)
@@ -1468,27 +1380,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "9100b0a2-2de7-4736-b7d0-405434e28043")
-		)
-		(fp_line
-			(start 3.65 -2.15)
-			(end -2.65 -2.15)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "ef796852-261e-4de4-8f0e-0b546c5422f8")
-		)
-		(fp_line
-			(start -2.65 -2.15)
-			(end -3.65 -1.15)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "b63b2c66-58e8-4f52-a54e-3be7d92e8f3e")
+			(uuid "92a2adee-b51a-4a46-8dae-b42cea63c310")
 		)
 		(fp_line
 			(start 3.65 -2.15)
@@ -1560,11 +1452,7 @@
 			)
 			(layer "F.Fab")
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "ad15c6e6-f017-4b8b-b90b-1ed9e13400de")
-=======
-			(uuid "5b314feb-abe6-42ce-90ba-5343994f95b1")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "5b314feb-abe6-42ce-90ba-5343994f95b1")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -1625,7 +1513,6 @@
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
 <<<<<<< HEAD
-<<<<<<< HEAD
 		(uuid "7b26d395-ea93-4702-8596-3200b3516dcf")
 		(at 140.36 99.179999 -90)
 		(property "Reference" "PS1"
@@ -1647,17 +1534,6 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "e43cda20-edba-49e9-bf1f-5badcbeb7a3d")
-=======
-		(uuid "33ad3c86-14ed-4bdb-87cd-31a3dda5ae69")
-		(at 127.505 81.529999 180)
-		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
-		(tags "capacitor")
-		(property "Reference" "C1"
-			(at 0 -1.43 0)
-			(layer "F.SilkS")
-			(hide yes)
-			(uuid "d87c2eaa-1cc1-4d6f-ade9-df11f495bc9f")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 		(uuid "33ad3c86-14ed-4bdb-87cd-31a3dda5ae69")
 		(at 127.505 81.529999 180)
@@ -1784,7 +1660,6 @@
 				(width 0.1)
 				(type solid)
 			)
-<<<<<<< HEAD
 <<<<<<< HEAD
 			(fill yes)
 			(layer "F.SilkS")
@@ -2075,79 +1950,6 @@
 				(allow_two_segments yes)
 				(prefer_zone_connections yes)
 			)
-=======
-			(layer "F.Fab")
-			(uuid "d22ad9a6-ab6f-4eb1-9ecf-67a0084b4ddf")
-		)
-		(fp_line
-			(start 0.8 -0.4)
-			(end 0.8 0.4)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "f48ff73e-4f47-4f77-a221-6459181c915f")
-		)
-		(fp_line
-			(start -0.8 0.4)
-			(end -0.8 -0.4)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "07ab480c-a16f-4c99-a998-d240a0b5a647")
-		)
-		(fp_line
-			(start -0.8 -0.4)
-			(end 0.8 -0.4)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "aca0d18f-e8ee-4c8d-8413-64473c23bb6b")
-		)
-		(pad "1" smd roundrect
-			(at -0.775 0 180)
-			(size 0.9 0.95)
-			(layers "F.Cu" "F.Mask" "F.Paste")
-			(roundrect_rratio 0.25)
-			(net 2 "+12V")
-			(pintype "passive")
-			(teardrops
-				(best_length_ratio 0.5)
-				(max_length 1)
-				(best_width_ratio 1)
-				(max_width 3)
-				(curved_edges yes)
-				(filter_ratio 0.9)
-				(enabled yes)
-				(allow_two_segments yes)
-				(prefer_zone_connections yes)
-			)
-			(uuid "f940db05-7d8c-4971-b368-82fd284eaf1a")
-		)
-		(pad "2" smd roundrect
-			(at 0.775 0 180)
-			(size 0.9 0.95)
-			(layers "F.Cu" "F.Mask" "F.Paste")
-			(roundrect_rratio 0.25)
-			(net 1 "GND")
-			(pintype "passive")
-			(teardrops
-				(best_length_ratio 0.5)
-				(max_length 1)
-				(best_width_ratio 1)
-				(max_width 3)
-				(curved_edges yes)
-				(filter_ratio 0.9)
-				(enabled yes)
-				(allow_two_segments yes)
-				(prefer_zone_connections yes)
-			)
->>>>>>> parent of f549f5f (did a bit of buck)
 			(uuid "6f02755d-db83-401d-b66d-91ccad49d3ee")
 		)
 		(embedded_fonts no)
@@ -2166,13 +1968,8 @@
 	(footprint "Capacitor_Tantalum_SMD:CP_EIA-7343-15_Kemet-W_HandSolder"
 		(layer "F.Cu")
 <<<<<<< HEAD
-<<<<<<< HEAD
 		(uuid "8dd3137a-8636-4cfb-868f-89765b0404ab")
 		(at 139.78 89.379999 180)
-=======
-		(uuid "37c29882-dbb8-407f-a37d-6a1ee7fdf1da")
-		(at 129.78 99.529999 180)
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 		(uuid "37c29882-dbb8-407f-a37d-6a1ee7fdf1da")
 		(at 129.78 99.529999 180)
@@ -2184,11 +1981,7 @@
 			(layer "F.SilkS")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "d1751c2f-8969-4173-806c-bdc0a77c5a87")
-=======
-			(uuid "08a90252-20f9-4509-b7ec-5b3d51a4967d")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "08a90252-20f9-4509-b7ec-5b3d51a4967d")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -2204,11 +1997,7 @@
 			(layer "F.Fab")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "3f499d0e-b953-467c-849b-c99c0bc5d1a1")
-=======
-			(uuid "58244638-c2d8-41be-bd17-c3f3ba0b38b2")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "58244638-c2d8-41be-bd17-c3f3ba0b38b2")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -2257,11 +2046,7 @@
 			)
 			(layer "F.SilkS")
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "26357600-29bd-4f9a-9d6b-eb18ab516304")
-=======
-			(uuid "6063a991-c474-4e8b-a1a9-182aa1103d17")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "6063a991-c474-4e8b-a1a9-182aa1103d17")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -2275,7 +2060,6 @@
 			)
 			(layer "F.SilkS")
 			(uuid "892386f1-5f83-405c-a209-725fe6e4136c")
-<<<<<<< HEAD
 		)
 		(fp_line
 			(start -4.59 -2.26)
@@ -2310,32 +2094,6 @@
 			)
 			(layer "F.CrtYd")
 			(uuid "a9162564-fc34-418f-86f0-011e59f486dc")
-=======
->>>>>>> parent of f549f5f (did a bit of buck)
-		)
-		(fp_line
-			(start -4.59 -2.26)
-			(end -4.59 2.26)
-			(stroke
-				(width 0.12)
-				(type solid)
-			)
-<<<<<<< HEAD
-			(layer "F.CrtYd")
-			(uuid "fd689244-355f-4544-be55-564ac20763d8")
-=======
-			(layer "F.SilkS")
-			(uuid "8a383a71-4b83-4c4e-ae33-c5efbd99b65b")
-		)
-		(fp_line
-			(start 4.58 2.4)
-			(end -4.58 2.4)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-			(layer "F.CrtYd")
-			(uuid "e9a5b47e-d74e-459b-acad-43e094063c39")
 		)
 		(fp_line
 			(start 4.58 -2.4)
@@ -2345,8 +2103,7 @@
 				(type solid)
 			)
 			(layer "F.CrtYd")
-			(uuid "a9162564-fc34-418f-86f0-011e59f486dc")
->>>>>>> parent of f549f5f (did a bit of buck)
+			(uuid "fd689244-355f-4544-be55-564ac20763d8")
 		)
 		(fp_line
 			(start -4.58 2.4)
@@ -2362,19 +2119,12 @@
 			(start -4.58 -2.4)
 			(end 4.58 -2.4)
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of f549f5f (did a bit of buck)
 			(stroke
 				(width 0.05)
 				(type solid)
 			)
 			(layer "F.CrtYd")
-<<<<<<< HEAD
 			(uuid "dff6b6c6-cde4-4887-be50-00193b567539")
-=======
-			(uuid "5bedc0d2-05c5-4bf2-b8a1-fb73addac2ea")
->>>>>>> parent of f549f5f (did a bit of buck)
 		)
 		(fp_line
 			(start 3.65 2.15)
@@ -2384,27 +2134,7 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-			(uuid "1f47c9c6-6a34-418c-9ded-5bbc20405c95")
-		)
-		(fp_line
-			(start 3.65 -2.15)
-			(end -2.65 -2.15)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "f4800325-4c38-4ee6-ad65-49288f5e98cb")
-		)
-		(fp_line
-			(start -2.65 -2.15)
-			(end -3.65 -1.15)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "88f4752b-70f3-4a0f-87ec-26c1a7d99154")
+			(uuid "b730d192-62b0-4bfa-b9b5-2212e6070d60")
 		)
 		(fp_line
 			(start 3.65 -2.15)
@@ -2476,11 +2206,7 @@
 			)
 			(layer "F.Fab")
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "7102ad01-c1f0-40c8-9a63-95af06ba711b")
-=======
-			(uuid "6708beb5-6be9-4306-8e54-cdfdfad913b4")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "6708beb5-6be9-4306-8e54-cdfdfad913b4")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -3339,13 +3065,8 @@
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
 <<<<<<< HEAD
-<<<<<<< HEAD
 		(uuid "a0caa2e3-c4b7-4bff-ba16-7ce53d3599ab")
 		(at 149.08 99.979999)
-=======
-		(uuid "60847316-b9fd-4e25-aaba-b6e00a20966d")
-		(at 141.78 81.779999 180)
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 		(uuid "60847316-b9fd-4e25-aaba-b6e00a20966d")
 		(at 141.78 81.779999 180)
@@ -3357,11 +3078,7 @@
 			(layer "F.SilkS")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "d1e1d58f-997f-4913-a899-e9923533a329")
-=======
-			(uuid "a6665fb4-a095-481d-b611-5c38c3c53fca")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "a6665fb4-a095-481d-b611-5c38c3c53fca")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -3377,11 +3094,7 @@
 			(layer "F.Fab")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "21528349-0f53-4b72-abf7-e1e283fa3d0d")
-=======
-			(uuid "0519ed87-02a8-43f2-be36-983b6bedabf3")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "0519ed87-02a8-43f2-be36-983b6bedabf3")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -3397,11 +3110,7 @@
 			(layer "F.Fab")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "3bee3cae-ffd5-40c6-9beb-9fec263f4812")
-=======
-			(uuid "36eb52be-9279-47d6-b15c-29c24ade3892")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "36eb52be-9279-47d6-b15c-29c24ade3892")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -3417,11 +3126,7 @@
 			(layer "F.Fab")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "f9355d90-6f7c-40aa-a313-617da6119e51")
-=======
-			(uuid "d5a62e1b-afd7-4ea1-8170-f6d1964694f6")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "d5a62e1b-afd7-4ea1-8170-f6d1964694f6")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -3508,10 +3213,7 @@
 			(uuid "0b0c077c-f3c6-4600-aed8-cc7013865568")
 		)
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
-=======
->>>>>>> parent of f549f5f (did a bit of buck)
 		(fp_line
 			(start 0.8 -0.4)
 			(end 0.8 0.4)
@@ -3521,29 +3223,6 @@
 			)
 			(layer "F.Fab")
 			(uuid "acd61c8e-d2f4-4a5e-85ac-624a82f4f2fd")
-<<<<<<< HEAD
-=======
-		)
-		(fp_line
-			(start -0.8 0.4)
-			(end -0.8 -0.4)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "e51a6d3b-0dac-48ae-b25d-2285c1bad838")
-		)
-		(fp_line
-			(start -0.8 -0.4)
-			(end 0.8 -0.4)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "afbf1fe6-a017-4bb9-927e-a70345dcd5f1")
->>>>>>> parent of f549f5f (did a bit of buck)
 		)
 		(fp_line
 			(start -0.8 0.4)
@@ -3622,13 +3301,8 @@
 	(footprint "Resistor_SMD:R_0603_1608Metric"
 		(layer "F.Cu")
 <<<<<<< HEAD
-<<<<<<< HEAD
 		(uuid "b0129246-4962-4fd5-a3f9-7b9b32f98509")
 		(at 132.28 103.979999 90)
-=======
-		(uuid "674cf66f-9b7e-4006-94f1-36141ced9f76")
-		(at 124.28 98.529999 -90)
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 		(uuid "674cf66f-9b7e-4006-94f1-36141ced9f76")
 		(at 124.28 98.529999 -90)
@@ -3640,11 +3314,7 @@
 			(layer "F.SilkS")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "b3506983-456a-4a5a-883b-fb93c8f8661e")
-=======
-			(uuid "71f7596a-1d31-4fa6-becb-a47c1b0d3c3a")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "71f7596a-1d31-4fa6-becb-a47c1b0d3c3a")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -3660,11 +3330,7 @@
 			(layer "F.Fab")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "244352d4-eb26-4601-be75-d49cf79515f7")
-=======
-			(uuid "4024c1d4-28f5-40e9-bccf-ee50801fbd54")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "4024c1d4-28f5-40e9-bccf-ee50801fbd54")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -3732,7 +3398,6 @@
 				(type solid)
 			)
 			(layer "F.CrtYd")
-<<<<<<< HEAD
 <<<<<<< HEAD
 			(uuid "525632b9-df02-493e-8d47-c970acb79280")
 		)
@@ -3939,9 +3604,6 @@
 			(layer "F.CrtYd")
 <<<<<<< HEAD
 			(uuid "2c5a74a3-8da5-4980-98f7-88ca1acdcabe")
-=======
-			(uuid "02b8011c-aa61-4fb6-9640-23ddc71ac32d")
->>>>>>> parent of f549f5f (did a bit of buck)
 		)
 		(fp_line
 			(start 0.8 0.4125)
@@ -3950,41 +3612,21 @@
 				(width 0.1)
 				(type solid)
 			)
-<<<<<<< HEAD
 			(layer "F.Fab")
 			(uuid "4c8a257a-27df-4eb5-a27b-4ee79fdb4e96")
 =======
 			(uuid "9d70b45a-a60d-46ed-8f1d-83c679f1b373")
 >>>>>>> parent of f549f5f (did a bit of buck)
-=======
-			(layer "F.CrtYd")
-			(uuid "c5557e8c-6db8-4303-8e74-e615ac6da0d1")
 		)
 		(fp_line
-			(start -1.48 -0.73)
-			(end 1.48 -0.73)
+			(start 0.8 -0.4125)
+			(end 0.8 0.4125)
 			(stroke
-				(width 0.05)
+				(width 0.1)
 				(type solid)
 			)
-			(layer "F.CrtYd")
-			(uuid "9faa2428-f1bb-42f6-b436-c8d0cf3fba83")
->>>>>>> parent of f549f5f (did a bit of buck)
-		)
-		(fp_line
-			(start 1.48 -0.73)
-			(end 1.48 0.73)
-			(stroke
-				(width 0.05)
-				(type solid)
-			)
-<<<<<<< HEAD
 			(layer "F.Fab")
 			(uuid "ac2f5b10-fde0-432c-bdb2-2e072127964a")
-=======
-			(layer "F.CrtYd")
-			(uuid "9d70b45a-a60d-46ed-8f1d-83c679f1b373")
->>>>>>> parent of f549f5f (did a bit of buck)
 		)
 		(fp_line
 			(start -0.8 0.4125)
@@ -3998,13 +3640,8 @@
 		)
 		(fp_line
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(start -0.8 -0.4125)
 			(end 0.8 -0.4125)
-=======
-			(start 0.8 0.4125)
-			(end -0.8 0.4125)
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(start 0.8 0.4125)
 			(end -0.8 0.4125)
@@ -4014,38 +3651,11 @@
 				(type solid)
 			)
 			(layer "F.Fab")
-<<<<<<< HEAD
 <<<<<<< HEAD
 			(uuid "7ca3126a-9ff1-4371-9a12-c704e3deeeea")
 		)
 		(pad "1" smd roundrect
 			(at -0.825 0 180)
-=======
-			(uuid "7b42a1d5-d135-4abc-ad4d-d6519b356046")
-		)
-		(fp_line
-			(start -0.8 -0.4125)
-			(end 0.8 -0.4125)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "f45515f8-52ba-4104-908a-bae25789dbe4")
-		)
-		(fp_line
-			(start 0.8 -0.4125)
-			(end 0.8 0.4125)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "958095a8-143f-4b3f-afd3-eb68285538a7")
-		)
-		(pad "1" smd roundrect
-			(at -0.825 0 270)
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "7b42a1d5-d135-4abc-ad4d-d6519b356046")
 		)
@@ -4092,11 +3702,7 @@
 		)
 		(pad "2" smd roundrect
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(at 0.825 0 180)
-=======
-			(at 0.825 0 270)
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(at 0.825 0 270)
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -4134,13 +3740,8 @@
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
 <<<<<<< HEAD
-<<<<<<< HEAD
 		(uuid "f59c9381-2ef7-40cb-9826-e696f1b2c258")
 		(at 149.08 103.179999)
-=======
-		(uuid "912660ac-f16b-409f-85e4-04dc88867d48")
-		(at 144.78 81.779999 180)
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 		(uuid "912660ac-f16b-409f-85e4-04dc88867d48")
 		(at 144.78 81.779999 180)
@@ -4152,11 +3753,7 @@
 			(layer "F.SilkS")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "eff752ad-b162-45ca-9acf-aaa51296b79e")
-=======
-			(uuid "0dfc94b9-04b4-4a07-872a-a0f63bb93bca")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "0dfc94b9-04b4-4a07-872a-a0f63bb93bca")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -4172,11 +3769,7 @@
 			(layer "F.Fab")
 			(hide yes)
 <<<<<<< HEAD
-<<<<<<< HEAD
 			(uuid "c8557bc1-3eb0-4a12-aa89-75c8a10087b7")
-=======
-			(uuid "32fb3fb5-fe7e-4077-8e62-22d297004795")
->>>>>>> parent of f549f5f (did a bit of buck)
 =======
 			(uuid "32fb3fb5-fe7e-4077-8e62-22d297004795")
 >>>>>>> parent of f549f5f (did a bit of buck)
@@ -4287,10 +3880,7 @@
 			(uuid "71db7ca8-8717-4193-91b3-c13e4c9b79ef")
 		)
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
-=======
->>>>>>> parent of f549f5f (did a bit of buck)
 		(fp_line
 			(start 0.8 -0.4)
 			(end 0.8 0.4)
@@ -4300,29 +3890,6 @@
 			)
 			(layer "F.Fab")
 			(uuid "3f08859a-2d43-4ba1-9454-cfecb21098a7")
-<<<<<<< HEAD
-=======
-		)
-		(fp_line
-			(start -0.8 0.4)
-			(end -0.8 -0.4)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "43c58544-881d-481c-8ddc-3442bef4d016")
-		)
-		(fp_line
-			(start -0.8 -0.4)
-			(end 0.8 -0.4)
-			(stroke
-				(width 0.1)
-				(type solid)
-			)
-			(layer "F.Fab")
-			(uuid "fdebf08b-2311-4e1b-8b3e-c694c3ec2d7b")
->>>>>>> parent of f549f5f (did a bit of buck)
 		)
 		(fp_line
 			(start -0.8 0.4)
@@ -4399,7 +3966,6 @@
 		)
 	)
 <<<<<<< HEAD
-<<<<<<< HEAD
 	(gr_line
 		(start 167.08 113.579999)
 		(end 167.08 86.179999)
@@ -4460,8 +4026,6 @@
 		(layer "F.Cu")
 		(uuid "c559f38a-d899-4ae0-95ac-a5add7b8c56f")
 =======
-=======
->>>>>>> parent of f549f5f (did a bit of buck)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
 		(uuid "c5d947d4-ee98-4f5e-849f-8beaf55a37ba")
@@ -6097,9 +5661,6 @@
 				(xyz 0 0 0)
 			)
 		)
-<<<<<<< HEAD
->>>>>>> parent of f549f5f (did a bit of buck)
-=======
 >>>>>>> parent of f549f5f (did a bit of buck)
 	)
 	(gr_arc
@@ -6186,7 +5747,6 @@
 		(layer "Edge.Cuts")
 		(uuid "fcfbe267-fbac-4371-be2e-80a1299a1007")
 	)
-<<<<<<< HEAD
 <<<<<<< HEAD
 	(dimension
 		(type orthogonal)
@@ -6434,352 +5994,8 @@
 		(start 142.9875 89.029999)
 		(end 142.9875 105.237499)
 		(width 1.5)
-=======
-	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC\nrev. 1.0"
-		(at 136.28 101.029999 0)
-		(layer "B.SilkS")
-		(uuid "2bb2a35a-0649-4c85-8661-93a508947912")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.2)
-			)
-			(justify mirror)
-		)
-	)
-	(gr_text "Design By Euston Tan \n"
-		(at 136.28 109.979999 0)
-		(layer "B.SilkS")
-		(uuid "5d3672a0-f222-4166-9116-5095eb0f8ac2")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.2)
-				(bold yes)
-			)
-			(justify mirror)
-		)
-	)
-	(via
-		(at 144.005 81.779999)
-		(size 0.6)
-		(drill 0.3)
-		(layers "F.Cu" "B.Cu")
-		(net 1)
-		(uuid "1a9fb859-3348-458d-a6fc-1544bf1b75ae")
-	)
-	(via
-		(at 129.73 81.529999)
-		(size 0.6)
-		(drill 0.3)
-		(layers "F.Cu" "B.Cu")
-		(net 1)
-		(uuid "72bf516f-58b4-4eb9-89c0-ce6be08c91c1")
-	)
-	(via
-		(at 141.005 81.779999)
-		(size 0.6)
-		(drill 0.3)
-		(layers "F.Cu" "B.Cu")
-		(net 1)
-		(uuid "7e5da2d5-1efe-4288-a8ca-c11d617cd348")
-	)
-	(via
-		(at 126.73 81.529999)
-		(size 0.6)
-		(drill 0.3)
-		(layers "F.Cu" "B.Cu")
-		(net 1)
-		(uuid "b55fe5ae-868e-4be4-a6fe-fa94aded0841")
-	)
-	(segment
-		(start 124.28 97.704999)
-		(end 124.28 95.979999)
-		(width 0.2)
 		(layer "F.Cu")
-		(net 13)
-		(uuid "1599f6c1-cedc-467d-bec7-b22a345648ca")
-	)
-	(segment
-		(start 124.28 95.979999)
-		(end 124.38 95.879999)
-		(width 0.2)
-		(layer "F.Cu")
-		(net 13)
-		(uuid "1c44210c-722b-48a8-af05-21690c275e56")
-	)
-	(segment
-		(start 124.39 97.594999)
-		(end 124.28 97.704999)
-		(width 0.2)
-		(layer "F.Cu")
-		(net 13)
-		(uuid "97b25f8d-3863-4e1d-8253-59c99014f01d")
-	)
-	(segment
-		(start 139.03 97.704999)
-		(end 139.03 95.889999)
-		(width 0.2)
-		(layer "F.Cu")
-		(net 20)
-		(uuid "29898555-5987-4f76-8630-34ff5835fa56")
-	)
-	(segment
-		(start 139.03 95.889999)
-		(end 139.02 95.879999)
-		(width 0.2)
-		(layer "F.Cu")
-		(net 20)
-		(uuid "66a1e9d4-c84b-4067-b7c5-ad60de596655")
-	)
-	(zone
-		(net 4)
-		(net_name "+3V3")
-		(layer "F.Cu")
-		(uuid "18d760d3-a0c1-49a7-9c63-a17c78692bc3")
-		(hatch edge 0.5)
-		(priority 3)
-		(connect_pads yes
-			(clearance 0.5)
-		)
-		(min_thickness 0.25)
-		(filled_areas_thickness no)
-		(fill yes
-			(thermal_gap 0.5)
-			(thermal_bridge_width 0.5)
-			(smoothing chamfer)
-			(radius 0.25)
-		)
-		(polygon
-			(pts
-				(xy 138.78 109.029999) (xy 150.28 109.029999) (xy 150.28 93.279999) (xy 142.53 93.279999) (xy 142.53 96.029999)
-				(xy 144.53 96.029999) (xy 144.53 101.529999) (xy 138.78 101.529999)
-			)
-		)
-		(filled_polygon
-			(layer "F.Cu")
-			(pts
-				(xy 149.23417 93.286068) (xy 149.380921 93.33375) (xy 149.395466 93.338476) (xy 149.597648 93.370499)
-				(xy 149.597649 93.370499) (xy 149.802351 93.370499) (xy 149.802352 93.370499) (xy 150.004534 93.338476)
-				(xy 150.004544 93.338472) (xy 150.004686 93.338439) (xy 150.004748 93.338442) (xy 150.009346 93.337714)
-				(xy 150.009498 93.338679) (xy 150.015064 93.338956) (xy 150.024802 93.335325) (xy 150.049365 93.340668)
-				(xy 150.074468 93.341921) (xy 150.084732 93.348362) (xy 150.093075 93.350177) (xy 150.121329 93.371328)
-				(xy 150.243681 93.49368) (xy 150.277166 93.555003) (xy 150.28 93.581361) (xy 150.28 108.728637)
-				(xy 150.260315 108.795676) (xy 150.243681 108.816318) (xy 150.066319 108.99368) (xy 150.004996 109.027165)
-				(xy 149.978638 109.029999) (xy 139.081362 109.029999) (xy 139.014323 109.010314) (xy 138.993681 108.99368)
-				(xy 138.816319 108.816318) (xy 138.782834 108.754995) (xy 138.78 108.728637) (xy 138.78 107.65823)
-				(xy 138.786069 107.619912) (xy 138.786557 107.618411) (xy 138.852246 107.416242) (xy 138.8855 107.206286)
-				(xy 138.8855 106.993712) (xy 138.852246 106.783756) (xy 138.786557 106.581587) (xy 138.786556 106.581585)
-				(xy 138.786069 106.580086) (xy 138.78 106.541768) (xy 138.78 101.831361) (xy 138.799685 101.764322)
-				(xy 138.816319 101.74368) (xy 138.993681 101.566318) (xy 139.055004 101.532833) (xy 139.081362 101.529999)
-				(xy 144.53 101.529999) (xy 144.53 96.029999) (xy 144.28 96.029999) (xy 142.831362 96.029999) (xy 142.801921 96.021354)
-				(xy 142.771935 96.014831) (xy 142.766919 96.011076) (xy 142.764323 96.010314) (xy 142.743681 95.99368)
-				(xy 142.646819 95.896818) (xy 142.613334 95.835495) (xy 142.6105 95.809137) (xy 142.6105 95.777647)
-				(xy 142.578477 95.575465) (xy 142.578476 95.575461) (xy 142.578476 95.57546) (xy 142.536069 95.444946)
-				(xy 142.53 95.406628) (xy 142.53 93.581361) (xy 142.549685 93.514322) (xy 142.566319 93.49368) (xy 142.743681 93.316318)
-				(xy 142.805004 93.282833) (xy 142.831362 93.279999) (xy 149.195852 93.279999)
-			)
-		)
-	)
-	(zone
-		(net 20)
-		(net_name "Net-(PS2-TRIM)")
-		(layer "F.Cu")
-		(uuid "236f9f6e-800b-4abd-a454-5da09d5e43e4")
-		(name "$teardrop_padvia$")
-		(hatch none 0.1)
-		(priority 30001)
-		(attr
-			(teardrop
-				(type padvia)
-			)
-		)
-		(connect_pads yes
-			(clearance 0)
-		)
-		(min_thickness 0.0254)
-		(filled_areas_thickness no)
-		(fill yes
-			(thermal_gap 0.5)
-			(thermal_bridge_width 0.5)
-			(island_removal_mode 1)
-			(island_area_min 10)
-		)
-		(polygon
-			(pts
-				(xy 138.93 96.904999) (xy 138.91 97.032998) (xy 138.882243 97.113313) (xy 138.842595 97.192076)
-				(xy 138.80081 97.251051) (xy 138.750887 97.300178) (xy 138.70549 97.329514) (xy 138.654972 97.348162)
-				(xy 138.63 97.352605) (xy 139.03 97.705999) (xy 139.43 97.352605) (xy 139.343889 97.323797) (xy 139.265301 97.258171)
-				(xy 139.195418 97.151975) (xy 139.144333 97.011077) (xy 139.13 96.904999)
-			)
-		)
-		(filled_polygon
-			(layer "F.Cu")
-			(pts
-				(xy 139.128047 96.908426) (xy 139.131369 96.915132) (xy 139.144332 97.011073) (xy 139.144334 97.011081)
-				(xy 139.195416 97.151971) (xy 139.195417 97.151972) (xy 139.195418 97.151975) (xy 139.260616 97.251051)
-				(xy 139.265301 97.258171) (xy 139.265302 97.258172) (xy 139.343882 97.323792) (xy 139.343886 97.323795)
-				(xy 139.343887 97.323795) (xy 139.343889 97.323797) (xy 139.410766 97.34617) (xy 139.417523 97.352044)
-				(xy 139.418149 97.360977) (xy 139.4148 97.366033) (xy 139.037747 97.699154) (xy 139.029278 97.702064)
-				(xy 139.022253 97.699154) (xy 138.648158 97.368647) (xy 138.644227 97.360601) (xy 138.647137 97.352132)
-				(xy 138.653857 97.34836) (xy 138.654972 97.348162) (xy 138.70549 97.329514) (xy 138.750887 97.300178)
-				(xy 138.80081 97.251051) (xy 138.842595 97.192076) (xy 138.882243 97.113313) (xy 138.91 97.032998)
-				(xy 138.928454 96.914892) (xy 138.933117 96.907248) (xy 138.940014 96.904999) (xy 139.119774 96.904999)
-			)
-		)
-	)
-	(zone
-		(net 2)
-		(net_name "+12V")
->>>>>>> parent of f549f5f (did a bit of buck)
-		(layer "F.Cu")
-		(uuid "a75cec93-7324-4a02-a92f-c925f30af771")
-		(hatch edge 0.5)
-		(priority 1)
-		(connect_pads yes
-			(clearance 0.5)
-		)
-		(min_thickness 0.25)
-		(filled_areas_thickness no)
-		(fill yes
-			(thermal_gap 0.5)
-			(thermal_bridge_width 0.5)
-			(smoothing chamfer)
-			(radius 0.25)
-		)
-		(polygon
-			(pts
-				(xy 125.53 83.779999) (xy 130.03 83.779999) (xy 130.03 88.779999) (xy 137.53 88.779999) (xy 137.53 83.786578)
-				(xy 144.53 83.779999) (xy 144.53 88.779999) (xy 149.53 88.779999) (xy 149.53 83.029999) (xy 149.53 77.772029)
-				(xy 133.78 78.029999) (xy 133.78 74.529999) (xy 125.53 74.529999)
-			)
-		)
-		(filled_polygon
-			(layer "F.Cu")
-			(pts
-				(xy 133.545677 74.549684) (xy 133.566319 74.566318) (xy 133.743681 74.74368) (xy 133.777166 74.805003)
-				(xy 133.78 74.831361) (xy 133.78 75.840069) (xy 133.766485 75.896363) (xy 133.743446 75.941579)
-				(xy 133.743442 75.941589) (xy 133.677753 76.143759) (xy 133.6445 76.353712) (xy 133.6445 76.566285)
-				(xy 133.677753 76.776238) (xy 133.743444 76.978415) (xy 133.766484 77.023632) (xy 133.78 77.079928)
-				(xy 133.78 78.029998) (xy 133.78 78.029999) (xy 134.004777 78.026316) (xy 134.00478 78.026317) (xy 134.029965 78.025904)
-				(xy 134.029966 78.025905) (xy 141.655 77.901014) (xy 149.228085 77.776973) (xy 149.258129 77.785263)
-				(xy 149.288647 77.791641) (xy 149.293088 77.794909) (xy 149.295435 77.795557) (xy 149.31707 77.812558)
-				(xy 149.49296 77.985591) (xy 149.526946 78.046637) (xy 149.53 78.073986) (xy 149.53 88.384307) (xy 149.510315 88.451346)
-				(xy 149.457511 88.497101) (xy 149.425402 88.50678) (xy 149.395466 88.511522) (xy 149.200778 88.57478)
-				(xy 149.018386 88.667714) (xy 148.896435 88.756317) (xy 148.830629 88.779797) (xy 148.82355 88.779999)
-				(xy 144.831362 88.779999) (xy 144.764323 88.760314) (xy 144.743681 88.74368) (xy 144.566319 88.566318)
-				(xy 144.532834 88.504995) (xy 144.53 88.478637) (xy 144.53 84.640546) (xy 144.549685 84.573507)
-				(xy 144.566319 84.552865) (xy 144.591966 84.527218) (xy 144.591968 84.527214) (xy 144.591971 84.527212)
-				(xy 144.644732 84.454589) (xy 144.712287 84.361609) (xy 144.80522 84.179218) (xy 144.868477 83.984533)
-				(xy 144.9005 83.782351) (xy 144.9005 83.577647) (xy 144.868477 83.375465) (xy 144.80522 83.18078)
-				(xy 144.805218 83.180777) (xy 144.805218 83.180775) (xy 144.771503 83.114606) (xy 144.712287 82.998389)
-				(xy 144.678756 82.952237) (xy 144.591971 82.832785) (xy 144.588856 82.829139) (xy 144.56028 82.76538)
-				(xy 144.570711 82.696293) (xy 144.616837 82.643813) (xy 144.617914 82.643139) (xy 144.683044 82.602967)
-				(xy 144.802968 82.483043) (xy 144.892003 82.338696) (xy 144.945349 82.177707) (xy 144.9555 82.078344)
-				(xy 144.955499 81.481655) (xy 144.945349 81.382291) (xy 144.892003 81.221302) (xy 144.891999 81.221296)
-				(xy 144.891998 81.221293) (xy 144.80297 81.076958) (xy 144.802967 81.076954) (xy 144.683044 80.957031)
-				(xy 144.68304 80.957028) (xy 144.538705 80.868) (xy 144.538699 80.867997) (xy 144.538697 80.867996)
-				(xy 144.538694 80.867995) (xy 144.377709 80.81465) (xy 144.278346 80.804499) (xy 143.731662 80.804499)
-				(xy 143.731644 80.8045) (xy 143.632292 80.814649) (xy 143.632289 80.81465) (xy 143.471305 80.867995)
-				(xy 143.471294 80.868) (xy 143.326959 80.957028) (xy 143.326955 80.957031) (xy 143.207032 81.076954)
-				(xy 143.207029 81.076958) (xy 143.118001 81.221293) (xy 143.117996 81.221304) (xy 143.064651 81.382289)
-				(xy 143.0545 81.481646) (xy 143.0545 82.078336) (xy 143.054501 82.078354) (xy 143.06465 82.177706)
-				(xy 143.064651 82.177709) (xy 143.071138 82.197284) (xy 143.115559 82.33134) (xy 143.120269 82.345551)
-				(xy 143.117405 82.346499) (xy 143.12585 82.402125) (xy 143.097325 82.465907) (xy 143.059273 82.495927)
-				(xy 142.918388 82.567712) (xy 142.752786 82.688027) (xy 142.608032 82.832781) (xy 142.608028 82.832786)
-				(xy 142.555318 82.905336) (xy 142.499988 82.948002) (xy 142.430375 82.953981) (xy 142.36858 82.921375)
-				(xy 142.354682 82.905336) (xy 142.301971 82.832786) (xy 142.301967 82.832781) (xy 142.157213 82.688027)
-				(xy 141.991613 82.567714) (xy 141.991612 82.567713) (xy 141.99161 82.567712) (xy 141.928212 82.535409)
-				(xy 141.877416 82.487434) (xy 141.860621 82.419613) (xy 141.878971 82.359823) (xy 141.892003 82.338696)
-				(xy 141.945349 82.177707) (xy 141.9555 82.078344) (xy 141.955499 81.481655) (xy 141.945349 81.382291)
-				(xy 141.892003 81.221302) (xy 141.891999 81.221296) (xy 141.891998 81.221293) (xy 141.80297 81.076958)
-				(xy 141.802967 81.076954) (xy 141.683044 80.957031) (xy 141.68304 80.957028) (xy 141.538705 80.868)
-				(xy 141.538699 80.867997) (xy 141.538697 80.867996) (xy 141.538694 80.867995) (xy 141.377709 80.81465)
-				(xy 141.278346 80.804499) (xy 140.731662 80.804499) (xy 140.731644 80.8045) (xy 140.632292 80.814649)
-				(xy 140.632289 80.81465) (xy 140.471305 80.867995) (xy 140.471294 80.868) (xy 140.326959 80.957028)
-				(xy 140.326955 80.957031) (xy 140.207032 81.076954) (xy 140.207029 81.076958) (xy 140.118001 81.221293)
-				(xy 140.117996 81.221304) (xy 140.064651 81.382289) (xy 140.0545 81.481646) (xy 140.0545 82.078336)
-				(xy 140.054501 82.078354) (xy 140.06465 82.177706) (xy 140.064651 82.177709) (xy 140.117996 82.338693)
-				(xy 140.118001 82.338704) (xy 140.207029 82.483039) (xy 140.207032 82.483043) (xy 140.326956 82.602967)
-				(xy 140.330102 82.604908) (xy 140.331807 82.606803) (xy 140.332623 82.607448) (xy 140.332512 82.607587)
-				(xy 140.341666 82.617764) (xy 140.35646 82.626709) (xy 140.364542 82.643197) (xy 140.376827 82.656855)
-				(xy 140.379603 82.673921) (xy 140.387214 82.689446) (xy 140.385098 82.707691) (xy 140.388048 82.725818)
-				(xy 140.381127 82.74194) (xy 140.379167 82.758851) (xy 140.364585 82.780477) (xy 140.360905 82.789053)
-				(xy 140.357013 82.7938) (xy 140.318034 82.83278) (xy 140.263207 82.908243) (xy 140.2609 82.911058)
-				(xy 140.234908 82.928785) (xy 140.209988 82.948002) (xy 140.206264 82.948321) (xy 140.203178 82.950427)
-				(xy 140.171722 82.951288) (xy 140.140375 82.953981) (xy 140.137071 82.952237) (xy 140.133335 82.95234)
-				(xy 140.106405 82.936056) (xy 140.07858 82.921375) (xy 140.07468 82.916874) (xy 140.073545 82.916188)
-				(xy 140.072841 82.914751) (xy 140.064682 82.905336) (xy 140.011971 82.832786) (xy 140.011967 82.832781)
-				(xy 139.867213 82.688027) (xy 139.701613 82.567714) (xy 139.701612 82.567713) (xy 139.70161 82.567712)
-				(xy 139.615434 82.523803) (xy 139.519223 82.47478) (xy 139.324534 82.411521) (xy 139.149995 82.383877)
-				(xy 139.122352 82.379499) (xy 138.917648 82.379499) (xy 138.893329 82.38335) (xy 138.715465 82.411521)
-				(xy 138.520776 82.47478) (xy 138.338386 82.567714) (xy 138.172786 82.688027) (xy 138.028028 82.832785)
-				(xy 137.907715 82.998385) (xy 137.814781 83.180775) (xy 137.751522 83.375464) (xy 137.7195 83.577647)
-				(xy 137.7195 83.662516) (xy 137.699815 83.729555) (xy 137.647011 83.77531) (xy 137.595617 83.786516)
-				(xy 137.53 83.786577) (xy 137.53 86.065499) (xy 137.510315 86.132538) (xy 137.457511 86.178293)
-				(xy 137.406 86.189499) (xy 137.397648 86.189499) (xy 137.373329 86.19335) (xy 137.195465 86.221521)
-				(xy 137.000776 86.28478) (xy 136.818386 86.377714) (xy 136.652786 86.498027) (xy 136.508028 86.642785)
-				(xy 136.387715 86.808385) (xy 136.294781 86.990775) (xy 136.231522 87.185464) (xy 136.1995 87.387647)
-				(xy 136.1995 87.59235) (xy 136.231522 87.794533) (xy 136.294781 87.989222) (xy 136.387715 88.171612)
-				(xy 136.508028 88.337212) (xy 136.508034 88.337218) (xy 136.652781 88.481965) (xy 136.686936 88.50678)
-				(xy 136.725338 88.53468) (xy 136.742515 88.556956) (xy 136.762122 88.57713) (xy 136.763565 88.584254)
-				(xy 136.768004 88.59001) (xy 136.770411 88.618037) (xy 136.775998 88.645608) (xy 136.773361 88.652381)
-				(xy 136.773983 88.659623) (xy 136.760855 88.684502) (xy 136.75065 88.710718) (xy 136.743207 88.71795)
-				(xy 136.741378 88.721419) (xy 136.72534 88.735316) (xy 136.696435 88.756316) (xy 136.630631 88.779797)
-				(xy 136.62355 88.779999) (xy 135.93645 88.779999) (xy 135.869411 88.760314) (xy 135.863565 88.756317)
-				(xy 135.741613 88.667714) (xy 135.741612 88.667713) (xy 135.74161 88.667712) (xy 135.677407 88.634999)
-				(xy 135.559223 88.57478) (xy 135.364534 88.511521) (xy 135.177915 88.481964) (xy 135.162352 88.479499)
-				(xy 134.957648 88.479499) (xy 134.942085 88.481964) (xy 134.755465 88.511521) (xy 134.560776 88.57478)
-				(xy 134.378386 88.667714) (xy 134.256435 88.756317) (xy 134.190629 88.779797) (xy 134.18355 88.779999)
-				(xy 130.331362 88.779999) (xy 130.264323 88.760314) (xy 130.243681 88.74368) (xy 130.066319 88.566318)
-				(xy 130.032834 88.504995) (xy 130.03 88.478637) (xy 130.03 84.460102) (xy 130.049685 84.393063)
-				(xy 130.053683 84.387216) (xy 130.072284 84.361613) (xy 130.072285 84.361612) (xy 130.072287 84.361609)
-				(xy 130.16522 84.179218) (xy 130.228477 83.984533) (xy 130.2605 83.782351) (xy 130.2605 83.577647)
-				(xy 130.228477 83.375465) (xy 130.16522 83.18078) (xy 130.165218 83.180777) (xy 130.165218 83.180775)
-				(xy 130.131503 83.114606) (xy 130.072287 82.998389) (xy 130.038756 82.952237) (xy 129.951971 82.832785)
-				(xy 129.836365 82.717179) (xy 129.80288 82.655856) (xy 129.807864 82.586164) (xy 129.849736 82.530231)
-				(xy 129.9152 82.505814) (xy 129.924046 82.505498) (xy 130.003338 82.505498) (xy 130.003344 82.505498)
-				(xy 130.003352 82.505497) (xy 130.003355 82.505497) (xy 130.05776 82.499939) (xy 130.102708 82.495348)
-				(xy 130.263697 82.442002) (xy 130.408044 82.352967) (xy 130.527968 82.233043) (xy 130.617003 82.088696)
-				(xy 130.670349 81.927707) (xy 130.6805 81.828344) (xy 130.680499 81.231655) (xy 130.679441 81.221302)
-				(xy 130.670349 81.132291) (xy 130.670348 81.132288) (xy 130.617003 80.971302) (xy 130.616999 80.971296)
-				(xy 130.616998 80.971293) (xy 130.52797 80.826958) (xy 130.527967 80.826954) (xy 130.408044 80.707031)
-				(xy 130.40804 80.707028) (xy 130.263705 80.618) (xy 130.263699 80.617997) (xy 130.263697 80.617996)
-				(xy 130.263694 80.617995) (xy 130.102709 80.56465) (xy 130.003346 80.554499) (xy 129.456662 80.554499)
-				(xy 129.456644 80.5545) (xy 129.357292 80.564649) (xy 129.357289 80.56465) (xy 129.196305 80.617995)
-				(xy 129.196294 80.618) (xy 129.051959 80.707028) (xy 129.051955 80.707031) (xy 128.932032 80.826954)
-				(xy 128.932029 80.826958) (xy 128.843001 80.971293) (xy 128.842996 80.971304) (xy 128.789651 81.132289)
-				(xy 128.7795 81.231646) (xy 128.7795 81.828336) (xy 128.779501 81.828354) (xy 128.78965 81.927706)
-				(xy 128.789651 81.927709) (xy 128.842996 82.088693) (xy 128.843001 82.088704) (xy 128.909975 82.197284)
-				(xy 128.928416 82.264676) (xy 128.907494 82.33134) (xy 128.853852 82.376109) (xy 128.823835 82.384854)
-				(xy 128.655465 82.411521) (xy 128.460776 82.47478) (xy 128.278386 82.567714) (xy 128.112786 82.688027)
-				(xy 127.968032 82.832781) (xy 127.968028 82.832786) (xy 127.915318 82.905336) (xy 127.859988 82.948002)
-				(xy 127.790375 82.953981) (xy 127.72858 82.921375) (xy 127.714682 82.905336) (xy 127.661971 82.832786)
-				(xy 127.661967 82.832781) (xy 127.517217 82.688031) (xy 127.517212 82.688027) (xy 127.36733 82.579132)
-				(xy 127.324664 82.523803) (xy 127.318685 82.454189) (xy 127.35129 82.392394) (xy 127.375116 82.373277)
-				(xy 127.408044 82.352967) (xy 127.527968 82.233043) (xy 127.617003 82.088696) (xy 127.670349 81.927707)
-				(xy 127.6805 81.828344) (xy 127.680499 81.231655) (xy 127.679441 81.221302) (xy 127.670349 81.132291)
-				(xy 127.670348 81.132288) (xy 127.617003 80.971302) (xy 127.616999 80.971296) (xy 127.616998 80.971293)
-				(xy 127.52797 80.826958) (xy 127.527967 80.826954) (xy 127.408044 80.707031) (xy 127.40804 80.707028)
-				(xy 127.263705 80.618) (xy 127.263699 80.617997) (xy 127.263697 80.617996) (xy 127.263694 80.617995)
-				(xy 127.102709 80.56465) (xy 127.003346 80.554499) (xy 126.456662 80.554499) (xy 126.456644 80.5545)
-				(xy 126.357292 80.564649) (xy 126.357289 80.56465) (xy 126.196305 80.617995) (xy 126.196294 80.618)
-				(xy 126.051959 80.707028) (xy 126.051955 80.707031) (xy 125.932032 80.826954) (xy 125.932029 80.826958)
-				(xy 125.843001 80.971293) (xy 125.842996 80.971304) (xy 125.789651 81.132289) (xy 125.7795 81.231646)
-				(xy 125.7795 81.828336) (xy 125.779501 81.828354) (xy 125.78965 81.927706) (xy 125.789651 81.927709)
-				(xy 125.842996 82.088693) (xy 125.843001 82.088704) (xy 125.932029 82.233039) (xy 125.932032 82.233043)
-				(xy 126.052077 82.353088) (xy 126.085562 82.414411) (xy 126.080578 82.484103) (xy 126.038706 82.540036)
-				(xy 126.020691 82.551254) (xy 125.988385 82.567714) (xy 125.822786 82.688027) (xy 125.822782 82.688031)
-				(xy 125.741681 82.769133) (xy 125.680358 82.802618) (xy 125.610666 82.797634) (xy 125.554733 82.755762)
-				(xy 125.530316 82.690298) (xy 125.53 82.681452) (xy 125.53 74.831361) (xy 125.549685 74.764322)
-				(xy 125.566319 74.74368) (xy 125.743681 74.566318) (xy 125.805004 74.532833) (xy 125.831362 74.529999)
-				(xy 133.478638 74.529999)
-			)
-		)
-	)
-	(zone
 		(net 3)
-<<<<<<< HEAD
 		(uuid "1ad322ef-b961-422e-ac05-407200a4ce14")
 	)
 	(segment
@@ -7307,64 +6523,6 @@
 		(net 16)
 		(uuid "52c84176-0dce-493c-a445-4d97c0ce9c12")
 =======
-=======
-		(net_name "+5V")
-		(layer "F.Cu")
-		(uuid "c154130f-02e1-4a5f-ac43-9bd53b144670")
-		(hatch edge 0.5)
-		(priority 2)
-		(connect_pads yes
-			(clearance 0.5)
-		)
-		(min_thickness 0.25)
-		(filled_areas_thickness no)
-		(fill yes
-			(thermal_gap 0.5)
-			(thermal_bridge_width 0.5)
-			(smoothing chamfer)
-			(radius 0.25)
-		)
-		(polygon
-			(pts
-				(xy 133.78 109.029999) (xy 125.53 109.029999) (xy 125.53 101.779999) (xy 129.78 101.779999) (xy 129.78 95.779999)
-				(xy 127.78 95.779999) (xy 127.78 93.029999) (xy 136.03 93.029999) (xy 136.03 105.279999) (xy 133.78 105.279999)
-			)
-		)
-		(filled_polygon
-			(layer "F.Cu")
-			(pts
-				(xy 134.196647 93.049684) (xy 134.210148 93.059716) (xy 134.212787 93.06197) (xy 134.343092 93.156641)
-				(xy 134.37839 93.182286) (xy 134.494607 93.241502) (xy 134.560776 93.275217) (xy 134.560778 93.275217)
-				(xy 134.560781 93.275219) (xy 134.652447 93.305003) (xy 134.755465 93.338476) (xy 134.856557 93.354487)
-				(xy 134.957648 93.370499) (xy 134.957649 93.370499) (xy 135.162351 93.370499) (xy 135.162352 93.370499)
-				(xy 135.364534 93.338476) (xy 135.559219 93.275219) (xy 135.74161 93.182286) (xy 135.766368 93.164298)
-				(xy 135.798484 93.152837) (xy 135.830408 93.140931) (xy 135.831305 93.141126) (xy 135.832172 93.140817)
-				(xy 135.865392 93.148541) (xy 135.898681 93.155783) (xy 135.899647 93.156506) (xy 135.900226 93.156641)
-				(xy 135.926935 93.176934) (xy 135.993681 93.24368) (xy 136.027166 93.305003) (xy 136.03 93.331361)
-				(xy 136.03 104.978637) (xy 136.010315 105.045676) (xy 135.993681 105.066318) (xy 135.816319 105.24368)
-				(xy 135.754996 105.277165) (xy 135.728638 105.279999) (xy 133.78 105.279999) (xy 133.78 106.480069)
-				(xy 133.766485 106.536363) (xy 133.743446 106.581579) (xy 133.743442 106.581589) (xy 133.677753 106.783759)
-				(xy 133.6445 106.993712) (xy 133.6445 107.206285) (xy 133.677753 107.416238) (xy 133.743444 107.618415)
-				(xy 133.766484 107.663632) (xy 133.78 107.719928) (xy 133.78 108.728637) (xy 133.760315 108.795676)
-				(xy 133.743681 108.816318) (xy 133.566319 108.99368) (xy 133.504996 109.027165) (xy 133.478638 109.029999)
-				(xy 125.831362 109.029999) (xy 125.764323 109.010314) (xy 125.743681 108.99368) (xy 125.566319 108.816318)
-				(xy 125.532834 108.754995) (xy 125.53 108.728637) (xy 125.53 102.081361) (xy 125.549685 102.014322)
-				(xy 125.566319 101.99368) (xy 125.743681 101.816318) (xy 125.805004 101.782833) (xy 125.831362 101.779999)
-				(xy 129.78 101.779999) (xy 129.78 95.779999) (xy 129.53 95.779999) (xy 128.081362 95.779999) (xy 128.051921 95.771354)
-				(xy 128.021935 95.764831) (xy 128.016919 95.761076) (xy 128.014323 95.760314) (xy 127.993681 95.74368)
-				(xy 127.988234 95.738233) (xy 127.954749 95.67691) (xy 127.953442 95.66995) (xy 127.938477 95.575465)
-				(xy 127.87522 95.38078) (xy 127.875218 95.380777) (xy 127.875218 95.380775) (xy 127.829436 95.290925)
-				(xy 127.793514 95.220424) (xy 127.78 95.164131) (xy 127.78 93.331361) (xy 127.799685 93.264322)
-				(xy 127.816319 93.24368) (xy 127.993681 93.066318) (xy 128.055004 93.032833) (xy 128.081362 93.029999)
-				(xy 134.129608 93.029999)
-			)
-		)
-	)
-	(zone
-		(net 13)
-		(net_name "Net-(PS1-TRIM)")
-		(layer "F.Cu")
->>>>>>> parent of f549f5f (did a bit of buck)
 		(uuid "c66135de-c1ff-4201-97f5-425bafdc43fe")
 		(name "$teardrop_padvia$")
 		(hatch none 0.1)
@@ -7407,9 +6565,6 @@
 				(xy 124.178454 96.914892) (xy 124.183117 96.907248) (xy 124.190014 96.904999) (xy 124.369774 96.904999)
 			)
 		)
-<<<<<<< HEAD
->>>>>>> parent of f549f5f (did a bit of buck)
-=======
 >>>>>>> parent of f549f5f (did a bit of buck)
 	)
 	(zone
@@ -7439,7 +6594,6 @@
 		(filled_polygon
 			(layer "F.Cu")
 			(pts
-<<<<<<< HEAD
 <<<<<<< HEAD
 				(xy 144.443203 96.642122) (xy 144.449681 96.648154) (xy 145.307413 97.505886) (xy 145.330216 97.537271)
 				(xy 145.347713 97.57161) (xy 145.468028 97.737212) (xy 145.612786 97.88197) (xy 145.699843 97.945219)
@@ -7482,8 +6636,6 @@
 				(xy 144.362 104.029499) (xy 144.294961 104.009814) (xy 144.249206 103.95701) (xy 144.238 103.905499)
 				(xy 144.238 96.735835) (xy 144.257685 96.668796) (xy 144.310489 96.623041) (xy 144.379647 96.613097)
 =======
-=======
->>>>>>> parent of f549f5f (did a bit of buck)
 				(xy 148.984041 71.960764) (xy 149.006989 71.962268) (xy 149.238114 71.977416) (xy 149.254172 71.979531)
 				(xy 149.499888 72.028407) (xy 149.515554 72.032605) (xy 149.666736 72.083924) (xy 149.752788 72.113135)
 				(xy 149.767765 72.119338) (xy 149.985336 72.226632) (xy 149.99246 72.230145) (xy 150.006507 72.238255)
@@ -7893,16 +7045,12 @@
 				(xy 122.792238 72.119337) (xy 122.807209 72.113136) (xy 123.044452 72.032603) (xy 123.060099 72.02841)
 				(xy 123.305828 71.979532) (xy 123.321882 71.977417) (xy 123.575976 71.960763) (xy 123.58408 71.960499)
 				(xy 123.645893 71.960499) (xy 148.914107 71.960499) (xy 148.975932 71.960499)
-<<<<<<< HEAD
->>>>>>> parent of f549f5f (did a bit of buck)
-=======
 >>>>>>> parent of f549f5f (did a bit of buck)
 			)
 		)
 		(filled_polygon
 			(layer "F.Cu")
 			(pts
-<<<<<<< HEAD
 <<<<<<< HEAD
 				(xy 167.064041 85.540764) (xy 167.086989 85.542268) (xy 167.318114 85.557416) (xy 167.334172 85.559531)
 				(xy 167.579888 85.608407) (xy 167.595554 85.612605) (xy 167.746736 85.663924) (xy 167.832788 85.693135)
@@ -8351,8 +7499,6 @@
 				(xy 131.225828 85.559532) (xy 131.241882 85.557417) (xy 131.495976 85.540763) (xy 131.50408 85.540499)
 				(xy 131.565893 85.540499) (xy 166.994107 85.540499) (xy 167.055932 85.540499)
 =======
-=======
->>>>>>> parent of f549f5f (did a bit of buck)
 				(xy 144.28449 81.31629) (xy 144.30986 81.324697) (xy 144.335942 81.33686) (xy 144.355046 81.348643)
 				(xy 144.377621 81.366494) (xy 144.393496 81.382368) (xy 144.411356 81.404954) (xy 144.423136 81.424052)
 				(xy 144.435302 81.450141) (xy 144.443705 81.475499) (xy 144.449999 81.514502) (xy 144.449999 82.045494)
@@ -8439,16 +7585,12 @@
 				(xy 129.291291 81.225505) (xy 129.299697 81.200138) (xy 129.311861 81.174054) (xy 129.32364 81.154957)
 				(xy 129.341494 81.132376) (xy 129.357377 81.116494) (xy 129.379947 81.098647) (xy 129.399058 81.086859)
 				(xy 129.42514 81.074696) (xy 129.450508 81.06629) (xy 129.489504 81.059999) (xy 129.970495 81.059999)
-<<<<<<< HEAD
->>>>>>> parent of f549f5f (did a bit of buck)
-=======
 >>>>>>> parent of f549f5f (did a bit of buck)
 			)
 		)
 		(filled_polygon
 			(layer "B.Cu")
 			(pts
-<<<<<<< HEAD
 <<<<<<< HEAD
 				(xy 167.064041 85.540764) (xy 167.086989 85.542268) (xy 167.318114 85.557416) (xy 167.334172 85.559531)
 				(xy 167.579888 85.608407) (xy 167.595554 85.612605) (xy 167.746736 85.663924) (xy 167.832788 85.693135)
@@ -8931,8 +8073,6 @@
 				(xy 131.241882 85.557417) (xy 131.495976 85.540763) (xy 131.50408 85.540499) (xy 131.565893 85.540499)
 				(xy 166.994107 85.540499) (xy 167.055932 85.540499)
 =======
-=======
->>>>>>> parent of f549f5f (did a bit of buck)
 				(xy 148.984041 71.960764) (xy 149.006989 71.962268) (xy 149.238114 71.977416) (xy 149.254172 71.979531)
 				(xy 149.499888 72.028407) (xy 149.515554 72.032605) (xy 149.666736 72.083924) (xy 149.752788 72.113135)
 				(xy 149.767765 72.119338) (xy 149.985336 72.226632) (xy 149.99246 72.230145) (xy 150.006507 72.238255)
@@ -9471,9 +8611,6 @@
 				(xy 123.044452 72.032603) (xy 123.060099 72.02841) (xy 123.305828 71.979532) (xy 123.321882 71.977417)
 				(xy 123.575976 71.960763) (xy 123.58408 71.960499) (xy 123.645893 71.960499) (xy 148.914107 71.960499)
 				(xy 148.975932 71.960499)
-<<<<<<< HEAD
->>>>>>> parent of f549f5f (did a bit of buck)
-=======
 >>>>>>> parent of f549f5f (did a bit of buck)
 			)
 		)
