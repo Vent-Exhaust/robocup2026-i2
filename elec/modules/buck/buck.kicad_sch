@@ -745,6 +745,156 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Diode:B340"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "B340"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Diode_SMD:D_SMC"
+				(at 0 -4.445 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.jameco.com/Jameco/Products/ProdDS/1538777.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "40V 3A Schottky Barrier Rectifier Diode, SMC"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "diode Schottky"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "D*SMC*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "B340_0_1"
+				(polyline
+					(pts
+						(xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "B340_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "OKL-T_6-W12P-C_2"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1552,54 +1702,6 @@
 			(embedded_fonts no)
 		)
 	)
-	(rectangle
-		(start 237.49 90.17)
-		(end 259.715 98.425)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 75d5acd7-6ef4-4434-9ba6-d09f7897eebf)
-	)
-	(rectangle
-		(start 214.63 88.9)
-		(end 232.41 99.06)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 8aae509e-4d60-4f22-a239-6efe2342d88c)
-	)
-	(rectangle
-		(start 209.55 83.82)
-		(end 271.78 119.38)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid b5158383-7027-4084-bd35-25f403ed9f25)
-	)
-	(rectangle
-		(start 217.17 111.76)
-		(end 264.16 114.3)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid b5ede66c-626b-40c9-b6c5-04b053916ac7)
-	)
 	(text "Buckies"
 		(exclude_from_sim no)
 		(at 126.238 49.276 0)
@@ -2044,6 +2146,16 @@
 	)
 	(wire
 		(pts
+			(xy 179.07 62.23) (xy 177.8 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "468ea614-b81e-4435-a1a1-ad0089075dde")
+	)
+	(wire
+		(pts
 			(xy 81.28 59.69) (xy 102.87 59.69)
 		)
 		(stroke
@@ -2174,6 +2286,16 @@
 	)
 	(wire
 		(pts
+			(xy 179.07 101.6) (xy 177.8 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7db1f454-4014-4b34-9851-b67d0d38c354")
+	)
+	(wire
+		(pts
 			(xy 162.56 64.77) (xy 162.56 62.23)
 		)
 		(stroke
@@ -2281,6 +2403,16 @@
 			(type default)
 		)
 		(uuid "ab035032-714a-4ff5-83f5-9808a88627c1")
+	)
+	(wire
+		(pts
+			(xy 170.18 101.6) (xy 167.64 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd49fe1f-2c8f-40d3-b4e1-a786ec3b27ea")
 	)
 	(wire
 		(pts
@@ -2401,6 +2533,16 @@
 			(type default)
 		)
 		(uuid "eac5e7aa-27f1-44a0-a481-9a747caaa4f1")
+	)
+	(wire
+		(pts
+			(xy 170.18 62.23) (xy 166.37 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f596b017-989c-40b6-8e12-aec0fa4dd7dd")
 	)
 	(wire
 		(pts
@@ -3457,7 +3599,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 167.64 101.6 0)
+		(at 179.07 101.6 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3466,7 +3608,7 @@
 		(fields_autoplaced yes)
 		(uuid "5ad00dfb-1c6c-4ffc-a087-dcb26a4aee11")
 		(property "Reference" "#PWR012"
-			(at 167.64 105.41 0)
+			(at 175.26 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3475,15 +3617,16 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 167.64 96.52 0)
+			(at 182.88 101.5999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 167.64 101.6 0)
+			(at 179.07 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3492,7 +3635,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 167.64 101.6 0)
+			(at 179.07 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3501,7 +3644,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 167.64 101.6 0)
+			(at 179.07 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3583,6 +3726,74 @@
 			(project "buck"
 				(path "/b0c14512-e8a3-4c13-88d8-be98af63a21a"
 					(reference "#PWR020")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Diode:B340")
+		(at 173.99 62.23 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "768b72af-8552-4940-bb28-1148efda72fd")
+		(property "Reference" "D1"
+			(at 174.3075 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SS54"
+			(at 174.3075 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Buck:DIOM5025X220N"
+			(at 173.99 57.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.jameco.com/Jameco/Products/ProdDS/1538777.pdf"
+			(at 173.99 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 173.99 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a4e147ac-c2ee-450a-942e-a7d5ff334bac")
+		)
+		(pin "2"
+			(uuid "a1ed2d44-d900-4ed7-9a82-49d27500cc3e")
+		)
+		(instances
+			(project "buck"
+				(path "/b0c14512-e8a3-4c13-88d8-be98af63a21a"
+					(reference "D1")
 					(unit 1)
 				)
 			)
@@ -4307,6 +4518,74 @@
 		)
 	)
 	(symbol
+		(lib_id "Diode:B340")
+		(at 173.99 101.6 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b738da9d-1d9f-46bc-84ac-bd14b0fe8967")
+		(property "Reference" "D2"
+			(at 174.3075 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SS54"
+			(at 174.3075 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Buck:DIOM5025X220N"
+			(at 173.99 97.155 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.jameco.com/Jameco/Products/ProdDS/1538777.pdf"
+			(at 173.99 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 173.99 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2f60e121-923d-4f25-9f6c-67784a51650a")
+		)
+		(pin "2"
+			(uuid "6bf6f2c4-12af-4eab-a4f5-a4db985de702")
+		)
+		(instances
+			(project "buck"
+				(path "/b0c14512-e8a3-4c13-88d8-be98af63a21a"
+					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Polarized")
 		(at 167.64 106.68 0)
 		(unit 1)
@@ -4377,7 +4656,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 166.37 62.23 0)
+		(at 179.07 62.23 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4385,7 +4664,7 @@
 		(dnp no)
 		(uuid "d814257a-bb9d-48d5-8921-ba9a0c955692")
 		(property "Reference" "#PWR025"
-			(at 166.37 66.04 0)
+			(at 175.26 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4394,7 +4673,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 164.338 57.912 0)
+			(at 183.388 60.198 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4403,7 +4682,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 166.37 62.23 0)
+			(at 179.07 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4412,7 +4691,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 166.37 62.23 0)
+			(at 179.07 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4421,7 +4700,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 166.37 62.23 0)
+			(at 179.07 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
