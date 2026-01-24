@@ -253,7 +253,7 @@
 		(path "/900e4808-a3fe-4abe-9b2d-0e3db53472fa")
 		(sheetname "/")
 		(sheetfile "layer1.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 20.06 3.51)
 			(end 20.06 -2.46)
@@ -1034,7 +1034,7 @@
 		(path "/8c3ff65b-f5df-46df-a5f8-a924edeaca3d")
 		(sheetname "/")
 		(sheetfile "layer1.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.33 -1.33)
 			(end 0 -1.33)
@@ -1497,7 +1497,7 @@
 		(path "/e04df87a-b7e4-4be9-ab16-f263b8777dc2")
 		(sheetname "/")
 		(sheetfile "layer1.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -8.89 17.78)
 			(end -8.89 -18.48)
@@ -3137,7 +3137,7 @@
 		(path "/fe3c9f66-b878-4193-b1a3-d74186678b71")
 		(sheetname "/")
 		(sheetfile "layer1.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.33 -1.33)
 			(end 0 -1.33)
@@ -4099,7 +4099,7 @@
 		(path "/d8b2ac21-5523-4e04-9d99-90b952a4ac4b")
 		(sheetname "/")
 		(sheetfile "layer1.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 20.06 3.51)
 			(end 20.06 -2.46)
@@ -5311,7 +5311,7 @@
 		(path "/fb458307-5c56-4bce-830c-f8939a9c0a41")
 		(sheetname "/")
 		(sheetfile "layer1.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.33 -1.33)
 			(end 0 -1.33)
@@ -5621,7 +5621,7 @@
 		(path "/9fa8e070-9693-4f02-98df-49011999c714")
 		(sheetname "/")
 		(sheetfile "layer1.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -2.85 -2.75)
 			(end -2.85 -1.5)
@@ -6962,7 +6962,7 @@
 		(path "/34905f99-e03a-4587-9220-8b1b25a0f3c1")
 		(sheetname "/")
 		(sheetfile "layer1.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -2.85 -2.75)
 			(end -2.85 -1.5)
@@ -8034,7 +8034,7 @@
 		(path "/87183605-0c4c-4f11-a182-a922efdf212c")
 		(sheetname "/")
 		(sheetfile "layer1.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.33 -1.33)
 			(end 0 -1.33)
