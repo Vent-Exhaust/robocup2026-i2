@@ -162,6 +162,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -0.766064 -0.353622) (xy -0.745284 -0.301672) (xy -0.655591 -0.012663) (xy -0.642119 0.000808)
@@ -213,7 +214,7 @@
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "5d700948-e629-49bf-a315-735213ce25d8")
+			(uuid "a21b2fe5-9f21-44ff-8c16-f71115bd7228")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -226,7 +227,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "5dfe1e6b-ed50-4662-bce1-8e7542898951")
+			(uuid "159a2f4a-136d-4d3e-812d-5511e008ad89")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -239,7 +240,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ffb0ffe9-f0bd-4958-9e2a-a5aa4b828b1a")
+			(uuid "fe4b4fe4-27f4-4b74-aa6c-24e7713250dd")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -251,7 +252,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "c9100081-c824-4717-b17a-0f248ce920c0")
+			(uuid "8fef3c20-2ad4-4a1f-855f-ea8f66bd6a95")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -259,6 +260,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -2.588155 -0.143065) (xy -2.601208 0.039675) (xy -2.632597 0.175693) (xy -2.69916 0.335444)
@@ -559,6 +561,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -1.252583 -0.182147) (xy -1.208064 -0.150818) (xy -1.176934 -0.10746) (xy -1.15864 -0.05767)
@@ -664,6 +667,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.115 -0.432071) (xy 1.115 -0.377324) (xy 1.081514 -0.355) (xy -1.115 -0.355) (xy -1.115 -0.465)
@@ -794,6 +798,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_circle
 			(center 0 0)
 			(end 2.794 0)
@@ -869,6 +874,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(pad "1" smd roundrect
 			(at 0 0)
 			(size 1 1)
@@ -935,6 +941,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -0.747041 -0.354576) (xy -0.725 -0.321514) (xy -0.725 0.300616) (xy -0.735917 0.344282) (xy -0.789505 0.355)
@@ -2570,6 +2577,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.03175 0.13335) (xy -0.70485 0.13335) (xy -0.70485 -0.13335) (xy 0.03175 -0.13335)
@@ -2768,6 +2776,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -0.665 -0.34309) (xy -0.665 0.322071) (xy -0.697597 0.354669) (xy -0.760558 0.365162) (xy -0.81281 0.344261)
@@ -2875,6 +2884,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -1.126576 -0.353878) (xy -1.105647 -0.322484) (xy -0.835274 0.23829) (xy -0.824701 0.280582)
@@ -3133,6 +3143,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.103424 -0.193878) (xy 1.144333 -0.132514) (xy 1.174835 -0.07151) (xy 1.185051 0) (xy 1.174835 0.07151)
@@ -3409,6 +3420,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 20.066 0.254) (xy 20.574 0.254) (xy 20.574 -0.254) (xy 20.066 -0.254)
@@ -3672,6 +3684,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.402593 -0.224328) (xy 1.453557 -0.183557) (xy 1.494235 -0.13271) (xy 1.524835 -0.07151) (xy 1.535051 0)
@@ -3760,6 +3773,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.252471 -0.354397) (xy 0.29442 -0.322935) (xy 0.305123 -0.280122) (xy 0.294772 -0.228363) (xy 0.044564 0.272051)
@@ -3883,6 +3897,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.23825 0.13335) (xy 0.50165 0.13335) (xy 0.50165 -0.13335) (xy 1.23825 -0.13335)
@@ -4116,6 +4131,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -1.12849 -0.474835) (xy -1.067486 -0.444333) (xy -1.006815 -0.403886) (xy -0.956269 -0.35334)
@@ -4231,6 +4247,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_circle
 			(center 0 0)
 			(end 2.794 0)
@@ -4305,6 +4322,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.594423 -0.343379) (xy 0.605 -0.290495) (xy 0.605 0.205) (xy 0.850414 0.205) (xy 0.912959 0.215424)
@@ -4425,6 +4443,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.524 0.762)
 			(end -1.524 -0.762)
@@ -4601,6 +4620,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 25.146 0.254) (xy 25.654 0.254) (xy 25.654 -0.254) (xy 25.146 -0.254)
@@ -4910,6 +4930,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -0.096064 -0.343622) (xy -0.075 -0.290963) (xy -0.075 0.205) (xy 0.170495 0.205) (xy 0.222465 0.215394)
@@ -5023,6 +5044,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.530355 -0.685) (xy 1.600707 -0.67495) (xy 1.671153 -0.664886) (xy 1.731581 -0.644743) (xy 1.791918 -0.624631)
@@ -5097,6 +5119,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.494423 -0.343379) (xy 1.505099 -0.29) (xy 1.494423 -0.236621) (xy 1.45118 -0.215) (xy 1.290496 -0.215)
@@ -5227,6 +5250,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.091637 -0.374772) (xy 0.132051 -0.354564) (xy 0.182229 -0.334494) (xy 0.234348 -0.303222)
@@ -5484,6 +5508,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.091637 -0.374772) (xy 0.132051 -0.354564) (xy 0.182229 -0.334494) (xy 0.234348 -0.303222)
@@ -5741,6 +5766,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.250355 -0.685) (xy 1.320707 -0.67495) (xy 1.390765 -0.664942) (xy 1.451416 -0.654833) (xy 1.522105 -0.624538)
@@ -5817,6 +5843,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.70485 0.13335) (xy -0.03175 0.13335) (xy -0.03175 -0.13335) (xy 0.70485 -0.13335)
@@ -6016,6 +6043,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(pad "1" smd roundrect
 			(at 0 0)
 			(size 1 1)
@@ -6082,6 +6110,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.975 -0.355) (xy -0.975 -0.355) (xy -0.975 -0.465) (xy 0.975 -0.465)
@@ -6197,6 +6226,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start 0 0)
 			(end 101.6 0)
@@ -6349,6 +6379,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.995 -0.452831) (xy 1.995 -0.379586) (xy 1.984552 -0.3169) (xy 1.931385 -0.285) (xy 1.720414 -0.285)
@@ -6480,6 +6511,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -0.647041 -0.354576) (xy -0.625244 -0.321881) (xy -0.615 -0.260414) (xy -0.615 0.240414) (xy -0.625101 0.301019)
@@ -6587,6 +6619,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.295 -0.45309) (xy 1.295 -0.379586) (xy 1.284552 -0.3169) (xy 1.231385 -0.285) (xy 1.020414 -0.285)
@@ -6702,6 +6735,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -1.49191 0.075) (xy -1.642676 0.075) (xy -1.665712 0.040445) (xy -1.604507 -0.092166) (xy -1.59 -0.12118)
@@ -7061,6 +7095,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.252471 -0.354397) (xy 0.29442 -0.322935) (xy 0.305123 -0.280122) (xy 0.294772 -0.228363) (xy 0.044564 0.272051)
@@ -7182,6 +7217,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -0.137529 -0.354397) (xy -0.09558 -0.322935) (xy -0.084877 -0.280122) (xy -0.095228 -0.228363)
@@ -7274,6 +7310,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.723424 -0.353878) (xy 0.744353 -0.322484) (xy 1.014726 0.23829) (xy 1.025428 0.281096) (xy 0.993412 0.323784)
@@ -7389,6 +7426,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.091637 -0.374772) (xy 0.132051 -0.354564) (xy 0.182229 -0.334494) (xy 0.234348 -0.303222)
@@ -7472,6 +7510,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_circle
 			(center 0 0)
 			(end 2.794 0)
@@ -7546,6 +7585,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -0.145577 -0.343379) (xy -0.134901 -0.29) (xy -0.145577 -0.236621) (xy -0.18882 -0.215) (xy -0.349504 -0.215)
@@ -7589,7 +7629,7 @@
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "abf4e08d-e414-41c9-bfce-573d0c2db7e3")
+			(uuid "c548ff33-190b-4fbc-b183-dea7605e4d42")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7602,7 +7642,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "478c32e9-d661-45fd-b92d-8d7aeb14c3a3")
+			(uuid "83a674e5-024f-4771-ae54-a14900f802a7")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7615,7 +7655,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "736aa470-c845-47d1-a990-fb3f2e28da53")
+			(uuid "fed952a5-7b9e-454d-a2a4-d853a6ffc6b5")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7627,7 +7667,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "476e5c74-8576-46a2-aec0-883945bd376a")
+			(uuid "ce1ac479-f858-4426-8bf4-ae0ed471dc05")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7635,6 +7675,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 2.834634 -0.50292) (xy 2.845 -0.430355) (xy 2.845 0.400355) (xy 2.834807 0.471707) (xy 2.802996 0.524725)
@@ -7860,6 +7901,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -1.196703 -0.685) (xy 1.512831 -0.685) (xy 1.545 -0.631385) (xy 1.545 0.663385) (xy 1.490963 0.685)
@@ -7935,6 +7977,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -0.066989 -0.354497) (xy -0.045244 -0.321881) (xy -0.035 -0.260414) (xy -0.035 0.30118) (xy -0.056556 0.344293)
@@ -8051,6 +8094,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.58271 -0.374235) (xy 0.634441 -0.33285) (xy 0.645243 -0.289644) (xy 0.624284 -0.237246) (xy 0.416839 -0.019923)
@@ -8148,6 +8192,7 @@
 				)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_circle
 			(center 0 0)
 			(end 2.794 0)
@@ -8202,7 +8247,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 270)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "103b781b-e6dd-40f7-8069-ed7026d1fc0a")
@@ -8214,7 +8259,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 0 0 270)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "57f1401c-23ca-4b53-94e0-71faaac6b1ca")
@@ -8408,6 +8453,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.830414 0.685) (xy 1.895 0.674236) (xy 1.895 -0.685) (xy -1.830414 -0.685) (xy -1.895 -0.674236)
@@ -8749,6 +8795,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 4.892676 0.685) (xy 4.915758 0.650377) (xy 4.61481 0.038451) (xy 4.605196 -0.019235) (xy 4.904775 -0.628379)
@@ -9118,6 +9165,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(pad "1" smd roundrect
 			(at 0 0 180)
 			(size 1 1)
@@ -9365,6 +9413,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.683385 0.685) (xy 1.705 0.630963) (xy 1.705 -0.663385) (xy 1.650963 -0.685) (xy -1.672071 -0.685)
@@ -9641,6 +9690,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -1.895891 0.102962) (xy -1.835 -0.01882) (xy -1.835 -0.075) (xy -1.975 -0.075) (xy -1.975 -0.018902)
@@ -9738,6 +9788,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -0.536273 0.223727) (xy -0.505 0.16118) (xy -0.505 0.088246) (xy -0.546581 0.03627) (xy -0.578486 0.015)
@@ -9843,6 +9894,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.624236 0.685) (xy 1.635 0.620414) (xy 1.635 -0.674236) (xy 1.570414 -0.685) (xy -1.612403 -0.685)
@@ -9914,6 +9966,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.922514 0.224333) (xy 0.983419 0.18373) (xy 1.024461 0.132427) (xy 1.044886 0.071153) (xy 1.055051 0)
@@ -10005,6 +10058,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 2.525 0.45309) (xy 2.525 -0.422071) (xy 2.482322 -0.464749) (xy 2.399956 -0.475044) (xy 2.326937 -0.464613)
@@ -10407,6 +10461,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.95577 -0.040359) (xy 0.932676 -0.075) (xy 0.79272 -0.075) (xy 0.846029 0.063605) (xy 0.892236 0.086708)
@@ -10890,6 +10945,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -1.927942 0.114757) (xy -1.875631 0.072908) (xy -1.854767 -0.000114) (xy -1.875799 -0.063209)
@@ -11692,6 +11748,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 2.375 0.685) (xy 2.375 -0.674236) (xy 2.310414 -0.685) (xy -2.375 -0.685) (xy -2.375 0.674236)
@@ -11958,6 +12015,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(pad "1" smd roundrect
 			(at 0 0 180)
 			(size 1 1)
@@ -12026,6 +12084,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.800414 0.685) (xy 1.865 0.674236) (xy 1.865 -0.620414) (xy 1.854236 -0.685) (xy -1.810963 -0.685)
@@ -12097,6 +12156,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.800414 0.685) (xy 1.865 0.674236) (xy 1.865 -0.620414) (xy 1.854236 -0.685) (xy -1.810963 -0.685)
@@ -12169,6 +12229,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.301646 1.06135) (xy 0.42347 1.022344) (xy 0.537176 0.963768) (xy 0.92862 1.282946) (xy 1.282946 0.92862)
@@ -12249,6 +12310,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -0.687018 0.234276) (xy -0.645243 0.182058) (xy -0.634829 0.109161) (xy -0.666494 0.045832)
@@ -12370,6 +12432,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.317196 -0.06366) (xy 0.260495 -0.075) (xy 0.19882 -0.075) (xy 0.15359 -0.052385) (xy 0.206667 0.075)
@@ -12751,6 +12814,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 4.50309 0.685) (xy 4.534472 0.622236) (xy 4.845404 0.010402) (xy 4.824631 -0.051918) (xy 4.523727 -0.653727)
@@ -13223,6 +13287,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -0.26849 0.244835) (xy -0.20729 0.214235) (xy -0.156019 0.173218) (xy -0.125369 0.111918) (xy -0.105 0.050811)
@@ -13493,6 +13558,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 0.382216 0.234532) (xy 0.443419 0.19373) (xy 0.484235 0.14271) (xy 0.514808 0.081564) (xy 0.525 0.020414)
@@ -13599,6 +13665,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.830414 0.685) (xy 1.895 0.674236) (xy 1.895 -0.685) (xy -1.830414 -0.685) (xy -1.895 -0.674236)
@@ -13684,6 +13751,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.450355 0.685) (xy 1.521153 0.674886) (xy 1.581458 0.654783) (xy 1.65182 0.63468) (xy 1.77271 0.574235)
@@ -13763,6 +13831,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -3.26 1.715)
 			(end -3.26 -1.715)
@@ -14080,6 +14149,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy -3.349016 0.114942) (xy -3.287018 0.094276) (xy -3.245 0.041754) (xy -3.245 -0.03118) (xy -3.276528 -0.094236)
@@ -14411,6 +14481,7 @@
 				(justify mirror)
 			)
 		)
+		(attr exclude_from_pos_files exclude_from_bom)
 		(fp_poly
 			(pts
 				(xy 1.830414 0.685) (xy 1.895 0.674236) (xy 1.895 -0.685) (xy -1.830414 -0.685) (xy -1.895 -0.674236)
@@ -14479,6 +14550,17 @@
 		)
 		(layer "Edge.Cuts")
 		(uuid "c5ff0aa9-149b-4c99-981e-4d11f40fe33d")
+	)
+	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC"
+		(at 148.5011 118.1486 -0)
+		(layer "F.SilkS")
+		(uuid "cd050263-2756-44d9-8649-7d18339cb406")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.2)
+			)
+		)
 	)
 	(gr_text "Solder Mask: Red\nThickness: 1.6mm\nTwo layer design\nFinish: HASL Lead-Free\nCopper Weight: 1oz\nMaterial: TG135-140"
 		(at 191.6811 88.4936 0)
