@@ -14551,17 +14551,6 @@
 		(layer "Edge.Cuts")
 		(uuid "c5ff0aa9-149b-4c99-981e-4d11f40fe33d")
 	)
-	(gr_text "design of 2-Chairs. 2025\nJLC Order No. JLCJLCJLCJLC"
-		(at 148.5011 118.1486 -0)
-		(layer "F.SilkS")
-		(uuid "cd050263-2756-44d9-8649-7d18339cb406")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.2)
-			)
-		)
-	)
 	(gr_text "Solder Mask: Red\nThickness: 1.6mm\nTwo layer design\nFinish: HASL Lead-Free\nCopper Weight: 1oz\nMaterial: TG135-140"
 		(at 191.6811 88.4936 0)
 		(layer "F.Fab")
