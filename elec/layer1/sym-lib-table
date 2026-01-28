@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "layer1-pcb-symbols")(type "KiCad")(uri "${KIPRJMOD}/libraries/layer1-pcb-symbols.kicad_sym")(options "")(descr ""))
+)
