@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'TC33X_2_104E'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "Bourns", "TC33X-2-104E" (!) = "", "TC33X2104E", "Other", "652-TC33X-2-104E", "https://www.mouser.co.uk/ProductDetail/Bourns/TC33X-2-104E?qs=2hAPiALdQ0llyX8B3WfcDg%3D%3D", "Trimmer Resistors - SMD 3MM 100KOHMS 25% 0.1WATT OPEN FRM", "https://www.bourns.com/docs/Product-Datasheets/TC33.pdf", "1.5 mm"
+END_PART
+
+END.
