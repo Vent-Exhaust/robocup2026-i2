@@ -58,7 +58,7 @@
     "ssh_key": ""
   },
   "meta": {
-    "filename": "elec.kicad_prl",
+    "filename": "layer2.kicad_prl",
     "version": 5
   },
   "net_inspector_panel": {
