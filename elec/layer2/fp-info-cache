@@ -1,4 +1,4 @@
-26784978244421563
+26786747978718718
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -106455,3 +106455,10 @@ VNH5019ATR-E
 0
 53
 33
+layer2-pcb-footprints
+buck-module
+
+
+0
+16
+4
