@@ -507,7 +507,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../pcb.step",
+      "step": "../../../../../Downloads/pcb.step",
       "svg": "",
       "vrml": ""
     },

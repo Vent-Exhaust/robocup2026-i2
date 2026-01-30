@@ -4828,16 +4828,6 @@
 	)
 	(wire
 		(pts
-			(xy 207.01 81.28) (xy 219.71 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "43144288-ccd3-4eb2-9621-82cb8b2e2428")
-	)
-	(wire
-		(pts
 			(xy 262.89 181.61) (xy 264.16 181.61)
 		)
 		(stroke
@@ -5275,6 +5265,16 @@
 			(type default)
 		)
 		(uuid "a073f126-5225-425b-8710-140797985ee0")
+	)
+	(wire
+		(pts
+			(xy 205.74 81.28) (xy 219.71 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a1443c57-0fe5-40df-8ac8-bf76e4d4e41a")
 	)
 	(wire
 		(pts
@@ -5756,7 +5756,7 @@
 		)
 		(uuid "030a6836-c151-4925-b1c2-078d83877d2f")
 	)
-	(label "Dribbler Data"
+	(label "Dribbler PWM"
 		(at 31.75 64.77 0)
 		(effects
 			(font
@@ -5956,6 +5956,16 @@
 		)
 		(uuid "58e57fab-b668-4b9a-a134-73a10ac40751")
 	)
+	(label "Dribbler PWM"
+		(at 205.74 81.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5e65b474-6bb7-40e1-9b0d-2dbf41698440")
+	)
 	(label "Motor 2 IN A"
 		(at 205.74 58.42 0)
 		(effects
@@ -6055,6 +6065,16 @@
 			(justify right bottom)
 		)
 		(uuid "88eda525-1c6f-466e-80f2-1676bcfc9248")
+	)
+	(label "Sol"
+		(at 271.78 81.28 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "91351662-2df0-417b-85b3-8e356e34780a")
 	)
 	(label "Motors Enable"
 		(at 152.4 175.26 180)
@@ -7360,7 +7380,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 207.01 81.28 90)
+		(at 205.74 81.28 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7368,7 +7388,7 @@
 		(dnp no)
 		(uuid "235e35a9-4381-42e3-a829-92ea5b82944b")
 		(property "Reference" "TP26"
-			(at 197.612 80.01 90)
+			(at 196.342 80.01 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7376,7 +7396,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 197.612 82.55 90)
+			(at 196.342 82.55 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7384,7 +7404,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_THTPad_D1.5mm_Drill0.7mm"
-			(at 207.01 76.2 0)
+			(at 205.74 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7393,7 +7413,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 207.01 76.2 0)
+			(at 205.74 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7402,7 +7422,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 207.01 81.28 0)
+			(at 205.74 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
