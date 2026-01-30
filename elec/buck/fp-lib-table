@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "buck-pcb-footprints")(type "KiCad")(uri "${KIPRJMOD}/libraries/buck-pcb-footprints.pretty")(options "")(descr ""))
+)
