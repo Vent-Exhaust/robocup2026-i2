@@ -5031,18 +5031,6 @@
 			)
 		)
 	)
-	(gr_text "JLCJLCJLCJLC\n"
-		(at 105.01 102.979999 0)
-		(layer "F.SilkS")
-		(uuid "588d44ba-1f73-4bd1-9062-7be20c0cf107")
-		(effects
-			(font
-				(size 1.5 1.5)
-				(thickness 0.3)
-				(bold yes)
-			)
-		)
-	)
 	(gr_text "12v"
 		(at 93.51 100.679999 180)
 		(layer "F.SilkS" knockout)

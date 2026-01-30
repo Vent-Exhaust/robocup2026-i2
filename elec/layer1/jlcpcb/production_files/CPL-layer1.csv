@@ -1,8 +1,6 @@
 Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 C1,100nF,C_0603_1608Metric,20.25,2.75,270.0,bottom
 C2,100nF,C_0603_1608Metric,-20.25,-2.75,90.0,bottom
-C3,1000uF,CP_Radial_D16.0mm_P7.50mm,-75.75,-20.75,0.0,top
-C4,1000uF,CP_Radial_D16.0mm_P7.50mm,-58.762754,-20.75,0.0,top
 D1,LED,LED_PLCC_2835,2e-06,51.0,90.0,bottom
 D10,LED,LED_PLCC_2835,50.020049,-9.949606,191.25,bottom
 D11,LED,LED_PLCC_2835,47.117855,-19.516855,202.5,bottom
