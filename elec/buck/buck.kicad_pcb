@@ -224,7 +224,7 @@
 		(path "/4447192b-d61b-4026-842d-41561cd11cfb")
 		(sheetname "/")
 		(sheetfile "buck.kicad_sch")
-		(attr smd)
+		(attr smd exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -6.3976 -6.3976)
 			(end -6.3976 -5.551796)
@@ -1090,7 +1090,7 @@
 		(path "/9dc79a8b-a570-4c87-9ffb-22c1c050e1bd")
 		(sheetname "/")
 		(sheetfile "buck.kicad_sch")
-		(attr smd)
+		(attr smd exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -6.3976 -6.3976)
 			(end -6.3976 -5.551796)
@@ -1890,7 +1890,7 @@
 		(path "/441bc5f5-dff0-4570-ae7e-e50fd75b6e97")
 		(sheetname "/")
 		(sheetfile "buck.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.38 -10.27)
 			(end 0 -10.27)
@@ -2288,7 +2288,7 @@
 		(path "/e6ab9ba3-7f9a-43ca-8bc4-1bd0a745a9ca")
 		(sheetname "/")
 		(sheetfile "buck.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(fp_line
 			(start -1.38 -10.27)
 			(end 0 -10.27)
@@ -5028,6 +5028,18 @@
 					(xy 115.623636 100.199346) (xy 115.65975 100.150647) (xy 115.705879 100.11165) (xy 115.762917 100.082727)
 					(xy 115.833215 100.064186) (xy 115.919869 100.057499) (xy 116.275425 100.057499)
 				)
+			)
+		)
+	)
+	(gr_text "JLCJLCJLCJLC\n"
+		(at 105.01 102.979999 0)
+		(layer "F.SilkS")
+		(uuid "588d44ba-1f73-4bd1-9062-7be20c0cf107")
+		(effects
+			(font
+				(size 1.5 1.5)
+				(thickness 0.3)
+				(bold yes)
 			)
 		)
 	)

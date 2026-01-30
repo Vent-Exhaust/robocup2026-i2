@@ -1,0 +1,11 @@
+Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
+C1,10u,C_0603_1608Metric,-12.295,3.25,270.0,bottom
+C2,22u,C_0603_1608Metric,4.25,3.25,270.0,bottom
+C3,22u,C_0603_1608Metric,-10.795,3.25,270.0,bottom
+C4,10u,C_0603_1608Metric,5.7,3.25,270.0,bottom
+C5,220u,CP_EIA-7343-15_Kemet-W_HandSolder,-8.2525,-0.75,0.0,bottom
+C6,220u,CP_EIA-7343-15_Kemet-W_HandSolder,8.25,-0.75,0.0,bottom
+D1,SS54,SS54,-6.7525,3.25,0.0,bottom
+D2,SS54,SS54,9.75,3.25,0.0,bottom
+R1,1.33k,R_0603_1608Metric,-5.2525,-4.0,0.0,bottom
+R2,2.18k,R_0603_1608Metric,11.25,-4.0,0.0,bottom
