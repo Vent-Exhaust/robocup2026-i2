@@ -514,7 +514,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../../../../../Downloads/pcb.step",
+      "step": "../../mech/pcbs/layer2.step",
       "svg": "",
       "vrml": ""
     },
