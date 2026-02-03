@@ -4508,8 +4508,8 @@
 		)
 		(uuid "0ce2fb47-ed03-42d5-ac95-3e024c7e9b87")
 	)
-	(label "Mux Com (17-32)"
-		(at 309.88 53.34 180)
+	(label "Mux Com (1-16)"
+		(at 309.88 66.04 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4889,7 +4889,7 @@
 		(uuid "8542bdec-00d9-49eb-b063-384dbae7a6a4")
 	)
 	(label "Mux Com (17-32)"
-		(at 309.88 66.04 180)
+		(at 309.88 53.34 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5148,7 +5148,7 @@
 		)
 		(uuid "cb380716-305b-4278-b9d6-4b470dc3b7b7")
 	)
-	(label "Mux Com (17-32)"
+	(label "Mux Com (1-16)"
 		(at 189.23 124.46 180)
 		(effects
 			(font
