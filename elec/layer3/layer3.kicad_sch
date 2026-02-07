@@ -4578,16 +4578,6 @@
 	)
 	(wire
 		(pts
-			(xy 151.13 151.13) (xy 151.13 152.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e370af02-5b21-406f-84f3-7f13bc3a982a")
-	)
-	(wire
-		(pts
 			(xy 341.63 133.35) (xy 341.63 134.62)
 		)
 		(stroke
@@ -4726,16 +4716,6 @@
 		)
 		(uuid "05323d15-2e6b-4bdc-ab17-91d5deab2831")
 	)
-	(label "IR15"
-		(at 215.9 162.56 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0abe6409-6cc2-4427-9fe9-5e96043fe03c")
-	)
 	(label "IR14"
 		(at 215.9 160.02 0)
 		(effects
@@ -4797,7 +4777,7 @@
 		(uuid "177a5635-8a36-453d-8c0c-741ae6b39166")
 	)
 	(label "Strat1"
-		(at 215.9 165.1 0)
+		(at 215.9 162.56 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4897,7 +4877,7 @@
 		(uuid "3382931a-4601-439c-8841-a3d7d814c852")
 	)
 	(label "IR29"
-		(at 153.67 189.23 0)
+		(at 152.4 168.91 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4955,16 +4935,6 @@
 			(justify left bottom)
 		)
 		(uuid "5361d85a-69b2-40b2-9f76-8e17d422e055")
-	)
-	(label "IR30"
-		(at 215.9 240.03 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5384990d-47e5-4be7-ac6c-df16f2a3b734")
 	)
 	(label "IR12"
 		(at 215.9 154.94 0)
@@ -5077,7 +5047,7 @@
 		(uuid "6c394404-8f2a-42f9-86f5-d4a0ed3f5955")
 	)
 	(label "Strat2"
-		(at 215.9 242.57 0)
+		(at 215.9 165.1 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5106,18 +5076,8 @@
 		)
 		(uuid "79be4343-f747-485c-8002-bafccca0c50f")
 	)
-	(label "IR15"
-		(at 151.13 152.4 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "80039ea5-5dd1-446c-9a4a-19274cf14c67")
-	)
 	(label "Strat3"
-		(at 345.44 58.42 0)
+		(at 215.9 240.03 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5157,7 +5117,7 @@
 		(uuid "846712b7-23d0-46b4-80c5-60066fe8a5d7")
 	)
 	(label "IR16"
-		(at 151.13 170.18 0)
+		(at 151.13 151.13 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5235,16 +5195,6 @@
 			(justify left bottom)
 		)
 		(uuid "9f7db8d6-fcde-4fc2-8520-b6add35eb653")
-	)
-	(label "IR30"
-		(at 153.67 208.28 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a19a173d-f225-4622-a41f-d2b55e464e75")
 	)
 	(label "IR20"
 		(at 215.9 214.63 0)
@@ -5537,7 +5487,7 @@
 		(uuid "eebf8aad-e6dc-4a98-b971-426934195c84")
 	)
 	(label "Strat4"
-		(at 345.44 60.96 0)
+		(at 215.9 242.57 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5886,76 +5836,6 @@
 			(project "layer3"
 				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
 					(reference "#PWR051")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sensor_Proximity:TSSP58038")
-		(at 143.51 208.28 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "05b61bc7-dfe7-4796-9e64-3b19564b54ae")
-		(property "Reference" "IR30"
-			(at 141.775 197.485 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "TSSP58038"
-			(at 141.775 200.025 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OptoDevice:Vishay_MINICAST-3Pin"
-			(at 142.24 217.805 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.vishay.com/docs/82476/tssp58p38.pdf"
-			(at 160.02 200.66 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 143.51 208.28 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8155bd9a-24c7-4108-b26b-52b2a82b04d7")
-		)
-		(pin "2"
-			(uuid "42706012-d128-4f22-93dc-324ed0f571fd")
-		)
-		(pin "3"
-			(uuid "5d066c9e-140c-4879-a415-40554b450afe")
-		)
-		(instances
-			(project "layer3"
-				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
-					(reference "IR30")
 					(unit 1)
 				)
 			)
@@ -6709,7 +6589,7 @@
 	(symbol
 		(lib_name "+3V3_4")
 		(lib_id "power:+3V3")
-		(at 151.13 165.1 270)
+		(at 151.13 146.05 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6718,7 +6598,7 @@
 		(fields_autoplaced yes)
 		(uuid "16316a6c-2c6a-4eb0-9380-3cf15c5eab5c")
 		(property "Reference" "#PWR036"
-			(at 147.32 165.1 0)
+			(at 147.32 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6727,7 +6607,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 154.305 165.1 90)
+			(at 154.305 146.05 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6736,7 +6616,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 151.13 165.1 0)
+			(at 151.13 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6745,7 +6625,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 151.13 165.1 0)
+			(at 151.13 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6754,7 +6634,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 151.13 165.1 0)
+			(at 151.13 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7383,73 +7263,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 151.13 156.21 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "272b5f7f-8484-40a2-afc8-70a99917417c")
-		(property "Reference" "#PWR035"
-			(at 157.48 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 154.94 156.2099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 151.13 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 151.13 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 151.13 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "78e8b2b1-ef73-4176-b384-2d5d8a35ab9b")
-		)
-		(instances
-			(project "layer3"
-				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
-					(reference "#PWR035")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Mechanical:MountingHole")
 		(at 344.17 215.9 0)
 		(unit 1)
@@ -7782,76 +7595,6 @@
 			(project "layer3"
 				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
 					(reference "IR24")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Sensor_Proximity:TSSP58038")
-		(at 140.97 151.13 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3329b8a6-3db0-46cf-b95d-9a3d96d63847")
-		(property "Reference" "IR15"
-			(at 139.235 140.335 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "TSSP58038"
-			(at 139.235 142.875 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "OptoDevice:Vishay_MINICAST-3Pin"
-			(at 139.7 160.655 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "http://www.vishay.com/docs/82476/tssp58p38.pdf"
-			(at 157.48 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 140.97 151.13 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b7bfdc76-79f1-48c4-aed4-879861bbe5de")
-		)
-		(pin "2"
-			(uuid "ec2b5fb0-8905-4aae-b43c-b597a7684f1f")
-		)
-		(pin "3"
-			(uuid "326e6d16-decf-4e40-896d-c07aec59aad5")
-		)
-		(instances
-			(project "layer3"
-				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
-					(reference "IR15")
 					(unit 1)
 				)
 			)
@@ -8198,73 +7941,6 @@
 		)
 	)
 	(symbol
-		(lib_name "+3V3_4")
-		(lib_id "power:+3V3")
-		(at 153.67 203.2 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4539695f-180e-4d36-bf11-1242cbd3f85c")
-		(property "Reference" "#PWR064"
-			(at 149.86 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 156.845 203.2 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 153.67 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 153.67 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 153.67 203.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b9c2462a-96de-4442-8b57-5b8a612d480e")
-		)
-		(instances
-			(project "layer3"
-				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
-					(reference "#PWR064")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector_Generic:Conn_01x05")
 		(at 280.67 237.49 0)
 		(unit 1)
@@ -8483,7 +8159,7 @@
 	)
 	(symbol
 		(lib_id "Sensor_Proximity:TSSP58038")
-		(at 143.51 189.23 0)
+		(at 142.24 168.91 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8492,7 +8168,7 @@
 		(fields_autoplaced yes)
 		(uuid "512ce6c5-66be-4c68-9e8b-90737910adb8")
 		(property "Reference" "IR29"
-			(at 141.775 178.435 0)
+			(at 140.505 158.115 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8500,7 +8176,7 @@
 			)
 		)
 		(property "Value" "TSSP58038"
-			(at 141.775 180.975 0)
+			(at 140.505 160.655 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8508,7 +8184,7 @@
 			)
 		)
 		(property "Footprint" "OptoDevice:Vishay_MINICAST-3Pin"
-			(at 142.24 198.755 0)
+			(at 140.97 178.435 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8517,7 +8193,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.vishay.com/docs/82476/tssp58p38.pdf"
-			(at 160.02 181.61 0)
+			(at 158.75 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8526,7 +8202,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 143.51 189.23 0)
+			(at 142.24 168.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13284,7 +12960,7 @@
 	(symbol
 		(lib_name "+3V3_4")
 		(lib_id "power:+3V3")
-		(at 153.67 184.15 270)
+		(at 152.4 163.83 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13293,7 +12969,7 @@
 		(fields_autoplaced yes)
 		(uuid "ba96cbef-cfe8-4bbd-bb06-6e8ac19ab6f3")
 		(property "Reference" "#PWR062"
-			(at 149.86 184.15 0)
+			(at 148.59 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13302,7 +12978,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 156.845 184.15 90)
+			(at 155.575 163.83 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13311,7 +12987,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 153.67 184.15 0)
+			(at 152.4 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13320,7 +12996,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 153.67 184.15 0)
+			(at 152.4 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13329,7 +13005,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 153.67 184.15 0)
+			(at 152.4 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13686,75 +13362,8 @@
 		)
 	)
 	(symbol
-		(lib_name "+3V3_4")
-		(lib_id "power:+3V3")
-		(at 151.13 146.05 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c8689988-f2b4-43a0-a0eb-216f5b55e790")
-		(property "Reference" "#PWR034"
-			(at 147.32 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 154.305 146.05 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 151.13 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 151.13 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 151.13 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "3edd40b5-71a3-4a7e-adc4-945e014f617d")
-		)
-		(instances
-			(project "layer3"
-				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
-					(reference "#PWR034")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
-		(at 153.67 194.31 90)
+		(at 152.4 173.99 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13763,7 +13372,7 @@
 		(fields_autoplaced yes)
 		(uuid "caa8d12d-5fba-4cff-a03a-fc2d0661d81c")
 		(property "Reference" "#PWR063"
-			(at 160.02 194.31 0)
+			(at 158.75 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13772,7 +13381,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 157.48 194.3099 90)
+			(at 156.21 173.9899 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13781,7 +13390,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 153.67 194.31 0)
+			(at 152.4 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13790,7 +13399,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 153.67 194.31 0)
+			(at 152.4 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13799,7 +13408,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 153.67 194.31 0)
+			(at 152.4 173.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13888,7 +13497,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 151.13 175.26 90)
+		(at 151.13 156.21 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13897,7 +13506,7 @@
 		(fields_autoplaced yes)
 		(uuid "ced0ae1c-9473-4737-91e0-a79cec85c209")
 		(property "Reference" "#PWR037"
-			(at 157.48 175.26 0)
+			(at 157.48 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13906,7 +13515,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 154.94 175.2599 90)
+			(at 154.94 156.2099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13915,7 +13524,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 151.13 175.26 0)
+			(at 151.13 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13924,7 +13533,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 151.13 175.26 0)
+			(at 151.13 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13933,7 +13542,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 151.13 175.26 0)
+			(at 151.13 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15262,7 +14871,7 @@
 	)
 	(symbol
 		(lib_id "Sensor_Proximity:TSSP58038")
-		(at 140.97 170.18 0)
+		(at 140.97 151.13 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -15271,15 +14880,16 @@
 		(fields_autoplaced yes)
 		(uuid "e9f1935c-941e-45e7-b4cf-1445363e138e")
 		(property "Reference" "IR16"
-			(at 139.235 159.385 0)
+			(at 139.235 140.335 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Value" "TSSP58038"
-			(at 139.235 161.925 0)
+			(at 139.235 142.875 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15287,7 +14897,7 @@
 			)
 		)
 		(property "Footprint" "OptoDevice:Vishay_MINICAST-3Pin"
-			(at 139.7 179.705 0)
+			(at 139.7 160.655 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15296,7 +14906,7 @@
 			)
 		)
 		(property "Datasheet" "http://www.vishay.com/docs/82476/tssp58p38.pdf"
-			(at 157.48 162.56 0)
+			(at 157.48 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15305,7 +14915,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 140.97 170.18 0)
+			(at 140.97 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16206,73 +15816,6 @@
 			(project "layer3"
 				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
 					(reference "H2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 153.67 213.36 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fb84754a-095f-4921-bdca-41670eeac920")
-		(property "Reference" "#PWR065"
-			(at 160.02 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 157.48 213.3599 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 153.67 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 153.67 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 153.67 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "107e6cef-3bf5-446e-884c-ecc6bf01caf5")
-		)
-		(instances
-			(project "layer3"
-				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
-					(reference "#PWR065")
 					(unit 1)
 				)
 			)
