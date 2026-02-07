@@ -5907,7 +5907,7 @@
 		)
 		(uuid "10a55799-8548-4b36-98d7-636b58c606b4")
 	)
-	(label "TX (L3-Teensy)"
+	(label "TX (L3-ESP32)"
 		(at 271.78 60.96 180)
 		(effects
 			(font
@@ -6037,7 +6037,7 @@
 		)
 		(uuid "4bd1f373-90e9-48c1-9eb6-8dc7e6d977fb")
 	)
-	(label "RX (L3-Teensy)"
+	(label "RX (L3-ESP32)"
 		(at 271.78 63.5 180)
 		(effects
 			(font
@@ -6117,7 +6117,7 @@
 		)
 		(uuid "6572e5c5-2494-4201-91e9-5c3bb8f0e53c")
 	)
-	(label "RX (L3-Teensy)"
+	(label "RX (L3-ESP32)"
 		(at 320.04 76.2 0)
 		(effects
 			(font
@@ -6367,7 +6367,7 @@
 		)
 		(uuid "f8bbb802-633f-48b6-9dd7-a5eb3a318737")
 	)
-	(label "TX (L3-Teensy)"
+	(label "TX (L3-ESP32)"
 		(at 320.04 78.74 0)
 		(effects
 			(font
