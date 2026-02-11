@@ -4009,12 +4009,16 @@
 		(uuid "b45bdee4-f9c2-4803-863e-4613f4448d9d")
 	)
 	(no_connect
-		(at 345.44 63.5)
+		(at 331.47 63.5)
 		(uuid "094967d7-feee-4ea7-9717-54392ccc81f9")
 	)
 	(no_connect
 		(at 302.26 142.24)
 		(uuid "0fcf3e82-5a58-4fa3-a731-032776703ace")
+	)
+	(no_connect
+		(at 331.47 60.96)
+		(uuid "1b348542-4d78-49d1-9e86-31d7352d613c")
 	)
 	(no_connect
 		(at 332.74 129.54)
@@ -4077,6 +4081,10 @@
 		(uuid "a2455974-a1f0-4da2-8b7d-da105b63384a")
 	)
 	(no_connect
+		(at 295.91 53.34)
+		(uuid "a3a1cc9e-fa02-4ba3-a08f-89ae3f090c63")
+	)
+	(no_connect
 		(at 393.7 41.91)
 		(uuid "c5e8d970-11eb-4456-8926-7fbd97ba6131")
 	)
@@ -4089,7 +4097,7 @@
 		(uuid "d64c66da-cb33-4995-9ca0-17d78440e453")
 	)
 	(no_connect
-		(at 345.44 48.26)
+		(at 331.47 48.26)
 		(uuid "fa9684b4-f09f-4791-b198-9fdec4a57b68")
 	)
 	(no_connect
@@ -4355,16 +4363,6 @@
 			(type default)
 		)
 		(uuid "86577f65-0159-4930-813d-d8aff7111113")
-	)
-	(wire
-		(pts
-			(xy 151.13 132.08) (xy 151.13 133.35)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "87c5d440-0eea-4ac0-8b23-eaeefd2bd887")
 	)
 	(wire
 		(pts
@@ -4667,7 +4665,7 @@
 		(uuid "0137b2bd-01a8-4faa-9f23-156d7de08736")
 	)
 	(label "IR17"
-		(at 215.9 207.01 0)
+		(at 215.9 209.55 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4677,7 +4675,7 @@
 		(uuid "015e8f25-4107-474d-ae43-0b95d8262d45")
 	)
 	(label "IR21"
-		(at 215.9 217.17 0)
+		(at 215.9 219.71 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4707,7 +4705,7 @@
 		(uuid "0497393e-e8a4-43c1-b8e6-d1ae86ead128")
 	)
 	(label "IR16"
-		(at 215.9 204.47 0)
+		(at 215.9 207.01 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4727,12 +4725,12 @@
 		(uuid "0ce2fb47-ed03-42d5-ac95-3e024c7e9b87")
 	)
 	(label "Mux Com (1-16)"
-		(at 309.88 66.04 180)
+		(at 331.47 58.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
 		(uuid "0e098699-9cec-4751-bd3e-b82b9d490180")
 	)
@@ -4827,7 +4825,7 @@
 		(uuid "2553d3c6-8e06-43be-9a9b-86a0e8984faa")
 	)
 	(label "S2"
-		(at 309.88 60.96 180)
+		(at 295.91 63.5 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4867,7 +4865,7 @@
 		(uuid "32fff2ce-5751-4b64-82fd-78a33c7da3c4")
 	)
 	(label "S0"
-		(at 309.88 55.88 180)
+		(at 295.91 58.42 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4876,7 +4874,7 @@
 		)
 		(uuid "3382931a-4601-439c-8841-a3d7d814c852")
 	)
-	(label "IR29"
+	(label "IR15"
 		(at 152.4 168.91 0)
 		(effects
 			(font
@@ -4887,7 +4885,7 @@
 		(uuid "445cca1c-cb69-4804-9976-9010ac43c13d")
 	)
 	(label "IR23"
-		(at 215.9 222.25 0)
+		(at 215.9 224.79 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4897,7 +4895,7 @@
 		(uuid "49c2803f-8363-4007-9360-918d133456d1")
 	)
 	(label "TX(ESP32)"
-		(at 345.44 53.34 0)
+		(at 331.47 53.34 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4917,7 +4915,7 @@
 		(uuid "4db3817c-3071-4eb3-9d33-4f9378c18237")
 	)
 	(label "IR24"
-		(at 215.9 224.79 0)
+		(at 215.9 227.33 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4997,7 +4995,7 @@
 		(uuid "623adb56-0978-4ada-8765-3086dff02c94")
 	)
 	(label "S3"
-		(at 309.88 63.5 180)
+		(at 295.91 66.04 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5077,7 +5075,7 @@
 		(uuid "79be4343-f747-485c-8002-bafccca0c50f")
 	)
 	(label "Strat3"
-		(at 215.9 240.03 0)
+		(at 215.9 242.57 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5087,7 +5085,7 @@
 		(uuid "812923c8-709c-47d4-a309-0034d511620e")
 	)
 	(label "IR28"
-		(at 215.9 234.95 0)
+		(at 215.9 237.49 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5097,7 +5095,7 @@
 		(uuid "813a0a93-48ee-4fca-baac-deb2e409e982")
 	)
 	(label "IR22"
-		(at 215.9 219.71 0)
+		(at 215.9 222.25 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5127,7 +5125,7 @@
 		(uuid "8542bdec-00d9-49eb-b063-384dbae7a6a4")
 	)
 	(label "Mux Com (17-32)"
-		(at 309.88 53.34 180)
+		(at 295.91 55.88 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5147,7 +5145,7 @@
 		(uuid "89233878-449e-4aad-946b-798c59e4f560")
 	)
 	(label "IR26"
-		(at 215.9 229.87 0)
+		(at 215.9 232.41 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5197,7 +5195,7 @@
 		(uuid "9f7db8d6-fcde-4fc2-8520-b6add35eb653")
 	)
 	(label "IR20"
-		(at 215.9 214.63 0)
+		(at 215.9 217.17 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5237,7 +5235,7 @@
 		(uuid "aae209e7-6e6c-44a5-82af-497349253943")
 	)
 	(label "RX(ESP32)"
-		(at 345.44 55.88 0)
+		(at 331.47 55.88 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5247,7 +5245,7 @@
 		(uuid "b0e67a29-aa0f-4021-ba9e-95cbfff1540e")
 	)
 	(label "IR27"
-		(at 215.9 232.41 0)
+		(at 215.9 234.95 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5287,7 +5285,7 @@
 		(uuid "bde5696b-cbca-401d-adde-60e67222bde7")
 	)
 	(label "IR25"
-		(at 215.9 227.33 0)
+		(at 215.9 229.87 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5315,16 +5313,6 @@
 			(justify left bottom)
 		)
 		(uuid "c05983ed-7210-478e-8d61-50b53c575d10")
-	)
-	(label "IR29"
-		(at 215.9 237.49 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c239cc94-56fc-4032-ae38-a48f7779fcce")
 	)
 	(label "S0"
 		(at 187.96 219.71 90)
@@ -5427,7 +5415,7 @@
 		(uuid "ddecd3c3-f29a-417b-9b25-48a7e51685a6")
 	)
 	(label "S1"
-		(at 309.88 58.42 180)
+		(at 295.91 60.96 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5435,6 +5423,16 @@
 			(justify right bottom)
 		)
 		(uuid "df41289f-0761-43f4-961a-25bf9866418d")
+	)
+	(label "IR15"
+		(at 215.9 204.47 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e02a39e0-7924-4d07-a109-fbce3b082bd7")
 	)
 	(label "IR8"
 		(at 87.63 170.18 0)
@@ -5487,7 +5485,7 @@
 		(uuid "eebf8aad-e6dc-4a98-b971-426934195c84")
 	)
 	(label "Strat4"
-		(at 215.9 242.57 0)
+		(at 215.9 240.03 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5527,7 +5525,7 @@
 		(uuid "f6256b5f-00ed-431c-b016-a57b1e24b659")
 	)
 	(label "IR19"
-		(at 215.9 212.09 0)
+		(at 215.9 214.63 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5537,7 +5535,7 @@
 		(uuid "f815f4d7-b2e8-460c-8d21-660f11bf6a90")
 	)
 	(label "IR18"
-		(at 215.9 209.55 0)
+		(at 215.9 212.09 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5547,7 +5545,7 @@
 		(uuid "f900a972-8c33-4087-a1b4-227fb5e57c2e")
 	)
 	(label "IR14"
-		(at 151.13 133.35 0)
+		(at 151.13 132.08 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8167,8 +8165,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "512ce6c5-66be-4c68-9e8b-90737910adb8")
-		(property "Reference" "IR29"
-			(at 140.505 158.115 0)
+		(property "Reference" "IR15"
+			(at 140.505 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8176,7 +8174,7 @@
 			)
 		)
 		(property "Value" "TSSP58038"
-			(at 140.505 160.655 0)
+			(at 140.505 160.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8221,7 +8219,7 @@
 		(instances
 			(project "layer3"
 				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
-					(reference "IR29")
+					(reference "IR15")
 					(unit 1)
 				)
 			)
@@ -8975,7 +8973,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 345.44 71.12 0)
+		(at 331.47 71.12 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8984,7 +8982,7 @@
 		(fields_autoplaced yes)
 		(uuid "68efc4d4-5f68-41eb-9acf-0792fdba7c7f")
 		(property "Reference" "#PWR085"
-			(at 345.44 77.47 0)
+			(at 331.47 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8993,7 +8991,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 345.44 76.2 0)
+			(at 331.47 76.2 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9001,7 +8999,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 345.44 71.12 0)
+			(at 331.47 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9010,7 +9008,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 345.44 71.12 0)
+			(at 331.47 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9019,7 +9017,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 345.44 71.12 0)
+			(at 331.47 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12060,7 +12058,7 @@
 	)
 	(symbol
 		(lib_id "XiaoSeeedStudioEsp32:113991054")
-		(at 327.66 58.42 0)
+		(at 313.69 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12069,7 +12067,7 @@
 		(fields_autoplaced yes)
 		(uuid "ac17841f-723a-448a-9d8c-82a3a301eef2")
 		(property "Reference" "U5"
-			(at 327.66 38.1 0)
+			(at 313.69 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12077,7 +12075,7 @@
 			)
 		)
 		(property "Value" "113991054"
-			(at 327.66 40.64 0)
+			(at 313.69 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12085,7 +12083,7 @@
 			)
 		)
 		(property "Footprint" "L3:XiaoSeeedStudioEsp32"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12095,7 +12093,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12104,7 +12102,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12113,7 +12111,7 @@
 			)
 		)
 		(property "MF" "Seeed Technology Co., Ltd"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12123,7 +12121,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" "N/A"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12133,7 +12131,7 @@
 			)
 		)
 		(property "Package" "None"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12143,7 +12141,7 @@
 			)
 		)
 		(property "Price" "None"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12153,7 +12151,7 @@
 			)
 		)
 		(property "Check_prices" "https://www.snapeda.com/parts/113991054/Seeed+Studio/view-part/?ref=eda"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12163,7 +12161,7 @@
 			)
 		)
 		(property "STANDARD" "Manufacturer Recommendations"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12173,7 +12171,7 @@
 			)
 		)
 		(property "PARTREV" "23/05/2022"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12183,7 +12181,7 @@
 			)
 		)
 		(property "SnapEDA_Link" "https://www.snapeda.com/parts/113991054/Seeed+Studio/view-part/?ref=snap"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12193,7 +12191,7 @@
 			)
 		)
 		(property "MP" "113991054"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12203,7 +12201,7 @@
 			)
 		)
 		(property "Description_1" "\n                        \n                            - ESP32-C3 Transceiver; 802.11 a/b/g/n (Wi-Fi, WiFi, WLAN), Bluetooth® Smart 4.x Low Energy (BLE) 2.4GHz Evaluation Board\n                        \n"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12213,7 +12211,7 @@
 			)
 		)
 		(property "SNAPEDA_PN" "113991054"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12223,7 +12221,7 @@
 			)
 		)
 		(property "Availability" "In Stock"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12233,7 +12231,7 @@
 			)
 		)
 		(property "MANUFACTURER" "Seeed Technology"
-			(at 327.66 58.42 0)
+			(at 313.69 58.42 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13898,7 +13896,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 345.44 45.72 0)
+		(at 331.47 45.72 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13907,7 +13905,7 @@
 		(fields_autoplaced yes)
 		(uuid "d7420b0a-0fde-45e5-85dd-8bd2f1b78935")
 		(property "Reference" "#PWR084"
-			(at 345.44 49.53 0)
+			(at 331.47 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13916,7 +13914,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 345.44 40.64 0)
+			(at 331.47 40.64 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13924,7 +13922,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 345.44 45.72 0)
+			(at 331.47 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13933,7 +13931,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 345.44 45.72 0)
+			(at 331.47 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13942,7 +13940,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 345.44 45.72 0)
+			(at 331.47 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
