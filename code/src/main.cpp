@@ -16,9 +16,22 @@ int ldr_values[32];
 bool ldr_threshold_pass[32];
 int filtered_ldr_values[16];
 bool filtered_ldr_threshold_pass[16];
-int ldr_threshold = 500; // Adjust based on calibration
+int ldr_threshold = 3050; // Adjust based on calibration
 
-// --- MUX LOGIC FROM YOUR SECOND SNIPPET ---
+void debugLDRValues() {
+    Serial.println("--- LDR Raw Values ---");
+    for (int i = 0; i < 32; i++) {
+        Serial.print("LDR[");
+        Serial.print(i);
+        Serial.print("]: ");
+        Serial.print(ldr_values[i]);
+        Serial.print(" (");
+        Serial.print(ldr_threshold_pass[i] ? "PASS" : "FAIL");
+        Serial.print(")");
+        if (i < 31) Serial.print(" | ");
+    }
+    Serial.println();
+}
 
 void selectMuxChannel(int n) {
     // This replicates your logic: S0 gets bit 3, S1 gets bit 2, etc.
@@ -135,6 +148,7 @@ void setup() {
 
 void loop() {
     checkLightRing();
+    debugLDRValues();
     auto [angle, size] = findLine();
 
     if (!std::isnan(angle)) {
