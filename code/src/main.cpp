@@ -16,7 +16,7 @@ int ldr_values[32];
 bool ldr_threshold_pass[32];
 int filtered_ldr_values[16];
 bool filtered_ldr_threshold_pass[16];
-int ldr_threshold = 3050; // Adjust based on calibration
+int ldr_threshold = 2000; // Line sensors read LOW — pass if <= threshold
 
 void debugLDRValues() {
     Serial.println("--- LDR Raw Values ---");
@@ -45,11 +45,11 @@ void selectMuxChannel(int n) {
         i++;
     }
     
-    // Applying the specific mapping from your snippet
-    digitalWrite(S0, binaryNum[3]);
-    digitalWrite(S1, binaryNum[2]);
-    digitalWrite(S2, binaryNum[1]);
-    digitalWrite(S3, binaryNum[0]);
+    // S0 = LSB, S3 = MSB
+    digitalWrite(S0, binaryNum[0]);
+    digitalWrite(S1, binaryNum[1]);
+    digitalWrite(S2, binaryNum[2]);
+    digitalWrite(S3, binaryNum[3]);
 }
 
 // --- CORE UTILITIES ---
@@ -78,7 +78,7 @@ void checkLightRing() {
         delayMicroseconds(10); // Small delay for signal settling
         int ldrVal = analogRead(M1);
         ldr_values[i] = ldrVal;
-        ldr_threshold_pass[i] = (ldrVal >= ldr_threshold);
+        ldr_threshold_pass[i] = (ldrVal <= ldr_threshold);
     }
 
     // Mux 2 (Indices 16-31)
@@ -149,16 +149,18 @@ void setup() {
 void loop() {
     checkLightRing();
     debugLDRValues();
-    auto [angle, size] = findLine();
+    // auto [angle, size] = findLine();
 
-    if (!std::isnan(angle)) {
-        Serial.print("Line Detected! Angle: ");
-        Serial.print(angle);
-        Serial.print(" Size: ");
-        Serial.println(size);
-    } else {
-        Serial.println("Searching for line...");
-    }
+    // if (!std::isnan(angle)) {
+    //     Serial.print("Line Detected! Angle: ");
+    //     Serial.print(angle);
+    //     Serial.print(" Size: ");
+    //     Serial.println(size);
+    // } else {
+    //     Serial.println("Searching for line...");
+    // }
     
-    delay(50); 
+    // delay(50); 
+    // selectMuxChannel(0);
+    // Serial.println(analogRead(M2));
 }
