@@ -36892,7 +36892,7 @@
 	)
 	(wire
 		(pts
-			(xy 43.18 27.94) (xy 76.2 27.94)
+			(xy 63.5 27.94) (xy 76.2 27.94)
 		)
 		(stroke
 			(width 0)
@@ -37419,16 +37419,6 @@
 			(type default)
 		)
 		(uuid "56b35792-0fe4-4017-a0a0-d3b56e15d10c")
-	)
-	(wire
-		(pts
-			(xy 43.18 27.94) (xy 43.18 25.4)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "58ad526d-d9ae-4523-abf7-fabf4f4ba6b0")
 	)
 	(wire
 		(pts
@@ -39886,7 +39876,7 @@
 	)
 	(global_label "3v3 - LED, Photodiode"
 		(shape input)
-		(at 43.18 25.4 180)
+		(at 63.5 27.94 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -39896,7 +39886,7 @@
 		)
 		(uuid "bcdbb6ba-f689-4b16-bd74-71468c4003a7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 17.698 25.4 0)
+			(at 38.018 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -40017,7 +40007,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 374.65 34.2899 0)
 			(effects
 				(font
@@ -40290,7 +40280,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 210.82 34.2899 0)
 			(effects
 				(font
@@ -41089,7 +41079,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 334.01 34.2899 0)
 			(effects
 				(font
@@ -41358,7 +41348,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 190.5 34.2899 0)
 			(effects
 				(font
@@ -41428,7 +41418,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 170.18 34.2899 0)
 			(effects
 				(font
@@ -41498,7 +41488,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 303.53 34.2899 0)
 			(effects
 				(font
@@ -41704,7 +41694,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 119.38 34.2899 0)
 			(effects
 				(font
@@ -42965,7 +42955,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 200.66 34.2899 0)
 			(effects
 				(font
@@ -43169,7 +43159,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 364.49 34.2899 0)
 			(effects
 				(font
@@ -43388,7 +43378,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 220.98 34.2899 0)
 			(effects
 				(font
@@ -43531,7 +43521,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad_TopBottom"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad_TopBottom"
 			(at 26.67 240.03 0)
 			(effects
 				(font
@@ -44811,7 +44801,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 313.69 34.2899 0)
 			(effects
 				(font
@@ -45014,7 +45004,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 139.7 34.2899 0)
 			(effects
 				(font
@@ -46241,7 +46231,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_DIN965_Pad_TopBottom"
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_DIN965_Pad_TopBottom"
 			(at 26.67 234.95 0)
 			(effects
 				(font
@@ -46500,7 +46490,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 109.22 34.2899 0)
 			(effects
 				(font
@@ -46988,7 +46978,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 252.73 34.2899 0)
 			(effects
 				(font
@@ -47739,7 +47729,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 149.86 34.2899 0)
 			(effects
 				(font
@@ -48720,7 +48710,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 99.06 34.2899 0)
 			(effects
 				(font
@@ -49268,7 +49258,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 384.81 34.2899 0)
 			(effects
 				(font
@@ -49472,7 +49462,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 129.54 34.2899 0)
 			(effects
 				(font
@@ -49542,7 +49532,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 262.89 34.2899 0)
 			(effects
 				(font
@@ -49770,7 +49760,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 160.02 34.2899 0)
 			(effects
 				(font
@@ -50065,7 +50055,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 283.21 34.2899 0)
 			(effects
 				(font
@@ -50749,7 +50739,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 231.14 34.2899 0)
 			(effects
 				(font
@@ -50819,7 +50809,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 394.97 34.2899 0)
 			(effects
 				(font
@@ -51150,7 +51140,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 323.85 34.2899 0)
 			(effects
 				(font
@@ -51290,7 +51280,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 242.57 34.2899 0)
 			(effects
 				(font
@@ -51650,7 +51640,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 88.9 34.2899 0)
 			(effects
 				(font
@@ -52466,7 +52456,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 78.74 34.2899 0)
 			(effects
 				(font
@@ -53011,7 +53001,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 293.37 34.2899 0)
 			(effects
 				(font
@@ -53287,7 +53277,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 273.05 34.2899 0)
 			(effects
 				(font
@@ -53689,7 +53679,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 180.34 34.2899 0)
 			(effects
 				(font
@@ -53972,7 +53962,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 354.33 34.2899 0)
 			(effects
 				(font
@@ -54112,7 +54102,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R39"
+		(property "Value" "10R"
 			(at 344.17 34.2899 0)
 			(effects
 				(font
