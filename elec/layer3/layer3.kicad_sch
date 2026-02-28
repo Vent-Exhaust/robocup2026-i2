@@ -4057,6 +4057,10 @@
 		(uuid "7cbb5e8b-cd67-4207-b62d-abbd4b32a448")
 	)
 	(no_connect
+		(at 331.47 45.72)
+		(uuid "81475c78-32f4-4aa7-86eb-6de602bda9b8")
+	)
+	(no_connect
 		(at 302.26 144.78)
 		(uuid "862c9298-80e7-4193-9f25-fb11c98aeb53")
 	)
@@ -4095,10 +4099,6 @@
 	(no_connect
 		(at 365.76 60.96)
 		(uuid "d64c66da-cb33-4995-9ca0-17d78440e453")
-	)
-	(no_connect
-		(at 331.47 48.26)
-		(uuid "fa9684b4-f09f-4791-b198-9fdec4a57b68")
 	)
 	(no_connect
 		(at 313.69 237.49)
@@ -7677,6 +7677,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 331.47 48.26 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "31918bcc-3945-474e-b934-240682ce0244")
+		(property "Reference" "#PWR034"
+			(at 327.66 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 335.28 48.2599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 331.47 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 331.47 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 331.47 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "44d0c2d2-156d-4ec4-a39e-09eb55fe4e73")
+		)
+		(instances
+			(project ""
+				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
+					(reference "#PWR034")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Sensor_Proximity:TSSP58038")
 		(at 110.49 246.38 0)
 		(unit 1)
@@ -10815,7 +10882,7 @@
 				)
 			)
 		)
-		(property "Footprint" "L3:AMASS_XT30PW-M"
+		(property "Footprint" "Connector_AMASS:AMASS_XT30UPB-M_1x02_P5.0mm_Vertical"
 			(at 308.61 214.63 0)
 			(effects
 				(font
@@ -12727,7 +12794,7 @@
 				)
 			)
 		)
-		(property "Footprint" "L3:AMASS_XT30PW-M"
+		(property "Footprint" "Connector_AMASS:AMASS_XT30UPB-M_1x02_P5.0mm_Vertical"
 			(at 278.13 214.63 0)
 			(effects
 				(font
@@ -14034,72 +14101,6 @@
 			(project "layer3"
 				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
 					(reference "#PWR080")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 331.47 45.72 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d7420b0a-0fde-45e5-85dd-8bd2f1b78935")
-		(property "Reference" "#PWR084"
-			(at 331.47 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 331.47 40.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 331.47 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 331.47 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 331.47 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "32e1743e-bbbd-4e90-bd1e-6734488dd5b2")
-		)
-		(instances
-			(project ""
-				(path "/6d022762-18f1-42b1-b82f-80e730c6e13f"
-					(reference "#PWR084")
 					(unit 1)
 				)
 			)
