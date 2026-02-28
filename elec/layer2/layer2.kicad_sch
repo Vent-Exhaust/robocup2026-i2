@@ -5799,16 +5799,6 @@
 	)
 	(wire
 		(pts
-			(xy 250.19 142.24) (xy 266.7 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f2c34392-42ac-49e7-b565-f261d330dd17")
-	)
-	(wire
-		(pts
 			(xy 271.78 190.5) (xy 271.78 191.77)
 		)
 		(stroke
@@ -5816,6 +5806,16 @@
 			(type default)
 		)
 		(uuid "f3ba49d1-7a1d-425b-8de3-ef0110fea15e")
+	)
+	(wire
+		(pts
+			(xy 255.27 142.24) (xy 266.7 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f5f0717c-389d-4410-b110-14c72e75fb74")
 	)
 	(wire
 		(pts
@@ -6512,6 +6512,76 @@
 			(project "elec"
 				(path "/df41387d-f005-440e-9787-7a1b7b7bf447"
 					(reference "#PWR013")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 255.27 146.05 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "04c44672-cd87-4fb2-9a0b-d7a28a40e701")
+		(property "Reference" "R34"
+			(at 257.81 144.7799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1k"
+			(at 257.81 147.3199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 253.492 146.05 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 255.27 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 255.27 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "8021c8b0-9aa9-4165-90ef-1a065eb6c9ec")
+		)
+		(pin "1"
+			(uuid "0c844cbf-f72c-4fdd-9318-1c59802dc012")
+		)
+		(instances
+			(project "layer2"
+				(path "/df41387d-f005-440e-9787-7a1b7b7bf447"
+					(reference "R34")
 					(unit 1)
 				)
 			)
@@ -7654,7 +7724,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 250.19 142.24 0)
+		(at 255.27 149.86 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7662,7 +7732,7 @@
 		(dnp no)
 		(uuid "2c7aa702-de2c-4c47-948c-f4e17f84b958")
 		(property "Reference" "#PWR014"
-			(at 250.19 148.59 0)
+			(at 255.27 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7671,7 +7741,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 250.19 146.812 0)
+			(at 255.27 154.432 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7679,7 +7749,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 250.19 142.24 0)
+			(at 255.27 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7688,7 +7758,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 250.19 142.24 0)
+			(at 255.27 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7697,7 +7767,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 250.19 142.24 0)
+			(at 255.27 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
