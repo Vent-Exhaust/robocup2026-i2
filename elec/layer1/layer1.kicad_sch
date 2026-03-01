@@ -36321,10 +36321,6 @@
 		(uuid "040e211b-df3e-49aa-a37f-3ab3735bbf9a")
 	)
 	(no_connect
-		(at 55.88 208.28)
-		(uuid "19242154-9ea1-4d25-97a3-212876b18464")
-	)
-	(no_connect
 		(at 247.65 193.04)
 		(uuid "2df249fa-5abe-4548-ba70-bc48911eccfd")
 	)
@@ -36343,6 +36339,10 @@
 	(no_connect
 		(at 283.21 208.28)
 		(uuid "549a5746-19ff-4298-9cf1-afc1223f59b7")
+	)
+	(no_connect
+		(at 43.18 205.74)
+		(uuid "5721ca28-17cf-4864-84cd-5723aae71a7d")
 	)
 	(no_connect
 		(at 247.65 198.12)
@@ -38123,6 +38123,16 @@
 			(type default)
 		)
 		(uuid "889ce334-6d65-4391-bb25-058d14685412")
+	)
+	(wire
+		(pts
+			(xy 55.88 208.28) (xy 57.15 208.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "893e68a2-8ea7-4149-8b04-c7d719a8f445")
 	)
 	(wire
 		(pts
@@ -52971,7 +52981,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 43.18 205.74 90)
+		(at 57.15 208.28 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -52980,7 +52990,7 @@
 		(fields_autoplaced yes)
 		(uuid "de94d62e-fb83-4298-bd75-11f51ddc34a7")
 		(property "Reference" "#PWR01"
-			(at 46.99 205.74 0)
+			(at 53.34 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -52989,15 +52999,16 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 38.1 205.74 0)
+			(at 60.96 208.2799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 43.18 205.74 0)
+			(at 57.15 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -53006,7 +53017,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 43.18 205.74 0)
+			(at 57.15 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -53015,7 +53026,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 43.18 205.74 0)
+			(at 57.15 208.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
