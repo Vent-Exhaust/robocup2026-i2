@@ -5948,7 +5948,7 @@
 		(uuid "192ee4f8-6723-4256-8887-8767af77d44c")
 	)
 	(label "TX (L1-Teensy)"
-		(at 318.77 55.88 0)
+		(at 318.77 53.34 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6118,7 +6118,7 @@
 		(uuid "6572e5c5-2494-4201-91e9-5c3bb8f0e53c")
 	)
 	(label "RX (L3-ESP32)"
-		(at 320.04 76.2 0)
+		(at 320.04 78.74 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6158,7 +6158,7 @@
 		(uuid "846dfa33-cecc-4d5b-8e55-06b34c4db57c")
 	)
 	(label "TX (L3-Cam)"
-		(at 320.04 83.82 0)
+		(at 320.04 81.28 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6228,7 +6228,7 @@
 		(uuid "a3a7a3b8-d441-45db-bbbc-f5d2ac266dc1")
 	)
 	(label "RX (L3-Cam"
-		(at 320.04 81.28 0)
+		(at 320.04 83.82 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6338,7 +6338,7 @@
 		(uuid "ed81ec2c-e49f-4e67-bf27-7f08cd8d7110")
 	)
 	(label "RX (L1-Teensy)"
-		(at 318.77 53.34 0)
+		(at 318.77 55.88 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6368,7 +6368,7 @@
 		(uuid "f8bbb802-633f-48b6-9dd7-a5eb3a318737")
 	)
 	(label "TX (L3-ESP32)"
-		(at 320.04 78.74 0)
+		(at 320.04 76.2 0)
 		(effects
 			(font
 				(size 1.27 1.27)
