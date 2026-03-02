@@ -1,16 +1,12 @@
 Designator,Val,Package,Mid X,Mid Y,Rotation,Layer
 C1,.1uF,C_0603_1608Metric,-31.5,-3.125,90.0,bottom
 C34,.1uF,C_0603_1608Metric,31.4,9.8,270.0,bottom
-R1,3k24,R_0603_1608Metric,31.5,-2.75,90.0,bottom
+J8,XT30PW-M,AMASS_XT30UPB-M_1x02_P5.0mm_Vertical,-36.75,-14.225,90.0,bottom
+J9,XT30PW-M,AMASS_XT30UPB-M_1x02_P5.0mm_Vertical,-36.75,1.725,90.0,bottom
 R2,10k,R_0603_1608Metric,25.1,24.15,270.0,bottom
 R3,R,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,-3.8,36.8,90.0,top
-R33,3k24,R_0603_1608Metric,-31.655,9.65,270.0,bottom
 R4,R,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,-1.2,36.8,-90.0,top
 R43,10k,R_0603_1608Metric,-24.95,-3.1,90.0,bottom
-R5,10k,R_0603_1608Metric,35.85,5.1,180.0,bottom
-R6,10uF,R_0603_1608Metric,35.85,6.7,0.0,bottom
-R7,10k,R_0603_1608Metric,36.65,15.035,180.0,bottom
-R8,10uF,R_0603_1608Metric,36.65,16.75,0.0,bottom
 SW1,SW_SPDT_312,SS12D00G3,1.725,39.975,90.0,top
 SW2,SW_SPDT_312,SS12D00G3,5.55,39.975,90.0,top
 SW3,SW_SPDT_312,SS12D00G3,9.35,39.95,90.0,top

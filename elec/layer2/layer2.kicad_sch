@@ -5908,7 +5908,7 @@
 		(uuid "10a55799-8548-4b36-98d7-636b58c606b4")
 	)
 	(label "TX (L3-ESP32)"
-		(at 271.78 60.96 180)
+		(at 271.78 63.5 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5997,8 +5997,8 @@
 		)
 		(uuid "2f62d956-b02b-487f-93d6-5f5fa1d02c5c")
 	)
-	(label "RX (L3-Cam"
-		(at 271.78 78.74 180)
+	(label "RX (L3-Cam)"
+		(at 271.78 76.2 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6038,7 +6038,7 @@
 		(uuid "4bd1f373-90e9-48c1-9eb6-8dc7e6d977fb")
 	)
 	(label "RX (L3-ESP32)"
-		(at 271.78 63.5 180)
+		(at 271.78 60.96 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6227,7 +6227,7 @@
 		)
 		(uuid "a3a7a3b8-d441-45db-bbbc-f5d2ac266dc1")
 	)
-	(label "RX (L3-Cam"
+	(label "RX (L3-Cam)"
 		(at 320.04 83.82 0)
 		(effects
 			(font
@@ -6318,7 +6318,7 @@
 		(uuid "e0324246-bd2a-4871-8564-fc462c5a7f41")
 	)
 	(label "TX (L3-Cam)"
-		(at 271.78 76.2 180)
+		(at 271.78 78.74 180)
 		(effects
 			(font
 				(size 1.27 1.27)
