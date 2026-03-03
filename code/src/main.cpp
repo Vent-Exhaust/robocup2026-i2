@@ -16,19 +16,19 @@ int ldr_values[32];
 bool ldr_threshold_pass[32];
 int filtered_ldr_values[16];
 bool filtered_ldr_threshold_pass[16];
-int ldr_threshold = 2000; // Line sensors read LOW — pass if <= threshold
+int ldr_threshold = 1900; // Line sensors read LOW — pass if <= threshold
 
 void debugLDRValues() {
-    Serial.println("--- LDR Raw Values ---");
-    for (int i = 0; i < 32; i++) {
+    Serial.println("--- LDR Averaged Values ---");
+    for (int i = 0; i < 16; i++) {
         Serial.print("LDR[");
         Serial.print(i);
         Serial.print("]: ");
-        Serial.print(ldr_values[i]);
+        Serial.print(filtered_ldr_values[i]);
         Serial.print(" (");
-        Serial.print(ldr_threshold_pass[i] ? "PASS" : "FAIL");
+        Serial.print(filtered_ldr_threshold_pass[i] ? "PASS" : "FAIL");
         Serial.print(")");
-        if (i < 31) Serial.print(" | ");
+        if (i < 15) Serial.print(" | ");
     }
     Serial.println();
 }
@@ -75,25 +75,25 @@ void checkLightRing() {
     // Mux 1 (Indices 0-15)
     for (int i = 0; i < 16; i++) {
         selectMuxChannel(i);
-        delayMicroseconds(10); // Small delay for signal settling
+        delayMicroseconds(50); // Small delay for signal settling
         int ldrVal = analogRead(M1);
         ldr_values[i] = ldrVal;
-        ldr_threshold_pass[i] = (ldrVal <= ldr_threshold);
+        ldr_threshold_pass[i] = (ldrVal >= ldr_threshold);
     }
 
     // Mux 2 (Indices 16-31)
     for (int i = 0; i < 16; i++) {
         selectMuxChannel(i);
-        delayMicroseconds(10);
+        delayMicroseconds(50);
         int ldrVal = analogRead(M2);
         ldr_values[i + 16] = ldrVal;
         ldr_threshold_pass[i + 16] = (ldrVal >= ldr_threshold);
     }
 
-    // Downsampling/Filtering to 16 sensors if needed
+    // Average adjacent pairs to produce 16 readings
     for (int i = 0; i < 16; i++) {
-        filtered_ldr_threshold_pass[i] = ldr_threshold_pass[i * 2];
-        filtered_ldr_values[i] = ldr_values[i * 2];
+        filtered_ldr_values[i] = (ldr_values[i * 2] + ldr_values[i * 2 + 1]) / 2;
+        filtered_ldr_threshold_pass[i] = (filtered_ldr_values[i] >= ldr_threshold);
     }
 }
 
@@ -148,19 +148,17 @@ void setup() {
 
 void loop() {
     checkLightRing();
-    debugLDRValues();
-    // auto [angle, size] = findLine();
+    // debugLDRValues();
+    auto [angle, size] = findLine();
 
-    // if (!std::isnan(angle)) {
-    //     Serial.print("Line Detected! Angle: ");
-    //     Serial.print(angle);
-    //     Serial.print(" Size: ");
-    //     Serial.println(size);
-    // } else {
-    //     Serial.println("Searching for line...");
-    // }
+    if (!std::isnan(angle)) {
+        Serial.print("Line Detected! Angle: ");
+        Serial.print(angle);
+        Serial.print(" Size: ");
+        Serial.println(size);
+    } else {
+        Serial.println("Searching for line...");
+    }
     
-    // delay(50); 
-    // selectMuxChannel(0);
-    // Serial.println(analogRead(M2));
+    delay(50);
 }
