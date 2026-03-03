@@ -1,46 +1,15 @@
+lib/
+├── angle_utils/
+│   ├── angle_utils.h
+│   └── angle_utils.cpp   — clipAngleTo360, smallerAngleDifference, angleBisector
+│                           No Arduino dependency. Safe to use in host-side tests.
+│
+└── light_ring/
+    ├── light_ring.h
+    └── light_ring.cpp    — MUX channel select, LDR sensor reads, findLine()
+                            Depends on Arduino.h and angle_utils.
+                            Pin definitions (M1, M2, S0-S3) are in light_ring.h.
+                            Tuning constants are sourced from include/config.h.
 
-This directory is intended for project specific (private) libraries.
-PlatformIO will compile them to static libraries and link into the executable file.
-
-The source code of each library should be placed in a separate directory
-("lib/your_library_name/[Code]").
-
-For example, see the structure of the following example libraries `Foo` and `Bar`:
-
-|--lib
-|  |
-|  |--Bar
-|  |  |--docs
-|  |  |--examples
-|  |  |--src
-|  |     |- Bar.c
-|  |     |- Bar.h
-|  |  |- library.json (optional. for custom build options, etc) https://docs.platformio.org/page/librarymanager/config.html
-|  |
-|  |--Foo
-|  |  |- Foo.c
-|  |  |- Foo.h
-|  |
-|  |- README --> THIS FILE
-|
-|- platformio.ini
-|--src
-   |- main.c
-
-Example contents of `src/main.c` using Foo and Bar:
-```
-#include <Foo.h>
-#include <Bar.h>
-
-int main (void)
-{
-  ...
-}
-
-```
-
-The PlatformIO Library Dependency Finder will find automatically dependent
-libraries by scanning project source files.
-
-More information about PlatformIO Library Dependency Finder
-- https://docs.platformio.org/page/librarymanager/ldf.html
+Libraries here are compiled by PlatformIO and linked into whichever environment
+includes them. Both libraries are available to layer1, layer2, and layer3.
