@@ -14,7 +14,7 @@ This repository is for **Vent Exhaust**, a Singapore RoboCup Infrared Soccer Jun
 - **elec/** - PCB designs, schematics, and component footprints.
 - **mech/** - 3D-printable files in **.3MF** and **.STL** formats; includes rendered images of the robot and its mirrored counterpart for reference and other files related to mechanical design.
 - **code/** - Firmware and control software for the robot.
-- **Branding/** - Official team branding and design assets.
+- **branding/** - Official team branding and design assets.
 
 ## License & Copyright
 
