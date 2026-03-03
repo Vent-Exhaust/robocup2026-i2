@@ -1,0 +1,8 @@
+include/
+└── config.h   — competition tuning constants (LDR_THRESHOLD, MUX_SETTLE_US, LOOP_DELAY_MS)
+
+This directory holds project-wide header files shared across all environments
+(layer1-teensy40, layer2-teensy40, layer3-seeed_xiao_esp32c3).
+
+config.h is the first file to edit on competition day. All adjustable thresholds
+and timing values live there — no other files need to be touched for tuning.

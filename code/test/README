@@ -1,0 +1,14 @@
+test/
+└── (empty)
+
+Place PlatformIO unit tests here. Each test file should target a specific library.
+
+angle_utils is a good first candidate — it has no Arduino dependency and can run
+on the native platform without hardware:
+
+    [env:native]
+    platform = native
+
+    test/test_angle_utils/test_angle_utils.cpp
+
+Run tests with: pio test -e native

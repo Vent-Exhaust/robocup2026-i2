@@ -1,0 +1,15 @@
+lib/
+├── angle_utils/
+│   ├── angle_utils.h
+│   └── angle_utils.cpp   — clipAngleTo360, smallerAngleDifference, angleBisector
+│                           No Arduino dependency. Safe to use in host-side tests.
+│
+└── light_ring/
+    ├── light_ring.h
+    └── light_ring.cpp    — MUX channel select, LDR sensor reads, findLine()
+                            Depends on Arduino.h and angle_utils.
+                            Pin definitions (M1, M2, S0-S3) are in light_ring.h.
+                            Tuning constants are sourced from include/config.h.
+
+Libraries here are compiled by PlatformIO and linked into whichever environment
+includes them. Both libraries are available to layer1, layer2, and layer3.
