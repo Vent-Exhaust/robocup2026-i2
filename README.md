@@ -3,7 +3,7 @@
 
 <!-- <img src="https://github.com/2-chairs/robocup2025/blob/main/zLogo/v3/logo%20render%20v3.png" alt="" width="100"/> -->
 
-*Repository for the official electronic, mechanical, and software files of Vent Exhaust (VE) 1, formerlly known as 2 Chairs.*
+*Repository for the official electronic, mechanical, and software files of Vent Exhaust (VE) 1, formerly known as 2 Chairs.*
 
 ## About
 
