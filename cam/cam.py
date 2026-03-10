@@ -4,9 +4,9 @@ window_x = 448
 window_y = 352
 
 # Debug flags
-DEBUG_GOALS = True
-DEBUG_BALL = True
-DEBUG_FPS = True
+DEBUG_GOALS = False
+DEBUG_BALL = False
+DEBUG_FPS = False
 
 # Camera setup
 sensor.reset()
