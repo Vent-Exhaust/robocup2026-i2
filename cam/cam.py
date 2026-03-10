@@ -7,6 +7,7 @@ window_y = 352
 DEBUG_GOALS = False
 DEBUG_BALL = False
 DEBUG_FPS = False
+DEBUG_DRAW = True
 
 # Camera setup
 sensor.reset()
@@ -65,7 +66,8 @@ while True:
             height = max_y - min_y
             center_x = int(min_x + width / 2)
             center_y = int(min_y + height / 2)
-            img.draw_cross(center_x, center_y, color=draw_color)
+            if DEBUG_DRAW:
+                img.draw_cross(center_x, center_y, color=draw_color)
             output_list.extend([str(center_x), str(center_y)])
         else:
             output_list.extend(["none", "none"])
@@ -88,7 +90,8 @@ while True:
         best_ball = max(ball_blobs, key=lambda b: b.roundness())
         ball_x = best_ball.cx()
         ball_y = best_ball.cy()
-        img.draw_cross(ball_x, ball_y, color=(255, 0, 0), size=10, thickness=2)
+        if DEBUG_DRAW:
+            img.draw_cross(ball_x, ball_y, color=(255, 0, 0), size=10, thickness=2)
         output_list.extend([str(ball_x), str(ball_y)])
     else:
         output_list.extend(["none", "none"])
