@@ -35,3 +35,6 @@ void setup() {
     Serial.begin(115200);
     setupMotors();
 }
+
+void loop() {
+}

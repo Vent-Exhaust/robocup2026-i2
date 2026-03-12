@@ -34,9 +34,9 @@
 // Solenoid
 #define SOL 13
 
-// L1-Esp32c3 UART
-#define RX_L3 17
-#define TX_L3 16
+// L1 UART
+#define RX_L1 17
+#define TX_L1 16
 
 // L3-Esp32c3 UART
 #define RX_L3 21
