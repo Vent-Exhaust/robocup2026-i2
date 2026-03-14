@@ -52,5 +52,7 @@
 
 // Function Prototypes
 void setupMotors();
+void setupSol();
+void setupLightgate();
 
 #endif // MAIN_H
