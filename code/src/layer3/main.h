@@ -19,4 +19,17 @@ struct Packet {
     uint32_t timestamp_ms;
 };
 
+// Mux Pin Declarations
+#define MUX_1 D8
+#define MUX_2 D1
+#define S0 D2
+#define S1 D3
+#define S2 D4
+#define S3 D5
+
+// IR readings
+#define IR_THRESHOLD 3
+#define IR_SAMPLES 200
+int IR[28] = {};
+
 #endif // MAIN_H

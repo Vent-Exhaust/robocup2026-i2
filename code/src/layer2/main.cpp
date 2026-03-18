@@ -44,7 +44,16 @@ void setupLightgate() {
     Serial.println("Lightgate pinMode defined (by right...)");
 }
 
+void setupESC() {
+    dribbler.attach(DRIBBLER_PWM, 1000, 2000);  // min/max pulse width
+
+    // Arm ESC
+    dribbler.writeMicroseconds(1000);  // stop signal
+    delay(3000);      
+}
+
 void setup() {
+    setupESC();
     Serial.begin(115200);
 
     // Setup pinModes
@@ -61,35 +70,47 @@ void setup() {
 
 void loop() {
 
+    // digitalWrite(SOL, LOW);
+    // delay(3000);
+    // digitalWrite(SOL, HIGH);
+    // delay(100);
+
     // isActuated = !isActuated;
     // Serial.println(isActuated);
     // digitalWrite(SOL, isActuated);
 
     // Accelerate
-    // for (int speed = 0; speed <= 76; speed++) {
-    //     analogWrite(M1_PWM, speed);
-    //     analogWrite(M2_PWM, speed);
-    //     analogWrite(M3_PWM, speed);
-    //     analogWrite(M4_PWM, speed);
+    for (int speed = 0; speed <= 76; speed++) {
+        analogWrite(M1_PWM, speed);
+        analogWrite(M2_PWM, speed);
+        analogWrite(M3_PWM, speed);
+        analogWrite(M4_PWM, speed);
 
-    //     delay(10);
-    // }
+        delay(10);
+    }
 
-    // delay(1000);
+    delay(1000);
 
-    // // Decelerate
-    // for (int speed = 76; speed >= 0; speed--) {
-    //     analogWrite(M1_PWM, speed);
-    //     analogWrite(M2_PWM, speed);
-    //     analogWrite(M3_PWM, speed);
-    //     analogWrite(M4_PWM, speed);
+    // Decelerate
+    for (int speed = 76; speed >= 0; speed--) {
+        analogWrite(M1_PWM, speed);
+        analogWrite(M2_PWM, speed);
+        analogWrite(M3_PWM, speed);
+        analogWrite(M4_PWM, speed);
 
-    //     delay(10);
-    // }
+        delay(10);
+    }
+
+    // dribbler.writeMicroseconds(1700);
+
+    // delay(5000);
+
+    // // stop
+    // dribbler.writeMicroseconds(1000);
+    // delay(3000);
 
 
+    // // delay(2000);
 
-    // delay(2000);
-
-    Serial.println(analogRead(LIGHTGATE));
+    // Serial.println(analogRead(LIGHTGATE));
 }

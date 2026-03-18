@@ -15,18 +15,19 @@ void setup() {
 }
 
 void loop() {
+    // selectMuxChannel(3);
     checkLightRing();
-    // debugLDRValues();
-    auto [angle, size] = findLine();
+    debugLDRValues();
+    // auto [angle, size] = findLine();
 
-    if (!std::isnan(angle)) {
-        Serial.print("Line Detected! Angle: ");
-        Serial.print(angle);
-        Serial.print(" Size: ");
-        Serial.println(size);
-    } else {
-        Serial.println("Searching for line...");
-    }
+    // if (!std::isnan(angle)) {
+    //     Serial.print("Line Detected! Angle: ");
+    //     Serial.print(angle);
+    //     Serial.print(" Size: ");
+    //     Serial.println(size);
+    // } else {
+    //     Serial.println("Searching for line...");
+    // }
 
-    delay(LOOP_DELAY_MS);
+    // delay(LOOP_DELAY_MS);
 }

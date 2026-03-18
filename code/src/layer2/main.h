@@ -2,6 +2,7 @@
 #define MAIN_H
 
 #include <Arduino.h>
+#include <Servo.h>
 
 // Motor Initialisation
 
@@ -26,7 +27,9 @@
 #define M4_IN_B 11
 
 // Dribbler
+Servo dribbler;
 #define DRIBBLER_PWM 12
+
 
 // Lightgate
 #define LIGHTGATE 22
@@ -54,5 +57,6 @@
 void setupMotors();
 void setupSol();
 void setupLightgate();
+void setupESC();
 
 #endif // MAIN_H
