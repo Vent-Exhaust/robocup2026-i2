@@ -81,7 +81,7 @@ std::pair<double, double> findLine() {
 
     if (std::isnan(lineStartAngle)) return {NAN, NAN};
 
-    double bisector = angleBisector(lineStartAngle, lineEndAngle);
+    double bisector = fmod(180.0 - angleBisector(lineStartAngle, lineEndAngle) + 360.0, 360.0);
     double lineSize = maxAngleDifference / 180.0;
 
     return {bisector, lineSize};
