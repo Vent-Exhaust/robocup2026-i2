@@ -28,6 +28,14 @@ constexpr int CALIBRATION_READS_PER_SAMPLE = 50;
 // Polling period in milliseconds
 constexpr int LOOP_DELAY_MS = 50;
 
+// --- Layer 2: Motor Trim ---
+// Per-motor speed multipliers (0.0–1.0). Reduce a motor's value if it spins
+// faster than the others. The slowest motor should stay at 1.0.
+constexpr double M1_TRIM = 0.80;
+constexpr double M2_TRIM = 1.0;
+constexpr double M3_TRIM = 0.85;
+constexpr double M4_TRIM = 0.9;
+
 // =============================================================================
 
 #endif // CONFIG_H

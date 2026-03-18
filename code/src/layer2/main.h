@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include <Servo.h>
 #include "serial_comm.h"
+#include "config.h"
 
 // Motor Initialisation
 
@@ -58,5 +59,7 @@ void setupMotors();
 void setupSol();
 void setupLightgate();
 void setupESC();
+void setMotor(int inA, int inB, int pwmPin, double power);
+void moveRobot(double angleDeg, double speed, double omega);
 
 #endif // MAIN_H

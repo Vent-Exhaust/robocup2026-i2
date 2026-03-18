@@ -78,11 +78,52 @@ void setup() {
     setupSol();
     setupLightgate();
 
-    // Set all motors forward
-    digitalWrite(M1_IN_A, HIGH); digitalWrite(M1_IN_B, LOW);
-    digitalWrite(M2_IN_A, HIGH); digitalWrite(M2_IN_B, LOW);
-    digitalWrite(M3_IN_A, HIGH); digitalWrite(M3_IN_B, LOW);
-    digitalWrite(M4_IN_A, HIGH); digitalWrite(M4_IN_B, LOW);
+}
+
+void setMotor(int inA, int inB, int pwmPin, double power) {
+    bool forward = (power >= 0);
+    int pwmVal = (int)(abs(power) * 255);
+    pwmVal = min(pwmVal, 255);
+    digitalWrite(inA, forward ? HIGH : LOW);
+    digitalWrite(inB, forward ? LOW : HIGH);
+    analogWrite(pwmPin, pwmVal);
+}
+
+// angleDeg: movement direction (0° = right, 90° = forward), math convention
+// speed: 0.0 to 1.0
+// omega: rotational rate (-1.0 to 1.0, positive = CCW)
+void moveRobot(double angleDeg, double speed, double omega) {
+    double angleRad = angleDeg * DEG_TO_RAD;
+    double vx = speed * cos(angleRad);  // rightward
+    double vy = speed * sin(angleRad);  // forward
+
+    // X-drive: motors at 45°, 135°, 225°, 315°
+    double m1 =  vy + vx + omega;  // 45°
+    double m2 =  vy - vx + omega;  // 135°
+    double m3 =  vy + vx - omega;  // 225°
+    double m4 =  vy - vx - omega;  // 315°
+
+    // Normalize so no value exceeds 1.0
+    double maxMag = max({abs(m1), abs(m2), abs(m3), abs(m4), 1.0});
+    m1 /= maxMag;
+    m2 /= maxMag;
+    m3 /= maxMag;
+    m4 /= maxMag;
+
+    // Invert m1 and m4 to fix physical mounting direction
+    m1 = -m1;
+    m4 = -m4;
+
+    // Apply trim
+    m1 *= M1_TRIM;
+    m2 *= M2_TRIM;
+    m3 *= M3_TRIM;
+    m4 *= M4_TRIM;
+
+    setMotor(M1_IN_A, M1_IN_B, M1_PWM, m1);
+    setMotor(M2_IN_A, M2_IN_B, M2_PWM, m2);
+    setMotor(M3_IN_A, M3_IN_B, M3_PWM, m3);
+    setMotor(M4_IN_A, M4_IN_B, M4_PWM, m4);
 }
 
 void loop() {
@@ -104,38 +145,21 @@ void loop() {
     // Serial.println(isActuated);
     // digitalWrite(SOL, isActuated);
 
-    // Accelerate
-    // for (int speed = 0; speed <= 76; speed++) {
-    //     analogWrite(M1_PWM, speed);
-    //     analogWrite(M2_PWM, speed);
-    //     analogWrite(M3_PWM, speed);
-    //     analogWrite(M4_PWM, speed);
+    // Accelerate from 0 to 0.4 over 1s
+    for (int i = 0; i <= 40; i++) {
+        moveRobot(0, i / 100.0, 0);
+        delay(25);
+    }
 
-    //     delay(10);
-    // }
+    // Hold at 0.4 for 1s
+    delay(1000);
 
-    // delay(1000);
+    // Decelerate back to 0 over 1s
+    for (int i = 40; i >= 0; i--) {
+        moveRobot(0, i / 100.0, 0);
+        delay(25);
+    }
 
-    // // Decelerate
-    // for (int speed = 76; speed >= 0; speed--) {
-    //     analogWrite(M1_PWM, speed);
-    //     analogWrite(M2_PWM, speed);
-    //     analogWrite(M3_PWM, speed);
-    //     analogWrite(M4_PWM, speed);
-
-    //     delay(10);
-    // }
-
-    // dribbler.writeMicroseconds(1700);
-
-    // delay(5000);
-
-    // // stop
-    // dribbler.writeMicroseconds(1000);
-    // delay(3000);
-
-
-    // delay(2000);
-
-    // Serial.println(analogRead(LIGHTGATE));
+    moveRobot(0, 0, 0);
+    delay(1000);
 }
