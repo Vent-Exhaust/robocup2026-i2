@@ -17,10 +17,6 @@
 extern int ldr_values[32];
 extern bool ldr_threshold_pass[32];
 
-// Averaged readings (16 logical sensors)
-extern int filtered_ldr_values[16];
-extern bool filtered_ldr_threshold_pass[16];
-
 void selectMuxChannel(int n);
 void checkLightRing();
 

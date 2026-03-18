@@ -3,6 +3,7 @@
 
 #include <Arduino.h>
 #include <Servo.h>
+#include "serial_comm.h"
 
 // Motor Initialisation
 
@@ -37,9 +38,8 @@ Servo dribbler;
 // Solenoid
 #define SOL 13
 
-// L1 UART
-#define RX_L1 17
-#define TX_L1 16
+// L1 - L2 Serial
+#define L1_TO_L2_SERIAL Serial4
 
 // L3-Esp32c3 UART
 #define RX_L3 21

@@ -1,7 +1,11 @@
 #include "main.h"
 
+SerialComm l1Comm(L1_TO_L2_SERIAL);
+
 void setup() {
     Serial.begin(115200);
+    L1_TO_L2_SERIAL.begin(115200);
+
     analogReadResolution(12);
 
     pinMode(M1, INPUT);
@@ -11,23 +15,29 @@ void setup() {
     pinMode(S2, OUTPUT);
     pinMode(S3, OUTPUT);
 
-    Serial.println("System Initialized");
+    Serial.println("System Initialised");
 }
 
 void loop() {
     // selectMuxChannel(3);
     checkLightRing();
     debugLDRValues();
-    // auto [angle, size] = findLine();
+    auto [angle, size] = findLine();
 
-    // if (!std::isnan(angle)) {
-    //     Serial.print("Line Detected! Angle: ");
-    //     Serial.print(angle);
-    //     Serial.print(" Size: ");
-    //     Serial.println(size);
-    // } else {
-    //     Serial.println("Searching for line...");
-    // }
+    if (!std::isnan(angle)) {
+        Serial.print("Line Detected! Angle: ");
+        Serial.print(angle);
+        Serial.print(" Size: ");
+        Serial.println(size);
 
-    // delay(LOOP_DELAY_MS);
+        int16_t tx[] = { 1, (int16_t)(angle * 10), (int16_t)(size * 10) };
+        l1Comm.write(tx, 3);
+    } else {
+        Serial.println("Searching for line...");
+
+        int16_t tx[] = { 0, 0, 0 };
+        l1Comm.write(tx, 3);
+    }
+
+    delay(LOOP_DELAY_MS);
 }

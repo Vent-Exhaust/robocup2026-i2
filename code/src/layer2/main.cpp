@@ -5,6 +5,11 @@ using namespace std;
 
 bool isActuated = false;
 
+SerialComm l1Comm(L1_TO_L2_SERIAL);
+bool l1LineDetected = false;
+float l1Angle = 0;
+float l1Size = 0;
+
 void setupMotors() {
     // MOTOR 1
     pinMode(M1_IN_A, OUTPUT);
@@ -52,9 +57,21 @@ void setupESC() {
     delay(3000);      
 }
 
+void debugL1Readings() {
+    if (l1LineDetected) {
+        Serial.print("[L1] Line | Angle: ");
+        Serial.print(l1Angle, 1);
+        Serial.print(" deg | Size: ");
+        Serial.println(l1Size, 1);
+    } else {
+        Serial.println("[L1] No line");
+    }
+}
+
 void setup() {
     setupESC();
     Serial.begin(115200);
+    L1_TO_L2_SERIAL.begin(115200);
 
     // Setup pinModes
     setupMotors();
@@ -69,6 +86,14 @@ void setup() {
 }
 
 void loop() {
+    int16_t rx[3];
+    int count = l1Comm.read(rx, 3);
+    if (count == 3) {
+        l1LineDetected = rx[0];
+        l1Angle = rx[1] / 10.0f;
+        l1Size  = rx[2] / 10.0f;
+        debugL1Readings();
+    }
 
     // digitalWrite(SOL, LOW);
     // delay(3000);
@@ -80,26 +105,26 @@ void loop() {
     // digitalWrite(SOL, isActuated);
 
     // Accelerate
-    for (int speed = 0; speed <= 76; speed++) {
-        analogWrite(M1_PWM, speed);
-        analogWrite(M2_PWM, speed);
-        analogWrite(M3_PWM, speed);
-        analogWrite(M4_PWM, speed);
+    // for (int speed = 0; speed <= 76; speed++) {
+    //     analogWrite(M1_PWM, speed);
+    //     analogWrite(M2_PWM, speed);
+    //     analogWrite(M3_PWM, speed);
+    //     analogWrite(M4_PWM, speed);
 
-        delay(10);
-    }
+    //     delay(10);
+    // }
 
-    delay(1000);
+    // delay(1000);
 
-    // Decelerate
-    for (int speed = 76; speed >= 0; speed--) {
-        analogWrite(M1_PWM, speed);
-        analogWrite(M2_PWM, speed);
-        analogWrite(M3_PWM, speed);
-        analogWrite(M4_PWM, speed);
+    // // Decelerate
+    // for (int speed = 76; speed >= 0; speed--) {
+    //     analogWrite(M1_PWM, speed);
+    //     analogWrite(M2_PWM, speed);
+    //     analogWrite(M3_PWM, speed);
+    //     analogWrite(M4_PWM, speed);
 
-        delay(10);
-    }
+    //     delay(10);
+    // }
 
     // dribbler.writeMicroseconds(1700);
 
@@ -110,7 +135,7 @@ void loop() {
     // delay(3000);
 
 
-    // // delay(2000);
+    // delay(2000);
 
     // Serial.println(analogRead(LIGHTGATE));
 }
