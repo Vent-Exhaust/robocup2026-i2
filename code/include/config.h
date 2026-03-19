@@ -31,10 +31,22 @@ constexpr int LOOP_DELAY_MS = 50;
 // --- Layer 2: Motor Trim ---
 // Per-motor speed multipliers (0.0–1.0). Reduce a motor's value if it spins
 // faster than the others. The slowest motor should stay at 1.0.
-constexpr double M1_TRIM = 0.80;
-constexpr double M2_TRIM = 1.0;
-constexpr double M3_TRIM = 0.85;
-constexpr double M4_TRIM = 0.9;
+constexpr double FR_TRIM = 0.80;  // M1
+constexpr double BR_TRIM = 1.0;   // M2
+constexpr double BL_TRIM = 0.85;  // M3
+constexpr double FL_TRIM = 0.9;   // M4
+
+// --- Layer 2: IMU Correction ---
+// Yaw heading-hold PID (output added to omega)
+constexpr double YAW_KP             = 0.008;
+constexpr double YAW_KI             = 0.0;
+constexpr double YAW_KD             = 0.0005;
+constexpr double YAW_I_MAX          = 0.3;    // integral windup limit
+constexpr double YAW_CORRECTION_MAX = 0.15;    // max omega correction (0–1 scale)
+
+// Accel drift correction — P only (output added to vx/vy)
+constexpr double ACCEL_KP             = 0.0;
+constexpr double ACCEL_CORRECTION_MAX = 0.0;
 
 // =============================================================================
 

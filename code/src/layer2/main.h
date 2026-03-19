@@ -3,30 +3,51 @@
 
 #include <Arduino.h>
 #include <Servo.h>
+#include <Adafruit_BNO08x.h>
 #include "serial_comm.h"
 #include "config.h"
 
+struct PID {
+    double kp, ki, kd, iMax;
+    double integral  = 0;
+    double prevError = 0;
+    unsigned long lastUs = 0;
+
+    double compute(double error) {
+        unsigned long now = micros();
+        double dt = (lastUs == 0) ? 0.01 : (now - lastUs) * 1e-6;
+        lastUs = now;
+        if (dt > 0.5) dt = 0.01;
+        integral  = constrain(integral + error * dt, -iMax, iMax);
+        double d  = (error - prevError) / dt;
+        prevError = error;
+        return kp * error + ki * integral + kd * d;
+    }
+
+    void reset() { integral = 0; prevError = 0; lastUs = 0; }
+};
+
 // Motor Initialisation
 
-// Motor 1
-#define M1_IN_A 0
-#define M1_PWM 1
-#define M1_IN_B 2
+// Front Right (M1, 45°)
+#define FR_IN_A 0
+#define FR_PWM  1
+#define FR_IN_B 2
 
-// Motor 2
-#define M2_IN_A 3
-#define M2_PWM 4
-#define M2_IN_B 5
+// Back Right (M2, 135°)
+#define BR_IN_A 3
+#define BR_PWM  4
+#define BR_IN_B 5
 
-// Motor 3
-#define M3_IN_A 6
-#define M3_PWM 7
-#define M3_IN_B 8
+// Back Left (M3, 225°)
+#define BL_IN_A 6
+#define BL_PWM  7
+#define BL_IN_B 8
 
-// Motor 4
-#define M4_IN_A 9
-#define M4_PWM 10
-#define M4_IN_B 11
+// Front Left (M4, 315°)
+#define FL_IN_A 9
+#define FL_PWM  10
+#define FL_IN_B 11
 
 // Dribbler
 Servo dribbler;
@@ -59,6 +80,10 @@ void setupMotors();
 void setupSol();
 void setupLightgate();
 void setupESC();
+void setupIMU();
+void readIMU();
+void debugIMU();
+void resetYawTarget();
 void setMotor(int inA, int inB, int pwmPin, double power);
 void moveRobot(double angleDeg, double speed, double omega);
 
