@@ -4,6 +4,18 @@
 Adafruit_BNO08x bno;
 sh2_SensorValue_t sensorValue;
 
+bool useMag = true; // true = ARVR stabilized (with magnetometer), false = game rotation vector (no mag)
+
+void enableSensor() {
+  if (useMag) {
+    bno.enableReport(SH2_ARVR_STABILIZED_RV, 10000);
+    Serial.println("Mode: ARVR Stabilized (WITH magnetometer)");
+  } else {
+    bno.enableReport(SH2_GAME_ROTATION_VECTOR, 10000);
+    Serial.println("Mode: Game Rotation Vector (NO magnetometer)");
+  }
+}
+
 void setup() {
   Serial.begin(115200);
   while (!Serial && millis() < 3000);
@@ -16,9 +28,9 @@ void setup() {
     while (1) delay(10);
   }
   Serial.println("BNO085 found");
+  Serial.println("Send 'm' to toggle magnetometer on/off");
 
-  // ARVR stabilized rotation vector gives stable yaw (fused + game-rotation corrected)
-  bno.enableReport(SH2_ARVR_STABILIZED_RV, 10000); // 10ms = 100Hz
+  enableSensor();
 }
 
 // Convert quaternion to yaw in degrees
@@ -30,9 +42,18 @@ float quaternionToYaw(float r, float i, float j, float k) {
 }
 
 void loop() {
+  // Toggle magnetometer mode when 'm' is received over serial
+  if (Serial.available()) {
+    char c = Serial.read();
+    if (c == 'm' || c == 'M') {
+      useMag = !useMag;
+      enableSensor();
+    }
+  }
+
   if (!bno.getSensorEvent(&sensorValue)) return;
 
-  if (sensorValue.sensorId == SH2_ARVR_STABILIZED_RV) {
+  if (useMag && sensorValue.sensorId == SH2_ARVR_STABILIZED_RV) {
     float yaw = quaternionToYaw(
       sensorValue.un.arvrStabilizedRV.real,
       sensorValue.un.arvrStabilizedRV.i,
@@ -44,6 +65,19 @@ void loop() {
     Serial.print(" deg  (accuracy: ");
     Serial.print(sensorValue.status);
     Serial.println(")");
+  }
+
+  if (!useMag && sensorValue.sensorId == SH2_GAME_ROTATION_VECTOR) {
+    float yaw = quaternionToYaw(
+      sensorValue.un.gameRotationVector.real,
+      sensorValue.un.gameRotationVector.i,
+      sensorValue.un.gameRotationVector.j,
+      sensorValue.un.gameRotationVector.k
+    );
+    Serial.print("Yaw: ");
+    Serial.print(yaw, 2);
+    Serial.print(" deg  (no mag)");
+    Serial.println();
   }
 }
 
