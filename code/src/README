@@ -1,0 +1,14 @@
+src/
+├── layer1/   — Teensy 4.0 — light ring sensing + line detection
+│               Reads 32 LDR sensors via MUX, runs findLine(), transmits
+│               results (lineDetected, angle, size) to layer2 over Serial.
+│               Libraries: light_ring, angle_utils, serial_comm
+│
+├── layer2/   — Teensy 4.0 — locomotion + game logic
+│               Receives line data from layer1, reads IMU, drives X-drive
+│               motors with yaw heading-hold PID, controls dribbler and kicker.
+│               Libraries: movement, scoring, layer1_comm, serial_comm
+│
+└── layer3/   — Seeed XIAO ESP32-C3 — camera / wireless
+                ESP-NOW peer-to-peer link. Handles camera input or
+                inter-board communication (role auto-detected at boot).

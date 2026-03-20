@@ -1,15 +1,35 @@
 lib/
-├── angle_utils/
-│   ├── angle_utils.h
-│   └── angle_utils.cpp   — clipAngleTo360, smallerAngleDifference, angleBisector
-│                           No Arduino dependency. Safe to use in host-side tests.
+├── angle_utils/      — clipAngleTo360, smallerAngleDifference, angleBisector
+│                       No Arduino dependency. Safe to use in native/host tests.
 │
-└── light_ring/
-    ├── light_ring.h
-    └── light_ring.cpp    — MUX channel select, LDR sensor reads, findLine()
-                            Depends on Arduino.h and angle_utils.
-                            Pin definitions (M1, M2, S0-S3) are in light_ring.h.
-                            Tuning constants are sourced from include/config.h.
+├── calibration/      — calibrateLightRing() routine
+│                       Reads LDR sensors, prints thresholds to Serial for copy-paste
+│                       into LDR_THRESHOLDS in config.h. Layer 1 only.
+│
+├── layer1_comm/      — Layer 1 → Layer 2 serial link
+│                       readL1(), setupL1Comm(), debugL1Readings()
+│                       Owns l1LineDetected, l1Angle, l1Size state.
+│                       Packet framing via serial_comm.
+│
+├── light_ring/       — 32-sensor LDR ring (MUX channel select, ADC reads, findLine())
+│                       Pin definitions in light_ring.h.
+│                       Thresholds sourced from include/config.h.
+│                       Depends on angle_utils.
+│
+├── movement/         — X-drive motor control and IMU-assisted heading hold
+│                       setupMotors(), setupIMU(), readIMU(), moveRobot()
+│                       resetYawTarget(), setMotor(), debugIMU()
+│                       Owns imuYaw, imuAccelX/Y/Z state.
+│                       Tuning constants sourced from include/config.h.
+│
+├── scoring/          — Dribbler ESC, kicker solenoid, lightgate
+│                       setupESC(), setupSol(), setupLightgate()
+│                       Owns dribbler (Servo) and isActuated state.
+│
+└── serial_comm/      — Shared UART packet framing (SerialComm class)
+                        Format: [0xAA] [len] [data_hi] [data_lo] ... [checksum]
+                        Values are int16_t, transmitted big-endian.
+                        Used by layer1_comm and any future inter-layer links.
 
-Libraries here are compiled by PlatformIO and linked into whichever environment
-includes them. Both libraries are available to layer1, layer2, and layer3.
+Libraries are auto-discovered and compiled by PlatformIO for whichever
+environment includes them.

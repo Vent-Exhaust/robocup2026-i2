@@ -1,10 +1,15 @@
 test/
-└── (empty)
+├── layer1-calibrate/       - Layer 1 IMU calibration debug build
+├── layer1-serial-debug/    - Layer 1 serial debug build
+├── layer2-imu-debug/       - Layer 2 IMU debug build
+└── layer2-serial-debug/    - Layer 2 serial debug build
 
-Place PlatformIO unit tests here. Each test file should target a specific library.
+Debug/test environments for individual subsystems. Each folder maps to a
+PlatformIO environment in platformio.ini. Build and upload with:
 
-angle_utils is a good first candidate — it has no Arduino dependency and can run
-on the native platform without hardware:
+    pio run -e layer1-serial-debug --target upload
+
+For future PlatformIO native unit tests, add them here as well:
 
     [env:native]
     platform = native

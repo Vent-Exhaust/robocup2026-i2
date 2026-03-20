@@ -38,11 +38,11 @@ constexpr double FL_TRIM = 0.9;   // M4
 
 // --- Layer 2: IMU Correction ---
 // Yaw heading-hold PID (output added to omega)
-constexpr double YAW_KP             = 0.008;
+constexpr double YAW_KP             = 0.005;
 constexpr double YAW_KI             = 0.0;
-constexpr double YAW_KD             = 0.0005;
-constexpr double YAW_I_MAX          = 0.3;    // integral windup limit
-constexpr double YAW_CORRECTION_MAX = 0.15;    // max omega correction (0–1 scale)
+constexpr double YAW_KD             = 0.002;
+constexpr double YAW_I_MAX          = 0.25;    // integral windup limit
+constexpr double YAW_CORRECTION_MAX = 0.2;    // max omega correction (0–1 scale)
 
 // Accel drift correction — P only (output added to vx/vy)
 constexpr double ACCEL_KP             = 0.0;

@@ -1,8 +1,25 @@
 include/
-└── config.h   — competition tuning constants (LDR_THRESHOLD, MUX_SETTLE_US, LOOP_DELAY_MS)
+└── config.h   — project-wide tuning constants, shared across all environments
 
-This directory holds project-wide header files shared across all environments
-(layer1-teensy40, layer2-teensy40, layer3-seeed_xiao_esp32c3).
+config.h is the first file to edit on competition day. Sections:
 
-config.h is the first file to edit on competition day. All adjustable thresholds
-and timing values live there — no other files need to be touched for tuning.
+  Light Ring
+    LDR_THRESHOLDS[32]        per-sensor white/green thresholds (run calibration to generate)
+    LDR_SAMPLES               ADC samples averaged per sensor read
+    MUX_SETTLE_US             µs to wait after mux channel switch before reading
+    CALIBRATION_READS_PER_SAMPLE
+
+  Main Loop
+    LOOP_DELAY_MS             layer1 polling period
+
+  Layer 2 — Motor Trim
+    FR_TRIM, BR_TRIM,         per-motor speed multipliers (0.0–1.0)
+    BL_TRIM, FL_TRIM          slowest motor stays at 1.0; reduce faster motors
+
+  Layer 2 — IMU Correction
+    YAW_KP/KI/KD/I_MAX       heading-hold PID gains
+    YAW_CORRECTION_MAX        max omega correction added by yaw PID (0–1 scale)
+    ACCEL_KP                  drift correction proportional gain
+    ACCEL_CORRECTION_MAX      max vx/vy correction from accel
+
+No other files need to be touched for day-of tuning.
