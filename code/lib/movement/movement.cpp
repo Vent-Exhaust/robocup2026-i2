@@ -65,6 +65,10 @@ void setupIMU() {
 }
 
 void readIMU() {
+    static float accelXFilt = 0;
+    static float accelYFilt = 0;
+    const float ACCEL_ALPHA = 0.1f;
+
     bool gotData = false;
     int maxReads = 10;  // don't drain forever if bus is spamming
     while (maxReads-- > 0 && bno.getSensorEvent(&sensorValue)) {
@@ -77,8 +81,10 @@ void readIMU() {
                 sensorValue.un.gameRotationVector.k
             );
         } else if (sensorValue.sensorId == SH2_LINEAR_ACCELERATION) {
-            imuAccelX = sensorValue.un.linearAcceleration.x;
-            imuAccelY = sensorValue.un.linearAcceleration.y;
+            accelXFilt = ACCEL_ALPHA * sensorValue.un.linearAcceleration.x + (1.0f - ACCEL_ALPHA) * accelXFilt;
+            accelYFilt = ACCEL_ALPHA * sensorValue.un.linearAcceleration.y + (1.0f - ACCEL_ALPHA) * accelYFilt;
+            imuAccelX = accelXFilt;
+            imuAccelY = accelYFilt;
             imuAccelZ = sensorValue.un.linearAcceleration.z;
         }
     }

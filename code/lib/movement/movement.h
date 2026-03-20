@@ -9,6 +9,8 @@ struct PID {
     double kp, ki, kd, iMax;
     double integral  = 0;
     double prevMeasurement = 0;
+    double dAlpha = 0.1;
+    double dFiltered = 0;
     unsigned long lastUs = 0;
 
     double compute(double error, double measurement) {
@@ -22,12 +24,13 @@ struct PID {
         double dMeas = measurement - prevMeasurement;
         while (dMeas >  180.0) dMeas -= 360.0;
         while (dMeas < -180.0) dMeas += 360.0;
-        double d  = -dMeas / dt;   // negative: increasing measurement = decreasing error
+        double dRaw = -dMeas / dt;   // negative: increasing measurement = decreasing error
+        dFiltered = dAlpha * dRaw + (1.0 - dAlpha) * dFiltered;
         prevMeasurement = measurement;
-        return kp * error + ki * integral + kd * d;
+        return kp * error + ki * integral + kd * dFiltered;
     }
 
-    void reset() { integral = 0; prevMeasurement = 0; lastUs = 0; }
+    void reset() { integral = 0; prevMeasurement = 0; dFiltered = 0; lastUs = 0; }
 };
 
 // Motor pins
