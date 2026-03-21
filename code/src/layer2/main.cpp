@@ -11,12 +11,12 @@ void setup() {
     setupLightgate();
     setupIMU();
 
-    delay(3000);
+    delay(500);
     resetYawTarget();
 }
 
 void loop() {
-    dribbler.writeMicroseconds(1500);
+    // dribbler.writeMicroseconds(1500);
 
     // if (readL1()) debugL1Readings();
     if (readCam()) debugCamReadings();

@@ -84,29 +84,29 @@ bool readCam() {
 
 void debugCamReadings() {
     if (camBlueDetected) {
-        Serial.print("[CAM] Blue  | X: "); Serial.print(camBlueX, 1);
+        Serial.print("[CAM] Blue   | X: "); Serial.print(camBlueX, 1);
         Serial.print(" Y: "); Serial.print(camBlueY, 1);
         Serial.print(" Dist: "); Serial.print(camBlueDist, 1);
         Serial.print(" Angle: "); Serial.println(camBlueAngle, 1);
     } else {
-        Serial.println("[CAM] Blue  | none");
+        Serial.println("[CAM] Blue   | none");
     }
 
     if (camYellowDetected) {
-        Serial.print("[CAM] Yellow| X: "); Serial.print(camYellowX, 1);
+        Serial.print("[CAM] Yellow | X: "); Serial.print(camYellowX, 1);
         Serial.print(" Y: "); Serial.print(camYellowY, 1);
         Serial.print(" Dist: "); Serial.print(camYellowDist, 1);
         Serial.print(" Angle: "); Serial.println(camYellowAngle, 1);
     } else {
-        Serial.println("[CAM] Yellow| none");
+        Serial.println("[CAM] Yellow | none");
     }
 
     if (camBallDetected) {
-        Serial.print("[CAM] Ball  | X: "); Serial.print(camBallX, 1);
+        Serial.print("[CAM] Ball   | X: "); Serial.print(camBallX, 1);
         Serial.print(" Y: "); Serial.print(camBallY, 1);
         Serial.print(" Dist: "); Serial.print(camBallDist, 1);
         Serial.print(" Angle: "); Serial.println(camBallAngle, 1);
     } else {
-        Serial.println("[CAM] Ball  | none");
+        Serial.println("[CAM] Ball   | none");
     }
 }
