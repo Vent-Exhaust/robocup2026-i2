@@ -19,5 +19,6 @@ extern bool isActuated;
 void setupESC();
 void setupSol();
 void setupLightgate();
+void spinDribbler(int speed);
 
 #endif // SCORING_H

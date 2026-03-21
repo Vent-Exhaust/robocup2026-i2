@@ -21,3 +21,8 @@ void setupLightgate() {
     pinMode(LIGHTGATE, INPUT);
     Serial.println("Lightgate pinMode defined (by right...)");
 }
+
+void spinDribbler(int speed) {
+    int pulse = map(speed, 0, 100, 1000, 2000);
+    dribbler.writeMicroseconds(pulse);
+}
