@@ -4,6 +4,7 @@
 #include <Arduino.h>
 #include <WiFi.h>
 #include <esp_now.h>
+#include "serial_comm.h"
 
 // ── Fill in after first flash ─────────────────────────────────────────────
 // Open Serial Monitor on each board to get its MAC, then enter both below.
@@ -19,6 +20,11 @@ struct Packet {
     uint32_t timestamp_ms;
 };
 
+// L3 → L2 UART (Serial1 with custom pins)
+#define L3_TO_L2_SERIAL Serial1
+#define TX_L2 D6
+#define RX_L2 D7
+
 // Mux Pin Declarations
 #define MUX_1 D8
 #define MUX_2 D1
@@ -29,8 +35,9 @@ struct Packet {
 
 // IR Readings
 #define IR_COUNT 28
-#define IR_THRESHOLD 3
-#define IR_SAMPLES 200
+#define IR_THRESHOLD 1
+#define IR_SAMPLES 250
+#define IR_TRIM 1  // sensors to trim from each edge of a cluster
 int IR[IR_COUNT] = {};
 
 struct BallData {
@@ -39,10 +46,12 @@ struct BallData {
     bool detected;
 };
 
-// Switch Readings
-#define GOAL [D8, 0, 1, 1, 1] // Goal switch on pin D8, mux channel 14
-#define ROLE [D8, 1, 1, 1, 1] // Role switch on pin D8, mux channel 15 (!note: silkscreen writes side)
-#define STRAT_0 [D1, 0, 1, 1, 1] // Strat switch no. 1 on pin D1, mux channel 14
-#define STRAT_1 [D1, 1, 1, 1, 1] // Strat switch no. 1 on pin D1, mux channel 14
+// Switch Readings (mux channels 14–15, beyond the 0–13 used by IR)
+// GOAL:    MUX_1 ch14 | ROLE:    MUX_1 ch15 (!note: silkscreen writes side)
+// STRAT_0: MUX_2 ch14 | STRAT_1: MUX_2 ch15
+bool switchGoal = false;
+bool switchRole = false;
+bool switchStrat0 = false;
+bool switchStrat1 = false;
 
 #endif // MAIN_H

@@ -103,6 +103,25 @@
 
 #include "main.h"
 
+static SerialComm l3Comm(L3_TO_L2_SERIAL);
+
+void setupL3Comm() {
+    L3_TO_L2_SERIAL.begin(115200, SERIAL_8N1, RX_L2, TX_L2);
+}
+
+void sendL3Data(BallData &ball) {
+    int16_t tx[7] = {
+        (int16_t)ball.detected,
+        (int16_t)(ball.angle * 10),
+        (int16_t)ball.activeCount,
+        (int16_t)switchGoal,
+        (int16_t)switchRole,
+        (int16_t)switchStrat0,
+        (int16_t)switchStrat1
+    };
+    l3Comm.write(tx, 7);
+}
+
 void selectMuxChannel(int n) {
     int binaryNum[4] = {0, 0, 0, 0};
     int tempN = n;
@@ -141,32 +160,53 @@ void readIRs() {
 }
 
 BallData calculateBall() {
-    float sumX = 0, sumY = 0;
-    int activeCount = 0;
+    // Find the largest consecutive cluster of active sensors (wrapping around)
+    int bestStart = -1, bestLen = 0;
+    int curStart = -1, curLen = 0;
 
-    for (int i = 0; i < IR_COUNT; i++) {
-        if (IR[i]) {
-            // Sensors numbered clockwise: 0=front, 7=left(270), 14=back(180), 22=right(90)
-            float angleDeg = fmod(360.0f - i * (360.0f / IR_COUNT), 360.0f);
-            float angleRad = angleDeg * DEG_TO_RAD;
-
-            sumX += sinf(angleRad);
-            sumY += cosf(angleRad);
-            activeCount++;
+    // Double the loop to handle wraparound clusters
+    for (int i = 0; i < IR_COUNT * 2; i++) {
+        if (IR[i % IR_COUNT]) {
+            if (curLen == 0) curStart = i;
+            curLen++;
+            if (curLen > bestLen) {
+                bestLen = curLen;
+                bestStart = curStart;
+            }
+        } else {
+            curLen = 0;
         }
+    }
+    // Cap length to IR_COUNT (all sensors active edge case)
+    if (bestLen > IR_COUNT) bestLen = IR_COUNT;
+
+    // Trim noisy edge sensors if cluster is large enough, otherwise use all
+    int useStart = bestStart;
+    int useLen = bestLen;
+    if (bestLen > 2 * IR_TRIM) {
+        useStart = bestStart + IR_TRIM;
+        useLen = bestLen - 2 * IR_TRIM;
     }
 
     BallData ball;
-    ball.detected = activeCount > 0;
+    ball.activeCount = bestLen;
+    ball.detected = bestLen > 0;
 
     if (ball.detected) {
+        float sumX = 0, sumY = 0;
+        for (int j = 0; j < useLen; j++) {
+            int idx = (useStart + j) % IR_COUNT;
+            float angleDeg = fmod(270.0f - idx * (360.0f / IR_COUNT) + 360.0f, 360.0f);
+            float angleRad = angleDeg * DEG_TO_RAD;
+            sumX += sinf(angleRad);
+            sumY += cosf(angleRad);
+        }
         float angleRad = atan2f(sumX, sumY);
         ball.angle = angleRad * RAD_TO_DEG;
         if (ball.angle < 0) ball.angle += 360.0f;
     } else {
         ball.angle = 0;
     }
-    ball.activeCount = activeCount;
 
     return ball;
 }
@@ -189,7 +229,13 @@ void debugBall(BallData &ball) {
 }
 
 void readSwitches() {
-    
+    selectMuxChannel(14);
+    switchGoal   = digitalRead(MUX_1);
+    switchStrat0 = digitalRead(MUX_2);
+
+    selectMuxChannel(15);
+    switchRole   = digitalRead(MUX_1);
+    switchStrat1 = digitalRead(MUX_2);
 }
 
 void setupMux() {
@@ -204,11 +250,16 @@ void setupMux() {
 void setup() {
     Serial.begin(115200);
     setupMux();
+    setupL3Comm();
 }
 
 void loop() {
     readIRs();
+    readSwitches();
     BallData ball = calculateBall();
+    sendL3Data(ball);
     debugIR();
     debugBall(ball);
+    Serial.printf("[SW] goal=%d role=%d strat0=%d strat1=%d\n",
+                  switchGoal, switchRole, switchStrat0, switchStrat1);
 }
