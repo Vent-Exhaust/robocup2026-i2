@@ -35,7 +35,6 @@ int IR[IR_COUNT] = {};
 
 struct BallData {
     float angle;      // degrees: 0=front, 90=right, 180=back, 270=left
-    float strength;   // total IR intensity (higher = more IR detected)
     int activeCount;  // number of sensors detecting the ball
     bool detected;
 };

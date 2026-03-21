@@ -121,7 +121,7 @@ void selectMuxChannel(int n) {
     digitalWrite(S3, binaryNum[3]);
 }
 
-int readIR(int pin) {
+bool readIR(int pin) {
     int lowCount = 0;
     for (int i = 0; i < IR_SAMPLES; i++) {
         if (digitalRead(pin) == LOW) {
@@ -129,7 +129,7 @@ int readIR(int pin) {
         }
         delayMicroseconds(5);
     }
-    return lowCount;
+    return lowCount > IR_THRESHOLD;
 }
 
 void readIRs() {
@@ -142,19 +142,16 @@ void readIRs() {
 
 BallData calculateBall() {
     float sumX = 0, sumY = 0;
-    float totalStrength = 0;
     int activeCount = 0;
 
     for (int i = 0; i < IR_COUNT; i++) {
-        if (IR[i] > IR_THRESHOLD) {
+        if (IR[i]) {
             // Sensors numbered clockwise: 0=front, 7=left(270), 14=back(180), 22=right(90)
             float angleDeg = fmod(360.0f - i * (360.0f / IR_COUNT), 360.0f);
             float angleRad = angleDeg * DEG_TO_RAD;
-            float weight = (float)IR[i];
 
-            sumX += sinf(angleRad) * weight;
-            sumY += cosf(angleRad) * weight;
-            totalStrength += weight;
+            sumX += sinf(angleRad);
+            sumY += cosf(angleRad);
             activeCount++;
         }
     }
@@ -169,7 +166,6 @@ BallData calculateBall() {
     } else {
         ball.angle = 0;
     }
-    ball.strength = totalStrength;
     ball.activeCount = activeCount;
 
     return ball;
@@ -185,8 +181,8 @@ void debugIR() {
 
 void debugBall(BallData &ball) {
     if (ball.detected) {
-        Serial.printf("[BALL] angle=%.1f  strength=%.0f  sensors=%d\n",
-                      ball.angle, ball.strength, ball.activeCount);
+        Serial.printf("[BALL] angle=%.1f  sensors=%d\n",
+                      ball.angle, ball.activeCount);
     } else {
         Serial.println("[BALL] not detected");
     }
