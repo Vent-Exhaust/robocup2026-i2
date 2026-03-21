@@ -121,20 +121,15 @@ void selectMuxChannel(int n) {
     digitalWrite(S3, binaryNum[3]);
 }
 
-bool readIR(int pin) {
-    unsigned long startTime = micros();
+int readIR(int pin) {
     int lowCount = 0;
-    
     for (int i = 0; i < IR_SAMPLES; i++) {
         if (digitalRead(pin) == LOW) {
             lowCount++;
         }
-        delayMicroseconds(5);  // 10us between samples
+        delayMicroseconds(5);
     }
-    
-    unsigned long duration = micros() - startTime;
-    
-    return lowCount > 3;
+    return lowCount;
 }
 
 void readIRs() {
@@ -145,12 +140,60 @@ void readIRs() {
     }
 }
 
+BallData calculateBall() {
+    float sumX = 0, sumY = 0;
+    float totalStrength = 0;
+    int activeCount = 0;
+
+    for (int i = 0; i < IR_COUNT; i++) {
+        if (IR[i] > IR_THRESHOLD) {
+            // Sensors numbered clockwise: 0=front, 7=left(270), 14=back(180), 22=right(90)
+            float angleDeg = fmod(360.0f - i * (360.0f / IR_COUNT), 360.0f);
+            float angleRad = angleDeg * DEG_TO_RAD;
+            float weight = (float)IR[i];
+
+            sumX += sinf(angleRad) * weight;
+            sumY += cosf(angleRad) * weight;
+            totalStrength += weight;
+            activeCount++;
+        }
+    }
+
+    BallData ball;
+    ball.detected = activeCount > 0;
+
+    if (ball.detected) {
+        float angleRad = atan2f(sumX, sumY);
+        ball.angle = angleRad * RAD_TO_DEG;
+        if (ball.angle < 0) ball.angle += 360.0f;
+    } else {
+        ball.angle = 0;
+    }
+    ball.strength = totalStrength;
+    ball.activeCount = activeCount;
+
+    return ball;
+}
+
 void debugIR() {
     for (int ir : IR) {
         Serial.print(ir);
         Serial.print(" ");
     }
     Serial.println();
+}
+
+void debugBall(BallData &ball) {
+    if (ball.detected) {
+        Serial.printf("[BALL] angle=%.1f  strength=%.0f  sensors=%d\n",
+                      ball.angle, ball.strength, ball.activeCount);
+    } else {
+        Serial.println("[BALL] not detected");
+    }
+}
+
+void readSwitches() {
+    
 }
 
 void setupMux() {
@@ -169,5 +212,7 @@ void setup() {
 
 void loop() {
     readIRs();
+    BallData ball = calculateBall();
     debugIR();
+    debugBall(ball);
 }

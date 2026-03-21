@@ -27,9 +27,23 @@ struct Packet {
 #define S2 D4
 #define S3 D5
 
-// IR readings
+// IR Readings
+#define IR_COUNT 28
 #define IR_THRESHOLD 3
 #define IR_SAMPLES 200
-int IR[28] = {};
+int IR[IR_COUNT] = {};
+
+struct BallData {
+    float angle;      // degrees: 0=front, 90=right, 180=back, 270=left
+    float strength;   // total IR intensity (higher = more IR detected)
+    int activeCount;  // number of sensors detecting the ball
+    bool detected;
+};
+
+// Switch Readings
+#define GOAL [D8, 0, 1, 1, 1] // Goal switch on pin D8, mux channel 14
+#define ROLE [D8, 1, 1, 1, 1] // Role switch on pin D8, mux channel 15 (!note: silkscreen writes side)
+#define STRAT_0 [D1, 0, 1, 1, 1] // Strat switch no. 1 on pin D1, mux channel 14
+#define STRAT_1 [D1, 1, 1, 1, 1] // Strat switch no. 1 on pin D1, mux channel 14
 
 #endif // MAIN_H
