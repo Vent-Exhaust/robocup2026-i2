@@ -190,11 +190,12 @@ void resetYawTarget() {
 
 // angleDeg: movement direction (0° = forward, 90° = right, 180° = backward, 270° = left)
 // speed: 0.0 to 1.0
-// omega: rotational rate (-1.0 to 1.0, positive = CCW)
+// omega: rotational rate (-1.0 to 1.0, positive = CW)
 void moveRobot(double angleDeg, double speed, double omega) {
+    omega = -omega;
     double angleRad = angleDeg * DEG_TO_RAD;
-    double vx = speed * cos(angleRad);  // rightward
-    double vy = speed * sin(angleRad);  // forward
+    double vx =  speed * cos(angleRad);  // rightward
+    double vy = -speed * sin(angleRad);  // forward
 
     // --- Yaw heading-hold PID ---
     if (omega != 0.0) {

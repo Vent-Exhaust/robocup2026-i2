@@ -23,11 +23,11 @@ void loop() {
 
     // moveRobot(0, 0.3, 0);
 
-    // Determine ball angle — prefer IR (means ball is close)
+    // // Determine ball angle — prefer IR (means ball is close)
     bool ballFound = false;
     float ballAngle = 0;
 
-    if (l3BallDetected) {
+    if (l3BallAngle) {
         ballFound = true;
         ballAngle = l3BallAngle;
         Serial.println(l3BallAngle);
@@ -36,6 +36,9 @@ void loop() {
         ballAngle = camBallAngle;
     }
 
+    // Serial.println(l3BallAngle);
+    // moveRobot(l3BallAngle, 0.3, 0);
+
     if (ballFound) {
         // Rotation error: how far ball is from front (0°), in [-180, 180]
         float rotError = ballAngle;
@@ -43,8 +46,8 @@ void loop() {
 
         // P-control rotation to face the ball
         // Positive rotError (ball on right) → negative omega (CW)
-        static const float ROT_KP = 0.0006;
-        float omega = -rotError * ROT_KP;
+        static const float ROT_KP = 0.001;
+        float omega = rotError * ROT_KP;
         omega = constrain(omega, -0.5f, 0.5f);
 
         // If nearly facing ball, let heading-hold PID take over
