@@ -6,7 +6,7 @@ import sensor, time, machine, math
 window_x = 480
 window_y = 480
 
-OPTICAL_OFFSET_X = 25
+OPTICAL_OFFSET_X = 23
 OPTICAL_OFFSET_Y = 0
 
 # -------------------------
