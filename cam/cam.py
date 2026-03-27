@@ -15,6 +15,7 @@ OPTICAL_CENTER_TRIM_Y = 6
 # -------------------------
 # Debug flags
 # -------------------------
+DEBUG_DISABLE_ALL = False  # If True: disables ALL drawing and debug output for max speed
 DEBUG_GOALS    = True
 DEBUG_BALL     = False
 DEBUG_FPS      = False
@@ -51,8 +52,8 @@ sensor.set_contrast(2)
 
 # CX home values
 blue_thresholds = [(0, 55, -31, -4, -128, -4)]
-yellow_thresholds = [(41, 71, -7, 41, 12, 69)]
-ball_thresholds = [(54, 100, 7, 42, 16, 127)]
+yellow_thresholds = [(41, 71, -7, 0, 12, 69)]
+ball_thresholds = [(54, 100, 20, 42, 16, 60)]
 # ball_thresholds = [(42, 100, 4, 20, 12, 21)]
 
 # -------------------------
@@ -158,8 +159,8 @@ while True:
             thresholds,
             pixels_threshold=30,
             area_threshold=30,
-            x_stride = 5,
-            y_stride = 5,
+            x_stride=5,
+            y_stride=5,
             merge=False,
         )
         if blobs:
@@ -176,17 +177,18 @@ while True:
 
             x_rob, y_rob, dist, angle = pixel_to_robot(center_px, center_py)
 
-            if DEBUG_GOALS:
-                for b in blobs:
-                    img.draw_rectangle(b.rect(), color=draw_color)
-                    img.draw_string(b.x(), b.y() - 10,
-                                    "%s %dpx" % (color_name, b.pixels()),
+            if not DEBUG_DISABLE_ALL:
+                if DEBUG_GOALS:
+                    for b in blobs:
+                        img.draw_rectangle(b.rect(), color=draw_color)
+                        img.draw_string(b.x(), b.y() - 10,
+                                        "%s %dpx" % (color_name, b.pixels()),
+                                        color=draw_color)
+                if DEBUG_DRAW:
+                    img.draw_cross(center_px, center_py, color=draw_color)
+                    img.draw_string(center_px + 8, center_py,
+                                    "%.0fcm %.0fd" % (dist, angle),
                                     color=draw_color)
-            if DEBUG_DRAW:
-                img.draw_cross(center_px, center_py, color=draw_color)
-                img.draw_string(center_px + 8, center_py,
-                                "%.0fcm %.0fd" % (dist, angle),
-                                color=draw_color)
 
             output_list.extend([
                 "%.1f" % x_rob,
@@ -215,17 +217,18 @@ while True:
 
         x_rob, y_rob, dist, angle = pixel_to_robot(ball_px, ball_py)
 
-        if DEBUG_BALL:
-            for b in ball_blobs:
-                img.draw_rectangle(b.rect(), color=(255, 0, 0))
-                img.draw_string(b.x(), b.y() - 10,
-                                "%dpx r%.2f" % (b.pixels(), b.roundness()),
+        if not DEBUG_DISABLE_ALL:
+            if DEBUG_BALL:
+                for b in ball_blobs:
+                    img.draw_rectangle(b.rect(), color=(255, 0, 0))
+                    img.draw_string(b.x(), b.y() - 10,
+                                    "%dpx r%.2f" % (b.pixels(), b.roundness()),
+                                    color=(255, 0, 0))
+            if DEBUG_DRAW:
+                img.draw_cross(ball_px, ball_py, color=(255, 0, 0), size=10, thickness=2)
+                img.draw_string(ball_px + 12, ball_py,
+                                "%.0fcm %.0fd" % (dist, angle),
                                 color=(255, 0, 0))
-        if DEBUG_DRAW:
-            img.draw_cross(ball_px, ball_py, color=(255, 0, 0), size=10, thickness=2)
-            img.draw_string(ball_px + 12, ball_py,
-                            "%.0fcm %.0fd" % (dist, angle),
-                            color=(255, 0, 0))
 
         output_list.extend([
             "%.1f" % x_rob,
@@ -236,13 +239,16 @@ while True:
     else:
         output_list.extend(["none", "none", "none", "none"])
 
-    if DEBUG_FPS:
-        img.draw_string(5, 5, "FPS: %.1f" % clock.fps(), color=(255, 255, 255))
+    if not DEBUG_DISABLE_ALL:
+        if DEBUG_FPS:
+            img.draw_string(5, 5, "FPS: %.1f" % clock.fps(), color=(255, 255, 255))
 
     # -------------------------
     # Output
     # -------------------------
-    if DEBUG_BALL_PX:
+    if DEBUG_DISABLE_ALL:
+        uart_obj.write(",".join(output_list) + "\n")
+    elif DEBUG_BALL_PX:
         if ball_blobs:
             print("ball_px_rel=(%d, %d)" % (ball_px - CX, ball_py - CY))
         else:
