@@ -3,13 +3,16 @@ import sensor, time, machine, math
 # -------------------------
 # Window / resolution
 # -------------------------
-window_x = 448
-window_y = 352
+window_x = 480
+window_y = 480
+
+OPTICAL_OFFSET_X = 25
+OPTICAL_OFFSET_Y = 0
 
 # -------------------------
 # Debug flags
 # -------------------------
-DEBUG_GOALS = False
+DEBUG_GOALS = True
 DEBUG_BALL  = False
 DEBUG_FPS   = False
 DEBUG_DRAW  = True
@@ -20,18 +23,32 @@ DEBUG_DRAW  = True
 sensor.reset()
 sensor.set_pixformat(sensor.RGB565)
 sensor.set_framesize(sensor.VGA)
-sensor.set_windowing((int((640 - window_x) / 2), int((480 - window_y) / 2), window_x, window_y))
+sensor.set_windowing((
+    int((640 - window_x) / 2) + OPTICAL_OFFSET_X,
+    int((480 - window_y) / 2) + OPTICAL_OFFSET_Y,
+    window_x,
+    window_y
+))
 sensor.skip_frames(time=2000)
 sensor.set_auto_gain(False)
 sensor.set_auto_whitebal(False)
-sensor.set_auto_exposure(False, exposure_us=20000)
+# sensor.set_auto_exposure(False, exposure_us=20000) # Robo lab values
+sensor.set_auto_exposure(False, exposure_us=50000) # CX home values
+sensor.set_contrast(2)
 
 # -------------------------
 # Colour thresholds
 # -------------------------
-blue_thresholds   = [(23, 77, -79, 26, -47, -13)]
-yellow_thresholds = [(41, 100, -12, 6, 18, 61)]
-ball_thresholds   = [(0, 79, 20, 72, -128, 127)]
+
+# Robo lab values
+# blue_thresholds   = [(23, 77, -79, 26, -47, -13)]
+# yellow_thresholds = [(41, 100, -12, 6, 18, 61)]
+# ball_thresholds   = [(0, 79, 20, 72, -128, 127)]
+
+# CX home values
+blue_thresholds = [(0, 55, -31, -4, -128, -4)]
+yellow_thresholds = [(0, 100, -128, 0, 26, 42)]
+ball_thresholds = [(54, 100, 7, 42, 16, 127)]
 
 # -------------------------
 # UART
