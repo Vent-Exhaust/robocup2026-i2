@@ -5,6 +5,7 @@ void setup() {
     Serial.begin(115200);
     setupL1Comm();
     setupCamComm();
+    setupL3Comm();
 
     setupMotors();
     setupSol();
@@ -16,58 +17,50 @@ void setup() {
 }
 
 void loop() {
-    // dribbler.writeMicroseconds(1500);
-
-    // if (readL1()) debugL1Readings();
-    if (readCam()) debugCamReadings();
-
+    readL3();
+    readCam();
     readIMU();
-    Serial.println(imuYaw);
 
-    // if (!isImuHealthy()) {
-    //     Serial.println("[IMU] Timeout — stopping motors and reinitialising");
-    //     stopMotors();
+    // moveRobot(0, 0.3, 0);
 
-    //     while (!reinitIMU()) {
-    //         delay(500);
-    //     }
+    // Determine ball angle — prefer IR (means ball is close)
+    bool ballFound = false;
+    float ballAngle = 0;
 
-    //     delay(IMU_REINIT_SETTLE_MS);
-    //     resetYawTarget();
-    //     Serial.println("[IMU] Recovered — resuming");
-    //     return;
-    // }
+    if (l3BallDetected) {
+        ballFound = true;
+        ballAngle = l3BallAngle;
+        Serial.println(l3BallAngle);
+    } else if (camBallDetected) {
+        ballFound = true;
+        ballAngle = camBallAngle;
+    }
 
-    // // moveRobot(0, 0, 0);
+    if (ballFound) {
+        // Rotation error: how far ball is from front (0°), in [-180, 180]
+        float rotError = ballAngle;
+        if (rotError > 180.0f) rotError -= 360.0f;
 
-    // // Square pattern: forward -> right -> backward -> left
-    // static const double   SQUARE_ANGLES[4] = { 0, 90, 180, 270 };
-    // static const uint32_t SIDE_MS    = 2000;  // ms per side (cruise + ramps)
-    // static const uint32_t RAMP_MS    = 400;   // ms to accel / decel
-    // static const double   MAX_SPEED  = 0.2;
-    // static uint8_t        squareState  = 0;
-    // static uint32_t       stateStartMs = 0;
+        // P-control rotation to face the ball
+        // Positive rotError (ball on right) → negative omega (CW)
+        static const float ROT_KP = 0.0006;
+        float omega = -rotError * ROT_KP;
+        omega = constrain(omega, -0.5f, 0.5f);
 
-    // uint32_t now = millis();
-    // if (stateStartMs == 0) stateStartMs = now;
+        // If nearly facing ball, let heading-hold PID take over
+        if (abs(rotError) < 5.0f) {
+            omega = 0;
+        }
 
-    // uint32_t elapsed = now - stateStartMs;
-    // if (elapsed >= SIDE_MS) {
-    //     squareState  = (squareState + 1) % 4;
-    //     stateStartMs = now;
-    //     elapsed      = 0;
-    //     resetYawTarget();
-    // }
+        // Move toward ball while rotating to face it
+        static const float MOVE_SPEED = 0.3f;
+        moveRobot(ballAngle, MOVE_SPEED, omega);
 
-    // // Ramp up at start, ramp down at end
-    // double speed;
-    // if (elapsed < RAMP_MS) {
-    //     speed = MAX_SPEED * (double)elapsed / RAMP_MS;
-    // } else if (elapsed > SIDE_MS - RAMP_MS) {
-    //     speed = MAX_SPEED * (double)(SIDE_MS - elapsed) / RAMP_MS;
-    // } else {
-    //     speed = MAX_SPEED;
-    // }
-
-    // moveRobot(SQUARE_ANGLES[squareState], speed, 0);
+        Serial.printf("[TRACK] angle=%.1f rotErr=%.1f omega=%.3f src=%s\n",
+                      ballAngle, rotError, omega,
+                      l3BallDetected ? "IR" : "CAM");
+    } else {
+        stopMotors();
+        resetYawTarget();
+    }
 }

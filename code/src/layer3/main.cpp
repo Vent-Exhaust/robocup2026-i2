@@ -146,7 +146,7 @@ bool readIR(int pin) {
         if (digitalRead(pin) == LOW) {
             lowCount++;
         }
-        delayMicroseconds(5);
+        delayMicroseconds(2);
     }
     return lowCount > IR_THRESHOLD;
 }
@@ -258,8 +258,10 @@ void loop() {
     readSwitches();
     BallData ball = calculateBall();
     sendL3Data(ball);
+    Serial.print(ball.angle);
+    Serial.print(" ");
     debugIR();
-    debugBall(ball);
-    Serial.printf("[SW] goal=%d role=%d strat0=%d strat1=%d\n",
-                  switchGoal, switchRole, switchStrat0, switchStrat1);
+    // debugBall(ball);
+    // Serial.printf("[SW] goal=%d role=%d strat0=%d strat1=%d\n",
+    //               switchGoal, switchRole, switchStrat0, switchStrat1);
 }
