@@ -9,13 +9,17 @@ window_y = 480
 OPTICAL_OFFSET_X = 23
 OPTICAL_OFFSET_Y = 0
 
+OPTICAL_CENTER_TRIM_X = 0
+OPTICAL_CENTER_TRIM_Y = 6
+
 # -------------------------
 # Debug flags
 # -------------------------
-DEBUG_GOALS = True
-DEBUG_BALL  = False
-DEBUG_FPS   = False
-DEBUG_DRAW  = True
+DEBUG_GOALS    = True
+DEBUG_BALL     = False
+DEBUG_FPS      = False
+DEBUG_DRAW     = True
+DEBUG_BALL_PX  = False   # If True: only prints ball pixel coords relative to center
 
 # -------------------------
 # Camera setup
@@ -33,7 +37,7 @@ sensor.skip_frames(time=2000)
 sensor.set_auto_gain(False)
 sensor.set_auto_whitebal(False)
 # sensor.set_auto_exposure(False, exposure_us=20000) # Robo lab values
-sensor.set_auto_exposure(False, exposure_us=50000) # CX home values
+sensor.set_auto_exposure(False, exposure_us=35000) # CX home values
 sensor.set_contrast(2)
 
 # -------------------------
@@ -47,8 +51,9 @@ sensor.set_contrast(2)
 
 # CX home values
 blue_thresholds = [(0, 55, -31, -4, -128, -4)]
-yellow_thresholds = [(0, 100, -128, 0, 26, 42)]
+yellow_thresholds = [(41, 71, -7, 41, 12, 69)]
 ball_thresholds = [(54, 100, 7, 42, 16, 127)]
+# ball_thresholds = [(42, 100, 4, 20, 12, 21)]
 
 # -------------------------
 # UART
@@ -63,21 +68,23 @@ color_configs = [
 # -------------------------
 # Mirror coordinate conversion
 # -------------------------
-CX = window_x // 2   # 224
-CY = window_y // 2   # 176
+CX = window_x // 2 + OPTICAL_CENTER_TRIM_X
+CY = window_y // 2 + OPTICAL_CENTER_TRIM_Y
 
-# Degree-3 polynomial fits from calibration (d_cm = a*r^3 + b*r^2 + c*r + d)
-# X-axis fit (valid ~19-139 cm, r = 105-206 px)
-POLY_X = (1.94466527e-04, -7.59780478e-02,  1.01680149e+01, -4.36382611e+02)
-# Y-axis fit (valid ~19-89 cm,  r =  92-175 px)
-POLY_Y = (2.56781054e-04, -9.28917129e-02,  1.14339158e+01, -4.46999817e+02)
+# Degree-5 polynomial fits (d_cm = a*r^5 + b*r^4 + c*r^3 + d*r^2 + e*r + f)
+# Valid ~19-139 cm, r = 90-184 px
+POLY_X = ( 3.13748841e-07, -2.12615728e-04,  5.70654064e-02,
+          -7.56527068e+00,  4.94903474e+02, -1.27472480e+04)
+POLY_Y = ( 3.13748841e-07, -2.12615728e-04,  5.70654064e-02,
+          -7.56527068e+00,  4.94903474e+02, -1.27472480e+04)
 
-MIN_R_PX = 92.0
-MAX_R_X  = 206.0
-MAX_R_Y  = 175.0
+MIN_R_PX = 90.0
+MAX_R_X  = 184.0
+MAX_R_Y  = 184.0
 
 def _poly(coeffs, r):
-    return coeffs[0]*r*r*r + coeffs[1]*r*r + coeffs[2]*r + coeffs[3]
+    return (coeffs[0]*r**5 + coeffs[1]*r**4 + coeffs[2]*r**3
+          + coeffs[3]*r**2 + coeffs[4]*r  + coeffs[5])
 
 def pixel_to_image_xy(px, py):
     """
@@ -151,6 +158,8 @@ while True:
             thresholds,
             pixels_threshold=30,
             area_threshold=30,
+            x_stride = 5,
+            y_stride = 5,
             merge=False,
         )
         if blobs:
@@ -195,8 +204,8 @@ while True:
         ball_thresholds,
         pixels_threshold=1,
         area_threshold=1,
-        x_stride=4,
-        y_stride=3,
+        x_stride=2,
+        y_stride=2,
     )
 
     if ball_blobs:
@@ -218,9 +227,6 @@ while True:
                             "%.0fcm %.0fd" % (dist, angle),
                             color=(255, 0, 0))
 
-        # print("ball  real=(%.1f, %.1f)cm  dist=%.1fcm  angle=%.1fdeg"
-        #       % (x_rob, y_rob, dist, angle))
-
         output_list.extend([
             "%.1f" % x_rob,
             "%.1f" % y_rob,
@@ -233,7 +239,14 @@ while True:
     if DEBUG_FPS:
         img.draw_string(5, 5, "FPS: %.1f" % clock.fps(), color=(255, 255, 255))
 
-    # Send over UART as CSV
-    # BLUE_X, BLUE_Y, BLUE_DIST, BLUE_ANGLE, YELLOW_X, YELLOW_Y, YELLOW_DIST, YELLOW_ANGLE, BALL_X, BALL_Y, BALL_DIST, BALL_ANGLE
-    print(",".join(output_list))
-    uart_obj.write(",".join(output_list) + "\n")
+    # -------------------------
+    # Output
+    # -------------------------
+    if DEBUG_BALL_PX:
+        if ball_blobs:
+            print("ball_px_rel=(%d, %d)" % (ball_px - CX, ball_py - CY))
+        else:
+            print("ball: none")
+    else:
+        print(",".join(output_list))
+        uart_obj.write(",".join(output_list) + "\n")
