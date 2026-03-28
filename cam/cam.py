@@ -38,8 +38,9 @@ sensor.skip_frames(time=2000)
 sensor.set_auto_gain(False)
 sensor.set_auto_whitebal(False)
 # sensor.set_auto_exposure(False, exposure_us=20000) # Robo lab values
-sensor.set_auto_exposure(False, exposure_us=35000) # CX home values
-sensor.set_contrast(2)
+# sensor.set_auto_exposure(False, exposure_us=35000) # CX home values (Night)
+sensor.set_auto_exposure(False, exposure_us=30000) # CX home values (Afternoon)
+sensor.set_contrast(3)
 
 # -------------------------
 # Colour thresholds
@@ -52,7 +53,9 @@ sensor.set_contrast(2)
 
 # CX home values
 blue_thresholds = [(0, 55, -31, -4, -128, -4)]
-yellow_thresholds = [(41, 71, -7, 0, 12, 69)]
+# yellow_thresholds = [(41, 71, -7, 0, 12, 69)]
+# yellow_thresholds = [(50, 59, -10, -2, 10, 20)]
+yellow_thresholds = [(61, 100, -4, 13, 40, 17)]
 ball_thresholds = [(54, 100, 20, 42, 16, 60)]
 # ball_thresholds = [(42, 100, 4, 20, 12, 21)]
 
