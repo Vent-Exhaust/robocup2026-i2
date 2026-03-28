@@ -12,7 +12,10 @@
 // constexpr int LDR_THRESHOLDS[32] = {2590, 2673, 2634, 2713, 2647, 2759, 2220, 2772, 2286, 2271, 2096, 2570, 2309, 2538, 2638, 2678, 2560, 2300, 2192, 2230, 1756, 2153, 2062, 2273, 2518, 1396, 2031, 2209, 2236, 2337, 2250, 2472};
 
 // PSU 12v (Lab)
-constexpr int LDR_THRESHOLDS[32] = {3391, 3388, 3372, 3367, 3354, 3350, 3307, 3325, 3307, 3253, 3300, 3291, 3265, 3300, 3300, 3264, 3257, 3330, 3192, 3238, 3219, 3224, 3180, 3221, 3217, 3200, 3175, 3201, 3198, 3206, 3187, 3208};
+// constexpr int LDR_THRESHOLDS[32] = {3391, 3388, 3372, 3367, 3354, 3350, 3307, 3325, 3307, 3253, 3300, 3291, 3265, 3300, 3300, 3264, 3257, 3330, 3192, 3238, 3219, 3224, 3180, 3221, 3217, 3200, 3175, 3201, 3198, 3206, 3187, 3208};
+
+// Lipo (Cx home)
+constexpr int LDR_THRESHOLDS[32] = {3415, 3409, 3393, 3384, 3372, 3365, 3326, 3339, 3323, 3311, 3303, 3307, 3294, 3284, 3276, 3277, 3272, 3254, 3251, 3258, 3243, 3242, 3235, 3240, 3236, 3222, 3217, 3227, 3220, 3227, 3217, 3230};
 
 // Samples to average per sensor reading
 constexpr int LDR_SAMPLES = 25;
@@ -26,7 +29,7 @@ constexpr int CALIBRATION_READS_PER_SAMPLE = 50;
 
 // --- Main Loop ---
 // Polling period in milliseconds
-constexpr int LOOP_DELAY_MS = 50;
+constexpr int LOOP_DELAY_MS = 30;
 
 // --- Layer 2: Motor Trim ---
 // Per-motor speed multipliers (0.0–1.0). Reduce a motor's value if it spins
