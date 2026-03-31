@@ -20,5 +20,6 @@ void setupESC();
 void setupSol();
 void setupLightgate();
 void spinDribbler(int speed);
+bool checkCatchment();
 
 #endif // SCORING_H

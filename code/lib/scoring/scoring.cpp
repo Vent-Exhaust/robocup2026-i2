@@ -26,3 +26,13 @@ void spinDribbler(int speed) {
     int pulse = map(speed, 0, 100, 1000, 2000);
     dribbler.writeMicroseconds(pulse);
 }
+
+bool checkCatchment() {
+  int count = 0;
+  for (int i = 0; i < 20; i++) {
+    count += analogRead(LIGHTGATE) < 1021 ? 1 : 0;
+    delayMicroseconds(5);
+  }
+  // Serial.println(count);
+  return count > 2;
+}
