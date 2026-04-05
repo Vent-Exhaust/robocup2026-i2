@@ -95,7 +95,7 @@ static float edgeSpeedCap(float moveAngleDeg, float headingDeg) {
 void setup() {
     setupESC();
     Serial.begin(115200);
-    // setupL1Comm();
+    setupL1Comm();
     setupCamComm();
     setupL3Comm();
 
@@ -109,7 +109,7 @@ void setup() {
 }
 
 void loop() {
-    // readL1();
+    readL1();
     readL3();
     readCam();
     readIMU();
@@ -128,49 +128,12 @@ void loop() {
         ballAngle = l3BallAngle;
     }
 
-    // Determine opponent goal from switch: 0 = attack yellow, 1 = attack blue
-    float goalAngle = 0, goalDist = 999.0f;
-    bool goalVisible = false;
-    if (l3SwitchGoal == 1 && camBlueDetected) {
-        goalAngle = camBlueAngle; goalDist = camBlueDist; goalVisible = true;
-    } else if (l3SwitchGoal == 0 && camYellowDetected) {
-        goalAngle = camYellowAngle; goalDist = camYellowDist; goalVisible = true;
-    }
-
-    bool hasBall = (digitalRead(LIGHTGATE) == LOW);
-
-    // Spin dribbler whenever we have the ball or are about to get it
-    spinDribbler(ballFound ? 60 : 0);
-
-    if (hasBall) {
-        // === POSSESS: drive toward goal and shoot ===
-        static const float SHOOT_DIST    = 50.0f;  // cm — shoot when this close to goal
-        static const float POSSESS_SPEED = 0.5f;
-        static uint32_t lastShotMs = 0;
-        static const uint32_t SHOT_COOLDOWN_MS = 1000;
-
-        if (goalVisible) {
-            float rotErr = goalAngle;
-            if (rotErr > 180.0f) rotErr -= 360.0f;
-            float omega = constrain(rotErr * 0.004f, -0.5f, 0.5f);
-            if (fabsf(rotErr) < 5.0f) omega = 0;
-
-            bool canShoot = (millis() - lastShotMs) > SHOT_COOLDOWN_MS;
-            if (goalDist < SHOOT_DIST && canShoot) {
-                // Shoot!
-                spinDribbler(0);
-                digitalWrite(SOL, HIGH);
-                delay(80);
-                digitalWrite(SOL, LOW);
-                lastShotMs = millis();
-            } else {
-                moveRobot(goalAngle, POSSESS_SPEED, omega);
-            }
-        } else {
-            // Goal not visible — keep moving forward
-            moveRobot(0, 0.3f, 0);
-        }
-
+    // Line avoidance takes priority over everything
+    if (l1LineDetected) {
+        float escapeAngle = fmod(l1Angle + 180.0f, 360.0f);
+        static const float LINE_KP = 3.0f;
+        float escapeSpeed = constrain(l1Size * LINE_KP, 0.1f, 0.7f);
+        moveRobot(escapeAngle, escapeSpeed, 0);
     } else if (ballFound) {
         float rotError = ballAngle;
         if (rotError > 180.0f) rotError -= 360.0f;
@@ -181,8 +144,8 @@ void loop() {
         if (abs(rotError) < 5.0f) omega = 0;
 
         static const float BALL_SPEED_KP  = 0.001f;
-        static const float BALL_SPEED_MIN = 0.15f;
-        static const float BALL_SPEED_MAX = 0.3f;
+        static const float BALL_SPEED_MIN = 0.05f;
+        static const float BALL_SPEED_MAX = 0.2f;
         float moveSpeed;
         if (camBallDetected) {
             moveSpeed = constrain(camBallDist * BALL_SPEED_KP, BALL_SPEED_MIN, BALL_SPEED_MAX);
@@ -195,7 +158,6 @@ void loop() {
         moveSpeed = min(moveSpeed, cap);
 
         moveRobot(ballAngle, moveSpeed, omega);
-
     } else if (locValid) {
         // No ball — return to centre
         float distToCenter = sqrtf(locX * locX + locY * locY);
