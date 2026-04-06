@@ -222,7 +222,26 @@ void loop() {
             float radiusError = camBallDist - CAM_ORBIT_RADIUS;
             float radiusAdjust = constrain(radiusError * CAM_ORBIT_RADIUS_KP, -30.0f, 30.0f);
 
-            float moveAngle = fmod(irAngle + tangentDir - radiusAdjust + 360.0f, 360.0f);
+            // When aligned, blend in a forward creep toward ball
+            static const float ALIGN_THRESH = 5.0f;
+            static const float CREEP_SPEED  = 0.1f;
+            float forwardSpeed = 0;
+            if (fabsf(alignError) < ALIGN_THRESH) {
+                forwardSpeed = CREEP_SPEED;
+            }
+
+            // Combine orbit tangent + forward creep via vector sum
+            float tangentRad = (irAngle + tangentDir) * DEG_TO_RAD;
+            float forwardRad = irAngle * DEG_TO_RAD;  // toward ball
+
+            float mx = orbitSpeed * sinf(tangentRad) + forwardSpeed * sinf(forwardRad);
+            float my = orbitSpeed * cosf(tangentRad) + forwardSpeed * cosf(forwardRad);
+
+            float moveAngle = fmod(atan2f(mx, my) * RAD_TO_DEG + 360.0f, 360.0f);
+            float moveSpeed  = sqrtf(mx * mx + my * my);
+
+            // Apply radius adjustment on top
+            moveAngle = fmod(moveAngle - radiusAdjust + 360.0f, 360.0f);
 
             // Face the ball: rotate toward IR ball angle
             float rotError = irAngle;
@@ -232,9 +251,9 @@ void loop() {
             if (fabsf(rotError) < 5.0f) omega = 0;
 
             lastMoveAngle = moveAngle;
-            moveRobot(moveAngle, orbitSpeed, omega);
-            Serial.printf("[ORBIT] alignErr=%.1f spd=%.2f camDist=%.1f\n",
-                          alignError, orbitSpeed, camBallDist);
+            moveRobot(moveAngle, moveSpeed, omega);
+            Serial.printf("[ORBIT] alignErr=%.1f spd=%.2f creep=%.2f camDist=%.1f\n",
+                          alignError, moveSpeed, forwardSpeed, camBallDist);
         } else {
             // === IR chase mode — camera can't see ball, go straight at it ===
             float moveAngle = ballAngle;

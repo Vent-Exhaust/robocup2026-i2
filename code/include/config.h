@@ -68,7 +68,7 @@ constexpr int DRIBBLER_SPEED = 12;
 
 // --- Camera Orbit ---
 constexpr float CAM_ORBIT_RADIUS      = 20.0f;  // desired distance from ball (cm)
-constexpr float CAM_ORBIT_RADIUS_KP   = 1.0f;   // radius maintenance gain (deg per cm error, capped ±30°)
+constexpr float CAM_ORBIT_RADIUS_KP   = 1.2f;   // radius maintenance gain (deg per cm error, capped ±30°)
 constexpr float CAM_ORBIT_SPEED       = 0.1f;  // max orbit speed
 constexpr float CAM_ORBIT_KP          = 0.01f; // orbit speed gain (speed per deg of alignment error)
 
