@@ -192,8 +192,26 @@ void loop() {
             // === Orbit mode: IR angle for direction, cam distance for radius ===
             float irAngle = l3BallAngle;
 
-            // Tangent: orbit CCW (IR ball angle + 90°)
-            float tangentDir = 90.0f;
+            // Alignment: determine orbit direction (bang-bang)
+            // Goal angle in robot frame
+            float goalAngle;
+            if (camBlueDetected) {
+                goalAngle = camBlueAngle;
+            } else {
+                goalAngle = -imuYaw;  // world 0° in robot frame
+            }
+            if (goalAngle >  180.0f) goalAngle -= 360.0f;
+            if (goalAngle < -180.0f) goalAngle += 360.0f;
+
+            float ballAng = irAngle;
+            if (ballAng > 180.0f) ballAng -= 360.0f;
+
+            // If goal is to the right of ball, orbit CW (-90); else CCW (+90)
+            float alignError = goalAngle - ballAng;
+            if (alignError >  180.0f) alignError -= 360.0f;
+            if (alignError < -180.0f) alignError += 360.0f;
+
+            float tangentDir = (alignError > 0) ? -90.0f : 90.0f;
 
             // Radius maintenance: adjust angle toward/away from ball
             float radiusError = camBallDist - CAM_ORBIT_RADIUS;
