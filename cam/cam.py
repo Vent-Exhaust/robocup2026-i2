@@ -47,8 +47,8 @@ sensor.skip_frames(time=2000)
 sensor.set_auto_gain(False)
 sensor.set_auto_whitebal(False)
 # sensor.set_auto_exposure(False, exposure_us=10000) # Robo lab values
-# sensor.set_auto_exposure(False, exposure_us=35000) # CX home values (Night)
-sensor.set_auto_exposure(False, exposure_us=10000) # CX home values (Afternoon)
+sensor.set_auto_exposure(False, exposure_us=20000) # CX home values (Night)
+# sensor.set_auto_exposure(False, exposure_us=10000) # CX home values (Afternoon)
 sensor.set_contrast(3)
 
 # -------------------------
