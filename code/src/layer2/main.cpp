@@ -9,7 +9,7 @@ float locX = 0, locY = 0, locHeading = 0;
 bool  locValid = false;
 
 // Return-to-centre tuning
-static const float LOC_KP        = 0.008f;
+static const float LOC_KP        = 0.003f;
 static const float LOC_SPEED_MIN = 0.08f;
 static const float LOC_SPEED_MAX = 0.3f;
 static const float LOC_DEADZONE  = 3.0f;
@@ -109,10 +109,14 @@ void setup() {
 }
 
 void loop() {
+    spinDribbler(DRIBBLER_SPEED);
+
     readL1();
     readL3();
     readCam();
     readIMU();
+
+    bool ballCaught = checkCatchment();
 
     // Localisation
     updateLocalisation();
@@ -120,44 +124,104 @@ void loop() {
     bool ballFound = false;
     float ballAngle = 0;
 
-    if (camBallDetected) {
-        ballFound = true;
-        ballAngle = camBallAngle;
-    } else if (l3BallAngle) {
+    if (l3BallDetected) {
         ballFound = true;
         ballAngle = l3BallAngle;
+    } else if (camBallDetected) {
+        // ballFound = true;
+        // ballAngle = camBallAngle;
     }
 
     // Line avoidance takes priority over everything
+    static float lastMoveAngle = 0;
     if (l1LineDetected) {
-        float escapeAngle = fmod(l1Angle + 180.0f, 360.0f);
-        static const float LINE_KP = 3.0f;
-        float escapeSpeed = constrain(l1Size * LINE_KP, 0.1f, 0.7f);
+        // Weighted escape: 50% reverse of prior movement, 50% L1 line-opposite
+        float l1Escape = fmod(l1Angle + 180.0f, 360.0f);
+        float reverseMove = fmod(lastMoveAngle + 180.0f, 360.0f);
+
+        // Blend angles using vector averaging to handle wraparound
+        float l1Rad = l1Escape * DEG_TO_RAD;
+        float revRad = reverseMove * DEG_TO_RAD;
+        float bx = 0.5f * cosf(l1Rad) + 0.5f * cosf(revRad);
+        float by = 0.5f * sinf(l1Rad) + 0.5f * sinf(revRad);
+        float escapeAngle = atan2f(by, bx) * RAD_TO_DEG;
+        escapeAngle = fmod(escapeAngle + 360.0f, 360.0f);
+
+        static const float LINE_KP = 1.0f;
+        float escapeSpeed = constrain(l1Size * LINE_KP, 0.08f, 0.3f);
         moveRobot(escapeAngle, escapeSpeed, 0);
-    } else if (ballFound) {
-        float rotError = ballAngle;
-        if (rotError > 180.0f) rotError -= 360.0f;
+    } else if (false) {
+    // } else if (ballCaught) {
+        // Score towards target goal (swap to camYellow* to change target)
+        bool targetDetected = camBlueDetected;
+        float targetAngle   = camBlueAngle;
+        float targetDist    = camBlueDist;
 
-        static const float ROT_KP = 0.001;
-        float omega = rotError * ROT_KP;
-        omega = constrain(omega, -0.5f, 0.5f);
-        if (abs(rotError) < 5.0f) omega = 0;
+        if (targetDetected) {
+            float goalError = targetAngle;
+            if (goalError > 180.0f) goalError -= 360.0f;
 
-        static const float BALL_SPEED_KP  = 0.001f;
-        static const float BALL_SPEED_MIN = 0.05f;
-        static const float BALL_SPEED_MAX = 0.2f;
-        float moveSpeed;
-        if (camBallDetected) {
-            moveSpeed = constrain(camBallDist * BALL_SPEED_KP, BALL_SPEED_MIN, BALL_SPEED_MAX);
+            // Smooth rotation to keep ball in dribbler
+            // Quadratic response: gentle near center, stronger at large errors
+            static const float SCORE_ROT_KP  = 0.00004f;
+            static const float SCORE_ROT_MAX = 0.12f;
+            float sign = (goalError > 0) ? 1.0f : -1.0f;
+            float omega = constrain(sign * goalError * goalError * SCORE_ROT_KP,
+                                    -SCORE_ROT_MAX, SCORE_ROT_MAX);
+
+            // Move forward towards goal
+            static const float SCORE_SPEED = 0.2f;
+            lastMoveAngle = 0;
+
+            // Kick when close and roughly aligned
+            if (targetDist < 70.0f && fabsf(goalError) < 20.0f) {
+                kickSol();
+            }
+
+            moveRobot(0, SCORE_SPEED, omega);
+            Serial.printf("[SCORE] goal err=%.1f dist=%.1f\n", goalError, targetDist);
         } else {
-            moveSpeed = BALL_SPEED_MAX;
+            // Goal not visible — creep forward and hope camera picks it up
+            lastMoveAngle = 0;
+            moveRobot(0, 0.15f, 0);
+            Serial.println("[SCORE] goal not visible, creeping forward");
         }
+    // } else if (false) {
+    } else if (ballFound) {
+        if (camBallDetected && l3BallDetected) {
+            // === Orbit mode: IR angle for direction, cam distance for radius ===
+            float irAngle = l3BallAngle;
 
-        // Cap speed near field edge if moving outward
-        float cap = edgeSpeedCap(ballAngle, locHeading);
-        moveSpeed = min(moveSpeed, cap);
+            // Tangent: orbit CCW (IR ball angle + 90°)
+            float tangentDir = 90.0f;
 
-        moveRobot(ballAngle, moveSpeed, omega);
+            // Radius maintenance: adjust angle toward/away from ball
+            float radiusError = camBallDist - CAM_ORBIT_RADIUS;
+            float radiusAdjust = constrain(radiusError * CAM_ORBIT_RADIUS_KP, -30.0f, 30.0f);
+
+            float moveAngle = fmod(irAngle + tangentDir - radiusAdjust + 360.0f, 360.0f);
+
+            // Face the ball: rotate toward IR ball angle
+            float rotError = irAngle;
+            if (rotError > 180.0f) rotError -= 360.0f;
+            static const float ORBIT_ROT_KP = 0.003f;
+            float omega = constrain(rotError * ORBIT_ROT_KP, -0.5f, 0.5f);
+            if (fabsf(rotError) < 5.0f) omega = 0;
+
+            lastMoveAngle = moveAngle;
+            moveRobot(moveAngle, CAM_ORBIT_SPEED, omega);
+            Serial.printf("[ORBIT] irAng=%.1f camDist=%.1f radErr=%.1f\n",
+                          irAngle, camBallDist, radiusError);
+        } else {
+            // === IR chase mode — camera can't see ball, go straight at it ===
+            float moveAngle = ballAngle;
+
+            static const float IR_CHASE_SPEED = 0.15f;
+
+            lastMoveAngle = moveAngle;
+            moveRobot(moveAngle, IR_CHASE_SPEED, 0);
+            Serial.printf("[IR] chasing ball at %.1f\n", ballAngle);
+        }
     } else if (locValid) {
         // No ball — return to centre
         float distToCenter = sqrtf(locX * locX + locY * locY);
@@ -170,6 +234,7 @@ void loop() {
             moveAngle = fmodf(moveAngle + 360.0f, 360.0f);
 
             float speed = constrain(distToCenter * LOC_KP, LOC_SPEED_MIN, LOC_SPEED_MAX);
+            lastMoveAngle = moveAngle;
             moveRobot(moveAngle, speed, 0);
         }
     } else {

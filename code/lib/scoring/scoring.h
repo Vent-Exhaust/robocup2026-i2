@@ -15,9 +15,13 @@ extern bool isActuated;
 // Lightgate
 #define LIGHTGATE 22
 
+// Kick cooldown (ms) — lightgate reads false positive after solenoid fires
+#define KICK_COOLDOWN_MS 1000
+
 // Function prototypes
 void setupESC();
 void setupSol();
+void kickSol();
 void setupLightgate();
 void spinDribbler(int speed);
 bool checkCatchment();

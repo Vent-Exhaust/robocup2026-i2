@@ -12,12 +12,21 @@ OPTICAL_OFFSET_Y = 0
 OPTICAL_CENTER_TRIM_X = 0
 OPTICAL_CENTER_TRIM_Y = 6
 
+BALL_ROI_SIZE = 220  # square side length, adjust as needed
+
+ball_roi = (
+    240 - BALL_ROI_SIZE // 2,
+    240 - BALL_ROI_SIZE // 2,
+    BALL_ROI_SIZE,
+    BALL_ROI_SIZE,
+)
+
 # -------------------------
 # Debug flags
 # -------------------------
 DEBUG_DISABLE_ALL = False  # If True: disables ALL drawing and debug output for max speed
 DEBUG_GOALS    = True
-DEBUG_BALL     = False
+DEBUG_BALL     = True
 DEBUG_FPS      = False
 DEBUG_DRAW     = True
 DEBUG_BALL_PX  = False   # If True: only prints ball pixel coords relative to center
@@ -37,9 +46,9 @@ sensor.set_windowing((
 sensor.skip_frames(time=2000)
 sensor.set_auto_gain(False)
 sensor.set_auto_whitebal(False)
-sensor.set_auto_exposure(False, exposure_us=10000) # Robo lab values
+# sensor.set_auto_exposure(False, exposure_us=10000) # Robo lab values
 # sensor.set_auto_exposure(False, exposure_us=35000) # CX home values (Night)
-# sensor.set_auto_exposure(False, exposure_us=30000) # CX home values (Afternoon)
+sensor.set_auto_exposure(False, exposure_us=10000) # CX home values (Afternoon)
 sensor.set_contrast(3)
 
 # -------------------------
@@ -50,16 +59,15 @@ sensor.set_contrast(3)
 # blue_thresholds   = [(23, 77, -79, 26, -47, -13)]
 # yellow_thresholds = [(41, 100, -12, 6, 18, 61)]
 # ball_thresholds   = [(0, 79, 20, 72, -128, 127)]
-blue_thresholds = [((30, 56, -128, -3, -128, -6))]
-yellow_thresholds = [(64, 96, 37, -21, 88, 31)]
-ball_thresholds = [(50, 100, 62, 16, 39, 12)]
+# blue_thresholds = [((30, 56, -128, -3, -128, -6))]
+# yellow_thresholds = [(64, 96, 37, -21, 88, 31)]
+# ball_thresholds = [(50, 100, 62, 16, 39, 12)]
 # CX home values
-# blue_thresholds = [(0, 55, -31, -4, -128, -4)]
+blue_thresholds = [(17, 52, -19, -3, -15, -4)]
 # yellow_thresholds = [(41, 71, -7, 0, 12, 69)]
 # yellow_thresholds = [(50, 59, -10, -2, 10, 20)]
-# yellow_thresholds = [(61, 100, -4, 13, 40, 17)]
-# ball_thresholds = [(54, 100, 20, 42, 16, 60)]
-# ball_thresholds = [(42, 100, 4, 20, 12, 21)]
+yellow_thresholds = [(61, 100, -4, 13, 40, 17)]
+ball_thresholds = [(29, 100, 2, 11, -2, 20)]
 
 # -------------------------
 # UART
@@ -213,6 +221,7 @@ while True:
         area_threshold=1,
         x_stride=2,
         y_stride=2,
+        roi=ball_roi
     )
 
     if ball_blobs:

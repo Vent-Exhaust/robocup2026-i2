@@ -41,11 +41,11 @@ constexpr double FL_TRIM = 1.0;   // M4
 
 // --- Layer 2: IMU Correction ---
 // Yaw heading-hold PID (output added to omega)
-constexpr double YAW_KP             = 0.008;
+constexpr double YAW_KP             = 0.0025;
 constexpr double YAW_KI             = 0.0;
-constexpr double YAW_KD             = 0.0021;
+constexpr double YAW_KD             = 0.0;
 constexpr double YAW_I_MAX          = 0.35;    // integral windup limit
-constexpr double YAW_CORRECTION_MAX = 1.0;    // max omega correction (0–1 scale)
+constexpr double YAW_CORRECTION_MAX = 0.4;    // max omega correction (0–1 scale)
 
 // Accel drift correction — P only (output added to vx/vy)
 constexpr double ACCEL_KP             = 0.005;
@@ -56,6 +56,20 @@ constexpr double ACCEL_CORRECTION_MAX = 0.2;
 constexpr unsigned long IMU_TIMEOUT_MS = 200;
 // How long to wait after reinit before resuming movement
 constexpr unsigned long IMU_REINIT_SETTLE_MS = 500;
+
+
+// --- Motor Smoothing ---
+// EMA alpha for motor power (0.0 = frozen, 1.0 = no smoothing)
+// Lower = smoother but more sluggish. 0.15–0.3 is a good range.
+constexpr double MOTOR_SMOOTH_ALPHA = 0.3;
+
+// --- Dribbler Speed ---
+constexpr int DRIBBLER_SPEED = 12;
+
+// --- Camera Orbit ---
+constexpr float CAM_ORBIT_RADIUS      = 20.0f;  // desired distance from ball (cm)
+constexpr float CAM_ORBIT_RADIUS_KP   = 1.0f;   // radius maintenance gain (deg per cm error, capped ±30°)
+constexpr float CAM_ORBIT_SPEED       = 0.1f;  // orbit speed
 
 // =============================================================================
 

@@ -2,6 +2,7 @@
 
 Servo dribbler;
 bool isActuated = false;
+static unsigned long lastKickTime = 0;
 
 void setupESC() {
     dribbler.attach(DRIBBLER_PWM, 1000, 2000);  // min/max pulse width
@@ -17,6 +18,18 @@ void setupSol() {
     Serial.println("Sol pinMode defined (by right...)");
 }
 
+void kickSol() {
+  spinDribbler(0);
+
+  // delay(100);
+
+  digitalWrite(SOL, HIGH);
+  delay(50);
+  digitalWrite(SOL, LOW);
+
+  lastKickTime = millis();
+}
+
 void setupLightgate() {
     pinMode(LIGHTGATE, INPUT);
     Serial.println("Lightgate pinMode defined (by right...)");
@@ -28,11 +41,14 @@ void spinDribbler(int speed) {
 }
 
 bool checkCatchment() {
+  // Ignore lightgate during cooldown after kick — solenoid triggers false positive
+  if (millis() - lastKickTime < KICK_COOLDOWN_MS) return false;
+
   int count = 0;
   for (int i = 0; i < 20; i++) {
-    count += analogRead(LIGHTGATE) < 1021 ? 1 : 0;
+    count += analogRead(LIGHTGATE) < 1017 ? 1 : 0;
     delayMicroseconds(5);
   }
   // Serial.println(count);
-  return count > 2;
+  return count > 5;
 }

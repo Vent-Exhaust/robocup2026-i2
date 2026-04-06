@@ -16,6 +16,9 @@ static float targetYaw    = 0;
 static bool  targetYawSet = false;
 static PID   yawPID       = { YAW_KP, YAW_KI, YAW_KD, YAW_I_MAX };
 
+// Motor EMA smoothing state
+static double sFR = 0, sBR = 0, sBL = 0, sFL = 0;
+
 void setupMotors() {
     // Front Right (M1)
     pinMode(FR_IN_A, OUTPUT);
@@ -154,7 +157,12 @@ bool reinitIMU() {
     return true;
 }
 
+void resetMotorSmoothing() {
+    sFR = 0; sBR = 0; sBL = 0; sFL = 0;
+}
+
 void stopMotors() {
+    resetMotorSmoothing();
     setMotor(FR_IN_A, FR_IN_B, FR_PWM, 0);
     setMotor(BR_IN_A, BR_IN_B, BR_PWM, 0);
     setMotor(BL_IN_A, BL_IN_B, BL_PWM, 0);
@@ -243,8 +251,14 @@ void moveRobot(double angleDeg, double speed, double omega) {
     mBL *= BL_TRIM;
     mFL *= FL_TRIM;
 
-    setMotor(FR_IN_A, FR_IN_B, FR_PWM, mFR);
-    setMotor(BR_IN_A, BR_IN_B, BR_PWM, mBR);
-    setMotor(BL_IN_A, BL_IN_B, BL_PWM, mBL);
-    setMotor(FL_IN_A, FL_IN_B, FL_PWM, mFL);
+    // EMA smoothing — ramp motor power instead of jumping
+    sFR += MOTOR_SMOOTH_ALPHA * (mFR - sFR);
+    sBR += MOTOR_SMOOTH_ALPHA * (mBR - sBR);
+    sBL += MOTOR_SMOOTH_ALPHA * (mBL - sBL);
+    sFL += MOTOR_SMOOTH_ALPHA * (mFL - sFL);
+
+    setMotor(FR_IN_A, FR_IN_B, FR_PWM, sFR);
+    setMotor(BR_IN_A, BR_IN_B, BR_PWM, sBR);
+    setMotor(BL_IN_A, BL_IN_B, BL_PWM, sBL);
+    setMotor(FL_IN_A, FL_IN_B, FL_PWM, sFL);
 }

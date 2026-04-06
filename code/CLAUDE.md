@@ -47,3 +47,6 @@ Three processors communicate over UART using a custom SerialComm packet protocol
 - Aim for non-desctructive edits, assume all existing code works
 - Always reference pre-existing code before writing
 - Write non-blocking code as much as possible
+- Do not and never skip steps. Break code writing into small, individually testable functions before going on to the next feature which builds upon it
+- Always break down instructions into smaller, more feasible steps
+- Suggest hardware checks when it may be a possible root cause, instead of diving into code-based rabbit holes
