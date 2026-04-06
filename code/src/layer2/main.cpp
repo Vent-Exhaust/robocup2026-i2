@@ -206,12 +206,17 @@ void loop() {
             float ballAng = irAngle;
             if (ballAng > 180.0f) ballAng -= 360.0f;
 
-            // If goal is to the right of ball, orbit CW (-90); else CCW (+90)
+            // Alignment error: goal vs ball angle from robot's POV
             float alignError = goalAngle - ballAng;
             if (alignError >  180.0f) alignError -= 360.0f;
             if (alignError < -180.0f) alignError += 360.0f;
 
+            // KP control: orbit speed & direction proportional to alignment error
+            // Positive error → CW (-90°), negative → CCW (+90°)
             float tangentDir = (alignError > 0) ? -90.0f : 90.0f;
+
+            float orbitSpeed = constrain(fabsf(alignError) * CAM_ORBIT_KP,
+                                         0.0f, CAM_ORBIT_SPEED);
 
             // Radius maintenance: adjust angle toward/away from ball
             float radiusError = camBallDist - CAM_ORBIT_RADIUS;
@@ -227,9 +232,9 @@ void loop() {
             if (fabsf(rotError) < 5.0f) omega = 0;
 
             lastMoveAngle = moveAngle;
-            moveRobot(moveAngle, CAM_ORBIT_SPEED, omega);
-            Serial.printf("[ORBIT] irAng=%.1f camDist=%.1f radErr=%.1f\n",
-                          irAngle, camBallDist, radiusError);
+            moveRobot(moveAngle, orbitSpeed, omega);
+            Serial.printf("[ORBIT] alignErr=%.1f spd=%.2f camDist=%.1f\n",
+                          alignError, orbitSpeed, camBallDist);
         } else {
             // === IR chase mode — camera can't see ball, go straight at it ===
             float moveAngle = ballAngle;
