@@ -12,7 +12,7 @@ OPTICAL_OFFSET_Y = 0
 OPTICAL_CENTER_TRIM_X = 0
 OPTICAL_CENTER_TRIM_Y = 6
 
-BALL_ROI_SIZE = 220  # square side length, adjust as needed
+BALL_ROI_SIZE = 160  # square side length, adjust as needed
 
 ball_roi = (
     240 - BALL_ROI_SIZE // 2,

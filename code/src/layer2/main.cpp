@@ -150,43 +150,16 @@ void loop() {
         static const float LINE_KP = 1.0f;
         float escapeSpeed = constrain(l1Size * LINE_KP, 0.08f, 0.3f);
         moveRobot(escapeAngle, escapeSpeed, 0);
-    } else if (false) {
-    // } else if (ballCaught) {
-        // Score towards target goal (swap to camYellow* to change target)
-        bool targetDetected = camBlueDetected;
-        float targetAngle   = camBlueAngle;
-        float targetDist    = camBlueDist;
+    } else if (ballCaught && camBlueDetected && camBlueDist < 50.0f) {
+        // Ball caught and near goal — charge and kick
+        float goalError = camBlueAngle;
+        if (goalError > 180.0f) goalError -= 360.0f;
 
-        if (targetDetected) {
-            float goalError = targetAngle;
-            if (goalError > 180.0f) goalError -= 360.0f;
+        kickSol();
 
-            // Smooth rotation to keep ball in dribbler
-            // Quadratic response: gentle near center, stronger at large errors
-            static const float SCORE_ROT_KP  = 0.00004f;
-            static const float SCORE_ROT_MAX = 0.12f;
-            float sign = (goalError > 0) ? 1.0f : -1.0f;
-            float omega = constrain(sign * goalError * goalError * SCORE_ROT_KP,
-                                    -SCORE_ROT_MAX, SCORE_ROT_MAX);
-
-            // Move forward towards goal
-            static const float SCORE_SPEED = 0.2f;
-            lastMoveAngle = 0;
-
-            // Kick when close and roughly aligned
-            if (targetDist < 70.0f && fabsf(goalError) < 20.0f) {
-                kickSol();
-            }
-
-            moveRobot(0, SCORE_SPEED, omega);
-            Serial.printf("[SCORE] goal err=%.1f dist=%.1f\n", goalError, targetDist);
-        } else {
-            // Goal not visible — creep forward and hope camera picks it up
-            lastMoveAngle = 0;
-            moveRobot(0, 0.15f, 0);
-            Serial.println("[SCORE] goal not visible, creeping forward");
-        }
-    // } else if (false) {
+        lastMoveAngle = 0;
+        moveRobot(0, 0.3f, 0);
+        Serial.printf("[SCORE] dist=%.1f err=%.1f\n", camBlueDist, goalError);
     } else if (ballFound) {
         if (camBallDetected && l3BallDetected) {
             // === Orbit mode: IR angle for direction, cam distance for radius ===
@@ -224,7 +197,7 @@ void loop() {
 
             // When aligned, blend in a forward creep toward ball
             static const float ALIGN_THRESH = 5.0f;
-            static const float CREEP_SPEED  = 0.1f;
+            static const float CREEP_SPEED  = 0.15f;
             float forwardSpeed = 0;
             if (fabsf(alignError) < ALIGN_THRESH) {
                 forwardSpeed = CREEP_SPEED;
