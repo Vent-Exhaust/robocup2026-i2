@@ -8,6 +8,9 @@ static bool  imuOffsetValid     = false;
 float locX = 0, locY = 0, locHeading = 0;
 bool  locValid = false;
 
+// Goalie tuning
+static const float GOALIE_LATERAL_DEADZONE_DEG = 20.0f;  // ball within this many degrees of straight behind → stop sliding
+
 // Return-to-centre tuning
 static const float LOC_KP        = 0.003f;
 static const float LOC_SPEED_MIN = 0.08f;
@@ -152,7 +155,6 @@ void loop() {
         static const float GOALIE_REACQUIRE_SPEED = 0.10f;
         static const float GOALIE_CENTRE_SPEED    = 0.2f;
         static const float GOALIE_CENTRE_DEADZONE = 5.0f;   // cm
-        static const float LATERAL_DEADZONE_DEG   = 20.0f;  // ref: trackLineGoalie — stop if ball within 20° of straight back
 
         // Track last seen ball side for when ball disappears (ref: goalieTrack raffles_goalie)
         static float lastBallLateral = 0.0f;
@@ -168,10 +170,10 @@ void loop() {
             float ballLateral = sinf(ballRad);  // -1 = left, +1 = right
             lastBallLateral   = ballLateral;
 
-            // Dead zone: if ball is nearly straight behind (within LATERAL_DEADZONE_DEG of 180°),
+            // Dead zone: if ball is nearly straight behind (within GOALIE_LATERAL_DEADZONE_DEG of 180°),
             // stop lateral — ref: trackLineGoalie abs(correction - 180) < 20
             float angleFrom180 = fabsf(fmodf(ballAngle + 180.0f, 360.0f) - 180.0f);
-            if (angleFrom180 < LATERAL_DEADZONE_DEG) {
+            if (angleFrom180 < GOALIE_LATERAL_DEADZONE_DEG) {
                 stopMotors();
                 Serial.printf("[GOALIE] dead zone ball=%.1f\n", ballAngle);
             } else {
