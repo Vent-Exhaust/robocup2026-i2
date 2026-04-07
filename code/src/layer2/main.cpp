@@ -132,128 +132,184 @@ void loop() {
         // ballAngle = camBallAngle;
     }
 
-    // Line avoidance takes priority over everything
     static float lastMoveAngle = 0;
-    if (l1LineDetected) {
-        // Weighted escape: 50% reverse of prior movement, 50% L1 line-opposite
-        float l1Escape = fmod(l1Angle + 180.0f, 360.0f);
-        float reverseMove = fmod(lastMoveAngle + 180.0f, 360.0f);
+    static bool  goalParked    = false;
 
-        // Blend angles using vector averaging to handle wraparound
-        float l1Rad = l1Escape * DEG_TO_RAD;
-        float revRad = reverseMove * DEG_TO_RAD;
-        float bx = 0.5f * cosf(l1Rad) + 0.5f * cosf(revRad);
-        float by = 0.5f * sinf(l1Rad) + 0.5f * sinf(revRad);
-        float escapeAngle = atan2f(by, bx) * RAD_TO_DEG;
-        escapeAngle = fmod(escapeAngle + 360.0f, 360.0f);
+    // Latch onto line when first detected
+    if (l1LineDetected && !goalParked) {
+        goalParked = true;
+        Serial.println("[GOALIE] reached blue goal line");
+    }
 
-        static const float LINE_KP = 1.0f;
-        float escapeSpeed = constrain(l1Size * LINE_KP, 0.08f, 0.3f);
-        moveRobot(escapeAngle, escapeSpeed, 0);
-    } else if (ballCaught && camBlueDetected && camBlueDist < 50.0f) {
-        // Ball caught and near goal — charge and kick
-        float goalError = camBlueAngle;
-        if (goalError > 180.0f) goalError -= 360.0f;
+    if (goalParked) {
+        // === ON LINE: track ball laterally, re-acquire line if lost ===
+        static const float GOALIE_TRACK_SPEED     = 0.5f;
+        static const float GOALIE_REACQUIRE_SPEED = 0.10f;
+        static const float GOALIE_CENTRE_SPEED    = 0.2f;
+        static const float GOALIE_CENTRE_DEADZONE = 5.0f;  // cm
 
-        kickSol();
+        if (!l1LineDetected) {
+            // Drifted forward off the line — back up to re-acquire
+            lastMoveAngle = 180.0f;
+            moveRobot(180.0f, GOALIE_REACQUIRE_SPEED, 0);
+            Serial.println("[GOALIE] re-acquiring line");
+        } else if (ballFound) {
+            // Slide left/right proportional to ball's lateral component
+            float ballRad     = ballAngle * DEG_TO_RAD;
+            float ballLateral = sinf(ballRad);  // -1 = left, +1 = right
 
-        lastMoveAngle = 0;
-        moveRobot(0, 0.3f, 0);
-        Serial.printf("[SCORE] dist=%.1f err=%.1f\n", camBlueDist, goalError);
-    } else if (ballFound) {
-        if (camBallDetected && l3BallDetected) {
-            // === Orbit mode: IR angle for direction, cam distance for radius ===
-            float irAngle = l3BallAngle;
-
-            // Alignment: determine orbit direction (bang-bang)
-            // Goal angle in robot frame
-            float goalAngle;
-            if (camBlueDetected) {
-                goalAngle = camBlueAngle;
+            if (fabsf(ballLateral) > 0.05f) {
+                float trackAngle = (ballLateral > 0) ? 90.0f : 270.0f;
+                float trackSpeed = constrain(fabsf(ballLateral) * GOALIE_TRACK_SPEED,
+                                             0.0f, GOALIE_TRACK_SPEED);
+                lastMoveAngle = trackAngle;
+                moveRobot(trackAngle, trackSpeed, 0);
+                Serial.printf("[GOALIE] tracking ball=%.1f lateral=%.2f\n",
+                              ballAngle, ballLateral);
             } else {
-                goalAngle = -imuYaw;  // world 0° in robot frame
+                stopMotors();
             }
-            if (goalAngle >  180.0f) goalAngle -= 360.0f;
-            if (goalAngle < -180.0f) goalAngle += 360.0f;
-
-            float ballAng = irAngle;
-            if (ballAng > 180.0f) ballAng -= 360.0f;
-
-            // Alignment error: goal vs ball angle from robot's POV
-            float alignError = goalAngle - ballAng;
-            if (alignError >  180.0f) alignError -= 360.0f;
-            if (alignError < -180.0f) alignError += 360.0f;
-
-            // KP control: orbit speed & direction proportional to alignment error
-            // Positive error → CW (-90°), negative → CCW (+90°)
-            float tangentDir = (alignError > 0) ? -90.0f : 90.0f;
-
-            float orbitSpeed = constrain(fabsf(alignError) * CAM_ORBIT_KP,
-                                         0.0f, CAM_ORBIT_SPEED);
-
-            // Radius maintenance: adjust angle toward/away from ball
-            float radiusError = camBallDist - CAM_ORBIT_RADIUS;
-            float radiusAdjust = constrain(radiusError * CAM_ORBIT_RADIUS_KP, -30.0f, 30.0f);
-
-            // When aligned, blend in a forward creep toward ball
-            static const float ALIGN_THRESH = 5.0f;
-            static const float CREEP_SPEED  = 0.15f;
-            float forwardSpeed = 0;
-            if (fabsf(alignError) < ALIGN_THRESH) {
-                forwardSpeed = CREEP_SPEED;
-            }
-
-            // Combine orbit tangent + forward creep via vector sum
-            float tangentRad = (irAngle + tangentDir) * DEG_TO_RAD;
-            float forwardRad = irAngle * DEG_TO_RAD;  // toward ball
-
-            float mx = orbitSpeed * sinf(tangentRad) + forwardSpeed * sinf(forwardRad);
-            float my = orbitSpeed * cosf(tangentRad) + forwardSpeed * cosf(forwardRad);
-
-            float moveAngle = fmod(atan2f(mx, my) * RAD_TO_DEG + 360.0f, 360.0f);
-            float moveSpeed  = sqrtf(mx * mx + my * my);
-
-            // Apply radius adjustment on top
-            moveAngle = fmod(moveAngle - radiusAdjust + 360.0f, 360.0f);
-
-            // Face the ball: rotate toward IR ball angle
-            float rotError = irAngle;
-            if (rotError > 180.0f) rotError -= 360.0f;
-            static const float ORBIT_ROT_KP = 0.003f;
-            float omega = constrain(rotError * ORBIT_ROT_KP, -0.5f, 0.5f);
-            if (fabsf(rotError) < 5.0f) omega = 0;
-
-            lastMoveAngle = moveAngle;
-            moveRobot(moveAngle, moveSpeed, omega);
-            Serial.printf("[ORBIT] alignErr=%.1f spd=%.2f creep=%.2f camDist=%.1f\n",
-                          alignError, moveSpeed, forwardSpeed, camBallDist);
+        } else if (locValid && fabsf(locX) > GOALIE_CENTRE_DEADZONE) {
+            // No ball — slide back to centre of goal
+            float centreAngle = (locX > 0) ? 270.0f : 90.0f;  // locX>0 → too far right → go left
+            float centreSpeed = constrain(fabsf(locX) * 0.005f,
+                                          0.05f, GOALIE_CENTRE_SPEED);
+            lastMoveAngle = centreAngle;
+            moveRobot(centreAngle, centreSpeed, 0);
+            Serial.printf("[GOALIE] centring locX=%.1f\n", locX);
         } else {
-            // === IR chase mode — camera can't see ball, go straight at it ===
-            float moveAngle = ballAngle;
-
-            static const float IR_CHASE_SPEED = 0.15f;
-
-            lastMoveAngle = moveAngle;
-            moveRobot(moveAngle, IR_CHASE_SPEED, 0);
-            Serial.printf("[IR] chasing ball at %.1f\n", ballAngle);
-        }
-    } else if (locValid) {
-        // No ball — return to centre
-        float distToCenter = sqrtf(locX * locX + locY * locY);
-
-        if (distToCenter < LOC_DEADZONE) {
             stopMotors();
-        } else {
-            float worldAngleDeg = atan2f(-locX, -locY) * RAD_TO_DEG;
-            float moveAngle = worldAngleDeg - locHeading;
-            moveAngle = fmodf(moveAngle + 360.0f, 360.0f);
-
-            float speed = constrain(distToCenter * LOC_KP, LOC_SPEED_MIN, LOC_SPEED_MAX);
-            lastMoveAngle = moveAngle;
-            moveRobot(moveAngle, speed, 0);
         }
     } else {
-        stopMotors();
+        // === DRIVE to blue goal line ===
+        static const float GOALIE_SPEED = 0.15f;
+        float moveAngle = 180.0f;  // fallback: straight back
+        float speed     = GOALIE_SPEED;
+
+        if (locValid) {
+            float dx = -locX;
+            float dy = -HALF_FIELD - locY;  // blue goal at world Y = -HALF_FIELD
+            float dist = sqrtf(dx * dx + dy * dy);
+            float worldAngle = atan2f(dx, dy) * RAD_TO_DEG;
+            moveAngle = fmodf(worldAngle - locHeading + 360.0f, 360.0f);
+            speed = constrain(dist * 0.005f, 0.08f, GOALIE_SPEED);
+            Serial.printf("[GOALIE] loc dist=%.1f\n", dist);
+        } else if (camBlueDetected) {
+            moveAngle = camBlueAngle;
+            speed = constrain(camBlueDist * 0.005f, 0.08f, GOALIE_SPEED);
+            Serial.printf("[GOALIE] cam → blue dist=%.1f\n", camBlueDist);
+        }
+
+        lastMoveAngle = moveAngle;
+        moveRobot(moveAngle, speed, 0);
+    }
+
+    if (false) {  // striker disabled
+        // === STRIKER MODE ===
+        if (ballCaught && camBlueDetected && camBlueDist < 50.0f) {
+            // Ball caught and near goal — charge and kick
+            float goalError = camBlueAngle;
+            if (goalError > 180.0f) goalError -= 360.0f;
+
+            kickSol();
+
+            lastMoveAngle = 0;
+            moveRobot(0, 0.3f, 0);
+            Serial.printf("[SCORE] dist=%.1f err=%.1f\n", camBlueDist, goalError);
+        } else if (ballFound) {
+            if (camBallDetected && l3BallDetected) {
+                // === Orbit mode: IR angle for direction, cam distance for radius ===
+                float irAngle = l3BallAngle;
+
+                // Alignment: determine orbit direction
+                float goalAngle;
+                if (camBlueDetected) {
+                    goalAngle = camBlueAngle;
+                } else {
+                    goalAngle = -imuYaw;  // world 0° in robot frame
+                }
+                if (goalAngle >  180.0f) goalAngle -= 360.0f;
+                if (goalAngle < -180.0f) goalAngle += 360.0f;
+
+                float ballAng = irAngle;
+                if (ballAng > 180.0f) ballAng -= 360.0f;
+
+                // Alignment error: goal vs ball angle from robot's POV
+                float alignError = goalAngle - ballAng;
+                if (alignError >  180.0f) alignError -= 360.0f;
+                if (alignError < -180.0f) alignError += 360.0f;
+
+                // KP control: orbit speed & direction proportional to alignment error
+                // Positive error → CW (-90°), negative → CCW (+90°)
+                float tangentDir = (alignError > 0) ? -90.0f : 90.0f;
+
+                float orbitSpeed = constrain(fabsf(alignError) * CAM_ORBIT_KP,
+                                             0.0f, CAM_ORBIT_SPEED);
+
+                // Radius maintenance: adjust angle toward/away from ball
+                float radiusError = camBallDist - CAM_ORBIT_RADIUS;
+                float radiusAdjust = constrain(radiusError * CAM_ORBIT_RADIUS_KP, -30.0f, 30.0f);
+
+                // When aligned, blend in a forward creep toward ball
+                static const float ALIGN_THRESH = 5.0f;
+                static const float CREEP_SPEED  = 0.15f;
+                float forwardSpeed = 0;
+                if (fabsf(alignError) < ALIGN_THRESH) {
+                    forwardSpeed = CREEP_SPEED;
+                }
+
+                // Combine orbit tangent + forward creep via vector sum
+                float tangentRad = (irAngle + tangentDir) * DEG_TO_RAD;
+                float forwardRad = irAngle * DEG_TO_RAD;  // toward ball
+
+                float mx = orbitSpeed * sinf(tangentRad) + forwardSpeed * sinf(forwardRad);
+                float my = orbitSpeed * cosf(tangentRad) + forwardSpeed * cosf(forwardRad);
+
+                float moveAngle = fmod(atan2f(mx, my) * RAD_TO_DEG + 360.0f, 360.0f);
+                float moveSpeed  = sqrtf(mx * mx + my * my);
+
+                // Apply radius adjustment on top
+                moveAngle = fmod(moveAngle - radiusAdjust + 360.0f, 360.0f);
+
+                // Face the ball: rotate toward IR ball angle
+                float rotError = irAngle;
+                if (rotError > 180.0f) rotError -= 360.0f;
+                static const float ORBIT_ROT_KP = 0.003f;
+                float omega = constrain(rotError * ORBIT_ROT_KP, -0.5f, 0.5f);
+                if (fabsf(rotError) < 5.0f) omega = 0;
+
+                lastMoveAngle = moveAngle;
+                moveRobot(moveAngle, moveSpeed, omega);
+                Serial.printf("[ORBIT] alignErr=%.1f spd=%.2f creep=%.2f camDist=%.1f\n",
+                              alignError, moveSpeed, forwardSpeed, camBallDist);
+            } else {
+                // === IR chase mode — camera can't see ball, go straight at it ===
+                float moveAngle = ballAngle;
+
+                static const float IR_CHASE_SPEED = 0.15f;
+
+                lastMoveAngle = moveAngle;
+                moveRobot(moveAngle, IR_CHASE_SPEED, 0);
+                Serial.printf("[IR] chasing ball at %.1f\n", ballAngle);
+            }
+        } else if (locValid) {
+            // No ball — return to centre
+            float distToCenter = sqrtf(locX * locX + locY * locY);
+
+            if (distToCenter < LOC_DEADZONE) {
+                stopMotors();
+            } else {
+                float worldAngleDeg = atan2f(-locX, -locY) * RAD_TO_DEG;
+                float moveAngle = worldAngleDeg - locHeading;
+                moveAngle = fmodf(moveAngle + 360.0f, 360.0f);
+
+                float speed = constrain(distToCenter * LOC_KP, LOC_SPEED_MIN, LOC_SPEED_MAX);
+                lastMoveAngle = moveAngle;
+                moveRobot(moveAngle, speed, 0);
+            }
+        } else {
+            stopMotors();
+        }
     }
 
     if (locValid) {
