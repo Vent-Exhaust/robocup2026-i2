@@ -10,6 +10,8 @@ bool  locValid = false;
 
 // Goalie tuning
 static const float GOALIE_LATERAL_DEADZONE_DEG = 20.0f;  // ball within this many degrees of straight behind → stop sliding
+static const bool  GOALIE_BALL_NEAR_ONLY        = false;  // true = only detect ball within GOALIE_BALL_NEAR_DIST (precision); false = full FOV
+static const float GOALIE_BALL_NEAR_DIST        = 80.0f;  // cm — distance threshold when GOALIE_BALL_NEAR_ONLY is true
 
 // ---------------------------------------------------------------------------
 // Line-following: sensor-to-world-angle lookup table
@@ -81,6 +83,43 @@ static const float LDR_ANGLES[15][32] = {
       138.43f,144.19f,149.99f,155.86f,161.87f,168.16f,175.30f,188.36f,
       351.64f,  4.70f, 11.84f, 18.13f, 24.14f, 30.01f, 35.81f, 41.57f },
 };
+
+// ---------------------------------------------------------------------------
+// Goalie curve helpers — ported from robocup-2025/open/software design/
+//   microcontrollers/src/teensy1/robot.cpp  (f, df, d2f, findClosestX, findNextPoint)
+// Goal line: f(x) = -HALF_FIELD (straight horizontal line, cm units).
+// ---------------------------------------------------------------------------
+struct GoaliePoint { float x, y; };
+static float goalCurveY  (float x) { (void)x; return -HALF_FIELD; }
+static float goalCurveDF (float x) { (void)x; return 0.0f; }
+static float goalCurveDDF(float x) { (void)x; return 0.0f; }
+
+// Newton's method: closest x on curve to (x0,y0). Ref: findClosestX()
+static float closestXOnCurve(float x0, float y0) {
+    float x = x0;
+    for (int i = 0; i < 20; i++) {
+        float y   = goalCurveY(x);
+        float dy  = goalCurveDF(x);
+        float d2y = goalCurveDDF(x);
+        float grad = 2.0f*(x-x0) + 2.0f*(y-y0)*dy;
+        float hess = 2.0f + 2.0f*(dy*dy) + 2.0f*(y-y0)*d2y;
+        if (fabsf(grad) < 1e-4f) break;
+        x -= grad / hess;
+    }
+    return x;
+}
+
+// Step along curve toward target, limited to step_size cm. Ref: findNextPoint()
+static GoaliePoint nextPointOnCurve(GoaliePoint cur, GoaliePoint tgt, float step) {
+    cur.y = goalCurveY(cur.x);
+    float slope = goalCurveDF(cur.x);
+    float dx = step / sqrtf(1.0f + slope*slope);
+    dx = (tgt.x > cur.x) ? dx : -dx;
+    float max_dx = fabsf(tgt.x - cur.x);
+    if (fabsf(dx) > max_dx) dx = (dx > 0) ? max_dx : -max_dx;
+    float nx = cur.x + dx;
+    return { nx, goalCurveY(nx) };
+}
 
 // Curve-following line tracker.
 // Ref: open/software design teensy1/robot.cpp — trackLine()
@@ -227,13 +266,8 @@ void loop() {
     bool ballFound = false;
     float ballAngle = 0;
 
-    // IR is primary. Camera bearing only used when IR can't see the ball
-    // and the ball is close enough for the camera to be reliable.
-    static const float CAM_BALL_NEAR_DIST = 60.0f;  // cm
-    if (l3BallDetected) {
-        ballFound = true;
-        ballAngle = l3BallAngle;
-    } else if (camBallDetected && camBallDist < CAM_BALL_NEAR_DIST) {
+    // Camera ball detection. Set GOALIE_BALL_NEAR_ONLY=true to limit to close range only.
+    if (camBallDetected && (!GOALIE_BALL_NEAR_ONLY || camBallDist < GOALIE_BALL_NEAR_DIST)) {
         ballFound = true;
         ballAngle = camBallAngle;
     }
@@ -248,59 +282,59 @@ void loop() {
     }
 
     if (goalParked) {
-        // === ON LINE: track ball laterally, re-acquire line if lost ===
-        // Ref: open/software design teensy1/robot.cpp — goalieTrack(), trackLineGoalie()
-        static const float GOALIE_TRACK_SPEED     = 0.5f;
-        static const float GOALIE_TRACK_MIN       = 0.1f;
-        static const float GOALIE_REACQUIRE_SPEED = 0.10f;
+        static const float GOALIE_TRACK_SPEED     = 0.5f;   // ball tracking speed
+        static const float GOALIE_TRACK_MIN       = 0.05f;
+        static const float GOALIE_REACQUIRE_SPEED = 0.2f;
         static const float GOALIE_CENTRE_SPEED    = 0.2f;
         static const float GOALIE_CENTRE_DEADZONE = 5.0f;   // cm
 
-        // Track last seen ball side for when ball disappears (ref: goalieTrack raffles_goalie)
-        static float lastBallLateral = 0.0f;
+        static float smoothLateral = 0.0f;
+        static const float LATERAL_ALPHA = 0.2f;
 
-        if (!l1LineDetected) {
-            // Drifted forward off the line — back up to re-acquire
-            lastMoveAngle = 180.0f;
-            moveRobot(180.0f, GOALIE_REACQUIRE_SPEED, 0);
-            Serial.println("[GOALIE] re-acquiring line");
-        } else if (ballFound) {
-            // Lateral component of ball angle — ref: goalieTrack uses world-frame ball.x
-            float ballRad     = ballAngle * DEG_TO_RAD;
-            float ballLateral = sinf(ballRad);  // -1 = left, +1 = right
-            lastBallLateral   = ballLateral;
+        // Debounce: only re-acquire after line lost for N consecutive frames.
+        // Prevents LDR flicker from triggering backward motion while on line.
+        static const int LINE_LOST_DEBOUNCE = 10;
+        static int lineLostFrames = 0;
+        if (l1LineDetected) lineLostFrames = 0;
+        else                lineLostFrames++;
+        bool lineTrulyLost = (lineLostFrames >= LINE_LOST_DEBOUNCE);
 
-            // Dead zone: if ball is nearly straight behind (within GOALIE_LATERAL_DEADZONE_DEG of 180°),
-            // stop lateral — ref: trackLineGoalie abs(correction - 180) < 20
-            float angleFrom180 = fabsf(fmodf(ballAngle + 180.0f, 360.0f) - 180.0f);
-            if (angleFrom180 < GOALIE_LATERAL_DEADZONE_DEG) {
-                stopMotors();
-                Serial.printf("[GOALIE] dead zone ball=%.1f\n", ballAngle);
-            } else {
-                float trackAngle = (ballLateral > 0) ? 90.0f : 270.0f;
-                float trackSpeed = constrain(fabsf(ballLateral) * GOALIE_TRACK_SPEED,
+        if (l1LineDetected) {
+            if (ballFound) {
+                float rawLateral = sinf(ballAngle * DEG_TO_RAD);
+                smoothLateral += LATERAL_ALPHA * (rawLateral - smoothLateral);
+                float trackSpeed = constrain(fabsf(smoothLateral) * GOALIE_TRACK_SPEED,
                                              GOALIE_TRACK_MIN, GOALIE_TRACK_SPEED);
+                float trackAngle = (smoothLateral >= 0.0f) ? 90.0f : 270.0f;
                 lastMoveAngle = trackAngle;
                 moveRobot(trackAngle, trackSpeed, 0);
-                Serial.printf("[GOALIE] tracking ball=%.1f lateral=%.2f spd=%.2f\n",
-                              ballAngle, ballLateral, trackSpeed);
+                Serial.printf("[GOALIE] slide ball=%.1f lat=%.2f spd=%.2f\n",
+                              ballAngle, smoothLateral, trackSpeed);
+            } else if (locValid && fabsf(locX) > GOALIE_CENTRE_DEADZONE) {
+                smoothLateral = 0.0f;
+                float centreAngle = (locX > 0) ? 270.0f : 90.0f;
+                float centreSpeed = constrain(fabsf(locX) * 0.005f, 0.05f, GOALIE_CENTRE_SPEED);
+                lastMoveAngle = centreAngle;
+                moveRobot(centreAngle, centreSpeed, 0);
+                Serial.printf("[GOALIE] centring locX=%.1f\n", locX);
+            } else {
+                smoothLateral = 0.0f;
+                stopMotors();
             }
-        } else if (locValid && fabsf(locX) > GOALIE_CENTRE_DEADZONE) {
-            // No ball — ref: goalieTrack returns to centre (raffles_goalie biases to last seen side,
-            // we always return to centre since locX is reliable)
-            float centreAngle = (locX > 0) ? 270.0f : 90.0f;
-            float centreSpeed = constrain(fabsf(locX) * 0.005f,
-                                          0.05f, GOALIE_CENTRE_SPEED);
-            lastMoveAngle = centreAngle;
-            moveRobot(centreAngle, centreSpeed, 0);
-            Serial.printf("[GOALIE] centring locX=%.1f\n", locX);
-        } else if (!locValid && fabsf(lastBallLateral) > 0.1f) {
-            // No localisation, no ball — bias toward last seen ball side briefly
-            // ref: goalieTrack — when no ball, use ball_last_seen
-            float biasAngle = (lastBallLateral > 0) ? 90.0f : 270.0f;
-            moveRobot(biasAngle, GOALIE_TRACK_MIN, 0);
-            Serial.println("[GOALIE] biasing to last seen side");
+        } else if (lineTrulyLost) {
+            smoothLateral = 0.0f;
+            if (locValid) {
+                float dx = 0.0f - locX;
+                float dy = -HALF_FIELD - locY;
+                float worldAngle = atan2f(dx, dy) * RAD_TO_DEG;
+                float robotAngle = fmodf(worldAngle - locHeading + 360.0f, 360.0f);
+                moveRobot(robotAngle, GOALIE_REACQUIRE_SPEED, 0);
+            } else {
+                moveRobot(180.0f, GOALIE_REACQUIRE_SPEED, 0);
+            }
+            Serial.println("[GOALIE] re-acq");
         } else {
+            // Line briefly lost but within debounce — hold position
             stopMotors();
         }
     } else {
