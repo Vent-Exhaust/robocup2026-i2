@@ -7,7 +7,8 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(git -C /c/Users/ngche/Documents/Robotics/robocup2026-i2 diff 5d01557..HEAD -- code/src/layer2/main.cpp)",
       "Bash(~/.platformio/penv/Scripts/pio.exe run:*)",
-      "Bash(pio run:*)"
+      "Bash(pio run:*)",
+      "Bash(~/.platformio/penv/Scripts/pio run:*)"
     ]
   }
 }

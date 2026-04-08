@@ -7,6 +7,12 @@
 #define BOT 2
 
 // =============================================================================
+// LOCATION SELECTION — change per venue (affects min speeds, thresholds, etc.)
+// 1 = Home    2 = Competition
+// =============================================================================
+#define LOCATION 2
+
+// =============================================================================
 // COMPETITION TUNING — edit these values on game day
 // =============================================================================
 
@@ -79,13 +85,29 @@ constexpr unsigned long IMU_REINIT_SETTLE_MS = 500;
 constexpr double MOTOR_SMOOTH_ALPHA = 0.3;
 
 // --- Dribbler Speed ---
-constexpr int DRIBBLER_SPEED = 12;
+constexpr int DRIBBLER_SPEED = 20;
+
+// --- Location Speed Multiplier ---
+// Percentage increase applied to all min speeds (0 = no change, 50 = 50% faster)
+#if LOCATION == 1
+constexpr float LOCATION_SPEED_PCT = 0.0f;
+#elif LOCATION == 2
+constexpr float LOCATION_SPEED_PCT = -10.0f;
+#endif
+constexpr float LOCATION_SPEED_MULT = 1.0f + LOCATION_SPEED_PCT / 100.0f;
 
 // --- Camera Orbit ---
 constexpr float CAM_ORBIT_RADIUS      = 20.0f;  // desired distance from ball (cm)
 constexpr float CAM_ORBIT_RADIUS_KP   = 1.2f;   // radius maintenance gain (deg per cm error, capped ±30°)
-constexpr float CAM_ORBIT_SPEED       = 0.1f;    // max orbit speed
-constexpr float CAM_ORBIT_KP          = 0.01f;   // orbit speed gain (speed per deg of alignment error)
+constexpr float CAM_ORBIT_SPEED       = 0.15f;   // max orbit speed
+constexpr float CAM_ORBIT_KP          = 0.02f;   // orbit speed gain (speed per deg of alignment error)
+constexpr float CAM_ORBIT_KD          = 0.005f;   // orbit derivative gain (damps oscillation near alignment)
+constexpr float CAM_ORBIT_KI          = 0.0005f;  // orbit integral gain (ramps up when alignment error persists)
+constexpr float CAM_ORBIT_I_MAX       = 0.05f;    // integral windup limit
+constexpr float CAM_ORBIT_DEADZONE    = 20.0f;    // alignment error deadzone (deg) — no orbit when aligned within this
+
+// --- Scoring ---
+constexpr float SCORE_DIST_THRESH     = 70.0f;    // goal distance (cm) to trigger scoring when ball caught
 
 // =============================================================================
 

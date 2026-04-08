@@ -50,3 +50,55 @@ Three processors communicate over UART using a custom SerialComm packet protocol
 - Do not and never skip steps. Break code writing into small, individually testable functions before going on to the next feature which builds upon it
 - Always break down instructions into smaller, more feasible steps
 - Suggest hardware checks when it may be a possible root cause, instead of diving into code-based rabbit holes
+
+## Testing After Every Change
+
+After every code change to `src/layer2/main.cpp` (or any lib it depends on), follow this checklist:
+
+### 1. Build check (always)
+```
+pio run -e layer2-teensy40
+```
+Must compile with **zero errors**. Warnings are acceptable only for intentionally unused code (e.g. functions added for a later phase).
+
+### 2. Serial monitor smoke test (when hardware is available)
+Upload and open serial monitor:
+```
+pio run -e layer2-teensy40 -t upload && pio device monitor
+```
+**What to expect in serial output:**
+- `[MODE] ...` prints every loop showing which task is active (ORBIT, IR CHASE, SCORING, RETURN TO CENTRE, IDLE, LINE DETECTED)
+- `[LOC] x=... y=... heading=...` when both/one goal is visible
+- `[ORBIT]`, `[IR]`, `[SCORE]`, `[RTC]`, `[IDLE]` prefixed lines with live values
+- If nothing prints: check USB connection, baud 115200
+- If `[MODE]` flickers rapidly between states: a sensor is noisy — check that specific sensor's debug env
+
+### 3. Subsystem isolation tests (when debugging a specific issue)
+Use the dedicated test environments to isolate problems:
+
+| Issue | Test env | What to check |
+|-------|----------|---------------|
+| Motors wrong direction/speed | `layer2-motor-debug` | Each motor runs individually, verify direction + label match |
+| IMU drift / no heading | `layer2-imu-debug` | Yaw value updates smoothly, no jumps |
+| Camera not detecting goals | `layer2-serial-debug` | Raw cam CSV appears on Serial3 |
+| Dribbler/kicker/lightgate | `layer2-scoring-debug` | Interactive menu: test each subsystem individually |
+| Localisation drift | `layer2-loc-center` | Robot drives to centre, `[LOC]` prints stable x/y |
+| LDR thresholds wrong | `layer1-calibrate` | Run on L1 Teensy, recalibrate thresholds |
+| L1 not sending data | `layer1-serial-debug` | Verify packets arrive on L2's Serial4 |
+
+### 4. On-field functional test (after uploading production code)
+Place robot on field and verify in order:
+1. **Idle** — no ball, no goals visible → robot should stop, serial prints `[IDLE]`
+2. **Return to centre** — show both goals to camera, move robot off-centre → robot drives toward centre, prints `[RTC]`
+3. **IR chase** — place ball in IR range but out of camera range → robot chases ball, prints `[IR]`
+4. **Orbit** — ball visible to both camera + IR → robot orbits behind ball, prints `[ORBIT]`
+5. **Line escape** — push robot onto white line → robot reverses off, prints `[MODE] LINE DETECTED`
+6. **Score** — feed ball into catchment near goal → robot drives forward and kicks
+7. **DIP switches** — flip role switch → robot should switch between striker/goalie behaviour
+
+### 5. What "working" looks like per phase
+- **Phase 1 (state machine)**: Behaviour identical to before refactor. Serial output now shows `[MODE]` tags consistently. Task transitions visible in serial.
+- **Phase 2 (orbit)**: Robot curves around ball instead of chasing head-on. Approaches from goal-side. Slows when close.
+- **Phase 3 (scoring)**: Robot drives forward with ball, rotates to face goal, kicks when aligned. No more "kick immediately" on catchment.
+- **Phase 4 (goalie)**: Flipping role DIP switch makes robot sit in front of own goal and track ball side-to-side. Rushes ball when close.
+- **Phase 5 (polish)**: Heading snaps faster during scoring. Robot goes to last-seen-ball side when ball lost. Line escape resumes previous task.

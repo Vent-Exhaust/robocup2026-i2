@@ -46,7 +46,7 @@ bool checkCatchment() {
 
   int count = 0;
   for (int i = 0; i < 20; i++) {
-    count += analogRead(LIGHTGATE) < 1017 ? 1 : 0;
+    count += analogRead(LIGHTGATE) < 995 ? 1 : 0;
     delayMicroseconds(5);
   }
   // Serial.println(count);
