@@ -20,8 +20,15 @@ extern bool ldr_threshold_pass[32];
 void selectMuxChannel(int n);
 void checkLightRing();
 
-// Returns {angle, size} — both NAN if no line found
-std::pair<double, double> findLine();
+struct LineResult {
+    double angle;     // escape direction (away from line), NAN if no line
+    double size;      // normalised span 0–1
+    int    startLdr;  // index of first triggered sensor (-1 if no line)
+    int    endLdr;    // index of last triggered sensor  (-1 if no line)
+};
+
+// Returns line data — angle/size are NAN and startLdr/endLdr are -1 if no line found
+LineResult findLine();
 
 void debugLDRValues();
 

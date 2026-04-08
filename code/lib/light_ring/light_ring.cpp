@@ -54,16 +54,17 @@ void checkLightRing() {
 // --- LINE DETECTION ---
 
 // 32 sensors evenly spaced at 11.25° each
-std::pair<double, double> findLine() {
+LineResult findLine() {
     std::vector<uint8_t> matches;
     for (int i = 0; i < 32; i++) {
         if (ldr_threshold_pass[i]) matches.push_back(i);
     }
 
-    if (matches.size() <= 1) return {NAN, NAN};
+    if (matches.size() <= 1) return {NAN, NAN, -1, -1};
 
     double maxAngleDifference = 0;
     double lineStartAngle = NAN, lineEndAngle = NAN;
+    int    startLdr = -1, endLdr = -1;
 
     for (size_t i = 0; i < matches.size() - 1; i++) {
         for (size_t j = i + 1; j < matches.size(); j++) {
@@ -74,17 +75,19 @@ std::pair<double, double> findLine() {
             if (diff > maxAngleDifference) {
                 maxAngleDifference = diff;
                 lineStartAngle = angleI;
-                lineEndAngle = angleJ;
+                lineEndAngle   = angleJ;
+                startLdr = matches[i];
+                endLdr   = matches[j];
             }
         }
     }
 
-    if (std::isnan(lineStartAngle)) return {NAN, NAN};
+    if (std::isnan(lineStartAngle)) return {NAN, NAN, -1, -1};
 
     double bisector = fmod(180.0 - angleBisector(lineStartAngle, lineEndAngle) + 360.0, 360.0);
     double lineSize = maxAngleDifference / 180.0;
 
-    return {bisector, lineSize};
+    return {bisector, lineSize, startLdr, endLdr};
 }
 
 // --- DEBUG ---

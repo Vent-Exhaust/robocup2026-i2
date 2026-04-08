@@ -9,6 +9,8 @@
 extern bool  l1LineDetected;
 extern float l1Angle;
 extern float l1Size;
+extern int   l1StartLdr;   // index of first triggered sensor (0–31), -1 if no line
+extern int   l1EndLdr;     // index of last triggered sensor  (0–31), -1 if no line
 
 void setupL1Comm();
 bool readL1();       // returns true when new data arrived

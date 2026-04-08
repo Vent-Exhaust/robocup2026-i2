@@ -24,23 +24,33 @@ void loop() {
     // selectMuxChannel(3);
     checkLightRing();
     if (DEBUG) debugLDRValues();
-    auto [angle, size] = findLine();
+    LineResult line = findLine();
 
-    if (!std::isnan(angle)) {
+    if (!std::isnan(line.angle)) {
         if (DEBUG) {
             Serial.print("Line Detected! Angle: ");
-            Serial.print(angle);
+            Serial.print(line.angle);
             Serial.print(" Size: ");
-            Serial.println(size);
+            Serial.print(line.size);
+            Serial.print(" Start: ");
+            Serial.print(line.startLdr);
+            Serial.print(" End: ");
+            Serial.println(line.endLdr);
         }
 
-        int16_t tx[] = { 1, (int16_t)(angle * 10), (int16_t)(size * 10) };
-        l1Comm.write(tx, 3);
+        int16_t tx[] = {
+            1,
+            (int16_t)(line.angle * 10),
+            (int16_t)(line.size * 10),
+            (int16_t)line.startLdr,
+            (int16_t)line.endLdr
+        };
+        l1Comm.write(tx, 5);
     } else {
         if (DEBUG) Serial.println("Searching for line...");
 
-        int16_t tx[] = { 0, 0, 0 };
-        l1Comm.write(tx, 3);
+        int16_t tx[] = { 0, 0, 0, -1, -1 };
+        l1Comm.write(tx, 5);
     }
 
     delay(LOOP_DELAY_MS);

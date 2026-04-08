@@ -11,6 +11,106 @@ bool  locValid = false;
 // Goalie tuning
 static const float GOALIE_LATERAL_DEADZONE_DEG = 20.0f;  // ball within this many degrees of straight behind → stop sliding
 
+// ---------------------------------------------------------------------------
+// Line-following: sensor-to-world-angle lookup table
+// Ref: open/software design teensy1/main.h — ldr_angles[chord_depth][sensor]
+// 15 rows = chord depth tiers (0 = shallow, 14 = deep crossing).
+// 32 columns = sensor index 0–31 (11.25° spacing, 0° = forward).
+// Usage: ldrAngles[tier][31 - sensorIndex] + imuYaw → world-frame angle to
+//        that sensor edge.  Select tier via round(l1Size * 14).
+// ---------------------------------------------------------------------------
+static const float LDR_ANGLES[15][32] = {
+    { 318.43f,324.19f,329.99f,335.86f,341.87f,348.16f,355.30f,  8.36f,
+      171.64f,184.70f,191.84f,198.13f,204.14f,210.01f,215.81f,221.57f,
+      227.31f,233.03f,238.73f,244.42f,250.11f,255.80f,261.48f,267.16f,
+      272.84f,278.52f,284.20f,289.89f,295.58f,301.27f,306.97f,312.69f },
+    { 320.31f,326.49f,332.84f,339.47f,346.62f,354.91f,  6.50f, 36.04f,
+      143.96f,173.50f,185.09f,193.38f,200.53f,207.16f,213.51f,219.69f,
+      225.76f,231.76f,237.70f,243.62f,249.50f,255.37f,261.23f,267.08f,
+      272.92f,278.77f,284.63f,290.50f,296.38f,302.30f,308.24f,314.24f },
+    { 323.61f,330.51f,337.79f,345.70f,354.74f,  6.11f, 23.38f, 59.09f,
+      120.91f,156.62f,173.89f,185.26f,194.30f,202.21f,209.49f,216.39f,
+      223.04f,229.53f,235.91f,242.20f,248.43f,254.62f,260.78f,266.93f,
+      273.07f,279.22f,285.38f,291.57f,297.80f,304.09f,310.47f,316.96f },
+    { 328.53f,336.46f,345.04f,354.63f,  5.93f, 20.35f, 40.72f, 71.21f,
+      108.79f,139.28f,159.65f,174.07f,185.37f,194.96f,203.54f,211.47f,
+      218.97f,226.19f,233.19f,240.05f,246.80f,253.48f,260.10f,266.70f,
+      273.30f,279.90f,286.52f,293.20f,299.95f,306.81f,313.81f,321.03f },
+    { 335.31f,344.51f,354.55f,  5.82f, 18.92f, 34.70f, 54.12f, 77.43f,
+      102.57f,125.88f,145.30f,161.08f,174.18f,185.45f,195.49f,204.69f,
+      213.29f,221.47f,229.35f,236.99f,244.48f,251.84f,259.14f,266.38f,
+      273.62f,280.86f,288.16f,295.52f,303.01f,310.65f,318.53f,326.71f },
+    { 344.04f,354.48f,  5.74f, 18.04f, 31.60f, 46.64f, 63.18f, 80.91f,
+       99.09f,116.82f,133.36f,148.40f,161.96f,174.26f,185.52f,195.96f,
+      205.78f,215.12f,224.08f,232.76f,241.24f,249.56f,257.77f,265.93f,
+      274.07f,282.23f,290.44f,298.76f,307.24f,315.92f,324.88f,334.22f },
+    { 354.43f,  5.68f, 17.40f, 29.61f, 42.33f, 55.54f, 69.14f, 83.02f,
+       96.98f,110.86f,124.46f,137.67f,150.39f,162.60f,174.32f,185.57f,
+      196.41f,206.89f,217.08f,227.02f,236.76f,246.36f,255.86f,265.29f,
+      274.71f,284.14f,293.64f,303.24f,312.98f,322.92f,333.11f,343.59f },
+    {   5.63f, 16.88f, 28.12f, 39.37f, 50.63f, 61.87f, 73.13f, 84.38f,
+       95.62f,106.88f,118.12f,129.37f,140.63f,151.87f,163.13f,174.38f,
+      185.62f,196.87f,208.13f,219.37f,230.62f,241.88f,253.13f,264.37f,
+      275.62f,286.87f,298.12f,309.38f,320.63f,331.87f,343.12f,354.37f },
+    {  16.41f, 26.89f, 37.08f, 47.02f, 56.76f, 66.36f, 75.86f, 85.29f,
+       94.71f,104.14f,113.64f,123.24f,132.98f,142.92f,153.11f,163.59f,
+      174.43f,185.68f,197.40f,209.61f,222.33f,235.54f,249.14f,263.02f,
+      276.98f,290.86f,304.46f,317.67f,330.39f,342.60f,354.32f,  5.57f },
+    {  25.78f, 35.12f, 44.08f, 52.76f, 61.24f, 69.56f, 77.77f, 85.93f,
+       94.07f,102.23f,110.44f,118.76f,127.24f,135.92f,144.88f,154.22f,
+      164.04f,174.48f,185.74f,198.04f,211.60f,226.64f,243.18f,260.91f,
+      279.09f,296.82f,313.36f,328.40f,341.96f,354.26f,  5.52f, 15.96f },
+    {  33.29f, 41.47f, 49.35f, 56.99f, 64.48f, 71.84f, 79.14f, 86.38f,
+       93.62f,100.86f,108.16f,115.52f,123.01f,130.65f,138.53f,146.71f,
+      155.31f,164.51f,174.55f,185.82f,198.92f,214.70f,234.12f,257.43f,
+      282.57f,305.88f,325.30f,341.08f,354.18f,  5.45f, 15.49f, 24.69f },
+    {  38.97f, 46.19f, 53.19f, 60.05f, 66.80f, 73.48f, 80.10f, 86.70f,
+       93.30f, 99.90f,106.52f,113.20f,119.95f,126.81f,133.81f,141.03f,
+      148.53f,156.46f,165.04f,174.63f,185.93f,200.35f,220.72f,251.21f,
+      288.79f,319.28f,339.65f,354.07f,  5.37f, 14.96f, 23.54f, 31.47f },
+    {  43.04f, 49.53f, 55.91f, 62.20f, 68.43f, 74.62f, 80.78f, 86.93f,
+       93.07f, 99.22f,105.38f,111.57f,117.80f,124.09f,130.47f,136.96f,
+      143.61f,150.51f,157.79f,165.70f,174.74f,186.11f,203.38f,239.09f,
+      300.91f,336.62f,353.89f,  5.26f, 14.30f, 22.21f, 29.49f, 36.39f },
+    {  45.76f, 51.76f, 57.70f, 63.62f, 69.50f, 75.37f, 81.23f, 87.08f,
+       92.92f, 98.77f,104.63f,110.50f,116.38f,122.30f,128.24f,134.24f,
+      140.31f,146.49f,152.84f,159.47f,166.62f,174.91f,186.50f,216.03f,
+      323.96f,353.50f,  5.09f, 13.38f, 20.53f, 27.16f, 33.51f, 39.69f },
+    {  47.31f, 53.03f, 58.73f, 64.42f, 70.11f, 75.80f, 81.48f, 87.16f,
+       92.84f, 98.52f,104.20f,109.89f,115.58f,121.27f,126.97f,132.69f,
+      138.43f,144.19f,149.99f,155.86f,161.87f,168.16f,175.30f,188.36f,
+      351.64f,  4.70f, 11.84f, 18.13f, 24.14f, 30.01f, 35.81f, 41.57f },
+};
+
+// Curve-following line tracker.
+// Ref: open/software design teensy1/robot.cpp — trackLine()
+// targetAngle: direction we want to travel (robot frame, 0° = forward).
+//              Pass l3BallAngle (IR) as the target when chasing the ball.
+// speed:       desired movement speed.
+// Outputs moveRobot() call — moves along the line edge closest to targetAngle.
+static void trackLine(float targetAngle, float speed) {
+    if (l1StartLdr < 0 || l1EndLdr < 0) return;
+
+    // Chord depth tier: maps l1Size (0–1) → row 0–14
+    int tier = (int)constrain(roundf(l1Size * 14.0f), 0, 14);
+
+    // Real-world angle to each edge sensor (ref: ldr_angles[7+offset][31-ldr])
+    // offset here is 0 since we use tier directly
+    float startAngle = fmodf(LDR_ANGLES[tier][31 - l1StartLdr] + imuYaw + 360.0f, 360.0f);
+    float endAngle   = fmodf(LDR_ANGLES[tier][31 - l1EndLdr]   + imuYaw + 360.0f, 360.0f);
+
+    // Angular error of each edge from the desired travel direction
+    float errStart = fabsf(fmodf(targetAngle - startAngle + 540.0f, 360.0f) - 180.0f);
+    float errEnd   = fabsf(fmodf(targetAngle - endAngle   + 540.0f, 360.0f) - 180.0f);
+
+    // Move toward whichever edge is closest to the desired direction
+    float correction = (errStart < errEnd) ? startAngle : endAngle;
+
+    moveRobot(correction, speed, 0);
+    Serial.printf("[LINE] tier=%d start=%.1f end=%.1f corr=%.1f\n",
+                  tier, startAngle, endAngle, correction);
+}
+
 // Return-to-centre tuning
 static const float LOC_KP        = 0.003f;
 static const float LOC_SPEED_MIN = 0.08f;
