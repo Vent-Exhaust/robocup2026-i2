@@ -121,7 +121,7 @@ constexpr float LINE_PUSH_SPEED      = 0.15f;   // speed to push away from detec
 
 // --- Strategy ---
 // Which goal to attack: 0 = blue, 1 = yellow
-#define ATTACK_GOAL 0
+#define ATTACK_GOAL 1
 
 // --- Scoring ---
 constexpr float SCORE_DIST_THRESH     = 70.0f;    // goal distance (cm) to trigger scoring when ball caught
