@@ -68,7 +68,8 @@ blue_thresholds   = [(43, 79, -16, 10, -49, -13)]
 # blue_thresholds = [(17, 52, -19, -3, -15, -4)]
 # yellow_thresholds = [(41, 71, -7, 0, 12, 69)]
 # yellow_thresholds = [(50, 59, -10, -2, 10, 20)]
-yellow_thresholds = [(61, 100, -4, 13, 40, 17)]
+# yellow_thresholds = [(61, 100, -4, 13, 40, 17)]
+yellow_thresholds = [(87, 98, -14, -10, 32, 127)]
 # ball_thresholds = [(29, 100, 2, 11, -2, 20)]
 # Jh home values
 ball_thresholds = [(52, 91, 14, 50, 18, 47)]
@@ -331,6 +332,32 @@ class BallKalman:
 
 ball_kf = BallKalman(KALMAN_Q, KALMAN_R)
 
+# -------------------------
+# Goal EMA filter
+# -------------------------
+GOAL_EMA_ALPHA = 0.7  # 0.0–1.0; lower = smoother but more lag
+
+class GoalEMA:
+    def __init__(self, alpha):
+        self.a = alpha
+        self.x = 0.0
+        self.y = 0.0
+        self.init = False
+
+    def update(self, x, y):
+        if not self.init:
+            self.x, self.y = x, y
+            self.init = True
+        else:
+            self.x += self.a * (x - self.x)
+            self.y += self.a * (y - self.y)
+        return self.x, self.y
+
+    def reset(self):
+        self.init = False
+
+goal_filters = [GoalEMA(GOAL_EMA_ALPHA), GoalEMA(GOAL_EMA_ALPHA)]  # [blue, yellow]
+
 # Track last known ball pixel position for disappearance classification
 last_ball_px = CX
 last_ball_py = CY
@@ -377,6 +404,12 @@ while True:
 
             x_rob, y_rob, dist, angle = pixel_to_robot(center_px, center_py)
 
+            # Apply EMA filter
+            idx = 0 if color_name == "BLUE" else 1
+            x_rob, y_rob = goal_filters[idx].update(x_rob, y_rob)
+            dist  = math.sqrt(x_rob * x_rob + y_rob * y_rob)
+            angle = robot_angle(x_rob, y_rob)
+
             if not DEBUG_DISABLE_ALL:
                 if DEBUG_GOALS:
                     for b in blobs:
@@ -389,6 +422,12 @@ while True:
                     img.draw_string(center_px + 8, center_py,
                                     "%.0fcm %.0fd" % (dist, angle),
                                     color=draw_color)
+            if not DEBUG_DISABLE_ALL and DEBUG_DRAW:
+                ema_px, ema_py = robot_to_pixel(x_rob, y_rob)
+                img.draw_circle(ema_px, ema_py, 6, color=draw_color, thickness=2)
+                img.draw_string(ema_px + 8, ema_py + 12,
+                                "EMA %.0fcm %.0fd" % (dist, angle),
+                                color=draw_color)
 
             output_list.extend([
                 "%.1f" % x_rob,
@@ -397,6 +436,7 @@ while True:
                 "%.1f" % angle,
             ])
         else:
+            goal_filters[0 if color_name == "BLUE" else 1].reset()
             output_list.extend(["none", "none", "none", "none"])
 
     # -------------------------

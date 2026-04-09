@@ -106,6 +106,10 @@ constexpr float CAM_ORBIT_KI          = 0.0005f;  // orbit integral gain (ramps 
 constexpr float CAM_ORBIT_I_MAX       = 0.05f;    // integral windup limit
 constexpr float CAM_ORBIT_DEADZONE    = 20.0f;    // alignment error deadzone (deg) — no orbit when aligned within this
 
+// --- Strategy ---
+// Which goal to attack: 0 = blue, 1 = yellow
+#define ATTACK_GOAL 0
+
 // --- Scoring ---
 constexpr float SCORE_DIST_THRESH     = 70.0f;    // goal distance (cm) to trigger scoring when ball caught
 
