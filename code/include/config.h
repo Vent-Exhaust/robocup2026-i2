@@ -4,7 +4,7 @@
 // =============================================================================
 // BOT SELECTION — change to 1 or 2 before uploading
 // =============================================================================
-#define BOT 2
+#define BOT 1
 
 // =============================================================================
 // LOCATION SELECTION — change per venue (affects min speeds, thresholds, etc.)
@@ -105,6 +105,19 @@ constexpr float CAM_ORBIT_KD          = 0.005f;   // orbit derivative gain (damp
 constexpr float CAM_ORBIT_KI          = 0.0005f;  // orbit integral gain (ramps up when alignment error persists)
 constexpr float CAM_ORBIT_I_MAX       = 0.05f;    // integral windup limit
 constexpr float CAM_ORBIT_DEADZONE    = 20.0f;    // alignment error deadzone (deg) — no orbit when aligned within this
+
+// --- IR Chase ---
+constexpr float IR_CHASE_SPEED        = 0.18f;   // speed when chasing ball (cam can't see = far away)
+
+// --- IR Orbit ---
+constexpr float IR_ORBIT_OFFSET       = 70.0f;   // max perpendicular offset (deg) — larger = wider orbit
+constexpr float IR_ORBIT_FADE_DEG     = 45.0f;   // ball angle at which offset reaches full strength
+constexpr float IR_ORBIT_SPEED_MAX    = 0.15f;   // speed when aligned (ball ahead)
+constexpr float IR_ORBIT_SPEED_MIN    = 0.3f;    // speed when orbiting sideways
+constexpr float XDRIVE_DEAD_NUDGE    = 10.0f;   // degrees to nudge away from X-drive dead angles (±45°, ±135°)
+
+// --- Line Avoidance ---
+constexpr float LINE_PUSH_SPEED      = 0.15f;   // speed to push away from detected line
 
 // --- Strategy ---
 // Which goal to attack: 0 = blue, 1 = yellow

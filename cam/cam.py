@@ -12,7 +12,7 @@ OPTICAL_OFFSET_Y = 0
 OPTICAL_CENTER_TRIM_X = 0
 OPTICAL_CENTER_TRIM_Y = 6
 
-BALL_ROI_SIZE = 160  # square side length, adjust as needed
+BALL_ROI_SIZE = 220  # square side length, adjust as needed
 
 ball_roi = (
     240 - BALL_ROI_SIZE // 2,
@@ -46,8 +46,8 @@ sensor.set_windowing((
 sensor.skip_frames(time=2000)
 sensor.set_auto_gain(False)
 sensor.set_auto_whitebal(False)
-sensor.set_auto_exposure(False, exposure_us=20000) # Jh home values
-# sensor.set_auto_exposure(False, exposure_us=10000) # Robo lab values
+# sensor.set_auto_exposure(False, exposure_us=20000) # Jh home values
+sensor.set_auto_exposure(False, exposure_us=10000) # Robo lab values
 # sensor.set_auto_exposure(False, exposure_us=20000) # CX home values (Night)
 # sensor.set_auto_exposure(False, exposure_us=10000) # CX home values (Afternoon)
 sensor.set_contrast(3)
@@ -372,10 +372,11 @@ while True:
     img = sensor.snapshot()
 
     # UART packet layout:
-    # BLUE_X, BLUE_Y, BLUE_DIST, BLUE_ANGLE,
-    # YELLOW_X, YELLOW_Y, YELLOW_DIST, YELLOW_ANGLE,
+    # BLUE_X, BLUE_Y, BLUE_DIST, BLUE_ANGLE, BLUE_LB_DIST, BLUE_LB_ANGLE,
+    # YELLOW_X, YELLOW_Y, YELLOW_DIST, YELLOW_ANGLE, YELLOW_LB_DIST, YELLOW_LB_ANGLE,
     # BALL_X, BALL_Y, BALL_DIST, BALL_ANGLE
     # All distances in cm, angles in degrees (0-360). "none" if not detected.
+    # LB = largest blob (for scoring aim)
     output_list = []
 
     # -------------------------
@@ -444,10 +445,10 @@ while True:
     # -------------------------
     ball_blobs = img.find_blobs(
         ball_thresholds,
-        pixels_threshold=1,
-        area_threshold=1,
-        x_stride=2,
-        y_stride=2,
+        pixels_threshold=5,
+        area_threshold=5,
+        x_stride=5,
+        y_stride=5,
         roi=ball_roi
     )
 
