@@ -55,7 +55,7 @@ static float quaternionToYaw(float r, float i, float j, float k) {
 
 void setupIMU() {
     Wire.begin();
-    Wire.setClock(1000000);
+    Wire.setClock(400000);
 
     if (!bno.begin_I2C()) {
         Serial.println("[IMU] Failed to find BNO085 — check wiring");

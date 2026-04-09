@@ -123,8 +123,22 @@ constexpr float LINE_PUSH_SPEED      = 0.15f;   // speed to push away from detec
 // Which goal to attack: 0 = blue, 1 = yellow
 #define ATTACK_GOAL 1
 
+// Robot role: 0 = striker, 1 = goalie
+#define ROLE 1
+
 // --- Scoring ---
 constexpr float SCORE_DIST_THRESH     = 70.0f;    // goal distance (cm) to trigger scoring when ball caught
+
+// --- Goalie ---
+constexpr float GOALIE_REVERSE_SPEED   = 0.2f;    // speed to drive backward toward own goal
+constexpr float GOALIE_FACE_KP         = 0.005f;   // yaw correction P gain
+constexpr float GOALIE_FACE_KD         = 0.0f;    // yaw correction D gain
+constexpr float GOALIE_FACE_DEADZONE   = 2.0f;    // heading error deadzone (deg)
+constexpr float GOALIE_FACE_OMEGA_MAX  = 0.1f;   // max rotation speed
+constexpr float GOALIE_LINE_SPEED_MIN  = 0.15f;   // strafe speed when ball is ahead
+constexpr float GOALIE_LINE_SPEED_MAX  = 0.30f;   // strafe speed when ball is at steep angle
+constexpr float GOALIE_LINE_TARGET     = 0.15f;   // target l1Size to hold on line (0-1)
+constexpr float GOALIE_LINE_KP         = 0.5f;    // P gain for line depth correction
 
 // =============================================================================
 

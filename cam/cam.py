@@ -334,25 +334,25 @@ class BallKalman:
 ball_kf = BallKalman(KALMAN_Q, KALMAN_R)
 
 # -------------------------
-# Goal EMA filter
+# Goal EMA filter (pixel space)
 # -------------------------
 GOAL_EMA_ALPHA = 0.7  # 0.0–1.0; lower = smoother but more lag
 
 class GoalEMA:
     def __init__(self, alpha):
         self.a = alpha
-        self.x = 0.0
-        self.y = 0.0
+        self.px = 0.0
+        self.py = 0.0
         self.init = False
 
-    def update(self, x, y):
+    def update(self, px, py):
         if not self.init:
-            self.x, self.y = x, y
+            self.px, self.py = float(px), float(py)
             self.init = True
         else:
-            self.x += self.a * (x - self.x)
-            self.y += self.a * (y - self.y)
-        return self.x, self.y
+            self.px += self.a * (px - self.px)
+            self.py += self.a * (py - self.py)
+        return self.px, self.py
 
     def reset(self):
         self.init = False
@@ -405,13 +405,10 @@ while True:
             center_px = int(min_x + (max_x - min_x) / 2)
             center_py = int(min_y + (max_y - min_y) / 2)
 
-            x_rob, y_rob, dist, angle = pixel_to_robot(center_px, center_py)
-
-            # Apply EMA filter
+            # Apply EMA filter in pixel space, then convert to robot frame
             idx = 0 if color_name == "BLUE" else 1
-            x_rob, y_rob = goal_filters[idx].update(x_rob, y_rob)
-            dist  = math.sqrt(x_rob * x_rob + y_rob * y_rob)
-            angle = robot_angle(x_rob, y_rob)
+            sm_px, sm_py = goal_filters[idx].update(center_px, center_py)
+            x_rob, y_rob, dist, angle = pixel_to_robot(sm_px, sm_py)
 
             # --- Largest blob (for scoring aim) ---
             largest_blob = max(blobs, key=lambda b: b.pixels())
@@ -428,8 +425,10 @@ while True:
                                         color=draw_color)
                 if DEBUG_DRAW:
                     img.draw_cross(center_px, center_py, color=draw_color)
+                    # Show raw (unfiltered) for comparison
+                    raw_x, raw_y, raw_dist, raw_angle = pixel_to_robot(center_px, center_py)
                     img.draw_string(center_px + 8, center_py,
-                                    "%.0fcm %.0fd" % (dist, angle),
+                                    "%.0fcm %.0fd" % (raw_dist, raw_angle),
                                     color=draw_color)
                     # Largest blob marker
                     img.draw_cross(lb_px, lb_py, color=draw_color, size=6, thickness=2)
@@ -437,7 +436,8 @@ while True:
                                     "LB %.0fcm %.0fd" % (lb_dist, lb_angle),
                                     color=draw_color)
             if not DEBUG_DISABLE_ALL and DEBUG_DRAW:
-                ema_px, ema_py = robot_to_pixel(x_rob, y_rob)
+                ema_px = int(sm_px)
+                ema_py = int(sm_py)
                 img.draw_circle(ema_px, ema_py, 6, color=draw_color, thickness=2)
                 img.draw_string(ema_px + 8, ema_py + 12,
                                 "EMA %.0fcm %.0fd" % (dist, angle),
