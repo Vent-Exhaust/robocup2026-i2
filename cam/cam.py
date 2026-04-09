@@ -396,6 +396,7 @@ while True:
                      and ((b.cx() - CX)**2 + (b.cy() - CY)**2) > 90**2]
 
         if blobs:
+            # --- Merged center (for localisation) ---
             min_x = min(b.x() for b in blobs)
             min_y = min(b.y() for b in blobs)
             max_x = max(b.x() + b.w() for b in blobs)
@@ -411,6 +412,12 @@ while True:
             dist  = math.sqrt(x_rob * x_rob + y_rob * y_rob)
             angle = robot_angle(x_rob, y_rob)
 
+            # --- Largest blob (for scoring aim) ---
+            largest_blob = max(blobs, key=lambda b: b.pixels())
+            lb_px = largest_blob.cx()
+            lb_py = largest_blob.cy()
+            _, _, lb_dist, lb_angle = pixel_to_robot(lb_px, lb_py)
+
             if not DEBUG_DISABLE_ALL:
                 if DEBUG_GOALS:
                     for b in blobs:
@@ -422,6 +429,11 @@ while True:
                     img.draw_cross(center_px, center_py, color=draw_color)
                     img.draw_string(center_px + 8, center_py,
                                     "%.0fcm %.0fd" % (dist, angle),
+                                    color=draw_color)
+                    # Largest blob marker
+                    img.draw_cross(lb_px, lb_py, color=draw_color, size=6, thickness=2)
+                    img.draw_string(lb_px + 8, lb_py + 12,
+                                    "LB %.0fcm %.0fd" % (lb_dist, lb_angle),
                                     color=draw_color)
             if not DEBUG_DISABLE_ALL and DEBUG_DRAW:
                 ema_px, ema_py = robot_to_pixel(x_rob, y_rob)
@@ -435,10 +447,12 @@ while True:
                 "%.1f" % y_rob,
                 "%.1f" % dist,
                 "%.1f" % angle,
+                "%.1f" % lb_dist,
+                "%.1f" % lb_angle,
             ])
         else:
             goal_filters[0 if color_name == "BLUE" else 1].reset()
-            output_list.extend(["none", "none", "none", "none"])
+            output_list.extend(["none", "none", "none", "none", "none", "none"])
 
     # -------------------------
     # Ball detection + Kalman

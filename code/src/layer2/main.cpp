@@ -209,25 +209,31 @@ void loop() {
             moveAngle += (wrapped < 45.0f) ? -nudge : nudge;
         }
 
-        // Line avoidance: subtract line-ward component + push back away from line
+        // Line avoidance: drive toward field centre using localisation
         if (l1LineDetected) {
-            float lineRad = l1Angle * DEG_TO_RAD;
-            float moveRad = moveAngle * DEG_TO_RAD;
-            float mvx = speed * sinf(moveRad);
-            float mvy = speed * cosf(moveRad);
-            float lx  = sinf(lineRad);
-            float ly  = cosf(lineRad);
-            float dot = mvx * lx + mvy * ly;
-            if (dot > 0) {
-                mvx -= dot * lx;
-                mvy -= dot * ly;
+            if (locValid) {
+                float towardCentreWorld = atan2f(-locX, -locY) * RAD_TO_DEG;
+                moveAngle = towardCentreWorld - locHeading;
+                if (moveAngle >  180.0f) moveAngle -= 360.0f;
+                if (moveAngle < -180.0f) moveAngle += 360.0f;
+                speed = LINE_PUSH_SPEED;
+                Serial.printf("[LINE] loc x=%.1f y=%.1f move=%.1f\n", locX, locY, moveAngle);
+            } else {
+                // No localisation — fall back to L1 line angle rejection
+                float lineRad = l1Angle * DEG_TO_RAD;
+                float moveRad = moveAngle * DEG_TO_RAD;
+                float mvx = speed * sinf(moveRad);
+                float mvy = speed * cosf(moveRad);
+                float lx  = sinf(lineRad);
+                float ly  = cosf(lineRad);
+                float dot = mvx * lx + mvy * ly;
+                if (dot > 0) { mvx -= dot * lx; mvy -= dot * ly; }
+                mvx -= LINE_PUSH_SPEED * lx;
+                mvy -= LINE_PUSH_SPEED * ly;
+                speed = sqrtf(mvx * mvx + mvy * mvy);
+                moveAngle = atan2f(mvx, mvy) * RAD_TO_DEG;
+                Serial.printf("[LINE] no loc, l1 fallback angle=%.1f\n", l1Angle);
             }
-            // Push away from line
-            mvx -= LINE_PUSH_SPEED * lx;
-            mvy -= LINE_PUSH_SPEED * ly;
-            speed = sqrtf(mvx * mvx + mvy * mvy);
-            moveAngle = atan2f(mvx, mvy) * RAD_TO_DEG;
-            Serial.printf("[LINE] angle=%.1f\n", l1Angle);
         }
 
         moveRobot(moveAngle, speed, omega);

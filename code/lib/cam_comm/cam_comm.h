@@ -8,10 +8,12 @@
 // Blue goal
 extern bool  camBlueDetected;
 extern float camBlueX, camBlueY, camBlueDist, camBlueAngle;
+extern float camBlueLBDist, camBlueLBAngle;  // largest blob (scoring aim)
 
 // Yellow goal
 extern bool  camYellowDetected;
 extern float camYellowX, camYellowY, camYellowDist, camYellowAngle;
+extern float camYellowLBDist, camYellowLBAngle;  // largest blob (scoring aim)
 
 // Ball
 extern bool  camBallDetected;
