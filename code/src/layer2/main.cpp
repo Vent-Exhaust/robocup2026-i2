@@ -275,31 +275,32 @@ void loop() {
     static float lastMoveAngle = 0;
     static bool  goalParked    = false;
 
-    // Latch onto line when first detected
+    static const float GOALIE_SPEED          = 0.15f;
+    static const float GOALIE_REACQUIRE_SPEED = 0.15f;
+    static const float GOALIE_TRACK_SPEED     = 0.5f;
+    static const float GOALIE_TRACK_MIN       = 0.05f;
+
+    // Latch onto line when first detected — stop and lock heading
     if (l1LineDetected && !goalParked) {
         goalParked = true;
-        Serial.println("[GOALIE] reached blue goal line");
+        resetYawTarget();
+        stopMotors();
+        Serial.println("[GOALIE] on line");
     }
 
     if (goalParked) {
-        static const float GOALIE_TRACK_SPEED     = 0.5f;   // ball tracking speed
-        static const float GOALIE_TRACK_MIN       = 0.05f;
-        static const float GOALIE_REACQUIRE_SPEED = 0.2f;
-        static const float GOALIE_CENTRE_SPEED    = 0.2f;
-        static const float GOALIE_CENTRE_DEADZONE = 5.0f;   // cm
-
         static float smoothLateral = 0.0f;
         static const float LATERAL_ALPHA = 0.2f;
 
-        // Debounce: only re-acquire after line lost for N consecutive frames.
-        // Prevents LDR flicker from triggering backward motion while on line.
-        static const int LINE_LOST_DEBOUNCE = 10;
+        // Debounce: only re-acquire after line is lost for N consecutive frames.
+        static const int LINE_LOST_DEBOUNCE = 15;
         static int lineLostFrames = 0;
         if (l1LineDetected) lineLostFrames = 0;
         else                lineLostFrames++;
         bool lineTrulyLost = (lineLostFrames >= LINE_LOST_DEBOUNCE);
 
         if (l1LineDetected) {
+            // On the line — slide to track ball if visible, otherwise stop
             if (ballFound) {
                 float rawLateral = sinf(ballAngle * DEG_TO_RAD);
                 smoothLateral += LATERAL_ALPHA * (rawLateral - smoothLateral);
@@ -310,55 +311,27 @@ void loop() {
                 moveRobot(trackAngle, trackSpeed, 0);
                 Serial.printf("[GOALIE] slide ball=%.1f lat=%.2f spd=%.2f\n",
                               ballAngle, smoothLateral, trackSpeed);
-            } else if (locValid && fabsf(locX) > GOALIE_CENTRE_DEADZONE) {
-                smoothLateral = 0.0f;
-                float centreAngle = (locX > 0) ? 270.0f : 90.0f;
-                float centreSpeed = constrain(fabsf(locX) * 0.005f, 0.05f, GOALIE_CENTRE_SPEED);
-                lastMoveAngle = centreAngle;
-                moveRobot(centreAngle, centreSpeed, 0);
-                Serial.printf("[GOALIE] centring locX=%.1f\n", locX);
             } else {
                 smoothLateral = 0.0f;
                 stopMotors();
+                Serial.println("[GOALIE] holding line");
             }
         } else if (lineTrulyLost) {
+            // Off the line — drive straight back to reacquire, IMU holds heading
             smoothLateral = 0.0f;
-            if (locValid) {
-                float dx = 0.0f - locX;
-                float dy = -HALF_FIELD - locY;
-                float worldAngle = atan2f(dx, dy) * RAD_TO_DEG;
-                float robotAngle = fmodf(worldAngle - locHeading + 360.0f, 360.0f);
-                moveRobot(robotAngle, GOALIE_REACQUIRE_SPEED, 0);
-            } else {
-                moveRobot(180.0f, GOALIE_REACQUIRE_SPEED, 0);
-            }
-            Serial.println("[GOALIE] re-acq");
+            lastMoveAngle = 180.0f;
+            moveRobot(180.0f, GOALIE_REACQUIRE_SPEED, 0);
+            Serial.println("[GOALIE] returning to line");
         } else {
-            // Line briefly lost but within debounce — hold position
+            // Brief flicker — hold position
             stopMotors();
         }
     } else {
-        // === DRIVE to blue goal line ===
-        static const float GOALIE_SPEED = 0.15f;
-        float moveAngle = 180.0f;  // fallback: straight back
-        float speed     = GOALIE_SPEED;
-
-        if (locValid) {
-            float dx = -locX;
-            float dy = -HALF_FIELD - locY;  // blue goal at world Y = -HALF_FIELD
-            float dist = sqrtf(dx * dx + dy * dy);
-            float worldAngle = atan2f(dx, dy) * RAD_TO_DEG;
-            moveAngle = fmodf(worldAngle - locHeading + 360.0f, 360.0f);
-            speed = constrain(dist * 0.005f, 0.08f, GOALIE_SPEED);
-            Serial.printf("[GOALIE] loc dist=%.1f\n", dist);
-        } else if (camBlueDetected) {
-            moveAngle = camBlueAngle;
-            speed = constrain(camBlueDist * 0.005f, 0.08f, GOALIE_SPEED);
-            Serial.printf("[GOALIE] cam → blue dist=%.1f\n", camBlueDist);
-        }
-
-        lastMoveAngle = moveAngle;
-        moveRobot(moveAngle, speed, 0);
+        // === Drive backward to blue goal line ===
+        // IMU heading-hold keeps robot facing forward while reversing
+        lastMoveAngle = 180.0f;
+        moveRobot(180.0f, GOALIE_SPEED, 0);
+        Serial.println("[GOALIE] seeking line");
     }
 
     if (false) {  // striker disabled
