@@ -12,6 +12,13 @@
 // =============================================================================
 #define LOCATION 2
 
+// --- Strategy ---
+// Which goal to attack: 0 = blue, 1 = yellow
+#define ATTACK_GOAL 1
+
+// Robot role: 0 = striker, 1 = goalie
+#define ROLE 1
+
 // =============================================================================
 // COMPETITION TUNING — edit these values on game day
 // =============================================================================
@@ -118,13 +125,6 @@ constexpr float XDRIVE_DEAD_NUDGE    = 10.0f;   // degrees to nudge away from X-
 
 // --- Line Avoidance ---
 constexpr float LINE_PUSH_SPEED      = 0.15f;   // speed to push away from detected line
-
-// --- Strategy ---
-// Which goal to attack: 0 = blue, 1 = yellow
-#define ATTACK_GOAL 1
-
-// Robot role: 0 = striker, 1 = goalie
-#define ROLE 1
 
 // --- Scoring ---
 constexpr float SCORE_DIST_THRESH     = 70.0f;    // goal distance (cm) to trigger scoring when ball caught
