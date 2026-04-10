@@ -4,7 +4,7 @@
 // =============================================================================
 // BOT SELECTION — change to 1 or 2 before uploading
 // =============================================================================
-#define BOT 2
+#define BOT 1
 
 // =============================================================================
 // LOCATION SELECTION — change per venue (affects min speeds, thresholds, etc.)
@@ -14,7 +14,7 @@
 
 // --- Strategy ---
 // Which goal to attack: 0 = blue, 1 = yellow
-#define ATTACK_GOAL 0
+#define ATTACK_GOAL 1
 
 // Robot role: 0 = striker, 1 = goalie
 #define ROLE 1

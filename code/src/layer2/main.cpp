@@ -408,7 +408,10 @@ static void goalieLoop() {
     if (moveAngle >  180.0f) moveAngle -= 360.0f;
     if (moveAngle < -180.0f) moveAngle += 360.0f;
 
-    moveRobot(moveAngle, speed, 0);
+    float omega = 0;
+    applyLineAvoidance(moveAngle, speed, omega);
+
+    moveRobot(moveAngle, speed, omega);
     Serial.printf("[GK] cur=(%.0f,%.0f) tgt=(%.0f,%.0f) nxt=(%.0f,%.0f) spd=%.2f\n",
                   curX, curY, tgtX, gkCurveY(tgtX), nextX, nextY, speed);
 }
