@@ -135,10 +135,10 @@ constexpr float GOALIE_CURVE_A         = -2.0e-11f; // x^6 coeff — curve dips 
 constexpr float GOALIE_CURVE_Y0        = -55.0f;    // baseline y at center (cm from field center)
 constexpr float GOALIE_STEP_SIZE       = 20.0f;     // cm per step along curve
 // Speed PD
-constexpr float GOALIE_SPEED_KP        = 0.002f;  // P gain for speed from error
+constexpr float GOALIE_SPEED_KP        = 0.001f;  // P gain for speed from error
 constexpr float GOALIE_SPEED_KD        = 0.00002f;// D gain for speed
 constexpr float GOALIE_SPEED_MIN       = 0.20f;   // min move speed
-constexpr float GOALIE_SPEED_MAX       = 0.45f;   // max move speed
+constexpr float GOALIE_SPEED_MAX       = 0.35f;   // max move speed
 // Ball angle → target X mapping
 constexpr float GOALIE_BALL_X_SCALE    = 120.0f;  // max target X offset from ball angle (cm)
 // Edge speed scaling (exponential, from 2025)
