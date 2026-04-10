@@ -271,8 +271,56 @@ static const float GK_SIGN = -1.0f;
 #endif
 
 static float gkLastBallX = 0;  // last-seen ball side for when ball lost
+static bool  gkRushing   = false;
+static unsigned long gkRushStart = 0;
+static unsigned long gkFrontSince = 0;  // when ball first appeared in front
+static bool  gkFrontTracking = false;
 
 static void goalieLoop() {
+    // ── Rush: ball dead ahead → charge forward, kick, resume goalie ──
+    if (gkRushing) {
+        if (checkCatchment()) {
+            kickSol();
+            gkRushing = false;
+            Serial.println("[GK RUSH] catchment → kick");
+            return;
+        }
+        if (millis() - gkRushStart >= GOALIE_RUSH_MS) {
+            gkRushing = false;
+            Serial.println("[GK RUSH] timeout");
+            return;
+        }
+        // Drive straight forward (0° in robot frame)
+        float moveAngle = -locHeading;
+        if (moveAngle >  180.0f) moveAngle -= 360.0f;
+        if (moveAngle < -180.0f) moveAngle += 360.0f;
+        moveRobot(moveAngle, GOALIE_RUSH_SPEED, 0);
+        Serial.printf("[GK RUSH] elapsed=%lu\n", millis() - gkRushStart);
+        return;
+    }
+
+    // Track how long ball has been right in front, rush after confirmation period
+    if (l3BallDetected) {
+        float ballAng = l3BallAngle;
+        if (ballAng > 180.0f) ballAng -= 360.0f;
+        if (fabsf(ballAng) <= GOALIE_RUSH_ANGLE) {
+            if (!gkFrontTracking) {
+                gkFrontTracking = true;
+                gkFrontSince = millis();
+            } else if (millis() - gkFrontSince >= GOALIE_RUSH_CONFIRM_MS) {
+                gkRushing = true;
+                gkRushStart = millis();
+                gkFrontTracking = false;
+                Serial.printf("[GK RUSH] start ball=%.1f\n", ballAng);
+                return;
+            }
+        } else {
+            gkFrontTracking = false;
+        }
+    } else {
+        gkFrontTracking = false;
+    }
+
     if (!locValid) {
         moveRobot(0, 0, 0);
         Serial.println("[GK] no loc, holding");

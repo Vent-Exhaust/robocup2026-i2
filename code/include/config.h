@@ -4,7 +4,7 @@
 // =============================================================================
 // BOT SELECTION — change to 1 or 2 before uploading
 // =============================================================================
-#define BOT 2
+#define BOT 1
 
 // =============================================================================
 // LOCATION SELECTION — change per venue (affects min speeds, thresholds, etc.)
@@ -14,7 +14,7 @@
 
 // --- Strategy ---
 // Which goal to attack: 0 = blue, 1 = yellow
-#define ATTACK_GOAL 1
+#define ATTACK_GOAL 0
 
 // Robot role: 0 = striker, 1 = goalie
 #define ROLE 1
@@ -143,6 +143,10 @@ constexpr float GOALIE_LATERAL_KP      = 0.005f;  // P gain: speed from lateral 
 constexpr float GOALIE_SPEED_MIN       = 0.15f;   // min strafe speed
 constexpr float GOALIE_SPEED_MAX       = 0.30f;   // max strafe speed
 constexpr float GOALIE_DEADZONE        = 3.0f;    // stop strafing within this distance (cm)
+constexpr float GOALIE_RUSH_ANGLE      = 20.0f;   // ball must be within ±this angle to rush (deg)
+constexpr unsigned long GOALIE_RUSH_CONFIRM_MS = 10000; // ball must stay in front this long before rushing (ms)
+constexpr float GOALIE_RUSH_SPEED      = 0.25f;   // forward speed during rush
+constexpr unsigned long GOALIE_RUSH_MS = 10000;     // max rush duration (ms)
 
 // =============================================================================
 
