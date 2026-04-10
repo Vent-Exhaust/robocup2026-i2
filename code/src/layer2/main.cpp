@@ -125,15 +125,35 @@ static float computeFaceOmega(bool goalVis, float goalAng, float goalDst) {
 
 // ── Line avoidance helper ──────────────────────────────────────────────────
 
-static void applyLineAvoidance(float& moveAngle, float& speed) {
+static void applyLineAvoidance(float& moveAngle, float& speed, float& omega) {
     if (!l1LineDetected) return;
+    omega = 0;
     if (locValid) {
-        float towardCentreWorld = atan2f(-locX, -locY) * RAD_TO_DEG;
-        moveAngle = towardCentreWorld - locHeading;
+        // Back-line override: rear LDR sensors report ~90° instead of 180°,
+        // so when localisation shows we're near/behind the goalie line,
+        // ignore L1 angle and drive straight forward (toward centre Y).
+        #if ATTACK_GOAL == 0
+        bool nearBackLine = locY > fabsf(GOALIE_CURVE_Y0);   // defending positive Y side
+        float forwardWorld = 180.0f;                          // world heading toward negative Y
+        #else
+        bool nearBackLine = locY < -fabsf(GOALIE_CURVE_Y0);  // defending negative Y side
+        float forwardWorld = 0.0f;                            // world heading toward positive Y
+        #endif
+
+        float escapeWorld;
+        if (nearBackLine) {
+            escapeWorld = forwardWorld;
+            Serial.printf("[LINE] back-line override y=%.1f\n", locY);
+        } else {
+            escapeWorld = atan2f(-locX, -locY) * RAD_TO_DEG;
+            Serial.printf("[LINE] loc x=%.1f y=%.1f\n", locX, locY);
+        }
+
+        moveAngle = escapeWorld - locHeading;
         if (moveAngle >  180.0f) moveAngle -= 360.0f;
         if (moveAngle < -180.0f) moveAngle += 360.0f;
         speed = LINE_PUSH_SPEED;
-        Serial.printf("[LINE] loc x=%.1f y=%.1f move=%.1f\n", locX, locY, moveAngle);
+        Serial.printf("[LINE] move=%.1f\n", moveAngle);
     } else {
         float lineRad = l1Angle * DEG_TO_RAD;
         float moveRad = moveAngle * DEG_TO_RAD;
@@ -211,7 +231,7 @@ static void strikerLoop() {
             moveAngle += (wrapped < 45.0f) ? -nudge : nudge;
         }
 
-        applyLineAvoidance(moveAngle, speed);
+        applyLineAvoidance(moveAngle, speed, omega);
 
         moveRobot(moveAngle, speed, omega);
         if (closeEnough)
@@ -243,21 +263,28 @@ static void strikerLoop() {
 // Robot tracks along y = A*x^6 + Y0 in front of own goal.
 // Uses localisation for position, IR for ball direction.
 
+// Sign flip: ATTACK_GOAL==1 → defend blue (negative Y), ATTACK_GOAL==0 → defend yellow (positive Y)
+#if ATTACK_GOAL == 1
+static const float GK_SIGN = 1.0f;
+#else
+static const float GK_SIGN = -1.0f;
+#endif
+
 static float gkPrevError   = 0;
 static float gkLastBallX   = 0;  // last-seen ball side for when ball lost
 
-// The goalie curve: y = A * x^6 + Y0
+// The goalie curve: y = GK_SIGN * (A * x^6 + Y0)
 static float gkCurveY(float x) {
     float x2 = x * x;
     float x6 = x2 * x2 * x2;
-    return GOALIE_CURVE_A * x6 + GOALIE_CURVE_Y0;
+    return GK_SIGN * (GOALIE_CURVE_A * x6 + GOALIE_CURVE_Y0);
 }
 
-// First derivative dy/dx = 6A * x^5
+// First derivative dy/dx = GK_SIGN * 6A * x^5
 static float gkCurveDY(float x) {
     float x2 = x * x;
     float x5 = x2 * x2 * x;
-    return 6.0f * GOALIE_CURVE_A * x5;
+    return GK_SIGN * 6.0f * GOALIE_CURVE_A * x5;
 }
 
 // Newton's method: find closest x on curve to point (px, py)
@@ -267,7 +294,7 @@ static float gkClosestX(float px, float py) {
         float y  = gkCurveY(x);
         float dy = gkCurveDY(x);
         float x2 = x * x, x4 = x2 * x2;
-        float d2y = 30.0f * GOALIE_CURVE_A * x4;
+        float d2y = GK_SIGN * 30.0f * GOALIE_CURVE_A * x4;
         float grad = 2.0f * (x - px) + 2.0f * (y - py) * dy;
         float hess = 2.0f + 2.0f * dy * dy + 2.0f * (y - py) * d2y;
         if (fabsf(grad) < 1e-4f) break;
@@ -320,7 +347,7 @@ static void goalieLoop() {
     if (l3BallDetected) {
         float ballAng = l3BallAngle;
         if (ballAng > 180.0f) ballAng -= 360.0f;
-        tgtX = GOALIE_BALL_X_SCALE * sinf(ballAng * DEG_TO_RAD);
+        tgtX = GK_SIGN * GOALIE_BALL_X_SCALE * sinf(ballAng * DEG_TO_RAD);
         gkLastBallX = tgtX;
     } else {
         // No ball: drift to last-seen side (like 2025 raffles mode)
@@ -341,7 +368,10 @@ static void goalieLoop() {
     // 4. Step along curve toward target
     float nextX, nextY;
     gkStepAlongCurve(curX, tgtX, stepMult * GOALIE_STEP_SIZE, nextX, nextY);
-    nextY = constrain(nextY, GOALIE_Y_MIN, 0.0f);
+    if (GK_SIGN > 0)
+        nextY = constrain(nextY, GOALIE_Y_MIN, 0.0f);      // defend blue: negative Y side
+    else
+        nextY = constrain(nextY, 0.0f, -GOALIE_Y_MIN);     // defend yellow: positive Y side
 
     // 5. PD speed from ball angle error
     float error = 0;
@@ -374,7 +404,7 @@ static void goalieLoop() {
     }
 
     float toTargetWorld = atan2f(errX, errY) * RAD_TO_DEG;
-    float moveAngle = toTargetWorld - imuYaw;
+    float moveAngle = toTargetWorld - locHeading;
     if (moveAngle >  180.0f) moveAngle -= 360.0f;
     if (moveAngle < -180.0f) moveAngle += 360.0f;
 

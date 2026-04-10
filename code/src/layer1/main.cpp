@@ -2,7 +2,7 @@
 
 SerialComm l1Comm(L1_TO_L2_SERIAL);
 
-static const bool DEBUG = false;
+static const bool DEBUG = true;
 
 void setup() {
     Serial.begin(115200);

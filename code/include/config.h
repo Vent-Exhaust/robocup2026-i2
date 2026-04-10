@@ -14,7 +14,7 @@
 
 // --- Strategy ---
 // Which goal to attack: 0 = blue, 1 = yellow
-#define ATTACK_GOAL 1
+#define ATTACK_GOAL 0
 
 // Robot role: 0 = striker, 1 = goalie
 #define ROLE 1
@@ -26,7 +26,8 @@
 // --- Light Ring ---
 // Per-sensor thresholds (0–4095). Run calibrateLightRing() to generate these.
 #if BOT == 1
-constexpr int LDR_THRESHOLDS[32] = {3415, 3409, 3393, 3384, 3372, 3365, 3326, 3339, 3323, 3311, 3303, 3307, 3294, 3284, 3276, 3277, 3272, 3254, 3251, 3258, 3243, 3242, 3235, 3240, 3236, 3222, 3217, 3227, 3220, 3227, 3217, 3230};
+// constexpr int LDR_THRESHOLDS[32] = {3415, 3409, 3393, 3384, 3372, 3365, 3326, 3339, 3323, 3311, 3303, 3307, 3294, 3284, 3276, 3277, 3272, 3254, 3251, 3258, 3243, 3242, 3235, 3240, 3236, 3222, 3217, 3227, 3220, 3227, 3217, 3230};
+constexpr int LDR_THRESHOLDS[32] = {3418, 3411, 3396, 3390, 3376, 3370, 3333, 3346, 3332, 3319, 3307, 3308, 3300, 3294, 3284, 3284, 3281, 3264, 3257, 3259, 3077, 3244, 3240, 3241, 3238, 3228, 3212, 3212, 3217, 3234, 3225, 3236};
 #elif BOT == 2
 constexpr int LDR_THRESHOLDS[32] = {3403, 3370, 3346, 3357, 3365, 3340, 3351, 3325, 3313, 3293, 3308, 3299, 3278, 3280, 3273, 3271, 3262, 3255, 3250, 3221, 3249, 3241, 3204, 3227, 3233, 3229, 3225, 3211, 3209, 3196, 3201, 3219};
 #endif
@@ -124,7 +125,7 @@ constexpr float IR_ORBIT_SPEED_MIN    = 0.3f;    // speed when orbiting sideways
 constexpr float XDRIVE_DEAD_NUDGE    = 10.0f;   // degrees to nudge away from X-drive dead angles (±45°, ±135°)
 
 // --- Line Avoidance ---
-constexpr float LINE_PUSH_SPEED      = 0.15f;   // speed to push away from detected line
+constexpr float LINE_PUSH_SPEED      = 0.2f;   // speed to push away from detected line
 
 // --- Scoring ---
 constexpr float SCORE_DIST_THRESH     = 70.0f;    // goal distance (cm) to trigger scoring when ball caught

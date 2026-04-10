@@ -8,7 +8,16 @@
       "Bash(git -C /c/Users/ngche/Documents/Robotics/robocup2026-i2 diff 5d01557..HEAD -- code/src/layer2/main.cpp)",
       "Bash(~/.platformio/penv/Scripts/pio.exe run:*)",
       "Bash(pio run:*)",
-      "Bash(~/.platformio/penv/Scripts/pio run:*)"
+      "Bash(~/.platformio/penv/Scripts/pio run:*)",
+      "Bash(python -m platformio run -e layer2-teensy40)",
+      "Bash(where.exe pio:*)",
+      "Read(//c/Users/ngche/.platformio/penv/Scripts/**)",
+      "Bash(\"C:/Users/ngche/.platformio/penv/Scripts/pio.exe\" run:*)",
+      "Bash(where pio.exe)",
+      "Bash(where platformio.exe)",
+      "Bash(ls ~/.platformio/penv/Scripts/pio*)",
+      "Bash(ls /c/Users/ngche/.platformio/penv/Scripts/pio*)",
+      "Bash(/c/Users/ngche/.platformio/penv/Scripts/pio.exe run:*)"
     ]
   }
 }
