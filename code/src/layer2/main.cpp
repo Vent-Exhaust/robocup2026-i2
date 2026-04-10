@@ -133,10 +133,10 @@ static void applyLineAvoidance(float& moveAngle, float& speed, float& omega) {
         // so when localisation shows we're near/behind the goalie line,
         // ignore L1 angle and drive straight forward (toward centre Y).
         #if ATTACK_GOAL == 0
-        bool nearBackLine = locY > fabsf(GOALIE_CURVE_Y0);   // defending positive Y side
+        bool nearBackLine = locY > fabsf(STRIKER_BACK_LINE_Y); // defending positive Y side
         float forwardWorld = 180.0f;                          // world heading toward negative Y
         #else
-        bool nearBackLine = locY < -fabsf(GOALIE_CURVE_Y0);  // defending negative Y side
+        bool nearBackLine = locY < -fabsf(STRIKER_BACK_LINE_Y); // defending negative Y side
         float forwardWorld = 0.0f;                            // world heading toward positive Y
         #endif
 
@@ -259,9 +259,9 @@ static void strikerLoop() {
 }
 
 // ── Goalie ─────────────────────────────────────────────────────────────────
-// Curve-following goalie ported from robocup-2025.
-// Robot tracks along y = A*x^6 + Y0 in front of own goal.
-// Uses localisation for position, IR for ball direction.
+// Lateral-only goalie.
+// Sits at fixed Y (GOALIE_LINE_Y) and strafes left/right to track the ball.
+// Never moves forward toward the ball.
 
 // Sign flip: ATTACK_GOAL==1 → defend blue (negative Y), ATTACK_GOAL==0 → defend yellow (positive Y)
 #if ATTACK_GOAL == 1
@@ -270,66 +270,7 @@ static const float GK_SIGN = 1.0f;
 static const float GK_SIGN = -1.0f;
 #endif
 
-static float gkPrevError   = 0;
-static float gkLastBallX   = 0;  // last-seen ball side for when ball lost
-
-// The goalie curve: y = GK_SIGN * (A * x^6 + Y0)
-static float gkCurveY(float x) {
-    float x2 = x * x;
-    float x6 = x2 * x2 * x2;
-    return GK_SIGN * (GOALIE_CURVE_A * x6 + GOALIE_CURVE_Y0);
-}
-
-// First derivative dy/dx = GK_SIGN * 6A * x^5
-static float gkCurveDY(float x) {
-    float x2 = x * x;
-    float x5 = x2 * x2 * x;
-    return GK_SIGN * 6.0f * GOALIE_CURVE_A * x5;
-}
-
-// Newton's method: find closest x on curve to point (px, py)
-static float gkClosestX(float px, float py) {
-    float x = constrain(px, -GOALIE_X_MAX, GOALIE_X_MAX);
-    for (int i = 0; i < 30; i++) {
-        float y  = gkCurveY(x);
-        float dy = gkCurveDY(x);
-        float x2 = x * x, x4 = x2 * x2;
-        float d2y = GK_SIGN * 30.0f * GOALIE_CURVE_A * x4;
-        float grad = 2.0f * (x - px) + 2.0f * (y - py) * dy;
-        float hess = 2.0f + 2.0f * dy * dy + 2.0f * (y - py) * d2y;
-        if (fabsf(grad) < 1e-4f) break;
-        x -= grad / hess;
-    }
-    return constrain(x, -GOALIE_X_MAX, GOALIE_X_MAX);
-}
-
-// Step along curve from current toward target by stepSize cm
-static void gkStepAlongCurve(float curX, float tgtX, float stepSize,
-                              float& outX, float& outY) {
-    float slope = gkCurveDY(curX);
-    float dx = stepSize / sqrtf(1.0f + slope * slope);
-    dx = (tgtX > curX) ? dx : -dx;
-    // Don't overshoot
-    if (fabsf(dx) > fabsf(tgtX - curX)) {
-        dx = tgtX - curX;
-    }
-    outX = constrain(curX + dx, -GOALIE_X_MAX, GOALIE_X_MAX);
-    outY = gkCurveY(outX);
-}
-
-// Edge speed scaling (from 2025): uses average goal x to slow near edges
-static float gkEdgeSpeedCap() {
-    float avgGoalX = 0;
-    if (camBlueDetected && camYellowDetected) {
-        avgGoalX = fabsf((camBlueAngle + camYellowAngle) * 0.5f);
-    } else if (camBlueDetected) {
-        avgGoalX = fabsf(camBlueAngle);
-    } else if (camYellowDetected) {
-        avgGoalX = fabsf(camYellowAngle);
-    }
-    return fminf(GOALIE_EDGE_A * expf(-GOALIE_EDGE_B * avgGoalX + GOALIE_EDGE_C)
-                 + GOALIE_EDGE_D, GOALIE_SPEED_MAX);
-}
+static float gkLastBallX = 0;  // last-seen ball side for when ball lost
 
 static void goalieLoop() {
     if (!locValid) {
@@ -338,11 +279,10 @@ static void goalieLoop() {
         return;
     }
 
-    // 1. Project robot onto curve
-    float curX = gkClosestX(locX, locY);
-    float curY = gkCurveY(curX);
+    // Fixed Y position in front of own goal
+    float lineY = GK_SIGN * GOALIE_LINE_Y;
 
-    // 2. Determine target X from IR ball angle
+    // 1. Determine target X from IR ball angle
     float tgtX = 0;
     if (l3BallDetected) {
         float ballAng = l3BallAngle;
@@ -350,60 +290,33 @@ static void goalieLoop() {
         tgtX = GK_SIGN * GOALIE_BALL_X_SCALE * sinf(ballAng * DEG_TO_RAD);
         gkLastBallX = tgtX;
     } else {
-        // No ball: drift to last-seen side (like 2025 raffles mode)
-        tgtX = (gkLastBallX > 0) ? GOALIE_X_MAX * 0.5f : -GOALIE_X_MAX * 0.5f;
+        // No ball: drift toward last-seen side
+        tgtX = (gkLastBallX > 0) ? GOALIE_X_MAX * 0.3f : -GOALIE_X_MAX * 0.3f;
     }
     tgtX = constrain(tgtX, -GOALIE_X_MAX, GOALIE_X_MAX);
 
-    // 3. Compute step multiplier from ball angle (faster step when ball far off-center)
-    float ballAbsAng = 0;
-    if (l3BallDetected) {
-        ballAbsAng = l3BallAngle;
-        if (ballAbsAng > 180.0f) ballAbsAng -= 360.0f;
-        ballAbsAng = fabsf(ballAbsAng);
-        if (ballAbsAng > 90.0f) ballAbsAng = 180.0f - ballAbsAng;
-    }
-    float stepMult = (ballAbsAng > 35.0f) ? 3.0f : 1.0f;
+    // 2. Compute lateral error (X only)
+    float errX = tgtX - locX;
 
-    // 4. Step along curve toward target
-    float nextX, nextY;
-    gkStepAlongCurve(curX, tgtX, stepMult * GOALIE_STEP_SIZE, nextX, nextY);
-    if (GK_SIGN > 0)
-        nextY = constrain(nextY, GOALIE_Y_MIN, 0.0f);      // defend blue: negative Y side
-    else
-        nextY = constrain(nextY, 0.0f, -GOALIE_Y_MIN);     // defend yellow: positive Y side
-
-    // 5. PD speed from ball angle error
-    float error = 0;
-    if (l3BallDetected && fabsf(l3BallAngle > 180.0f ? l3BallAngle - 360.0f : l3BallAngle) > 0.1f) {
-        float ang = l3BallAngle;
-        if (ang > 180.0f) ang -= 360.0f;
-        ang = fabsf(ang);
-        error = constrain((15.0f * expf(0.2f * ang - 5.0f)) + 4.0f * ang, 0.0f, 300.0f);
-    }
-    float pTerm = GOALIE_SPEED_KP * error;
-    float dTerm = GOALIE_SPEED_KD * (error - gkPrevError);
-    gkPrevError = error;
-
-    float maxSpd = gkEdgeSpeedCap();
-    float speed  = constrain(pTerm + dTerm, GOALIE_SPEED_MIN, maxSpd);
+    // 3. Speed from lateral distance — P controller
+    float speed = constrain(GOALIE_LATERAL_KP * fabsf(errX),
+                            GOALIE_SPEED_MIN, GOALIE_SPEED_MAX);
 
     if (!l3BallDetected) {
         speed = constrain(speed, 0.10f, 0.20f);
     }
 
-    // 6. Drive toward next point on curve
-    float errX = nextX - locX;
-    float errY = nextY - locY;
-    float dist = sqrtf(errX * errX + errY * errY);
-
-    if (dist < 2.0f) {
+    // 4. Dead zone — close enough, just hold
+    if (fabsf(errX) < GOALIE_DEADZONE) {
         moveRobot(0, 0, 0);
-        Serial.printf("[GK] on curve, dist=%.1f\n", dist);
+        Serial.printf("[GK] holding x=%.0f tgt=%.0f\n", locX, tgtX);
         return;
     }
 
-    float toTargetWorld = atan2f(errX, errY) * RAD_TO_DEG;
+    // 5. Pure lateral movement (90° = right, -90° = left in robot-local frame)
+    //    errX > 0 means target is to the right in field coords
+    //    Convert to robot-local by subtracting heading
+    float toTargetWorld = (errX > 0) ? 90.0f : -90.0f;
     float moveAngle = toTargetWorld - locHeading;
     if (moveAngle >  180.0f) moveAngle -= 360.0f;
     if (moveAngle < -180.0f) moveAngle += 360.0f;
@@ -412,8 +325,8 @@ static void goalieLoop() {
     applyLineAvoidance(moveAngle, speed, omega);
 
     moveRobot(moveAngle, speed, omega);
-    Serial.printf("[GK] cur=(%.0f,%.0f) tgt=(%.0f,%.0f) nxt=(%.0f,%.0f) spd=%.2f\n",
-                  curX, curY, tgtX, gkCurveY(tgtX), nextX, nextY, speed);
+    Serial.printf("[GK] x=%.0f tgt=%.0f errX=%.0f spd=%.2f lineY=%.0f\n",
+                  locX, tgtX, errX, speed, lineY);
 }
 
 // ── Main ────────────────────────────────────────────────────────────────────

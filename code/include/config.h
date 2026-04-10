@@ -132,26 +132,17 @@ constexpr float LINE_PUSH_SPEED      = 0.2f;   // speed to push away from detect
 // --- Scoring ---
 constexpr float SCORE_DIST_THRESH     = 70.0f;    // goal distance (cm) to trigger scoring when ball caught
 
-// --- Goalie ---
-// Curve shape: y = CURVE_A * x^6 + CURVE_Y0  (cm, field coords)
-constexpr float GOALIE_CURVE_A         = -2.0e-11f; // x^6 coeff — curve dips at edges (2x wider)
-constexpr float GOALIE_CURVE_Y0        = -55.0f;    // baseline y at center (cm from field center)
-constexpr float GOALIE_STEP_SIZE       = 20.0f;     // cm per step along curve
-// Speed PD
-constexpr float GOALIE_SPEED_KP        = 0.001f;  // P gain for speed from error
-constexpr float GOALIE_SPEED_KD        = 0.00002f;// D gain for speed
-constexpr float GOALIE_SPEED_MIN       = 0.20f;   // min move speed
-constexpr float GOALIE_SPEED_MAX       = 0.35f;   // max move speed
-// Ball angle → target X mapping
-constexpr float GOALIE_BALL_X_SCALE    = 120.0f;  // max target X offset from ball angle (cm)
-// Edge speed scaling (exponential, from 2025)
-constexpr float GOALIE_EDGE_A          = 3.4f;
-constexpr float GOALIE_EDGE_B          = 0.07f;   // scaled for cm (was 0.007 in mm)
-constexpr float GOALIE_EDGE_C          = 0.0f;
-constexpr float GOALIE_EDGE_D          = 0.2f;
-// Clamp
-constexpr float GOALIE_X_MAX           = 100.0f;  // max X range on curve (cm)
-constexpr float GOALIE_Y_MIN           = -100.0f; // don't drive past this Y (cm)
+// --- Striker ---
+constexpr float STRIKER_BACK_LINE_Y    = -55.0f;  // Y threshold for back-line override (cm from center)
+
+// --- Goalie (lateral-only) ---
+constexpr float GOALIE_LINE_Y          = -55.0f;  // fixed Y position in front of goal (cm, positive = distance from center)
+constexpr float GOALIE_BALL_X_SCALE    = 60.0f;   // max target X offset from ball angle (cm)
+constexpr float GOALIE_X_MAX           = 80.0f;   // max lateral range (cm)
+constexpr float GOALIE_LATERAL_KP      = 0.005f;  // P gain: speed from lateral error
+constexpr float GOALIE_SPEED_MIN       = 0.15f;   // min strafe speed
+constexpr float GOALIE_SPEED_MAX       = 0.30f;   // max strafe speed
+constexpr float GOALIE_DEADZONE        = 3.0f;    // stop strafing within this distance (cm)
 
 // =============================================================================
 
