@@ -4,7 +4,7 @@
 // =============================================================================
 // BOT SELECTION — change to 1 or 2 before uploading
 // =============================================================================
-#define BOT 1
+#define BOT 2
 
 // =============================================================================
 // LOCATION SELECTION — change per venue (affects min speeds, thresholds, etc.)
@@ -130,15 +130,25 @@ constexpr float LINE_PUSH_SPEED      = 0.15f;   // speed to push away from detec
 constexpr float SCORE_DIST_THRESH     = 70.0f;    // goal distance (cm) to trigger scoring when ball caught
 
 // --- Goalie ---
-constexpr float GOALIE_REVERSE_SPEED   = 0.2f;    // speed to drive backward toward own goal
-constexpr float GOALIE_FACE_KP         = 0.005f;   // yaw correction P gain
-constexpr float GOALIE_FACE_KD         = 0.0f;    // yaw correction D gain
-constexpr float GOALIE_FACE_DEADZONE   = 2.0f;    // heading error deadzone (deg)
-constexpr float GOALIE_FACE_OMEGA_MAX  = 0.1f;   // max rotation speed
-constexpr float GOALIE_LINE_SPEED_MIN  = 0.15f;   // strafe speed when ball is ahead
-constexpr float GOALIE_LINE_SPEED_MAX  = 0.30f;   // strafe speed when ball is at steep angle
-constexpr float GOALIE_LINE_TARGET     = 0.15f;   // target l1Size to hold on line (0-1)
-constexpr float GOALIE_LINE_KP         = 0.5f;    // P gain for line depth correction
+// Curve shape: y = CURVE_A * x^6 + CURVE_Y0  (cm, field coords)
+constexpr float GOALIE_CURVE_A         = -2.0e-11f; // x^6 coeff — curve dips at edges (2x wider)
+constexpr float GOALIE_CURVE_Y0        = -55.0f;    // baseline y at center (cm from field center)
+constexpr float GOALIE_STEP_SIZE       = 20.0f;     // cm per step along curve
+// Speed PD
+constexpr float GOALIE_SPEED_KP        = 0.001f;  // P gain for speed from error
+constexpr float GOALIE_SPEED_KD        = 0.00001f;// D gain for speed
+constexpr float GOALIE_SPEED_MIN       = 0.15f;   // min move speed
+constexpr float GOALIE_SPEED_MAX       = 0.45f;   // max move speed
+// Ball angle → target X mapping
+constexpr float GOALIE_BALL_X_SCALE    = 120.0f;  // max target X offset from ball angle (cm)
+// Edge speed scaling (exponential, from 2025)
+constexpr float GOALIE_EDGE_A          = 3.4f;
+constexpr float GOALIE_EDGE_B          = 0.07f;   // scaled for cm (was 0.007 in mm)
+constexpr float GOALIE_EDGE_C          = 0.0f;
+constexpr float GOALIE_EDGE_D          = 0.2f;
+// Clamp
+constexpr float GOALIE_X_MAX           = 100.0f;  // max X range on curve (cm)
+constexpr float GOALIE_Y_MIN           = -100.0f; // don't drive past this Y (cm)
 
 // =============================================================================
 
