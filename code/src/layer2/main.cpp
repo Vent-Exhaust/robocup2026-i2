@@ -442,7 +442,8 @@ void loop() {
     readIMU();
     updateLocalisation();
 
-    Serial.println(imuYaw);
+    Serial.printf("[LOC] valid=%d x=%.1f y=%.1f hdg=%.1f\n",
+                  locValid, locX, locY, locHeading);
 
     #if ROLE == 0
     strikerLoop();

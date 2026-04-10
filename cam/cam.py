@@ -26,7 +26,7 @@ ball_roi = (
 # -------------------------
 DEBUG_DISABLE_ALL = False  # If True: disables ALL drawing and debug output for max speed
 DEBUG_GOALS    = True
-DEBUG_BALL     = True
+DEBUG_BALL     = False
 DEBUG_FPS      = False
 DEBUG_DRAW     = True
 DEBUG_BALL_PX  = False   # If True: only prints ball pixel coords relative to center
@@ -47,7 +47,8 @@ sensor.skip_frames(time=2000)
 sensor.set_auto_gain(False)
 sensor.set_auto_whitebal(False)
 # sensor.set_auto_exposure(False, exposure_us=20000) # Jh home values
-sensor.set_auto_exposure(False, exposure_us=10000) # Robo lab values
+sensor.set_auto_exposure(False, exposure_us=15000) # Annex Hall
+# sensor.set_auto_exposure(False, exposure_us=10000) # Robo lab values
 # sensor.set_auto_exposure(False, exposure_us=20000) # CX home values (Night)
 # sensor.set_auto_exposure(False, exposure_us=10000) # CX home values (Afternoon)
 sensor.set_contrast(3)
@@ -57,7 +58,8 @@ sensor.set_contrast(3)
 # -------------------------
 
 # Robo lab values
-blue_thresholds   = [(43, 79, -16, 10, -49, -13)]
+# blue_thresholds   = [(43, 79, -16, 10, -49, -13)]
+blue_thresholds = [(41, 62, -53, 31, -86, -7)]
 # yellow_thresholds = [(41, 100, -12, 6, 18, 61)]
 # ball_thresholds   = [(0, 79, 20, 72, -128, 127)]
 # blue_thresholds = [((30, 56, -128, -3, -128, -6))]
@@ -70,7 +72,8 @@ blue_thresholds   = [(43, 79, -16, 10, -49, -13)]
 # yellow_thresholds = [(50, 59, -10, -2, 10, 20)]
 # yellow_thresholds = [(61, 100, -4, 13, 40, 17)]
 # yellow_thresholds = [(87, 98, -14, -10, 32, 127)]
-yellow_thresholds = [(60, 96, -9, 9, 22, 127)]
+# yellow_thresholds = [(60, 96, -9, 9, 22, 127)]
+yellow_thresholds = [(56, 81, -1, 20, 14, 127)]
 # ball_thresholds = [(29, 100, 2, 11, -2, 20)]
 # Jh home values
 ball_thresholds = [(52, 91, 14, 50, 18, 47)]
