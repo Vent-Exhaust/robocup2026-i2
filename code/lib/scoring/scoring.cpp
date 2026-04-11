@@ -50,5 +50,5 @@ bool checkCatchment() {
     delayMicroseconds(5);
   }
   // Serial.println(count);
-  return count > 5;
+  return count > 4;
 }

@@ -14,7 +14,9 @@
 
 // --- Strategy ---
 // Which goal to attack: 0 = blue, 1 = yellow
-#define ATTACK_GOAL 1
+#define ATTACK_GOAL 0
+
+
 
 // Robot role: 0 = striker, 1 = goalie
 #define ROLE 1
@@ -66,15 +68,15 @@ constexpr double FL_TRIM = 1.0;  // M4
 // --- Layer 2: IMU Correction ---
 // Yaw heading-hold PID (output added to omega)
 #if BOT == 1
-constexpr double YAW_KP             = 0.0025;
+constexpr double YAW_KP             = 0.0003;
 constexpr double YAW_KI             = 0.0;
-constexpr double YAW_KD             = 0.0;
+constexpr double YAW_KD             = 0.002;
 constexpr double YAW_I_MAX          = 0.35;    // integral windup limit
-constexpr double YAW_CORRECTION_MAX = 0.4;     // max omega correction (0–1 scale)
+constexpr double YAW_CORRECTION_MAX = 0.25;     // max omega correction (0–1 scale)
 #elif BOT == 2
-constexpr double YAW_KP             = 0.002;
+constexpr double YAW_KP             = 0.004;
 constexpr double YAW_KI             = 0.0;
-constexpr double YAW_KD             = 0.0;
+constexpr double YAW_KD             = 0.004;
 constexpr double YAW_I_MAX          = 0.35;
 constexpr double YAW_CORRECTION_MAX = 0.4;
 #endif
@@ -117,17 +119,17 @@ constexpr float CAM_ORBIT_I_MAX       = 0.05f;    // integral windup limit
 constexpr float CAM_ORBIT_DEADZONE    = 20.0f;    // alignment error deadzone (deg) — no orbit when aligned within this
 
 // --- IR Chase ---
-constexpr float IR_CHASE_SPEED        = 0.18f;   // speed when chasing ball (cam can't see = far away)
+constexpr float IR_CHASE_SPEED        = 0.16f;   // speed when chasing ball (cam can't see = far away)
 
 // --- IR Orbit ---
-constexpr float IR_ORBIT_OFFSET       = 70.0f;   // max perpendicular offset (deg) — larger = wider orbit
+constexpr float IR_ORBIT_OFFSET       = 75.0f;   // max perpendicular offset (deg) — larger = wider orbit
 constexpr float IR_ORBIT_FADE_DEG     = 45.0f;   // ball angle at which offset reaches full strength
-constexpr float IR_ORBIT_SPEED_MAX    = 0.15f;   // speed when aligned (ball ahead)
-constexpr float IR_ORBIT_SPEED_MIN    = 0.3f;    // speed when orbiting sideways
+constexpr float IR_ORBIT_SPEED_MAX    = 0.2f;   // speed when aligned (ball ahead)
+constexpr float IR_ORBIT_SPEED_MIN    = 0.13f;    // speed when orbiting sideways
 constexpr float XDRIVE_DEAD_NUDGE    = 10.0f;   // degrees to nudge away from X-drive dead angles (±45°, ±135°)
 
 // --- Line Avoidance ---
-constexpr float LINE_PUSH_SPEED      = 0.2f;   // speed to push away from detected line
+constexpr float LINE_PUSH_SPEED      = 0.3f;   // speed to push away from detected line
 
 // --- Scoring ---
 constexpr float SCORE_DIST_THRESH     = 70.0f;    // goal distance (cm) to trigger scoring when ball caught
@@ -136,13 +138,22 @@ constexpr float SCORE_DIST_THRESH     = 70.0f;    // goal distance (cm) to trigg
 constexpr float STRIKER_BACK_LINE_Y    = -55.0f;  // Y threshold for back-line override (cm from center)
 
 // --- Goalie (lateral-only) ---
-constexpr float GOALIE_LINE_Y          = -55.0f;  // fixed Y position in front of goal (cm, positive = distance from center)
+constexpr float GOALIE_LINE_Y          = -75.0f;  // fixed Y position in front of goal (cm, positive = distance from center)
 constexpr float GOALIE_BALL_X_SCALE    = 60.0f;   // max target X offset from ball angle (cm)
 constexpr float GOALIE_X_MAX           = 80.0f;   // max lateral range (cm)
 constexpr float GOALIE_LATERAL_KP      = 0.005f;  // P gain: speed from lateral error
 constexpr float GOALIE_SPEED_MIN       = 0.15f;   // min strafe speed
 constexpr float GOALIE_SPEED_MAX       = 0.30f;   // max strafe speed
 constexpr float GOALIE_DEADZONE        = 3.0f;    // stop strafing within this distance (cm)
+
+// Goalie rush-out: if ball sits directly in front too long, charge forward and kick
+constexpr float         GOALIE_RUSH_DEADZONE_DEG  = 50.0f; // |ball angle| within this → ball is "in front"
+constexpr unsigned long GOALIE_STUCK_TIMEOUT_MS   = 3000;  // time ball must be in front before rushing
+constexpr unsigned long GOALIE_RUSH_DURATION_MS   = 3000;  // hard cap on forward drive duration
+constexpr unsigned long GOALIE_RUSH_MIN_DRIVE_MS  = 500;  // minimum rush drive time before catchment-kick is allowed
+constexpr float         GOALIE_RUSH_SPEED         = 0.2f; // forward speed during rush
+constexpr float         GOALIE_RETREAT_SPEED      = 0.2f; // backward speed after rush
+constexpr unsigned long GOALIE_RETREAT_EXTRA_MS   = 300;  // extra retreat time beyond the rush duration
 
 // =============================================================================
 

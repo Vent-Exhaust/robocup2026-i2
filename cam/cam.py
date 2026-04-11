@@ -59,7 +59,8 @@ sensor.set_contrast(3)
 
 # Robo lab values
 # blue_thresholds   = [(43, 79, -16, 10, -49, -13)]
-blue_thresholds = [(41, 62, -53, 31, -86, -7)]
+# blue_thresholds = [(41, 62, -53, 31, -86, -7)]
+blue_thresholds = [(32, 56, -23, 0, -28, -10)]
 # yellow_thresholds = [(41, 100, -12, 6, 18, 61)]
 # ball_thresholds   = [(0, 79, 20, 72, -128, 127)]
 # blue_thresholds = [((30, 56, -128, -3, -128, -6))]
@@ -73,7 +74,8 @@ blue_thresholds = [(41, 62, -53, 31, -86, -7)]
 # yellow_thresholds = [(61, 100, -4, 13, 40, 17)]
 # yellow_thresholds = [(87, 98, -14, -10, 32, 127)]
 # yellow_thresholds = [(60, 96, -9, 9, 22, 127)]
-yellow_thresholds = [(56, 81, -1, 20, 14, 127)]
+# yellow_thresholds = [(56, 81, -1, 20, 14, 127)]
+yellow_thresholds = [(80, 100, -19, 17, 18, 48)]
 # ball_thresholds = [(29, 100, 2, 11, -2, 20)]
 # Jh home values
 ball_thresholds = [(52, 91, 14, 50, 18, 47)]
@@ -339,7 +341,7 @@ ball_kf = BallKalman(KALMAN_Q, KALMAN_R)
 # -------------------------
 # Goal EMA filter (pixel space)
 # -------------------------
-GOAL_EMA_ALPHA = 0.7  # 0.0–1.0; lower = smoother but more lag
+GOAL_EMA_ALPHA = 0.5  # 0.0–1.0; lower = smoother but more lag
 
 class GoalEMA:
     def __init__(self, alpha):

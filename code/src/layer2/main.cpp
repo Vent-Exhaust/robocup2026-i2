@@ -89,13 +89,13 @@ static float edgeSpeedCap(float moveAngleDeg, float headingDeg) {
 
 // ── Striker face-goal heading correction ────────────────────────────────────
 
-static const float FACE_KP             = 0.0001f;
-static const float FACE_KD             = 0.0008f;
+static const float FACE_KP             = 0.0009f;
+static const float FACE_KD             = 0.0f;
 static const float FACE_DEADZONE_FAR   = 10.0f;
 static const float FACE_DEADZONE_NEAR  = 8.0f;
 static const float FACE_NEAR_DIST      = 60.0f;
-static const float FACE_OMEGA_MIN      = 0.12f;
-static const float FACE_OMEGA_MAX      = 0.18f;
+static const float FACE_OMEGA_MIN      = 0.0f;
+static const float FACE_OMEGA_MAX      = 0.2f;
 
 static float prevFaceErr = 0;
 
@@ -272,11 +272,139 @@ static const float GK_SIGN = -1.0f;
 
 static float gkLastBallX = 0;  // last-seen ball side for when ball lost
 
+// Rush-out state machine
+enum GkRushState { GK_TRACK, GK_RUSH_FORWARD, GK_RUSH_RETREAT };
+static GkRushState gkRushState = GK_TRACK;
+static unsigned long gkHoldStartMs = 0;  // 0 = not currently holding in deadzone
+static unsigned long gkRushStartMs = 0;
+static unsigned long gkRushDurationMs = 0;  // how long the most recent rush actually lasted
+static float gkRushMoveAngle = 0;        // robot-local move angle captured during rush
+
 static void goalieLoop() {
+    // Rate-limited per-loop debug (every 200ms)
+    static unsigned long lastDbgMs = 0;
+    bool dbg = (millis() - lastDbgMs >= 200);
+    if (dbg) {
+        lastDbgMs = millis();
+        Serial.printf("[GK DBG] loc=%d bd=%d bang=%.1f hold=%lu state=%d locX=%.1f locY=%.1f\n",
+                      locValid, l3BallDetected, l3BallAngle,
+                      gkHoldStartMs ? (millis() - gkHoldStartMs) : 0UL,
+                      (int)gkRushState, locX, locY);
+    }
+
     if (!locValid) {
         moveRobot(0, 0, 0);
         Serial.println("[GK] no loc, holding");
+        gkHoldStartMs = 0;
+        gkRushState = GK_TRACK;
         return;
+    }
+
+    // ── Rush forward: drive toward the ball while it stays in the cone ─
+    if (gkRushState == GK_RUSH_FORWARD) {
+        unsigned long elapsed = millis() - gkRushStartMs;
+
+        auto beginRetreat = [&](const char* reason) {
+            gkRushDurationMs = elapsed;
+            gkRushState = GK_RUSH_RETREAT;
+            gkRushStartMs = millis();
+            moveRobot(0, 0, 0);
+            Serial.printf("[GK RUSH] → retreat (%s) duration=%lu\n", reason, gkRushDurationMs);
+        };
+
+        // Exit if duration cap hit
+        if (elapsed >= GOALIE_RUSH_DURATION_MS) {
+            beginRetreat("timeout");
+            return;
+        }
+        // Exit if ball lost or angle leaves the deadzone cone
+        bool stillInCone = false;
+        float ballAng = 0;
+        if (l3BallDetected) {
+            ballAng = l3BallAngle;
+            if (ballAng > 180.0f) ballAng -= 360.0f;
+            stillInCone = (fabsf(ballAng) < GOALIE_RUSH_DEADZONE_DEG);
+        }
+        if (!stillInCone) {
+            beginRetreat(l3BallDetected ? "out-of-cone" : "no-ball");
+            return;
+        }
+        // Kick if ball enters catchment, then retreat (only after min drive time)
+        if (elapsed >= GOALIE_RUSH_MIN_DRIVE_MS && checkCatchment()) {
+            kickSol();
+            Serial.printf("[GK RUSH] kick\n");
+            beginRetreat("kick");
+            return;
+        }
+        gkRushMoveAngle = ballAng;
+        float preSpeed = GOALIE_RUSH_SPEED;
+        float preAngle = gkRushMoveAngle;
+        float speed = preSpeed;
+        float omega = 0;
+        float moveAngle = preAngle;
+        applyLineAvoidance(moveAngle, speed, omega);
+        moveRobot(moveAngle, speed, omega);
+        if (dbg) Serial.printf("[GK RUSH] fwd t=%lu bang=%.1f pre(%.1f,%.2f) post(%.1f,%.2f) line=%d\n",
+                               elapsed, ballAng, preAngle, preSpeed,
+                               moveAngle, speed, l1LineDetected);
+        return;
+    }
+
+    // ── Retreat: drive opposite to rush direction for the same duration ─
+    if (gkRushState == GK_RUSH_RETREAT) {
+        unsigned long elapsed = millis() - gkRushStartMs;
+        if (elapsed >= gkRushDurationMs + GOALIE_RETREAT_EXTRA_MS) {
+            Serial.printf("[GK RUSH] retreat done elapsed=%lu\n", elapsed);
+            gkRushState = GK_TRACK;
+            gkHoldStartMs = 0;
+            // Fall through to normal tracking
+        } else {
+            float moveAngle = gkRushMoveAngle + 180.0f;
+            if (moveAngle >  180.0f) moveAngle -= 360.0f;
+            if (moveAngle < -180.0f) moveAngle += 360.0f;
+            float speed = GOALIE_RETREAT_SPEED;
+            float omega = 0;
+            applyLineAvoidance(moveAngle, speed, omega);
+            moveRobot(moveAngle, speed, omega);
+            if (dbg) Serial.printf("[GK RUSH] retreat t=%lu/%lu move=%.1f spd=%.2f\n",
+                                   elapsed, gkRushDurationMs, moveAngle, speed);
+            return;
+        }
+    }
+
+    // ── Rush trigger: ball sitting in front of robot for too long ─────
+    // Uses a grace period so brief IR dropouts or single-frame cone
+    // exits don't zero the hold timer.
+    static unsigned long gkLastInConeMs = 0;
+    const unsigned long GK_HOLD_GRACE_MS = 400;
+
+    bool ballInCone = false;
+    float ballAngDbg = 0;
+    if (l3BallDetected) {
+        ballAngDbg = l3BallAngle;
+        if (ballAngDbg > 180.0f) ballAngDbg -= 360.0f;
+        ballInCone = (fabsf(ballAngDbg) < GOALIE_RUSH_DEADZONE_DEG);
+    }
+    if (ballInCone) {
+        gkLastInConeMs = millis();
+        if (gkHoldStartMs == 0) gkHoldStartMs = millis();
+    } else if (gkLastInConeMs != 0 &&
+               millis() - gkLastInConeMs > GK_HOLD_GRACE_MS) {
+        // Ball has been out of cone long enough → reset
+        gkHoldStartMs = 0;
+        gkLastInConeMs = 0;
+    }
+    if (gkHoldStartMs != 0) {
+        unsigned long heldFor = millis() - gkHoldStartMs;
+        if (heldFor >= GOALIE_STUCK_TIMEOUT_MS) {
+            gkRushState = GK_RUSH_FORWARD;
+            gkRushStartMs = millis();
+            gkHoldStartMs = 0;
+            gkLastInConeMs = 0;
+            Serial.printf("[GK] ball in front %lums → RUSH\n", heldFor);
+            moveRobot(0, 0, 0);
+            return;
+        }
     }
 
     // Fixed Y position in front of own goal
@@ -309,7 +437,7 @@ static void goalieLoop() {
     // 4. Dead zone — close enough, just hold
     if (fabsf(errX) < GOALIE_DEADZONE) {
         moveRobot(0, 0, 0);
-        Serial.printf("[GK] holding x=%.0f tgt=%.0f\n", locX, tgtX);
+        if (dbg) Serial.printf("[GK] holding x=%.0f tgt=%.0f\n", locX, tgtX);
         return;
     }
 
@@ -325,8 +453,8 @@ static void goalieLoop() {
     applyLineAvoidance(moveAngle, speed, omega);
 
     moveRobot(moveAngle, speed, omega);
-    Serial.printf("[GK] x=%.0f tgt=%.0f errX=%.0f spd=%.2f lineY=%.0f\n",
-                  locX, tgtX, errX, speed, lineY);
+    if (dbg) Serial.printf("[GK] x=%.0f tgt=%.0f errX=%.0f spd=%.2f lineY=%.0f\n",
+                           locX, tgtX, errX, speed, lineY);
 }
 
 // ── Main ────────────────────────────────────────────────────────────────────
@@ -355,8 +483,12 @@ void loop() {
     readIMU();
     updateLocalisation();
 
-    Serial.printf("[LOC] valid=%d x=%.1f y=%.1f hdg=%.1f\n",
-                  locValid, locX, locY, locHeading);
+    static unsigned long lastLocPrintMs = 0;
+    if (millis() - lastLocPrintMs >= 200) {
+        lastLocPrintMs = millis();
+        Serial.printf("[LOC] valid=%d x=%.1f y=%.1f hdg=%.1f\n",
+                      locValid, locX, locY, locHeading);
+    }
 
     #if ROLE == 0
     strikerLoop();
