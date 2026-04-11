@@ -71,6 +71,7 @@ bool reinitIMU();
 void stopMotors();
 void debugIMU();
 void resetYawTarget();
+void setCamHeading(float hdg, bool valid);
 void setMotor(int inA, int inB, int pwmPin, double power);
 void moveRobot(double angleDeg, double speed, double omega);
 

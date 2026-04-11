@@ -138,13 +138,15 @@ constexpr float SCORE_DIST_THRESH     = 70.0f;    // goal distance (cm) to trigg
 constexpr float STRIKER_BACK_LINE_Y    = -55.0f;  // Y threshold for back-line override (cm from center)
 
 // --- Goalie (lateral-only) ---
-constexpr float GOALIE_LINE_Y          = -75.0f;  // fixed Y position in front of goal (cm, positive = distance from center)
+constexpr float GOALIE_LINE_Y          = -60.0f;  // fixed Y position in front of goal (cm, positive = distance from center)
 constexpr float GOALIE_BALL_X_SCALE    = 60.0f;   // max target X offset from ball angle (cm)
 constexpr float GOALIE_X_MAX           = 80.0f;   // max lateral range (cm)
-constexpr float GOALIE_LATERAL_KP      = 0.005f;  // P gain: speed from lateral error
+constexpr float GOALIE_LATERAL_KP      = 0.006f;  // P gain: speed from X error
+constexpr float GOALIE_LONGITUDINAL_KP = 0.006f;  // P gain: speed from Y error (usually higher — Y errors are small)
 constexpr float GOALIE_SPEED_MIN       = 0.15f;   // min strafe speed
-constexpr float GOALIE_SPEED_MAX       = 0.30f;   // max strafe speed
-constexpr float GOALIE_DEADZONE        = 3.0f;    // stop strafing within this distance (cm)
+constexpr float GOALIE_SPEED_MAX       = 0.32f;   // max strafe speed
+constexpr float GOALIE_DEADZONE_X      = 3.0f;    // stop correcting X within this distance (cm)
+constexpr float GOALIE_DEADZONE_Y      = 2.0f;    // stop correcting Y within this distance (cm)
 
 // Goalie rush-out: if ball sits directly in front too long, charge forward and kick
 constexpr float         GOALIE_RUSH_DEADZONE_DEG  = 50.0f; // |ball angle| within this → ball is "in front"

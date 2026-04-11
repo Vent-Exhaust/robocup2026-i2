@@ -16,6 +16,22 @@ static float targetYaw    = 0;
 static bool  targetYawSet = false;
 static PID   yawPID       = { YAW_KP, YAW_KI, YAW_KD, YAW_I_MAX };
 
+// Cam-based yaw heading-hold (fallback when IMU is frozen)
+static float camHeading        = 0;
+static bool  camHeadingValid   = false;
+static float camTargetYaw      = 0;
+static bool  camTargetYawSet   = false;
+static const float YAW_KP_CAM        = -0.0007f;
+static const float YAW_KD_CAM        = -0.0007f;
+static const float YAW_OMEGA_MAX_CAM = 0.15f;
+static float prevCamYawErr = 0;
+static unsigned long prevCamYawUs = 0;
+
+void setCamHeading(float hdg, bool valid) {
+    camHeading      = hdg;
+    camHeadingValid = valid;
+}
+
 // Motor EMA smoothing state
 static double sFR = 0, sBR = 0, sBL = 0, sFL = 0;
 
@@ -206,11 +222,24 @@ void moveRobot(double angleDeg, double speed, double omega) {
     double vy = -speed * sin(angleRad);  // forward
 
     // --- Yaw heading-hold PID ---
+    // Prefer IMU when healthy. When IMU is stale, fall back to cam-derived
+    // heading if localisation is valid.
+    bool imuOk = isImuHealthy();
+    #if ROLE == 1
+    // Goalie: temporarily use cam-only yaw correction
+    bool yawUseImu = false;
+    #else
+    bool yawUseImu = imuOk;
+    #endif
     if (omega != 0.0) {
-        // Intentionally turning: track current yaw so we hold the new heading after
-        targetYaw = imuYaw;
+        // Intentionally turning: track current yaw in whichever frame is live
+        targetYaw       = imuYaw;
+        camTargetYaw    = camHeading;
+        camTargetYawSet = camHeadingValid;
         yawPID.reset();
-    } else {
+        prevCamYawErr = 0;
+        prevCamYawUs  = 0;
+    } else if (yawUseImu) {
         if (!targetYawSet) {
             targetYaw    = imuYaw;
             targetYawSet = true;
@@ -221,12 +250,36 @@ void moveRobot(double angleDeg, double speed, double omega) {
         while (err < -180.0f) err += 360.0f;
         double yawCorr = constrain(yawPID.compute(err, imuYaw), -YAW_CORRECTION_MAX, YAW_CORRECTION_MAX);
         omega += yawCorr;
+        // Re-latch cam target next time IMU drops out
+        camTargetYawSet = false;
+    } else if (camHeadingValid) {
+        if (!camTargetYawSet) {
+            camTargetYaw    = camHeading;
+            camTargetYawSet = true;
+        }
+        float err = camTargetYaw - camHeading;
+        while (err >  180.0f) err -= 360.0f;
+        while (err < -180.0f) err += 360.0f;
+        unsigned long nowUs = micros();
+        float dt = (prevCamYawUs == 0) ? 0.01f : (nowUs - prevCamYawUs) * 1e-6f;
+        if (dt <= 0 || dt > 0.5f) dt = 0.01f;
+        float dErr = (err - prevCamYawErr) / dt;
+        prevCamYawErr = err;
+        prevCamYawUs  = nowUs;
+        double yawCorr = constrain(err * YAW_KP_CAM + dErr * YAW_KD_CAM,
+                                   -YAW_OMEGA_MAX_CAM, YAW_OMEGA_MAX_CAM);
+        omega += yawCorr;
+    } else {
+        prevCamYawErr = 0;
+        prevCamYawUs  = 0;
     }
 
     // --- Accel drift correction (P) ---
     // Counteract unexpected acceleration in robot frame
-    vx += constrain(-imuAccelX * ACCEL_KP, -ACCEL_CORRECTION_MAX, ACCEL_CORRECTION_MAX);
-    vy += constrain(-imuAccelY * ACCEL_KP, -ACCEL_CORRECTION_MAX, ACCEL_CORRECTION_MAX);
+    if (imuOk) {
+        vx += constrain(-imuAccelX * ACCEL_KP, -ACCEL_CORRECTION_MAX, ACCEL_CORRECTION_MAX);
+        vy += constrain(-imuAccelY * ACCEL_KP, -ACCEL_CORRECTION_MAX, ACCEL_CORRECTION_MAX);
+    }
 
     // X-drive: motors at 45°, 135°, 225°, 315°
     double mFR =  vy + vx + omega;  // 45°  (M1)

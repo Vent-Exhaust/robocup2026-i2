@@ -56,7 +56,12 @@ static void updateLocalisation() {
         imuOffsetValid = true;
         locValid = true;
     } else if (imuOffsetValid && (camBlueDetected || camYellowDetected)) {
-        locHeading = imuYaw + imuOffset;
+        // If IMU is alive, track heading via imuYaw + offset.
+        // If IMU has frozen, hold the last cam-derived locHeading instead —
+        // short-term stale heading is better than a stuck imuYaw value.
+        if (isImuHealthy()) {
+            locHeading = imuYaw + imuOffset;
+        }
         if (camBlueDetected)
             locFromOneGoal(camBlueDist, camBlueAngle, -HALF_FIELD, locHeading, locX, locY);
         else
@@ -418,43 +423,46 @@ static void goalieLoop() {
         tgtX = GK_SIGN * GOALIE_BALL_X_SCALE * sinf(ballAng * DEG_TO_RAD);
         gkLastBallX = tgtX;
     } else {
-        // No ball: drift toward last-seen side
-        tgtX = (gkLastBallX > 0) ? GOALIE_X_MAX * 0.3f : -GOALIE_X_MAX * 0.3f;
+        // No ball: return to middle of goal line
+        tgtX = 0;
     }
     tgtX = constrain(tgtX, -GOALIE_X_MAX, GOALIE_X_MAX);
 
-    // 2. Compute lateral error (X only)
-    float errX = tgtX - locX;
+    // 2. Compute world-frame errors
+    float errX = tgtX  - locX;
+    float errY = lineY - locY;
 
-    // 3. Speed from lateral distance — P controller
-    float speed = constrain(GOALIE_LATERAL_KP * fabsf(errX),
-                            GOALIE_SPEED_MIN, GOALIE_SPEED_MAX);
+    // 3. Zero out whichever axis is inside its dead zone
+    if (fabsf(errX) < GOALIE_DEADZONE_X) errX = 0;
+    if (fabsf(errY) < GOALIE_DEADZONE_Y) errY = 0;
 
-    if (!l3BallDetected) {
-        speed = constrain(speed, 0.10f, 0.20f);
-    }
-
-    // 4. Dead zone — close enough, just hold
-    if (fabsf(errX) < GOALIE_DEADZONE) {
+    if (errX == 0 && errY == 0) {
         moveRobot(0, 0, 0);
-        if (dbg) Serial.printf("[GK] holding x=%.0f tgt=%.0f\n", locX, tgtX);
+        if (dbg) Serial.printf("[GK] holding x=%.0f y=%.0f\n", locX, locY);
         return;
     }
 
-    // 5. Pure lateral movement (90° = right, -90° = left in robot-local frame)
-    //    errX > 0 means target is to the right in field coords
-    //    Convert to robot-local by subtracting heading
-    float toTargetWorld = (errX > 0) ? 90.0f : -90.0f;
-    float moveAngle = toTargetWorld - locHeading;
-    if (moveAngle >  180.0f) moveAngle -= 360.0f;
-    if (moveAngle < -180.0f) moveAngle += 360.0f;
+    // 4. Per-axis P → world velocity vector
+    float vx = GOALIE_LATERAL_KP      * errX;
+    float vy = GOALIE_LONGITUDINAL_KP * errY;
+
+    float speed = sqrtf(vx*vx + vy*vy);
+    speed = constrain(speed, GOALIE_SPEED_MIN, GOALIE_SPEED_MAX);
+    if (!l3BallDetected) speed = constrain(speed, 0.10f, 0.20f);
+
+    // 5. Convert world vector → robot-local move angle
+    //    moveRobot angle: 0°=forward(+Y world if heading=0), 90°=right(+X)
+    float worldAng = atan2f(vx, vy) * RAD_TO_DEG;
+    float moveAngle = worldAng - locHeading;
+    while (moveAngle >  180.0f) moveAngle -= 360.0f;
+    while (moveAngle < -180.0f) moveAngle += 360.0f;
 
     float omega = 0;
     applyLineAvoidance(moveAngle, speed, omega);
 
     moveRobot(moveAngle, speed, omega);
-    if (dbg) Serial.printf("[GK] x=%.0f tgt=%.0f errX=%.0f spd=%.2f lineY=%.0f\n",
-                           locX, tgtX, errX, speed, lineY);
+    if (dbg) Serial.printf("[GK] x=%.0f y=%.0f tgtX=%.0f lineY=%.0f errX=%.0f errY=%.0f spd=%.2f\n",
+                           locX, locY, tgtX, lineY, errX, errY, speed);
 }
 
 // ── Main ────────────────────────────────────────────────────────────────────
@@ -481,7 +489,15 @@ void loop() {
     readL3();
     readCam();
     readIMU();
+
+    static unsigned long lastImuPrintMs = 0;
+    if (millis() - lastImuPrintMs >= 100) {
+        lastImuPrintMs = millis();
+        Serial.printf("[IMU] yaw=%.1f healthy=%d\n", imuYaw, isImuHealthy());
+    }
+
     updateLocalisation();
+    setCamHeading(locHeading, locValid);
 
     static unsigned long lastLocPrintMs = 0;
     if (millis() - lastLocPrintMs >= 200) {

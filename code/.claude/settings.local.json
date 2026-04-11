@@ -17,7 +17,8 @@
       "Bash(where platformio.exe)",
       "Bash(ls ~/.platformio/penv/Scripts/pio*)",
       "Bash(ls /c/Users/ngche/.platformio/penv/Scripts/pio*)",
-      "Bash(/c/Users/ngche/.platformio/penv/Scripts/pio.exe run:*)"
+      "Bash(/c/Users/ngche/.platformio/penv/Scripts/pio.exe run:*)",
+      "Bash(where pio:*)"
     ]
   }
 }
