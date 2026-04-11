@@ -4,7 +4,7 @@
 // =============================================================================
 // BOT SELECTION — change to 1 or 2 before uploading
 // =============================================================================
-#define BOT 2
+#define BOT 1
 
 // =============================================================================
 // LOCATION SELECTION — change per venue (affects min speeds, thresholds, etc.)
@@ -19,7 +19,7 @@
 
 
 // Robot role: 0 = striker, 1 = goalie
-#define ROLE 1
+#define ROLE 0
 
 // =============================================================================
 // COMPETITION TUNING — edit these values on game day

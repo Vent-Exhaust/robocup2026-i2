@@ -94,8 +94,8 @@ static float edgeSpeedCap(float moveAngleDeg, float headingDeg) {
 
 // ── Striker face-goal heading correction ────────────────────────────────────
 
-static const float FACE_KP             = 0.0009f;
-static const float FACE_KD             = 0.0f;
+static const float FACE_KP             = 0.0006f;
+static const float FACE_KD             = 0.0009f;
 static const float FACE_DEADZONE_FAR   = 10.0f;
 static const float FACE_DEADZONE_NEAR  = 8.0f;
 static const float FACE_NEAR_DIST      = 60.0f;
