@@ -132,7 +132,7 @@ constexpr float XDRIVE_DEAD_NUDGE    = 10.0f;   // degrees to nudge away from X-
 constexpr float LINE_PUSH_SPEED      = 0.3f;   // speed to push away from detected line
 
 // --- Scoring ---
-constexpr float SCORE_DIST_THRESH     = 70.0f;    // goal distance (cm) to trigger scoring when ball caught
+constexpr float SCORE_DIST_THRESH     = 80.0f;    // goal distance (cm) to trigger scoring when ball caught
 
 // --- Striker ---
 constexpr float STRIKER_BACK_LINE_Y    = -55.0f;  // Y threshold for back-line override (cm from center)
