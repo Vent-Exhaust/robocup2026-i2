@@ -1,14 +1,19 @@
 src/
 ├── layer1/   — Teensy 4.0 — light ring sensing + line detection
 │               Reads 32 LDR sensors via MUX, runs findLine(), transmits
-│               results (lineDetected, angle, size) to layer2 over Serial.
+│               results (lineDetected, angle, size) to layer2 over Serial1→Serial4.
 │               Libraries: light_ring, angle_utils, serial_comm
 │
-├── layer2/   — Teensy 4.0 — locomotion + game logic
-│               Receives line data from layer1, reads IMU, drives X-drive
-│               motors with yaw heading-hold PID, controls dribbler and kicker.
-│               Libraries: movement, scoring, layer1_comm, serial_comm
+├── layer2/   — Teensy 4.0 — strategy + locomotion
+│               Main brain: state machine (ORBIT, IR CHASE, SCORING, RTC, IDLE,
+│               LINE DETECTED), X-drive motor control, BNO085 IMU heading-hold PID,
+│               camera-based localisation (dual-goal triangulation), dribbler/kicker.
+│               Receives: L1 via Serial4, L3 via Serial5, camera via Serial3.
+│               Libraries: movement, scoring, cam_comm, layer1_comm, layer3_comm,
+│                          serial_comm, angle_utils
 │
-└── layer3/   — Seeed XIAO ESP32-C3 — camera / wireless
-                ESP-NOW peer-to-peer link. Handles camera input or
-                inter-board communication (role auto-detected at boot).
+└── layer3/   — Seeed XIAO ESP32-C3 — IR ball detection + DIP switches
+                Polls 28-IR sensor ring, clusters readings to find ball angle,
+                reads 4 DIP switches (goal colour, role, strat0, strat1).
+                Sends ball angle + switch states to layer2 over Serial1→Serial5.
+                Libraries: serial_comm

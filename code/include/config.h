@@ -4,7 +4,7 @@
 // =============================================================================
 // BOT SELECTION — change to 1 or 2 before uploading
 // =============================================================================
-#define BOT 1
+#define BOT 2
 
 // =============================================================================
 // LOCATION SELECTION — change per venue (affects min speeds, thresholds, etc.)
@@ -119,10 +119,10 @@ constexpr float CAM_ORBIT_I_MAX       = 0.05f;    // integral windup limit
 constexpr float CAM_ORBIT_DEADZONE    = 20.0f;    // alignment error deadzone (deg) — no orbit when aligned within this
 
 // --- IR Chase ---
-constexpr float IR_CHASE_SPEED        = 0.16f;   // speed when chasing ball (cam can't see = far away)
+constexpr float IR_CHASE_SPEED        = 0.13f;   // speed when chasing ball (cam can't see = far away)
 
 // --- IR Orbit ---
-constexpr float IR_ORBIT_OFFSET       = 75.0f;   // max perpendicular offset (deg) — larger = wider orbit
+constexpr float IR_ORBIT_OFFSET       = 65.0f;   // max perpendicular offset (deg) — larger = wider orbit
 constexpr float IR_ORBIT_FADE_DEG     = 45.0f;   // ball angle at which offset reaches full strength
 constexpr float IR_ORBIT_SPEED_MAX    = 0.2f;   // speed when aligned (ball ahead)
 constexpr float IR_ORBIT_SPEED_MIN    = 0.13f;    // speed when orbiting sideways

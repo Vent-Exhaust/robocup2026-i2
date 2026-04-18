@@ -1,0 +1,22 @@
+cam/
+└── cam.py   — MicroPython camera firmware (runs on MaixCam / OpenMV)
+                Detects blue goal, yellow goal, and orange ball via colour blobs.
+                Outputs a CSV line over UART every frame:
+
+                  BX,<x>,<y>,<dist>,<angle>,<lb_dist>,<lb_angle>,
+                  BY,<x>,<y>,<dist>,<angle>,<lb_dist>,<lb_angle>,
+                  BALL,<x>,<y>,<dist>,<angle>
+
+                Layer 2 reads this on Serial3 via cam_comm.
+
+Key tuning constants (top of cam.py):
+  window_x / window_y     — capture resolution (default 480×480)
+  OPTICAL_OFFSET_X/Y      — lens centre correction
+  BALL_ROI_SIZE           — square ROI for ball detection
+  DEBUG_* flags           — enable/disable drawing overlays and serial debug prints
+
+Coordinate convention:
+  x/y — pixel coordinates, origin top-left
+  dist — approximate distance derived from blob area (arbitrary units)
+  angle — angle to blob centre relative to image centre, degrees
+  lb_* — largest-blob variant used for scoring aim

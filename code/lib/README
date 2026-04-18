@@ -6,9 +6,21 @@ lib/
 │                       Reads LDR sensors, prints thresholds to Serial for copy-paste
 │                       into LDR_THRESHOLDS in config.h. Layer 1 only.
 │
-├── layer1_comm/      — Layer 1 → Layer 2 serial link
+├── cam_comm/         — Camera → Layer 2 serial link (Serial3)
+│                       Parses CSV frames from the MaixCam (goals + ball).
+│                       Owns camBlueDetected/X/Y/Dist/Angle, camYellowDetected/...,
+│                       camBallDetected/X/Y/Dist/Angle state.
+│                       Layer 2 only.
+│
+├── layer1_comm/      — Layer 1 → Layer 2 serial link (Serial4)
 │                       readL1(), setupL1Comm(), debugL1Readings()
 │                       Owns l1LineDetected, l1Angle, l1Size state.
+│                       Packet framing via serial_comm.
+│
+├── layer3_comm/      — Layer 3 → Layer 2 serial link (Serial5)
+│                       readL3(), setupL3Comm(), debugL3Readings()
+│                       Owns l3BallDetected, l3BallAngle, l3BallCount,
+│                       l3SwitchGoal/Role/Strat0/Strat1 state.
 │                       Packet framing via serial_comm.
 │
 ├── light_ring/       — 32-sensor LDR ring (MUX channel select, ADC reads, findLine())
@@ -29,7 +41,7 @@ lib/
 └── serial_comm/      — Shared UART packet framing (SerialComm class)
                         Format: [0xAA] [len] [data_hi] [data_lo] ... [checksum]
                         Values are int16_t, transmitted big-endian.
-                        Used by layer1_comm and any future inter-layer links.
+                        Used by layer1_comm, layer3_comm, and any future inter-layer links.
 
 Libraries are auto-discovered and compiled by PlatformIO for whichever
 environment includes them.
