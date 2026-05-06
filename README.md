@@ -5,6 +5,12 @@
 
 *Repository for the official electronic, mechanical, and software files of Vent Exhaust (VE) 1, formerly known as 2 Chairs.*
 
+<p align="center">
+  <a href="media/photos/_DSC8658.jpg">
+    <img src="media/photos/thumbs/hero-robot.png" alt="Vent Exhaust robot" width="500">
+  </a>
+</p>
+
 ## About
 
 This repository is for **Vent Exhaust**, a Singapore RoboCup Infrared Soccer Junior team, and includes relevant design files and resources.
@@ -20,6 +26,30 @@ This repository is for **Vent Exhaust**, a Singapore RoboCup Infrared Soccer Jun
 ## Mechanical CAD
 
 - [View the Fusion 360 model](https://a360.co/4tRNy74)
+
+## Robot Gallery
+
+<p align="center">
+  <a href="media/photos/_DSC9160.jpg">
+    <img src="media/photos/thumbs/robot-front.png" alt="Robot front view" width="180">
+  </a>
+  <a href="media/photos/_DSC9165.jpg">
+    <img src="media/photos/thumbs/robot-side.png" alt="Robot side view" width="180">
+  </a>
+  <a href="media/photos/_DSC9409.jpg">
+    <img src="media/photos/thumbs/robot-9409.png" alt="Robot gallery photo" width="180">
+  </a>
+  <br>
+  <a href="media/photos/_DSC9808.jpg">
+    <img src="media/photos/thumbs/robot-9808.png" alt="Robot gallery photo" width="180">
+  </a>
+  <a href="media/photos/_DSC9811.jpg">
+    <img src="media/photos/thumbs/robot-9811.png" alt="Robot gallery photo" width="180">
+  </a>
+  <a href="media/photos/_DSC9834.jpg">
+    <img src="media/photos/thumbs/robot-9834.png" alt="Robot gallery photo" width="180">
+  </a>
+</p>
 
 ## Robot Architecture
 
