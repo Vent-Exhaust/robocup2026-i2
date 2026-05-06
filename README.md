@@ -20,7 +20,7 @@ This repository is for **Vent Exhaust**, a Singapore RoboCup Infrared Soccer Jun
 - **elec/** - PCB designs, schematics, and component footprints.
 - **mech/** - 3D-printable files in **.3MF** and **.STL** formats; includes rendered images of the robot and its mirrored counterpart for reference and other files related to mechanical design.
 - **code/** - PlatformIO firmware for the 3-layer robot architecture (Layer 1-3 Teensies / ESP32).
-- **cam/** - MicroPython camera firmware (`cam.py`) running on an OpenMV/MaixCam, detecting goals and ball over serial.
+- **cam/** - MicroPython camera firmware (`cam.py`) running on an OpenMV H7 Plus, detecting goals and ball over serial.
 - **branding/** - Official team branding and design assets.
 - **media/** - Robot photos, gallery thumbnails, screenshots, and reference images used by the README and project documentation.
 
@@ -61,7 +61,7 @@ Three processors communicate over UART using a custom SerialComm packet protocol
 | Layer 1 | Teensy 4.0 | 32-LDR light ring - white line detection |
 | Layer 2 | Teensy 4.0 | Main brain - strategy, X-drive motors, IMU heading hold, localisation, scoring |
 | Layer 3 | Seeed XIAO ESP32-C3 | 28-IR sensor ring - ball detection + 4 DIP switches |
-| Camera | MaixCam (MicroPython) | Dual-goal + ball vision -> serial CSV to Layer 2 |
+| Camera | OpenMV H7 Plus (MicroPython) | Dual-goal + ball vision -> serial CSV to Layer 2 |
 
 ## Branch Archive
 

@@ -7,7 +7,7 @@ lib/
 │                       into LDR_THRESHOLDS in config.h. Layer 1 only.
 │
 ├── cam_comm/         — Camera → Layer 2 serial link (Serial3)
-│                       Parses CSV frames from the MaixCam (goals + ball).
+│                       Parses CSV frames from the OpenMV H7 Plus (goals + ball).
 │                       Owns camBlueDetected/X/Y/Dist/Angle, camYellowDetected/...,
 │                       camBallDetected/X/Y/Dist/Angle state.
 │                       Layer 2 only.

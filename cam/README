@@ -1,5 +1,5 @@
 cam/
-└── cam.py   — MicroPython camera firmware (runs on MaixCam / OpenMV)
+└── cam.py   — MicroPython camera firmware (runs on OpenMV H7 Plus)
                 Detects blue goal, yellow goal, and orange ball via colour blobs.
                 Outputs a CSV line over UART every frame:
 
