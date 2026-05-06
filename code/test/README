@@ -1,8 +1,15 @@
 test/
-├── layer1-calibrate/       - Layer 1 IMU calibration debug build
-├── layer1-serial-debug/    - Layer 1 serial debug build
-├── layer2-imu-debug/       - Layer 2 IMU debug build
-└── layer2-serial-debug/    - Layer 2 serial debug build
+├── layer1-calibrate/        - Layer 1 light ring calibration build
+├── layer1-serial-debug/     - Layer 1 serial packet debug build
+├── layer2-cam-debug/        - Layer 2 camera serial/debug build
+├── layer2-dribbler-debug/   - Layer 2 dribbler ESC debug build
+├── layer2-goalie-debug/     - Layer 2 goalie behaviour debug build
+├── layer2-imu-debug/        - Layer 2 IMU debug build
+├── layer2-ir-debug/         - Layer 2 IR ball data debug build
+├── layer2-loc-center/       - Layer 2 localisation/return-to-centre debug build
+├── layer2-motor-debug/      - Layer 2 motor direction/speed debug build
+├── layer2-scoring-debug/    - Layer 2 kicker, lightgate, and scoring debug build
+└── layer2-serial-debug/     - Layer 2 serial links debug build
 
 Debug/test environments for individual subsystems. Each folder maps to a
 PlatformIO environment in platformio.ini. Build and upload with:
