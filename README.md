@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="media/photos/_DSC8658.jpg">
-    <img src="media/photos/thumbs/hero-robot.png" alt="Vent Exhaust robot" width="500">
+    <img src="media/photos/thumbs/hero-robot.png" alt="Vent Exhaust robot" width="520">
   </a>
 </p>
 
@@ -31,8 +31,8 @@ This repository is for **Vent Exhaust**, a Singapore RoboCup Infrared Soccer Jun
 ## Robot Gallery
 
 <p align="center">
-  <a href="media/photos/_DSC9160.jpg">
-    <img src="media/photos/thumbs/robot-front.png" alt="Robot front view" width="180">
+  <a href="media/photos/bot-with-trophy.jpeg">
+    <img src="media/photos/thumbs/bot-with-trophy.png" alt="Robot with trophy" width="180">
   </a>
   <a href="media/photos/_DSC9165.jpg">
     <img src="media/photos/thumbs/robot-side.png" alt="Robot side view" width="180">
@@ -40,12 +40,15 @@ This repository is for **Vent Exhaust**, a Singapore RoboCup Infrared Soccer Jun
   <a href="media/photos/_DSC9409.jpg">
     <img src="media/photos/thumbs/robot-9409.png" alt="Robot gallery photo" width="180">
   </a>
-  <br>
-  <a href="media/photos/_DSC9808.jpg">
-    <img src="media/photos/thumbs/robot-9808.png" alt="Robot gallery photo" width="180">
+  <a href="media/photos/_DSC9172.jpg">
+    <img src="media/photos/thumbs/robot-9172.png" alt="Robot gallery photo" width="180">
   </a>
+  <br>
   <a href="media/photos/_DSC9811.jpg">
     <img src="media/photos/thumbs/robot-9811.png" alt="Robot gallery photo" width="180">
+  </a>
+  <a href="media/photos/_DSC9160.jpg">
+    <img src="media/photos/thumbs/robot-front.png" alt="Robot front view" width="180">
   </a>
   <a href="media/photos/_DSC9834.jpg">
     <img src="media/photos/thumbs/robot-9834.png" alt="Robot gallery photo" width="180">
